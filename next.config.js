@@ -165,6 +165,16 @@ const nextConfig = {
       },
     ];
   },
+  // Redirect root path to default locale
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/en/',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default withNextIntl(nextConfig);
