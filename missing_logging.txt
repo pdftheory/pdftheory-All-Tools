@@ -1,0 +1,12 @@
+c:/Users/Hussein/OneDrive/Desktop/pdfcraft-main/src/components/tools\edit-pdf\EditPDFTool.tsx
+c:/Users/Hussein/OneDrive/Desktop/pdfcraft-main/src/components/tools\extract-tables\ExtractTablesTool.tsx
+c:/Users/Hussein/OneDrive/Desktop/pdfcraft-main/src/components/tools\fix-page-size\FixPageSizeTool.tsx
+c:/Users/Hussein/OneDrive/Desktop/pdfcraft-main/src/components/tools\font-to-outline\FontToOutlineTool.tsx
+c:/Users/Hussein/OneDrive/Desktop/pdfcraft-main/src/components/tools\form-creator\FormCreatorTool.tsx
+c:/Users/Hussein/OneDrive/Desktop/pdfcraft-main/src/components/tools\form-filler\FormFillerTool.tsx
+c:/Users/Hussein/OneDrive/Desktop/pdfcraft-main/src/components/tools\grid-combine\GridCombineTool.tsx
+c:/Users/Hussein/OneDrive/Desktop/pdfcraft-main/src/components/tools\header-footer\HeaderFooterTool.tsx
+c:/Users/Hussein/OneDrive/Desktop/pdfcraft-main/src/components/tools\invert-colors\InvertColorsTool.tsx
+c:/Users/Hussein/OneDrive/Desktop/pdfcraft-main/src/components/tools\json-to-pdf\JSONToPDFTool.tsx
+c:/Users/Hussein/OneDrive/Desktop/pdfcraft-main/src/components/tools\linearize\LinearizePDFTool.tsx
+c:/Users/Hussein/OneDrive/Desktop/pdfcraft-main/src/components/tools\remove-metadata\RemoveMetadataTool.tsx
