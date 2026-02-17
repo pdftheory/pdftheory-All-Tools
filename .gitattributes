@@ -1,0 +1,2 @@
+public/pdftheory.zip filter=lfs diff=lfs merge=lfs -text
+public/pdftheory-project.zip filter=lfs diff=lfs merge=lfs -text
