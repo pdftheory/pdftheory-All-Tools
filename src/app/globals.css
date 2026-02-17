@@ -1,0 +1,310 @@
+@import "tailwindcss";
+
+/* Root Layout Normalization - Fixing Cross-Browser Spacing Issues */
+html {
+  scrollbar-gutter: stable;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  position: relative;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* PDFTheory Design System - CSS Variables for Theming */
+:root {
+  /* Primary Color - Highly Professional & Vibrant */
+  --color-primary: 221.2 83.2% 53.3%;
+  --color-primary-foreground: 210 40% 98%;
+  --color-primary-hover: 221.2 83.2% 45%;
+
+  /* Secondary/Neutral Colors - More subtle and modern */
+  --color-secondary: 210 40% 96.1%;
+  --color-secondary-foreground: 222.2 47.4% 11.2%;
+  --color-secondary-hover: 210 40% 92%;
+
+  /* Accent - vibrant coral/orange for highlights */
+  --color-accent: 21 90% 48%;
+  /* #E65100 style vibrant */
+  --color-accent-foreground: 0 0% 100%;
+
+  /* Background Colors - Crisp White with a hint of blue tint in shadows */
+  --color-background: 0 0% 100%;
+  --color-foreground: 222.2 84% 4.9%;
+
+  /* Muted Colors */
+  --color-muted: 210 40% 96.1%;
+  --color-muted-foreground: 215.4 16.3% 46.9%;
+
+  /* Card Colors - Pure white for maximum contrast */
+  --color-card: 0 0% 100%;
+  --color-card-foreground: 222.2 84% 4.9%;
+
+  /* Border Colors */
+  --color-border: 214.3 31.8% 91.4%;
+  --color-input: 214.3 31.8% 91.4%;
+  --color-ring: 221.2 83.2% 53.3%;
+
+  /* Status Colors */
+  --color-destructive: 0 84.2% 60.2%;
+  --color-destructive-foreground: 210 40% 98%;
+  --color-success: 142.1 76.2% 36.3%;
+  --color-success-foreground: 355.7 100% 97.3%;
+  --color-warning: 38 92% 50%;
+  --color-warning-foreground: 48 96% 89%;
+
+  /* Typography - Using modern defaults */
+  --font-sans: 'Inter', 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Spacing Scale */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+
+  /* Border Radius - Modern rounded corners */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-full: 9999px;
+
+  /* Shadows - Layered and soft (Premium feel) */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark Mode Theme */
+.dark {
+  --color-primary: 217.2 91.2% 59.8%;
+  --color-primary-foreground: 222.2 47.4% 11.2%;
+  --color-primary-hover: 217.2 91.2% 65%;
+
+  --color-secondary: 217.2 32.6% 17.5%;
+  --color-secondary-foreground: 210 40% 98%;
+  --color-secondary-hover: 217.2 32.6% 25%;
+
+  --color-accent: 21 100% 60%;
+  --color-background: 222.2 84% 4.9%;
+  --color-foreground: 210 40% 98%;
+
+  --color-muted: 217.2 32.6% 17.5%;
+  --color-muted-foreground: 215 20.2% 65.1%;
+
+  --color-card: 222.2 84% 4.9%;
+  --color-card-foreground: 210 40% 98%;
+
+  --color-border: 217.2 32.6% 17.5%;
+  --color-ring: 221.2 83.2% 53.3%;
+}
+
+/* Utility classes organization */
+@layer utilities {
+
+  /* Focus Ring Utility */
+  .focus-ring {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  .focus-ring:focus-visible {
+    outline: 2px solid hsl(var(--color-ring));
+    box-shadow: 0 0 0 2px hsl(var(--color-background)), 0 0 0 4px hsl(var(--color-ring));
+  }
+
+  /* Glassmorphism Utilities - More Refined */
+  .glass {
+    background: rgba(255, 255, 255, 0.75);
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .dark .glass {
+    background: rgba(15, 23, 42, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .glass-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.8));
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: var(--shadow-md);
+  }
+
+  .dark .glass-card {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.6));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Premium Gradients */
+  .bg-premium-gradient {
+    background: linear-gradient(135deg, hsl(var(--color-primary)) 0%, #1e40af 100%);
+  }
+
+  .bg-soft-gradient {
+    background: linear-gradient(135deg, hsl(var(--color-primary) / 0.05) 0%, hsl(var(--color-accent) / 0.05) 100%);
+  }
+
+  /* Text Gradients */
+  .text-premium-gradient {
+    background: linear-gradient(to right, #2563eb, #7c3aed, #db2777);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Decorative Patterns */
+  .bg-grid-pattern {
+    background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .dark .bg-grid-pattern {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  }
+
+  /* Screen reader utility */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  .sr-only:focus,
+  .sr-only:focus-visible {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  /* Reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* RTL Support */
+  [dir="rtl"] {
+    text-align: right;
+  }
+
+  [dir="rtl"] .rtl\:flip {
+    transform: scaleX(-1);
+  }
+
+  [dir="rtl"] .me-2 {
+    margin-inline-end: 0.5rem;
+  }
+
+  [dir="rtl"] .ms-2 {
+    margin-inline-start: 0.5rem;
+  }
+
+  /* Custom Scrollbar Styling */
+  /* Standard properties (Firefox) */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--color-secondary) / 0.8) transparent;
+  }
+
+  /* Webkit properties (Safari, Chrome < 121) */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--color-secondary) / 0.8);
+    border-radius: var(--radius-full);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--color-secondary-foreground) / 0.5);
+  }
+
+  .scroll-smooth {
+    scroll-behavior: smooth;
+  }
+
+  /* Utility to hide scrollbars while maintaining functionality */
+  .scrollbar-hide {
+    /* IE and Edge */
+    -ms-overflow-style: none;
+    /* Firefox */
+    scrollbar-width: none;
+  }
+
+  /* Safari and Chrome */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Animations */
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-20px);
+    }
+
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  /* Custom Edge Label Wrapper - Workflow Component */
+  .edge-label-wrapper {
+    position: absolute;
+    transform: translate(-50%, -50%) translate(var(--label-x), var(--label-y));
+    font-size: 12px;
+    pointer-events: all;
+  }
+}
