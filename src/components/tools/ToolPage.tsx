@@ -3,13 +3,12 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { Home, ChevronRight, CheckCircle2, Lightbulb } from 'lucide-react';
+import { Home, ChevronRight, CheckCircle2, Lightbulb, HelpCircle, ArrowRight } from 'lucide-react';
 import { AdContainer } from '@/components/ads/AdContainer';
 import { AdUnit } from '@/components/ads/AdUnit';
 import { ToolProvider } from '@/lib/contexts/ToolContext';
 import { getToolById } from '@/config/tools';
 
-// This is the definition the build was looking for
 export interface ToolPageProps {
   tool: any;
   content: any;
@@ -27,59 +26,115 @@ export function ToolPage({ tool, content, locale, children, localizedRelatedTool
       <main id="main-content" className="flex-1" tabIndex={-1}>
         <div className="max-w-7xl mx-auto px-4 pt-24 pb-8">
           {/* Breadcrumbs */}
-          <nav className="mb-4 flex items-center text-sm text-gray-500">
-            <Link href={`/${locale}`} className="hover:text-blue-600"><Home className="w-4 h-4" /></Link>
-            <ChevronRight className="w-4 h-4 mx-2" />
-            <Link href={`/${locale}/tools`} className="hover:text-blue-600">Tools</Link>
-            <ChevronRight className="w-4 h-4 mx-2" />
-            <span className="font-medium text-gray-900">{toolDisplayName}</span>
+          <nav className="mb-6 flex items-center text-sm text-gray-500">
+            <Link href={`/${locale}`} className="hover:text-blue-600 transition-colors"><Home className="w-4 h-4" /></Link>
+            <ChevronRight className="w-4 h-4 mx-2 opacity-50" />
+            <Link href={`/${locale}/tools`} className="hover:text-blue-600 transition-colors">Tools</Link>
+            <ChevronRight className="w-4 h-4 mx-2 opacity-50" />
+            <span className="font-medium text-gray-900 dark:text-gray-100">{toolDisplayName}</span>
           </nav>
 
-          <div className="lg:grid lg:grid-cols-[1fr_300px] gap-8 items-start">
+          <div className="lg:grid lg:grid-cols-[1fr_300px] gap-10 items-start">
             <div className="min-w-0">
-              {/* Header */}
-              <div className="mb-8">
-                  <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white mb-4 italic uppercase">{toolDisplayName}</h1>
-                  <p className="text-lg text-slate-600 dark:text-slate-400">{content.description?.slice(0, 150)}...</p>
+              {/* Header Section */}
+              <div className="mb-10">
+                <h1 className="text-4xl sm:text-5xl font-black tracking-tight text-slate-900 dark:text-white mb-6 uppercase italic">
+                  {toolDisplayName}
+                </h1>
+                <p className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-3xl">
+                  {content.description?.split('\n')[0]}
+                </p>
               </div>
               
-              <div className="mt-6">
+              <div className="my-8">
                 <AdUnit slotId="tool-middle-header" ezoicId="120" format="horizontal" />
               </div>
 
-              <section className="mt-6 mb-12">{children}</section>
+              {/* The Actual Tool Area */}
+              <section className="mb-12 relative z-10">
+                {children}
+              </section>
 
               {/* How to Use Section */}
-              <div className="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-8 border border-slate-100 dark:border-slate-700/50">
-                  <div className="flex items-center gap-3 mb-6">
-                      <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg text-blue-600 dark:text-blue-400"><CheckCircle2 className="w-6 h-6" /></div>
-                      <h2 className="text-2xl font-bold text-slate-900 dark:text-white">How to use {toolDisplayName}</h2>
+              <section className="bg-slate-50 dark:bg-slate-800/50 rounded-3xl p-8 sm:p-10 border border-slate-200/60 dark:border-slate-700/50 mb-16">
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="p-3 bg-blue-600 rounded-2xl text-white shadow-lg shadow-blue-500/20">
+                    <CheckCircle2 className="w-7 h-7" />
                   </div>
-                  <div className="grid sm:grid-cols-3 gap-6">
-                      {content.howToUse?.map((step: any, idx: number) => (
-                          <div key={idx} className="relative p-6 bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm">
-                              <span className="absolute -top-3 -left-3 w-8 h-8 bg-blue-600 text-white rounded-lg flex items-center justify-center font-bold">{idx + 1}</span>
-                              <h3 className="font-bold text-slate-900 dark:text-white mb-2">{step.title}</h3>
-                              <p className="text-sm text-slate-600 dark:text-slate-400">{step.description}</p>
-                          </div>
-                      ))}
-                  </div>
-              </div>
+                  <h2 className="text-3xl font-bold text-slate-900 dark:text-white">How to use {toolDisplayName}</h2>
+                </div>
+                <div className="grid sm:grid-cols-3 gap-8">
+                  {content.howToUse?.map((step: any, idx: number) => (
+                    <div key={idx} className="relative group p-6 bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-all duration-300">
+                      <span className="absolute -top-4 -left-4 w-10 h-10 bg-blue-600 text-white rounded-xl flex items-center justify-center font-black text-lg shadow-lg">{idx + 1}</span>
+                      <h3 className="font-bold text-slate-900 dark:text-white mb-3 text-lg">{step.title}</h3>
+                      <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{step.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
               
               <AdContainer slotId="tool-middle" ezoicId="120" />
 
-              <div className="mt-16 space-y-16 border-t pt-16">
-                 {/* Description */}
-                 <section>
-                    <div className="max-w-3xl"><h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">About {toolDisplayName}</h2><div className="prose prose-slate dark:prose-invert max-w-none text-slate-600 dark:text-slate-400 leading-relaxed text-lg whitespace-pre-line">{content.description}</div></div>
-                 </section>
-
-                 {/* Use Cases */}
-                 <section className="grid sm:grid-cols-2 gap-8">
-                    {content.useCases?.map((useCase: any, idx: number) => (
-                         <div key={idx} className="p-6 bg-slate-50 dark:bg-slate-800/50 rounded-xl border border-slate-100 dark:border-slate-700/50"><div className="w-10 h-10 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-4"><Lightbulb className="w-5 h-5" /></div><h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{useCase.title}</h3><p className="text-slate-600 dark:text-slate-400">{useCase.description}</p></div>
+              {/* Description & Use Cases Section */}
+              <div className="space-y-20 border-t border-slate-100 dark:border-slate-800 pt-16 mb-20">
+                <div className="max-w-4xl">
+                  <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-8">About {toolDisplayName}</h2>
+                  <div className="text-slate-600 dark:text-slate-400 leading-loose text-lg space-y-4">
+                    {/* Fixes the <p> </p> issue by mapping actual paragraphs */}
+                    {content.description?.split('\n\n').map((para: string, i: number) => (
+                      para.trim() && <p key={i}>{para.trim()}</p>
                     ))}
-                 </section>
+                  </div>
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-8">
+                  {content.useCases?.map((useCase: any, idx: number) => (
+                    <div key={idx} className="p-8 bg-indigo-50/50 dark:bg-indigo-900/10 rounded-3xl border border-indigo-100/50 dark:border-indigo-900/20">
+                      <div className="w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center text-white mb-6 shadow-lg shadow-indigo-600/20">
+                        <Lightbulb className="w-6 h-6" />
+                      </div>
+                      <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">{useCase.title}</h3>
+                      <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">{useCase.description}</p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* FAQ Section RESTORED */}
+                {content.faq && content.faq.length > 0 && (
+                  <section className="pt-10">
+                    <div className="flex items-center gap-4 mb-10">
+                      <div className="p-3 bg-purple-600 rounded-2xl text-white">
+                        <HelpCircle className="w-7 h-7" />
+                      </div>
+                      <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Frequently Asked Questions</h2>
+                    </div>
+                    <div className="grid gap-6">
+                      {content.faq.map((item: any, idx: number) => (
+                        <div key={idx} className="p-8 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl">
+                          <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">{item.question}</h3>
+                          <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">{item.answer}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+                )}
+                
+                {/* Related Tools RESTORED */}
+                <section className="pt-10">
+                  <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-10">Related PDF Tools</h2>
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {relatedTools.map((t: any) => (
+                      <Link key={t.id} href={`/${locale}/tools/${t.slug}`} className="group p-6 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl hover:border-blue-500 transition-all">
+                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 transition-colors uppercase italic">{localizedRelatedTools[t.id]?.title || t.id}</h3>
+                        <p className="text-slate-500 text-sm line-clamp-2">{localizedRelatedTools[t.id]?.description || ''}</p>
+                        <div className="mt-4 flex items-center text-blue-600 font-bold text-sm">
+                          Try it now <ArrowRight className="w-4 h-4 ml-1 group-hover:ml-2 transition-all" />
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </section>
               </div>
             </div>
 
