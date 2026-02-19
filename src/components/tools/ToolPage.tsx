@@ -3,13 +3,22 @@
 import React from 'react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { Home, ChevronRight, CheckCircle2, Info, Lightbulb, HelpCircle } from 'lucide-react';
+import { Home, ChevronRight, CheckCircle2, Lightbulb } from 'lucide-react';
 import { AdContainer } from '@/components/ads/AdContainer';
 import { AdUnit } from '@/components/ads/AdUnit';
 import { ToolProvider } from '@/lib/contexts/ToolContext';
 import { getToolById } from '@/config/tools';
 
-export function ToolPage({ tool, content, locale, children, localizedRelatedTools = {} }: any) {
+// This is the definition the build was looking for
+export interface ToolPageProps {
+  tool: any;
+  content: any;
+  locale: string;
+  children?: React.ReactNode;
+  localizedRelatedTools?: Record<string, { title: string; description: string }>;
+}
+
+export function ToolPage({ tool, content, locale, children, localizedRelatedTools = {} }: ToolPageProps) {
   const toolDisplayName = content.title || tool.id.split('-').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
   const relatedTools = tool.relatedTools.map((id: string) => getToolById(id)).filter((t: any) => t !== undefined);
 
