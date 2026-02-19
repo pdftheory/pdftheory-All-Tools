@@ -21,15 +21,20 @@ export function ToolPage({ tool, content, locale, children, localizedRelatedTool
   const toolDisplayName = content.title || tool.id.split('-').map((word: string) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
   const relatedTools = tool.relatedTools.map((id: string) => getToolById(id)).filter((t: any) => t !== undefined);
 
+  // Helper to remove HTML tags for the small header description
+  const stripTags = (html: string) => {
+    return html ? html.replace(/<[^>]*>?/gm, '') : '';
+  };
+
   return (
     <ToolProvider toolSlug={tool.slug} toolName={toolDisplayName}>
       <main id="main-content" className="flex-1" tabIndex={-1}>
         <div className="max-w-7xl mx-auto px-4 pt-24 pb-8">
           {/* Breadcrumbs */}
           <nav className="mb-6 flex items-center text-sm text-gray-500">
-            <Link href={`/${locale}`} className="hover:text-blue-600 transition-colors"><Home className="w-4 h-4" /></Link>
+            <Link href={`/${locale}`} className="hover:text-blue-600"><Home className="w-4 h-4" /></Link>
             <ChevronRight className="w-4 h-4 mx-2 opacity-50" />
-            <Link href={`/${locale}/tools`} className="hover:text-blue-600 transition-colors">Tools</Link>
+            <Link href={`/${locale}/tools`} className="hover:text-blue-600">Tools</Link>
             <ChevronRight className="w-4 h-4 mx-2 opacity-50" />
             <span className="font-medium text-gray-900 dark:text-gray-100">{toolDisplayName}</span>
           </nav>
@@ -42,7 +47,7 @@ export function ToolPage({ tool, content, locale, children, localizedRelatedTool
                   {toolDisplayName}
                 </h1>
                 <p className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-3xl">
-                  {content.description?.split('\n')[0]}
+                  {stripTags(content.description).slice(0, 160)}...
                 </p>
               </div>
               
@@ -50,7 +55,6 @@ export function ToolPage({ tool, content, locale, children, localizedRelatedTool
                 <AdUnit slotId="tool-middle-header" ezoicId="120" format="horizontal" />
               </div>
 
-              {/* The Actual Tool Area */}
               <section className="mb-12 relative z-10">
                 {children}
               </section>
@@ -65,8 +69,8 @@ export function ToolPage({ tool, content, locale, children, localizedRelatedTool
                 </div>
                 <div className="grid sm:grid-cols-3 gap-8">
                   {content.howToUse?.map((step: any, idx: number) => (
-                    <div key={idx} className="relative group p-6 bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-all duration-300">
-                      <span className="absolute -top-4 -left-4 w-10 h-10 bg-blue-600 text-white rounded-xl flex items-center justify-center font-black text-lg shadow-lg">{idx + 1}</span>
+                    <div key={idx} className="relative p-6 bg-white dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm">
+                      <span className="absolute -top-4 -left-4 w-10 h-10 bg-blue-600 text-white rounded-xl flex items-center justify-center font-black shadow-lg">{idx + 1}</span>
                       <h3 className="font-bold text-slate-900 dark:text-white mb-3 text-lg">{step.title}</h3>
                       <p className="text-slate-600 dark:text-slate-400 leading-relaxed">{step.description}</p>
                     </div>
@@ -76,18 +80,17 @@ export function ToolPage({ tool, content, locale, children, localizedRelatedTool
               
               <AdContainer slotId="tool-middle" ezoicId="120" />
 
-              {/* Description & Use Cases Section */}
+              {/* Description Section - THIS FIXES THE <P> TAGS */}
               <div className="space-y-20 border-t border-slate-100 dark:border-slate-800 pt-16 mb-20">
                 <div className="max-w-4xl">
                   <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-8">About {toolDisplayName}</h2>
-                  <div className="text-slate-600 dark:text-slate-400 leading-loose text-lg space-y-4">
-                    {/* Fixes the <p> </p> issue by mapping actual paragraphs */}
-                    {content.description?.split('\n\n').map((para: string, i: number) => (
-                      para.trim() && <p key={i}>{para.trim()}</p>
-                    ))}
-                  </div>
+                  <div 
+                    className="prose prose-lg dark:prose-invert max-w-none text-slate-600 dark:text-slate-400 leading-relaxed custom-description"
+                    dangerouslySetInnerHTML={{ __html: content.description }} 
+                  />
                 </div>
 
+                {/* Use Cases */}
                 <div className="grid sm:grid-cols-2 gap-8">
                   {content.useCases?.map((useCase: any, idx: number) => (
                     <div key={idx} className="p-8 bg-indigo-50/50 dark:bg-indigo-900/10 rounded-3xl border border-indigo-100/50 dark:border-indigo-900/20">
@@ -100,18 +103,16 @@ export function ToolPage({ tool, content, locale, children, localizedRelatedTool
                   ))}
                 </div>
 
-                {/* FAQ Section RESTORED */}
+                {/* FAQ Section */}
                 {content.faq && content.faq.length > 0 && (
-                  <section className="pt-10">
+                  <section>
                     <div className="flex items-center gap-4 mb-10">
-                      <div className="p-3 bg-purple-600 rounded-2xl text-white">
-                        <HelpCircle className="w-7 h-7" />
-                      </div>
+                      <div className="p-3 bg-purple-600 rounded-2xl text-white"><HelpCircle className="w-7 h-7" /></div>
                       <h2 className="text-3xl font-bold text-slate-900 dark:text-white">Frequently Asked Questions</h2>
                     </div>
                     <div className="grid gap-6">
                       {content.faq.map((item: any, idx: number) => (
-                        <div key={idx} className="p-8 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl">
+                        <div key={idx} className="p-8 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl shadow-sm">
                           <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">{item.question}</h3>
                           <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">{item.answer}</p>
                         </div>
@@ -119,22 +120,6 @@ export function ToolPage({ tool, content, locale, children, localizedRelatedTool
                     </div>
                   </section>
                 )}
-                
-                {/* Related Tools RESTORED */}
-                <section className="pt-10">
-                  <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-10">Related PDF Tools</h2>
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {relatedTools.map((t: any) => (
-                      <Link key={t.id} href={`/${locale}/tools/${t.slug}`} className="group p-6 bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-3xl hover:border-blue-500 transition-all">
-                        <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 group-hover:text-blue-600 transition-colors uppercase italic">{localizedRelatedTools[t.id]?.title || t.id}</h3>
-                        <p className="text-slate-500 text-sm line-clamp-2">{localizedRelatedTools[t.id]?.description || ''}</p>
-                        <div className="mt-4 flex items-center text-blue-600 font-bold text-sm">
-                          Try it now <ArrowRight className="w-4 h-4 ml-1 group-hover:ml-2 transition-all" />
-                        </div>
-                      </Link>
-                    ))}
-                  </div>
-                </section>
               </div>
             </div>
 
