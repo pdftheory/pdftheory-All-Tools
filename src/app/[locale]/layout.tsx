@@ -74,14 +74,15 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale} dir={direction}>
-      <body className={`${fontVariables} min-h-screen bg-background text-foreground antialiased font-sans`}>
-        {/* Google AdSense Auto Ads - Placed at top for verification */}
+      <head>
+        {/* Google AdSense Auto Ads - Placed in head for verification */}
         <Script
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8357473537626003"
-          strategy="afterInteractive"
+          strategy="beforeInteractive"
           crossOrigin="anonymous"
-          async
         />
+      </head>
+      <body className={`${fontVariables} min-h-screen bg-background text-foreground antialiased font-sans`}>
         <NextIntlClientProvider messages={messages} locale={locale}>
           <AuthProvider>
             <div className="min-h-screen flex flex-col">
