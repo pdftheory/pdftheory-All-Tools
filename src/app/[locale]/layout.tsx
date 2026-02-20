@@ -75,10 +75,10 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} dir={direction}>
       <head>
-        {/* Google AdSense Auto Ads - Placed in head for verification */}
-        <Script
+        {/* Google AdSense Auto Ads - Exact tag requested by Google for verification */}
+        <script
+          async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8357473537626003"
-          strategy="beforeInteractive"
           crossOrigin="anonymous"
         />
       </head>
