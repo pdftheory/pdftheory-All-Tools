@@ -2561,7 +2561,7 @@ export const toolContentEn: Record<string, ToolContent> = {
       { question: 'Does it work on mobile devices?', answer: 'Yes, the PDF Reader works on all devices with a modern web browser.' },
     ],
   },
-  'workflow': {
+  'pdf-workflow': {
     title: 'PDF Workflow',
     metaDescription: 'Create automated PDF workflows. Build, save, and execute complex PDF processing pipelines in your browser.',
     keywords: ['pdf workflow', 'automated pdf', 'pdf pipeline', 'pdf automation', 'batch pdf processing'],

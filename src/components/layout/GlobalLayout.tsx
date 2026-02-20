@@ -36,13 +36,13 @@ export default function GlobalLayout({ children, locale }: GlobalLayoutProps) {
             <Header locale={locale} />
             <main id="main-content" className="flex-grow pt-[80px]">
                 <div className="container mx-auto px-4 pt-4">
-                    <AdUnit slotId="global-top-ad" ezoicId="119" format="horizontal" />
+                    <AdUnit slotId="global-top-ad" format="horizontal" />
                 </div>
                 {children}
             </main>
 
             <div className="container mx-auto px-4 py-8">
-                <AdUnit slotId="global-footer-ad" ezoicId="121" format="horizontal" />
+                <AdUnit slotId="global-footer-ad" format="horizontal" />
             </div>
 
             <Footer locale={locale} />

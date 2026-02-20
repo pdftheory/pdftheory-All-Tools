@@ -8,7 +8,7 @@ import { fontVariables } from '@/lib/fonts';
 import { SkipLink } from '@/components/common/SkipLink';
 import GlobalLayout from '@/components/layout/GlobalLayout';
 import AuthProvider from '@/components/providers/AuthProvider';
-import { EzoicProvider } from '@/components/providers/EzoicProvider';
+
 import Script from 'next/script';
 import '@/app/globals.css';
 
@@ -16,6 +16,10 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
+/**
+ * Viewport configuration for performance
+ * Requirements: 8.1 - Lighthouse performance score 90+
+ */
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
@@ -32,9 +36,13 @@ export async function generateMetadata({
   params: Promise<{ locale: string }>;
 }): Promise<Metadata> {
   const { locale } = await params;
+  // Validate locale
   const validLocale = locales.includes(locale as Locale) ? (locale as Locale) : 'en';
+
+  // Get localized SEO translations
   const t = await getTranslations({ locale: validLocale, namespace: 'metadata' });
 
+  // Generate metadata using the SEO module with translations
   return generateHomeMetadata(validLocale, {
     title: t('home.title'),
     description: t('home.description'),
@@ -50,12 +58,18 @@ export default async function LocaleLayout({
 }) {
   const { locale } = await params;
 
+  // Validate locale
   if (!locales.includes(locale as Locale)) {
     notFound();
   }
 
+  // Enable static rendering
   setRequestLocale(locale);
+
+  // Get messages for the locale
   const messages = await getMessages();
+
+  // Get direction for the locale
   const direction = localeConfig[locale as Locale]?.direction || 'ltr';
 
   return (
@@ -63,18 +77,18 @@ export default async function LocaleLayout({
       <body className={`${fontVariables} min-h-screen bg-background text-foreground antialiased font-sans`}>
         <NextIntlClientProvider messages={messages} locale={locale}>
           <AuthProvider>
-            <EzoicProvider>
-              <div className="min-h-screen flex flex-col">
-                <SkipLink targetId="main-content">Skip to main content</SkipLink>
-                <GlobalLayout locale={locale as any}>
-                  {children}
-                </GlobalLayout>
-              </div>
-            </EzoicProvider>
+            <div className="min-h-screen flex flex-col">
+              <SkipLink targetId="main-content">Skip to main content</SkipLink>
+              <GlobalLayout locale={locale as any}>
+                {children}
+              </GlobalLayout>
+            </div>
           </AuthProvider>
+          {/* Google AdSense Auto Ads */}
           <Script
-            src="//g.ezoic.net/ezoic/sa.min.js"
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8357473537626003"
             strategy="afterInteractive"
+            crossOrigin="anonymous"
             async
           />
         </NextIntlClientProvider>

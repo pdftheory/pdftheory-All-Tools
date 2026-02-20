@@ -37,6 +37,24 @@ const nextConfig = {
       { source: '/ads.txt', destination: 'https://srv.adstxtmanager.com/83434/pdftheory.com', permanent: true },
     ];
   },
+<<<<<<< HEAD
+  // Redirect root path to default locale
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/en/',
+        permanent: true,
+      },
+      {
+        source: '/ads.txt',
+        destination: 'https://srv.adstxtmanager.com/83434/pdftheory.com',
+        permanent: true,
+      },
+    ];
+  },
+=======
+>>>>>>> origin/main
 };
 
 export default withNextIntl(nextConfig);
