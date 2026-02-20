@@ -75,12 +75,13 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} dir={direction}>
       <head>
-        {/* Google AdSense Auto Ads - Exact tag requested by Google for verification */}
+        {/* Google AdSense Verification */}
+        <meta name="google-adsense-account" content="ca-pub-8357473537626003" />
         <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8357473537626003"
           crossOrigin="anonymous"
-        />
+        ></script>
       </head>
       <body className={`${fontVariables} min-h-screen bg-background text-foreground antialiased font-sans`}>
         <NextIntlClientProvider messages={messages} locale={locale}>
