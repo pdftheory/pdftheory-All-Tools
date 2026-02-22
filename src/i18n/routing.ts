@@ -10,4 +10,7 @@ export const routing = defineRouting({
 
   // Always use locale prefix in URL
   localePrefix: 'always',
+
+  // Disable automatic locale detection
+  localeDetection: false,
 });

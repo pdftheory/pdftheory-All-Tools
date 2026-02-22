@@ -31,11 +31,7 @@ const nextConfig = {
   images: { unoptimized: true },
   trailingSlash: true,
   reactStrictMode: true,
-  async redirects() {
-    return [
-      { source: '/', destination: '/en/', permanent: true },
-    ];
-  },
+
 };
 
 export default withNextIntl(nextConfig);

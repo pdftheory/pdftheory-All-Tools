@@ -16,7 +16,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: siteConfig.name,
     short_name: 'pdftheory',
     description: siteConfig.description,
-    start_url: '/',
+    start_url: '/en/',
     display: 'standalone',
     background_color: '#ffffff',
     theme_color: '#3b82f6',

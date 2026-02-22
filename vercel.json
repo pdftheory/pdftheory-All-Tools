@@ -101,5 +101,40 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/:locale(en|ja|ko|es|fr|de|zh|zh-TW|pt|ar)/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "pdftheory.com"
+        }
+      ],
+      "destination": "https://www.pdftheory.com/:locale/:path*/",
+      "permanent": true
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "pdftheory.com"
+        }
+      ],
+      "destination": "https://www.pdftheory.com/en/:path*/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.pdftheory.com"
+        }
+      ],
+      "destination": "/en/",
+      "permanent": true
+    }
   ]
 }
