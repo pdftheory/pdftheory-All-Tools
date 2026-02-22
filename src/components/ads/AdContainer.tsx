@@ -10,7 +10,7 @@ interface AdContainerProps {
 export const AdContainer = ({ slotId, ezoicId, className = '' }: AdContainerProps) => {
     return (
         <div className={`container mx-auto px-4 my-12 ${className}`}>
-            <AdUnit slotId={slotId} ezoicId={ezoicId} />
+            <AdUnit slotId={slotId} />
         </div>
     );
 };
