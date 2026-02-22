@@ -148,7 +148,6 @@ export function EditPDFTool({ className = '' }: EditPDFToolProps) {
               src={`/pdfjs-annotation-viewer/web/viewer.html?file=${encodeURIComponent(pdfUrl)}`}
               className="w-full h-[700px] border-0"
               title="PDF Editor"
-              sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-downloads allow-modals allow-top-navigation-by-user-activation"
               onLoad={handleIframeLoad}
             />
             {!isEditorReady && (

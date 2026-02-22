@@ -200,25 +200,50 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              {/* Standard React Conditional Dropdown */}
+              {/* Standard React Dropdown (Desktop) or Modal (Mobile) */}
               {isLanguageOpen && (
-                <div
-                  className="absolute bottom-full left-0 mb-2 w-48 bg-gray-800 border border-gray-700 rounded-lg shadow-xl overflow-hidden z-[100] animate-in fade-in slide-in-from-bottom-2 duration-200"
-                >
-                  {locales.map((loc) => {
-                    const config = localeConfig[loc];
-                    const isActive = loc === locale;
-                    return (
-                      <button
-                        key={loc}
-                        onClick={() => handleLanguageChange(loc)}
-                        className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-700 transition-colors ${isActive ? 'text-white font-medium bg-gray-700' : 'text-gray-300'}`}
-                      >
-                        {config.nativeName}
+                <>
+                  {/* Mobile Portal Overlay */}
+                  <div
+                    className="fixed inset-0 z-[999] bg-black/50 md:hidden animate-in fade-in duration-200"
+                    onClick={() => setIsLanguageOpen(false)}
+                  />
+
+                  <div
+                    className={`
+                      fixed md:absolute bottom-0 md:bottom-full left-0 right-0 md:right-auto 
+                      mb-0 md:mb-2 w-full md:w-48 bg-gray-900 border-t md:border border-gray-700 
+                      rounded-t-2xl md:rounded-lg shadow-xl overflow-hidden z-[1000] 
+                      animate-in slide-in-from-bottom-full md:slide-in-from-bottom-2 duration-300
+                    `}
+                  >
+                    <div className="p-4 md:hidden flex justify-between items-center border-b border-gray-800">
+                      <span className="font-bold text-gray-400 uppercase tracking-wider text-xs">{t('selectLanguage') || 'Select Language'}</span>
+                      <button onClick={() => setIsLanguageOpen(false)} className="text-gray-400 hover:text-white" aria-label="Close language selector">
+                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
                       </button>
-                    )
-                  })}
-                </div>
+                    </div>
+
+                    <div className="max-h-[60vh] md:max-h-none overflow-y-auto">
+                      {locales.map((loc) => {
+                        const config = localeConfig[loc];
+                        const isActive = loc === locale;
+                        return (
+                          <button
+                            key={loc}
+                            onClick={() => handleLanguageChange(loc)}
+                            className={`w-full text-left px-6 py-4 md:px-4 md:py-2 text-base md:text-sm hover:bg-gray-700 transition-colors border-b md:border-b-0 border-gray-800/50 last:border-0 ${isActive ? 'text-white font-medium bg-gray-700 focus:bg-gray-700' : 'text-gray-300'}`}
+                          >
+                            <div className="flex items-center justify-between">
+                              <span>{config.nativeName}</span>
+                              {isActive && <div className="w-2 h-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.5)]"></div>}
+                            </div>
+                          </button>
+                        )
+                      })}
+                    </div>
+                  </div>
+                </>
               )}
             </div>
           </div>

@@ -15,10 +15,16 @@ export default async function middleware(request: NextRequest) {
   const response = intlMiddleware(request);
 
   // 3. Merge Supabase cookies into the response
-  // This ensures the session is persisted even if next-intl redirects or rewrites
   supabaseResponse.cookies.getAll().forEach((cookie) => {
     response.cookies.set(cookie.name, cookie.value, cookie);
   });
+
+  // 4. Force authoritative security headers for PDF editor support
+  response.headers.set('X-Frame-Options', 'SAMEORIGIN');
+  response.headers.set(
+    'Content-Security-Policy',
+    "frame-ancestors 'self' https://pdftheory.com https://www.pdftheory.com"
+  );
 
   return response;
 }
