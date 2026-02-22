@@ -1,10 +1,6 @@
 import { notFound } from 'next/navigation';
 import { setRequestLocale, getTranslations } from 'next-intl/server';
-<<<<<<< HEAD
-import { getToolById, getAllTools } from '@/config/tools';
-=======
 import { getToolBySlug, getAllTools } from '@/config/tools';
->>>>>>> baebeae3ddc3944c5dedb100998ba136a246f07b
 import { getToolContent, type Locale } from '@/config/tool-content';
 import { ToolPage } from '@/components/tools/ToolPage';
 import { MergePDFTool } from '@/components/tools/merge';
@@ -120,11 +116,7 @@ import {
 
 import type { Metadata } from 'next';
 
-<<<<<<< HEAD
-const SUPPORTED_LOCALES: Locale[] = ['en', 'ja', 'ko', 'es', 'fr', 'de', 'zh', 'pt', 'ar'];
-=======
 const SUPPORTED_LOCALES: Locale[] = ['en', 'ja', 'ko', 'es', 'fr', 'de', 'zh', 'zh-TW', 'pt', 'ar'];
->>>>>>> baebeae3ddc3944c5dedb100998ba136a246f07b
 
 interface ToolPageParams {
   params: Promise<{
@@ -152,11 +144,7 @@ export async function generateStaticParams() {
  */
 export async function generateMetadata({ params }: ToolPageParams): Promise<Metadata> {
   const { locale, tool: toolSlug } = await params;
-<<<<<<< HEAD
-  const tool = getToolById(toolSlug);
-=======
   const tool = getToolBySlug(toolSlug);
->>>>>>> baebeae3ddc3944c5dedb100998ba136a246f07b
   const content = getToolContent(locale as Locale, tool?.id || '');
 
   if (!tool || !content) {
@@ -183,11 +171,7 @@ export default async function ToolPageRoute({ params }: ToolPageParams) {
     const t = await getTranslations();
 
     // Get tool data
-<<<<<<< HEAD
-    const tool = getToolById(toolSlug);
-=======
     const tool = getToolBySlug(toolSlug);
->>>>>>> baebeae3ddc3944c5dedb100998ba136a246f07b
 
     if (!tool) {
       notFound();
