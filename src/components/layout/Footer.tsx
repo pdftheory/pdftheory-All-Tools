@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter, usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
@@ -18,9 +18,24 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
   const router = useRouter();
   const pathname = usePathname();
   const [isLicenseOpen, setIsLicenseOpen] = useState(false);
+  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+  const languageRef = useRef<HTMLDivElement>(null);
+
+  // Close language dropdown when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (languageRef.current && !languageRef.current.contains(event.target as Node)) {
+        setIsLanguageOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const handleLanguageChange = (newLocale: Locale) => {
     saveLanguagePreference(newLocale);
+    setIsLanguageOpen(false);
     const newPath = getLocalizedPath(pathname, newLocale);
     router.push(newPath);
   };
@@ -174,14 +189,22 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
 
           {/* Language Selector */}
           <div className="flex items-center gap-2">
-            <div className="relative group">
-              <button className="flex items-center gap-2 border border-gray-700 rounded-md px-3 py-1.5 text-sm text-gray-300 hover:text-white hover:border-gray-500 transition-all">
+            <div className="relative" ref={languageRef}>
+              <button
+                onClick={() => setIsLanguageOpen(!isLanguageOpen)}
+                className="flex items-center gap-2 border border-gray-700 rounded-md px-3 py-1.5 text-sm text-gray-300 hover:text-white hover:border-gray-500 transition-all focus:outline-none"
+              >
                 <Globe className="w-4 h-4" />
                 <span>{localeConfig[locale].nativeName}</span>
-                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                <svg className={`w-4 h-4 ml-1 transition-transform duration-200 ${isLanguageOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
               </button>
-              {/* Simplified Dropdown for visual representation */}
-              <div className="absolute bottom-full left-0 mb-2 w-48 bg-gray-800 border border-gray-700 rounded-lg shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 overflow-hidden">
+              {/* State-based Dropdown */}
+              <div
+                className={`absolute bottom-full left-0 mb-2 w-48 bg-gray-800 border border-gray-700 rounded-lg shadow-xl transition-all duration-200 overflow-hidden z-50 ${isLanguageOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+                  }`}
+              >
                 {locales.map((loc) => {
                   const config = localeConfig[loc];
                   const isActive = loc === locale;
