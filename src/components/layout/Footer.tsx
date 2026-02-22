@@ -200,25 +200,26 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              {/* State-based Dropdown */}
-              <div
-                className={`absolute bottom-full left-0 mb-2 w-48 bg-gray-800 border border-gray-700 rounded-lg shadow-xl transition-all duration-200 overflow-hidden z-50 ${isLanguageOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-                  }`}
-              >
-                {locales.map((loc) => {
-                  const config = localeConfig[loc];
-                  const isActive = loc === locale;
-                  return (
-                    <button
-                      key={loc}
-                      onClick={() => handleLanguageChange(loc)}
-                      className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-700 ${isActive ? 'text-white font-medium bg-gray-700' : 'text-gray-300'}`}
-                    >
-                      {config.nativeName}
-                    </button>
-                  )
-                })}
-              </div>
+              {/* Standard React Conditional Dropdown */}
+              {isLanguageOpen && (
+                <div
+                  className="absolute bottom-full left-0 mb-2 w-48 bg-gray-800 border border-gray-700 rounded-lg shadow-xl overflow-hidden z-[100] animate-in fade-in slide-in-from-bottom-2 duration-200"
+                >
+                  {locales.map((loc) => {
+                    const config = localeConfig[loc];
+                    const isActive = loc === locale;
+                    return (
+                      <button
+                        key={loc}
+                        onClick={() => handleLanguageChange(loc)}
+                        className={`w-full text-left px-4 py-2 text-sm hover:bg-gray-700 transition-colors ${isActive ? 'text-white font-medium bg-gray-700' : 'text-gray-300'}`}
+                      >
+                        {config.nativeName}
+                      </button>
+                    )
+                  })}
+                </div>
+              )}
             </div>
           </div>
 
