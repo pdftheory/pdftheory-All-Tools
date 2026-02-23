@@ -172,6 +172,274 @@
             "viewAllPdfTools": "عرض جميع أدوات PDF",
             "popular": "الأكثر شيوعاً",
             "seeAll": "عرض الكل"
+        },
+        "selectLanguage": "اختر اللغة",
+        "uploadLabel": "رفع الملف",
+        "uploadDescription": "اسحب وأفلت الملف هنا أو انقر للتصفح",
+        "successMessage": "تمت العملية بنجاح!",
+        "applyButton": "تطبيق",
+        "removeButton": "إزالة",
+        "invertButton": "عكس",
+        "noResults": "لم يتم العثور على نتائج.",
+        "title": "العنوان",
+        "subtitle": "العنوان الفرعي",
+        "description": "الوصف",
+        "searchPlaceholder": "بحث...",
+        "optionsTitle": "خيارات",
+        "colorLabel": "اللون",
+        "colorHexLabel": "رمز اللون (Hex)",
+        "thresholdLabel": "العتبة",
+        "thresholdHint": "اضبط العتبة للتحكم في الحساسية.",
+        "modeDark": "داكن",
+        "modeLight": "فاتح",
+        "modeLabel": "الوضع",
+        "minRead": "دقيقة قراءة",
+        "allPosts": "جميع المقالات",
+        "backToBlog": "العودة للمدونة",
+        "relatedPosts": "مقالات ذات صلة",
+        "meta": {
+            "title": "pdftheory - أدوات PDF احترافية",
+            "description": "أدوات PDF مجانية وخاصة وقوية. جميع المعالجة تتم داخل متصفحك."
+        },
+        "about": {
+            "title": "عن الموقع",
+            "description": "تعرف على pdftheory - حقيبة أدوات PDF المجانية والخاصة."
+        },
+        "contact": {
+            "title": "تواصل معنا",
+            "description": "تواصل مع فريق pdftheory."
+        },
+        "privacy": {
+            "title": "سياسة الخصوصية",
+            "description": "ملفاتك لا تغادر جهازك أبدا."
+        },
+        "home": {
+            "title": "pdftheory - أدوات PDF احترافية",
+            "description": "أدوات PDF مجانية وخاصة وقوية في متصفحك.",
+            "categories": {
+                "organizeManage": "التنظيم والإدارة",
+                "editAnnotate": "التحرير والشرح",
+                "convertToPdf": "التحويل إلى PDF",
+                "convertFromPdf": "التحويل من PDF",
+                "optimizeRepair": "التحسين والإصلاح",
+                "securePdf": "تأمين ملفات PDF"
+            }
+        },
+        "hero": {
+            "title": "كل ما تحتاجه للعمل مع ملفات PDF",
+            "tagline": "أدوات PDF مجانية وخاصة وقوية",
+            "description": "أدوات PDF مجانية 100% داخل المتصفح. ملفاتك لا تغادر جهازك أبدا.",
+            "ctaStart": "ابدأ الآن",
+            "ctaCommon": "جرب الآن",
+            "ctaSales": "تعرف على المزيد",
+            "ctaPricing": "عرض الأسعار"
+        },
+        "benefits": {
+            "title": "لماذا تختار pdftheory",
+            "description": "كل ما تحتاجه للعمل مع ملفات PDF مجانا.",
+            "list": {
+                "free": "مجاني تماما للاستخدام",
+                "noInstall": "لا يتطلب أي تثبيت",
+                "mobile": "يعمل على أي جهاز"
+            },
+            "grid": {
+                "secure": {
+                    "title": "آمن بنسبة 100%",
+                    "description": "الملفات لا تغادر جهازك أبدا. جميع المعالجة محلية."
+                },
+                "free": {
+                    "title": "مجاني دائما",
+                    "description": "لا تكاليف مخفية لا تسجيل لا قيود."
+                },
+                "essay": {
+                    "title": "سهل الاستخدام",
+                    "description": "واجهة بسيطة وبديهية للجميع."
+                },
+                "group": {
+                    "title": "أكثر من 110 أداة",
+                    "description": "جميع أدوات PDF التي قد تحتاجها."
+                },
+                "textbooks": {
+                    "title": "يعمل بدون إنترنت",
+                    "description": "معالجة الملفات حتى بدون اتصال بالإنترنت بعد التحميل."
+                }
+            }
+        },
+        "features": {
+            "title": "الميزات",
+            "subtitle": "كل ما تحتاجه",
+            "api": {
+                "title": "واجهة المبرمجين API",
+                "description": "دمج أدوات PDF في تطبيقاتك الخاصة."
+            },
+            "batch": {
+                "title": "المعالجة الجماعية",
+                "description": "معالجة عدة ملفات في وقت واحد لتوفير الوقت."
+            },
+            "esign": {
+                "title": "التوقيع الإلكتروني",
+                "description": "توقيع المستندات رقميا بسهولة."
+            },
+            "remote": {
+                "title": "الوصول عن بعد",
+                "description": "الوصول إلى أدواتك من أي مكان."
+            },
+            "security": {
+                "title": "الأمان",
+                "description": "تشفير بمستوى عسكري لمستنداتك."
+            },
+            "team": {
+                "title": "تعاون الفريق",
+                "description": "مشاركة والتعاون في مستندات PDF."
+            }
+        },
+        "cta": {
+            "title": "هل أنت مستعد للبدء",
+            "description": "انضم إلى آلاف المستخدمين الذين يثقون في pdftheory لاحتياجاتهم من ملفات PDF.",
+            "button": "جرب مجانا الآن"
+        },
+        "faq": {
+            "title": "الأسئلة الشائعة",
+            "description": "اعثر على إجابات للأسئلة الشائعة.",
+            "button": "عرض جميع الأسئلة الشائعة"
+        },
+        "trust": {
+            "title": "موثوق من قبل المستخدمين حول العالم"
+        },
+        "mission": {
+            "title": "مهمتنا",
+            "p1": "نؤمن بوجوب توفر أدوات PDF مجانية وخاصة للجميع.",
+            "p2": "تتم جميع المعالجة محليا داخل متصفحك.",
+            "p3": "لا رفع لا خوادم لا مخاوف بشأن الخصوصية."
+        },
+        "technology": {
+            "title": "مبني بأحدث التقنيات",
+            "description": "استخدام تقنيات ويب متطورة للحصول على أفضل تجربة."
+        },
+        "values": {
+            "title": "قيمنا",
+            "privacy": {
+                "title": "الخصوصية أولا",
+                "description": "ملفاتك لا تغادر جهازك أبدا."
+            },
+            "fast": {
+                "title": "سريع وفعال",
+                "description": "معالجة PDF بسرعة البرق."
+            },
+            "accessible": {
+                "title": "متاح في كل مكان",
+                "description": "يعمل على أي جهاز يحتوي على متصفح حديث."
+            },
+            "free": {
+                "title": "مجاني للأبد",
+                "description": "لا تكاليف مخفية أو حاجة للتسجيل."
+            },
+            "openSource": {
+                "title": "مفتوح المصدر",
+                "description": "كود شفاف وموثق من قبل المجتمع."
+            },
+            "community": {
+                "title": "مدفوع بالمجتمع",
+                "description": "تحسين مستمر بناء على ملاحظاتكم."
+            }
+        },
+        "form": {
+            "title": "أرسل لنا رسالة",
+            "description": "سنقوم بالرد عليك في أقرب وقت ممكن.",
+            "error": "حدث خطأ ما. يرجى المحاولة مرة أخرى.",
+            "fields": {
+                "name": {
+                    "label": "الاسم",
+                    "placeholder": "اسمك"
+                },
+                "email": {
+                    "label": "البريد الإلكتروني",
+                    "placeholder": "your@email.com"
+                },
+                "subject": {
+                    "label": "الموضوع",
+                    "placeholder": "اختر موضوعا",
+                    "options": {
+                        "general": "استفسار عام",
+                        "bug": "تقرير عن خطأ",
+                        "feature": "طلب ميزة",
+                        "feedback": "ملاحظات",
+                        "other": "أخرى"
+                    }
+                },
+                "message": {
+                    "label": "الرسالة",
+                    "placeholder": "أخبرنا المزيد..."
+                }
+            },
+            "submit": {
+                "default": "إرسال الرسالة",
+                "loading": "جار الإرسال..."
+            },
+            "success": {
+                "title": "تم إرسال الرسالة!",
+                "description": "شكرا لك! سنرد عليك خلال 24-48 ساعة.",
+                "button": "إرسال رسالة أخرى"
+            }
+        },
+        "categories": {
+            "all": "الكل",
+            "general": "عام",
+            "privacy": "الخصوصية والأمان",
+            "features": "الميزات",
+            "technical": "تقني",
+            "languages": "اللغات"
+        },
+        "expandAll": "توسيع الكل",
+        "collapseAll": "طي الكل",
+        "errors": {
+            "conversionFailed": "فشل التحويل. يرجى المحاولة مرة أخرى.",
+            "fileCorrupted": "يبدو أن الملف تالف.",
+            "processingFailed": "فشلت المعالجة. يرجى المحاولة مرة أخرى.",
+            "unexpectedError": "حدث خطأ غير متوقع.",
+            "unknown": "حدث خطأ غير معروف.",
+            "uploadFile": "يرجى رفع ملف أولا."
+        },
+        "toolsPage": {
+            "title": "أدوات PDF احترافية",
+            "subtitle": "أكثر من 110 أداة مجانية وآمنة وسهلة الاستخدام.",
+            "allTools": "جميع الأدوات",
+            "noToolsFound": "لم يتم العثور على أدوات."
+        },
+        "tools": {
+            "title": "أدوات PDF",
+            "description": "جميع أدوات PDF التي تحتاجها.",
+            "about": "حول هذه الأداة",
+            "howToUse": "طريقة الاستخدام",
+            "useCases": "حالات الاستخدام",
+            "faq": "الأسئلة الشائعة",
+            "relatedTools": "قد يعجبك أيضا",
+            "comingSoon": "هذه الأداة قادمة قريبا.",
+            "search": {
+                "placeholder": "البحث عن الأدوات...",
+                "noResults": "لم يتم العثور على أدوات."
+            },
+            "favorite": {
+                "add": "إضافة للمفضلة",
+                "remove": "إزالة من المفضلة",
+                "saved": "تم الحفظ",
+                "title": "الأدوات المفضلة",
+                "empty": "لا توجد أدوات مفضلة بعد.",
+                "hint": "انقر على أيقونة النجمة لحفظ الأدوات للوصول السريع."
+            }
+        },
+        "common": {
+            "brand": "pdftheory",
+            "buttons": {
+                "next": "التالي"
+            },
+            "navigation": {
+                "home": "الرئيسية",
+                "tools": "الأدوات"
+            },
+            "header": {
+                "seeAll": "عرض الكل"
+            }
         }
     },
     "footer": {
@@ -270,6 +538,18 @@
                 "operations": {
                     "question": "ما العمليات التي يمكنني تنفيذها على ملفات PDF؟",
                     "answer": "يوفر pdftheory أكثر من {count}+ أداة تشمل: الدمج، التقسيم، الضغط، التحويل، التحرير، إضافة العلامات المائية، التشفير، فك التشفير، OCR، وغيرها الكثير."
+                },
+                "merge": {
+                    "question": "Can I merge multiple PDF files?",
+                    "answer": "Yes, you can merge multiple PDF files into one. Simply use the Merge PDF tool, upload your files, arrange them in the desired order, and click merge."
+                },
+                "images": {
+                    "question": "Can I convert images to PDF?",
+                    "answer": "Yes, pdftheory supports converting various image formats (JPG, PNG, WebP, BMP, TIFF, SVG, HEIC) to PDF. You can convert single or multiple images at once."
+                },
+                "edit": {
+                    "question": "Can I edit text in a PDF?",
+                    "answer": "pdftheory provides annotation and editing tools including highlighting, adding text, shapes, images, and signatures. For full text editing, the PDF Editor tool offers comprehensive annotation capabilities."
                 }
             },
             "technical": {
@@ -280,6 +560,14 @@
                 "sizeLimit": {
                     "question": "هل هناك حد لحجم الملفات؟",
                     "answer": "تدعم معظم الأدوات ملفات حتى {maxSize} ميجابايت، مع دعم أكبر لبعض الأدوات لضمان أداء سلس."
+                },
+                "slow": {
+                    "question": "Why is processing slow for large files?",
+                    "answer": "Since all processing happens in your browser, performance depends on your device's capabilities. Large files require more memory and processing power. For best results, close other browser tabs and applications."
+                },
+                "offline": {
+                    "question": "Does pdftheory work offline?",
+                    "answer": "Currently, pdftheory requires an internet connection to load the application. However, once loaded, the PDF processing itself happens locally and doesn't require a connection."
                 }
             },
             "languages": {
@@ -661,7 +949,26 @@
                 "name": "قص وتغيير حجم الصفحات",
                 "description": "قص صفحات PDF وضبط أبعاد الصفحة"
             }
-        }
+        },
+        "validationErrors": "Validation Errors",
+        "warnings": "Warnings",
+        "executionFailed": "Workflow execution failed",
+        "retry": "Retry",
+        "history": "History",
+        "executionHistory": "Execution History",
+        "totalExecutions": "Total Runs",
+        "successRate": "Success Rate",
+        "avgDuration": "Avg Duration",
+        "noHistory": "No execution history yet",
+        "noHistoryHint": "Run a workflow to see history here",
+        "confirmDelete": "Are you sure you want to delete this history record?",
+        "confirmClearAllHistory": "Are you sure you want to clear all history? This cannot be undone.",
+        "unnamedWorkflow": "Unnamed Workflow",
+        "nodesSuccess": "nodes succeeded",
+        "nodesFailed": "failed",
+        "loadWorkflow": "Load Workflow",
+        "viewDetails": "View Details",
+        "detailsInConsole": "Details logged to console (F12)"
     },
     "tools": {
         "search": {
@@ -732,7 +1039,10 @@
             "pages": "صفحات",
             "previewInfoAllPages": "سيتم ترتيب {fileCount} ملف PDF بإجمالي {totalPages} صفحة ضمن تخطيط {layout} عبر {outputPages} صفحة إخراج.",
             "previewInfoFirstPage": "سيتم ترتيب {fileCount} ملف PDF ضمن تخطيط {layout} عبر {outputPages} صفحة إخراج.",
-            "minFilesError": "يرجى إضافة ملفي PDF على الأقل للدمج."
+            "minFilesError": "يرجى إضافة ملفي PDF على الأقل للدمج.",
+            "moveUp": "Move Up",
+            "moveDown": "Move Down",
+            "removeFile": "Remove"
         },
         "nUpPdf": {
             "uploadLabel": "رفع ملف PDF",
@@ -837,7 +1147,8 @@
             "pageRangePlaceholder": "مثال: 1-5، 8، 10-15 (اتركه فارغًا لجميع الصفحات)",
             "previewInfo": "سيتم تقسيم كل صفحة إلى {rows}x{cols} = {total} جزء.",
             "createButton": "تحويل إلى ملصق PDF",
-            "successMessage": "تم تحويل ملف PDF إلى ملصق بنجاح! انقر على زر التنزيل لحفظ الملف."
+            "successMessage": "تم تحويل ملف PDF إلى ملصق بنجاح! انقر على زر التنزيل لحفظ الملف.",
+            "overlapUnit": "بكسل"
         },
         "pdfMultiTool": {
             "uploadLabel": "رفع ملفات PDF",
@@ -1029,7 +1340,20 @@
             "downloadAllZip": "تنزيل الكل كملف ZIP",
             "originalSize": "الحجم الأصلي:",
             "compressedSize": "الحجم بعد الضغط:",
-            "saved": "تم التوفير:"
+            "saved": "تم التوفير:",
+            "title": "Compression Options",
+            "high": "High Compression",
+            "highDesc": "Maximum reduction, lower quality",
+            "standard": "Recommended",
+            "standardDesc": "Good quality, good reduction",
+            "low": "Low Compression",
+            "lowDesc": "High quality, less reduction",
+            "stats": "Reduced from {original} to {compressed} ({ratio}% saved)",
+            "imageQuality": "Image Quality",
+            "targetDpi": "Target Resolution (DPI)",
+            "removeBlankPages": "Remove Blank Pages",
+            "removeDuplicatePages": "Remove Duplicate Pages",
+            "flattenForms": "Flatten Form Fields"
         },
         "textToPdf": {
             "uploadLabel": "رفع ملفات نصية",
@@ -1079,13 +1403,24 @@
             "selectLanguages": "تحديد اللغات",
             "selectLanguagesPlaceholder": "اختر اللغات...",
             "searchLanguages": "البحث عن اللغات...",
-            "languageHint": "حدّد اللغات المستخدمة في النص لضمان دعم الخطوط بشكل صحيح"
+            "languageHint": "حدّد اللغات المستخدمة في النص لضمان دعم الخطوط بشكل صحيح",
+            "removeFile": "إزالة",
+            "selectTextColor": "اختر لون النص",
+            "textColorHex": "رمز لون النص (Hex)"
         },
         "jsonToPdf": {
             "uploadLabel": "رفع ملف JSON",
             "uploadDescription": "اسحب وأفلت ملف JSON هنا.",
             "convertButton": "تحويل إلى PDF",
-            "successMessage": "تم تحويل ملف JSON إلى PDF بنجاح!"
+            "successMessage": "تم تحويل ملف JSON إلى PDF بنجاح!",
+            "optionsTitle": "خيارات التحويل",
+            "filesTitle": "ملفات JSON",
+            "pageSize": "حجم الصفحة",
+            "fontSize": "حجم الخط",
+            "indentSpaces": "مسافات البادئة",
+            "prettyPrint": "تنسيق جميل",
+            "showLineNumbers": "عرض أرقام الأسطر",
+            "preview": "معاينة"
         },
         "pdfToImage": {
             "uploadLabel": "رفع ملف PDF",
@@ -1270,13 +1605,23 @@
             "removeAnnotations": "إزالة التعليقات التوضيحية",
             "sanitizeButton": "تنقية ملف PDF",
             "successMessage": "تم تنقية ملف PDF بنجاح!",
-            "removedItems": "تمت الإزالة:"
+            "removedItems": "تمت الإزالة:",
+            "flattenForms": "تسطيح حقول النماذج"
         },
         "flattenPdf": {
             "uploadLabel": "رفع ملف PDF",
             "uploadDescription": "اسحب وأفلت ملف PDF هنا لتسطيحه.",
             "flattenButton": "تسطيح ملف PDF",
-            "successMessage": "تم تسطيح ملف PDF بنجاح!"
+            "successMessage": "تم تسطيح ملف PDF بنجاح!",
+            "optionsTitle": "خيارات التسطيح",
+            "info": "تقوم عملية التسطيح بتحويل العناصر التفاعلية (النماذج التعليقات الطبقات) إلى محتوى ثابت. هذا يجعل الملف غير قابل للتحرير ويضمن ظهوره بشكل موحد على جميع الأجهزة.",
+            "flattenForms": "تسطيح حقول النماذج",
+            "flattenFormsDesc": "تحويل حقول النماذج القابلة للتعبئة إلى نص ثابت",
+            "flattenAnnotations": "تسطيح التعليقات التوضيحية",
+            "flattenAnnotationsDesc": "دمج التعليقات والتمييزات والأختام في محتوى الصفحة",
+            "flattenLayers": "تسطيح الطبقات",
+            "flattenLayersDesc": "دمج جميع الطبقات المرئية في طبقة واحدة",
+            "flattenedItems": "العناصر التي تم تسطيحها:"
         },
         "removeMetadata": {
             "uploadLabel": "رفع ملف PDF",
@@ -1306,7 +1651,16 @@
             "rotateLeft": "تدوير لليسار",
             "rotateRight": "تدوير لليمين",
             "applyButton": "تطبيق التدوير",
-            "successMessage": "تم تدوير الصفحات بنجاح!"
+            "successMessage": "تم تدوير الصفحات بنجاح!",
+            "optionsTitle": "Rotation Options",
+            "hint": "Click the rotation buttons on each page to rotate individually, or use the buttons above to rotate all pages.",
+            "rotateButton": "Rotate PDF",
+            "angle": "Angle",
+            "rotate180": "Rotate 180°",
+            "applyTo": "Apply to",
+            "allPages": "All Pages",
+            "oddPages": "Odd Pages",
+            "evenPages": "Even Pages"
         },
         "rotateCustom": {
             "uploadLabel": "رفع ملف PDF",
@@ -1319,7 +1673,12 @@
             "pageRange": "نطاق الصفحات",
             "pageRangePlaceholder": "مثال: 1-3، 5، 7",
             "applyButton": "تطبيق التدوير",
-            "successMessage": "تم تدوير الصفحات بنجاح!"
+            "successMessage": "تم تدوير الصفحات بنجاح!",
+            "title": "Custom Rotation",
+            "setAllLabel": "Set all pages to:",
+            "applyToAll": "Apply to All",
+            "rotateButton": "Rotate PDF",
+            "rotatedCount": "({count} page(s) set)"
         },
         "addBlankPage": {
             "uploadLabel": "رفع ملف PDF",
@@ -1332,13 +1691,24 @@
             "insertAfterPage": "بعد صفحة محددة",
             "afterPageLabel": "بعد الصفحة رقم",
             "addButton": "إضافة الصفحات",
-            "successMessage": "تمت إضافة الصفحات الفارغة بنجاح!"
+            "successMessage": "تمت إضافة الصفحات الفارغة بنجاح!",
+            "positionLabel": "Insert Position",
+            "positionHint": "Enter 0 to insert at the beginning, or {total} to insert at the end.",
+            "countLabel": "Number of Blank Pages",
+            "position": "Position",
+            "positionStart": "Document Beginning",
+            "positionEnd": "Document End",
+            "positionAfterEach": "After Each Page",
+            "pageSize": "Page Size",
+            "matchSource": "Match Source File"
         },
         "reversePages": {
             "uploadLabel": "رفع ملف PDF",
             "uploadDescription": "اسحب وأفلت ملف PDF هنا.",
             "reverseButton": "عكس ترتيب الصفحات",
-            "successMessage": "تم عكس ترتيب الصفحات بنجاح!"
+            "successMessage": "تم عكس ترتيب الصفحات بنجاح!",
+            "infoTitle": "Reverse Page Order",
+            "infoDescription": "This will reverse the order of all pages in your PDF. The last page will become the first, and so on."
         },
         "alternateMerge": {
             "uploadLabel": "رفع ملفات PDF",
@@ -1348,7 +1718,13 @@
             "fileA": "الملف الأول",
             "fileB": "الملف الثاني",
             "mergeButton": "دمج الصفحات بالتناوب",
-            "successMessage": "تم دمج الملفات بالتناوب بنجاح!"
+            "successMessage": "تم دمج الملفات بالتناوب بنجاح!",
+            "filesTitle": "Files to Interleave",
+            "reorderHint": "Drag and drop to reorder files. Pages will be interleaved in the order shown (1st page from file 1, 1st page from file 2, 2nd page from file 1, etc.).",
+            "reverseSecond": "Reverse second document",
+            "reverseSecondHint": "Enable this for back-to-front scanned documents",
+            "howItWorks": "How it works:",
+            "howItWorksDescription": "Pages are interleaved alternately: Page 1 from File 1, Page 1 from File 2, Page 2 from File 1, Page 2 from File 2, and so on. If documents have different page counts, extra pages are appended at the end."
         },
         "combineSinglePage": {
             "uploadLabel": "رفع ملفات PDF",
@@ -1357,7 +1733,17 @@
             "pageSize": "حجم الصفحة",
             "orientation": "الاتجاه",
             "combineButton": "دمج الصفحات في ملف واحد",
-            "successMessage": "تم دمج الصفحات بنجاح!"
+            "successMessage": "تم دمج الصفحات بنجاح!",
+            "backgroundColorHex": "لون الخلفية (Hex)",
+            "separatorColorHex": "لون الفاصل (Hex)",
+            "vertical": "Vertical (Top to Bottom)",
+            "horizontal": "Horizontal (Left to Right)",
+            "spacing": "Page Spacing (points)",
+            "backgroundColor": "Background Color",
+            "addSeparator": "Add separator lines between pages",
+            "separatorThickness": "Separator Thickness (points)",
+            "separatorColor": "Separator Color",
+            "previewInfo": "{pages} pages will be combined into 1 continuous {orientation} page."
         },
         "pageNumbers": {
             "uploadLabel": "رفع ملف PDF",
@@ -1377,7 +1763,48 @@
             "pageRange": "نطاق الصفحات",
             "pageRangePlaceholder": "مثال: 1-3، 5، 7",
             "addButton": "إضافة أرقام الصفحات",
-            "successMessage": "تمت إضافة أرقام الصفحات بنجاح!"
+            "successMessage": "تمت إضافة أرقام الصفحات بنجاح!",
+            "selectColor": "اختر اللون",
+            "colorHex": "رمز اللون (Hex)",
+            "positionTitle": "Position",
+            "formatTitle": "Format",
+            "formatNumber": "Number (1, 2, 3)",
+            "formatRoman": "Roman (I, II, III)",
+            "formatPageOfTotal": "Page X of Y",
+            "styleTitle": "Style",
+            "style": "Style",
+            "startNumber": "Start Number",
+            "customFormat": "Custom Format",
+            "customFormatHint": "Use {page} and {total} as placeholders",
+            "prefix": "Prefix",
+            "suffix": "Suffix",
+            "margin": "Margin",
+            "color": "Color",
+            "skipFirstPage": "Skip first page (cover page)",
+            "preview": "Preview",
+            "pageOf": "Page {current} of {total}",
+            "firstPageSkipped": "First page will be skipped",
+            "previewText": "Preview: \"{text}\"",
+            "zoomIn": "Zoom In",
+            "zoomOut": "Zoom Out",
+            "zoomReset": "Reset Zoom",
+            "oddEvenTitle": "Odd/Even Page Settings",
+            "pageMode": "Page Mode",
+            "modeAll": "All pages",
+            "modeOddOnly": "Odd pages only (1, 3, 5...)",
+            "modeEvenOnly": "Even pages only (2, 4, 6...)",
+            "modeDifferent": "Different positions for odd/even",
+            "oddPosition": "Odd Page Position",
+            "evenPosition": "Even Page Position",
+            "oddPositionHint": "Pages 1, 3, 5...",
+            "evenPositionHint": "Pages 2, 4, 6...",
+            "differentModeHint": "This mode is useful for double-sided printing where you want page numbers on the outer edge of each page.",
+            "posBottomLeft": "Bottom Left",
+            "posBottomCenter": "Bottom Center",
+            "posBottomRight": "Bottom Right",
+            "posTopLeft": "Top Left",
+            "posTopCenter": "Top Center",
+            "posTopRight": "Top Right"
         },
         "watermark": {
             "uploadLabel": "رفع ملف PDF",
@@ -1396,7 +1823,25 @@
             "pageRange": "نطاق الصفحات",
             "pageRangePlaceholder": "مثال: 1-3، 5، 7",
             "addButton": "إضافة علامة مائية",
-            "successMessage": "تمت إضافة العلامة المائية بنجاح!"
+            "successMessage": "تمت إضافة العلامة المائية بنجاح!",
+            "textWatermark": "Text Watermark",
+            "imageWatermark": "Image Watermark",
+            "watermarkText": "Watermark Text",
+            "watermarkImage": "Watermark Image (PNG/JPG)",
+            "posCenter": "Center",
+            "posDiagonal": "Diagonal",
+            "posTopLeft": "Top Left",
+            "posTopRight": "Top Right",
+            "posBottomLeft": "Bottom Left",
+            "posBottomRight": "Bottom Right",
+            "fontSize": "Font Size",
+            "color": "Color",
+            "angle": "Angle",
+            "enterText": "Please enter text for the watermark.",
+            "textPlaceholder": "e.g., CONFIDENTIAL",
+            "selectImage": "Please select an image file for the watermark.",
+            "unsupportedImage": "Unsupported image format. Please use PNG or JPG.",
+            "failed": "Failed to add watermark."
         },
         "headerFooter": {
             "uploadLabel": "رفع ملف PDF",
@@ -1410,7 +1855,16 @@
             "pageRange": "نطاق الصفحات",
             "pageRangePlaceholder": "مثال: 1-3، 5، 7",
             "addButton": "إضافة رأس وتذييل",
-            "successMessage": "تمت إضافة الرأس والتذييل بنجاح!"
+            "successMessage": "تمت إضافة الرأس والتذييل بنجاح!",
+            "headerTitle": "Header",
+            "headerTextPlaceholder": "Enter header text...",
+            "footerTitle": "Footer",
+            "footerTextPlaceholder": "Enter footer text...",
+            "styleTitle": "Style",
+            "fontColor": "Font Color",
+            "margin": "Margin (pt)",
+            "preview": "Preview",
+            "previewHint": "Enter header or footer text to see preview"
         },
         "invertColors": {
             "uploadLabel": "رفع ملف PDF",
@@ -1424,7 +1878,8 @@
             "optionsTitle": "لون الخلفية",
             "colorPicker": "اختيار اللون",
             "applyButton": "تطبيق لون الخلفية",
-            "successMessage": "تم تغيير لون الخلفية بنجاح!"
+            "successMessage": "تم تغيير لون الخلفية بنجاح!",
+            "colorLabel": "Background Color"
         },
         "textColor": {
             "uploadLabel": "رفع ملف PDF",
@@ -1432,7 +1887,681 @@
             "optionsTitle": "لون النص",
             "colorPicker": "اختيار اللون",
             "applyButton": "تطبيق لون النص",
-            "successMessage": "تم تغيير لون النص بنجاح!"
+            "successMessage": "تم تغيير لون النص بنجاح!",
+            "colorLabel": "Text Color",
+            "modeLabel": "Selection Mode (Target)",
+            "modeDark": "Darker pixels (standard text)",
+            "modeLight": "Lighter pixels (inverted/white text)",
+            "thresholdLabel": "Brightness Threshold",
+            "thresholdHint": "Adjust to control which pixels are affected",
+            "scopeLabel": "Coloring Scope",
+            "scopeAll": "All Text",
+            "scopeWord": "Specific Word/Phrase",
+            "scopeLine": "Specific Lines (e.g. 1,3,5)",
+            "searchValueLabel": "Search Text / Line Numbers",
+            "searchValuePlaceholder": "Enter text to match or line numbers..."
+        },
+        "formCreator": {
+            "selectToolLabel": "اختر نوع الحقل للإضافة",
+            "selectTemplateLabel": "ابدأ من قالب",
+            "fieldTypeLabel": "نوع الحقل",
+            "fieldNameLabel": "اسم الحقل",
+            "optionsLabel": "الخيارات (واحد في كل سطر)",
+            "defaultSelectionLabel": "التحديد الافتراضي",
+            "defaultDateLabel": "التاريخ الافتراضي",
+            "dateFormatLabel": "تنسيق التاريخ",
+            "pageCountLabel": "إجمالي الصفحات",
+            "pageSizeLabel": "حجم الصفحة",
+            "uploadLabel": "Upload PDF File",
+            "uploadDescription": "Drag and drop a PDF file here.",
+            "toolbarTitle": "Toolbar",
+            "selectTool": "Select",
+            "textFieldTool": "Text Field",
+            "checkboxTool": "Checkbox",
+            "dropdownTool": "Dropdown",
+            "radioTool": "Radio",
+            "deleteTool": "Delete",
+            "pageNavigation": "Page {current} / {total}",
+            "selectHint": "Click a field to select, drag to move, use corner to resize",
+            "addFieldHint": "Click on the PDF to add a {type} field",
+            "fieldProperties": "Field Properties",
+            "fieldName": "Name",
+            "fieldType": "Type",
+            "fieldX": "X",
+            "fieldY": "Y",
+            "fieldWidth": "Width",
+            "fieldHeight": "Height",
+            "multiline": "Multiline",
+            "options": "Options (one per line)",
+            "deleteField": "Delete Field",
+            "noFieldSelected": "Select a field to edit its properties, or use the toolbar to add new fields.",
+            "allFields": "All Fields ({count})",
+            "noFieldsYet": "No fields added yet. Click on the PDF to add form fields.",
+            "page": "Page {number}",
+            "createButton": "Create Form",
+            "successMessage": "Form created successfully!",
+            "formOptions": "Form Options",
+            "flattenForm": "Flatten Form",
+            "flattenFormHint": "Make form fields non-editable (converts to static content)",
+            "projectManagement": "Project Management",
+            "saveProject": "Save Project",
+            "savedProjects": "Saved Projects",
+            "loadProject": "Load",
+            "deleteProject": "Delete",
+            "saveProjectTitle": "Save Project",
+            "projectName": "Project Name",
+            "projectNamePlaceholder": "Enter project name...",
+            "saveInfo": "{fields} form field(s) will be saved.",
+            "saveNote": "Projects are saved locally in your browser.",
+            "undo": "Undo (Ctrl+Z)",
+            "redo": "Redo (Ctrl+Y)",
+            "duplicate": "Duplicate (Ctrl+D)",
+            "align": "Align",
+            "alignLeft": "Align Left",
+            "alignCenter": "Align Center",
+            "alignRight": "Align Right",
+            "alignTop": "Align Top",
+            "alignMiddle": "Align Middle",
+            "alignBottom": "Align Bottom",
+            "defaultValue": "Default Value",
+            "defaultValuePlaceholder": "Enter default text...",
+            "defaultChecked": "Checked by default",
+            "defaultSelection": "Default Selection",
+            "noDefault": "-- None --",
+            "required": "Required field",
+            "shortcutsHint": "Shortcuts: Ctrl+Z (Undo) | Ctrl+Y (Redo) | Ctrl+D (Duplicate) | Ctrl+A (Select All) | Delete (Remove)",
+            "buttonTool": "Button",
+            "signatureTool": "Signature",
+            "dateTool": "Date",
+            "listboxTool": "List Box",
+            "buttonLabel": "Button Label",
+            "buttonLabelPlaceholder": "Submit",
+            "signatureLabel": "Signature Label",
+            "signatureLabelPlaceholder": "Sign here",
+            "dateFormat": "Date Format",
+            "defaultDate": "Default Date",
+            "multiSelect": "Allow multiple selection",
+            "basicTools": "Basic",
+            "advancedTools": "More",
+            "properties": "Properties",
+            "fieldsTab": "Fields",
+            "optionsTab": "Options",
+            "addField": "Add",
+            "clickToAdd": "Click on PDF to add field",
+            "pages": "pages",
+            "processingButton": "Processing...",
+            "cancelButton": "Cancel",
+            "saveButton": "Save",
+            "orCreateBlank": "Or",
+            "createBlankPdf": "Create Blank PDF",
+            "createBlankPdfTitle": "Create Blank PDF",
+            "pageSize": "Page Size",
+            "pageCount": "Number of Pages",
+            "blankPdfNote": "A blank PDF will be created for you to add form fields.",
+            "addBlankPage": "Add Blank Page",
+            "addPageBefore": "Before current",
+            "addPageAfter": "After current",
+            "addPageEnd": "At end",
+            "templateHint": "Or choose a template to get started quickly",
+            "templates": "Template",
+            "selectTemplate": "Select...",
+            "template": {
+                "contact": "Contact Form",
+                "registration": "Registration",
+                "feedback": "Feedback",
+                "order": "Order Form",
+                "consent": "Consent Form",
+                "invoice": "Invoice"
+            },
+            "fieldLabel": "Label",
+            "fieldLabelPlaceholder": "Enter label text...",
+            "labelPosition": "Position",
+            "labelAbove": "Above",
+            "labelLeft": "Left"
+        },
+        "fontToOutline": {
+            "preserveTextLabel": "الاحتفاظ بطبقة النص الأصلية",
+            "preserveTextDesc": "الاحتفاظ بطبقة النص الأصلية بجانب النسخة المخططة",
+            "dpiDesc": "الدقة للعناصر المنقطة (أعلى = جودة أفضل ملف أكبر)",
+            "uploadLabel": "Upload PDF Files",
+            "uploadDescription": "Drag and drop PDF files to convert fonts to outlines.",
+            "filesTitle": "Files",
+            "optionsTitle": "Options",
+            "dpiLabel": "Rasterization DPI",
+            "convertButton": "Convert Fonts to Outlines",
+            "downloadAllZip": "Download All as ZIP",
+            "successMessage": "Successfully converted file(s)!"
+        },
+        "ocgManager": {
+            "addLayerPlaceholder": "أدخل اسم الطبقة...",
+            "uploadLabel": "Upload PDF File",
+            "uploadDescription": "Drag and drop a PDF to manage its layers (OCG).",
+            "layersTitle": "PDF Layers",
+            "noLayers": "This PDF has no layers (OCG).",
+            "addLayerLabel": "Add New Layer",
+            "successMessage": "Layer changes saved successfully!"
+        },
+        "rasterizePdf": {
+            "bgColorHex": "لون الخلفية (Hex)",
+            "uploadLabel": "Upload PDF File",
+            "uploadDescription": "Drag and drop a PDF file to convert to images.",
+            "optionsTitle": "Output Options",
+            "dpiLabel": "Resolution (DPI)",
+            "formatLabel": "Output Format",
+            "qualityLabel": "Quality",
+            "pageRangeLabel": "Page Range (optional)",
+            "pageRangeDesc": "Leave empty to convert all pages.",
+            "bgColorLabel": "Background Color",
+            "convertButton": "Convert to Images",
+            "successMessage": "Images created successfully! Click download to save."
+        },
+        "uploadLabel": "رفع ملف PDF",
+        "uploadDescription": "اسحب وأفلت ملف PDF هنا أو انقر للتصفح.",
+        "optionsTitle": "الخيارات",
+        "successMessage": "اكتملت العملية بنجاح!",
+        "failed": "فشلت العملية. يرجى المحاولة مرة أخرى.",
+        "generate": "إنشاء",
+        "saveButton": "حفظ",
+        "saveFailed": "فشل الحفظ. يرجى المحاولة مرة أخرى.",
+        "success": "نجاح!",
+        "options": "خيارات",
+        "viewerNotReady": "المعاين ليس جاهزا بعد. يرجى الانتظار.",
+        "unsupportedImage": "تنسيق صورة غير مدعوم",
+        "selectImage": "اختر صورة",
+        "imageWatermark": "علامة مائية بصورة",
+        "textWatermark": "علامة مائية بنص",
+        "watermarkText": "نص العلامة المائية",
+        "watermarkImage": "صورة العلامة المائية",
+        "opacity": "الشفافية",
+        "color": "اللون",
+        "colorHex": "اللون (Hex)",
+        "angle": "الزاوية",
+        "fontFamily": "نوع الخط",
+        "fontSize": "حجم الخط",
+        "enterText": "أدخل النص...",
+        "instructionsTitle": "طريقة الاستخدام",
+        "instruction1": "ارفع ملف PDF الخاص بك",
+        "instruction2": "قم بتهيئة الخيارات",
+        "instruction3": "انقر على زر التنفيذ",
+        "instruction4": "قم بتنزيل النتيجة",
+        "instruction5": "استمتع بملفك المعالج!",
+        "tocTitle": "فهرس المحتويات",
+        "addBookmark": "إضافة إشارة مرجعية",
+        "addButton": "إضافة",
+        "bookmarkRequired": "عنوان الإشارة المرجعية مطلوب",
+        "pdfToDocx": {
+            "uploadLabel": "Upload PDF to Convert",
+            "uploadDescription": "Drag and drop a PDF file here or click to browse.",
+            "convertButton": "Convert to Word",
+            "successMessage": "Your PDF has been converted to editable Word document.",
+            "ocrTitle": "OCR Options (for scanned documents)",
+            "enableOcr": "Enable OCR (Text Recognition)",
+            "ocrDescription": "Use this if your PDF contains scanned images of text. It will make the text editable in Word.",
+            "ocrLanguage": "Document Language"
+        },
+        "addMetadata": {
+            "uploadLabel": "Upload Files",
+            "uploadDescription": "Drag and drop PDF files here to add metadata to them.",
+            "addTitle": "Add Metadata",
+            "title": "Title",
+            "titlePlaceholder": "Enter document title",
+            "author": "Author",
+            "authorPlaceholder": "Enter author name",
+            "subject": "Subject",
+            "subjectPlaceholder": "Enter document subject",
+            "keywords": "Keywords",
+            "keywordsPlaceholder": "Enter keywords separated by commas",
+            "creator": "Creator Application",
+            "creatorPlaceholder": "Enter creator application",
+            "producer": "PDF Producer",
+            "producerPlaceholder": "Enter PDF producer",
+            "copyrightStatus": "Copyright Status",
+            "copyrightNotice": "Copyright Notice",
+            "copyrightNoticePlaceholder": "Enter copyright notice",
+            "applyButton": "Apply Metadata",
+            "resetButton": "Reset",
+            "successMessage": "Metadata added successfully! Click download to save your files."
+        },
+        "signPdf": {
+            "uploadLabel": "Upload PDF File",
+            "uploadDescription": "Drag and drop a PDF file to sign.",
+            "instructionsTitle": "How to Sign",
+            "instruction1": "Click the Signature tool (pen icon) in the toolbar",
+            "instruction2": "Draw, type, or upload your signature",
+            "instruction3": "Click where you want to place the signature",
+            "instruction4": "Click \"Save Signed PDF\" below when done",
+            "flattenOption": "Flatten signature (recommended - makes signature permanent)",
+            "saveButton": "Save Signed PDF",
+            "successMessage": "PDF signed successfully!"
+        },
+        "cropPdf": {
+            "uploadLabel": "Upload PDF File",
+            "uploadDescription": "Drag and drop a PDF file to crop.",
+            "pages": "pages",
+            "applyToAll": "Apply to all pages",
+            "cropButton": "Crop PDF",
+            "successMessage": "PDF cropped successfully!",
+            "zoomIn": "Zoom In",
+            "zoomOut": "Zoom Out",
+            "resetZoom": "Reset Zoom",
+            "reset": "Reset",
+            "fullscreen": "Fullscreen",
+            "exitFullscreen": "Exit Fullscreen",
+            "marginTop": "Margin Top",
+            "marginBottom": "Margin Bottom",
+            "marginLeft": "Margin Left",
+            "marginRight": "Margin Right",
+            "optionsTitle": "Crop Options"
+        },
+        "repairPdf": {
+            "uploadLabel": "Upload PDF Files",
+            "uploadDescription": "Drag and drop PDF files to repair.",
+            "filesTitle": "Files to Repair",
+            "repairButton": "Repair PDFs",
+            "successMessage": "PDF repaired successfully!"
+        },
+        "dividePages": {
+            "uploadLabel": "Upload PDF File",
+            "uploadDescription": "Drag and drop a PDF file here, or click to browse.",
+            "optionsTitle": "Division Options",
+            "divisionType": "Division Type",
+            "vertical": "Vertical",
+            "horizontal": "Horizontal",
+            "grid2x2": "2×2 Grid",
+            "grid3x3": "3×3 Grid",
+            "previewInfo": "Each page will be divided based on the selected option.",
+            "divideButton": "Divide Pages",
+            "successMessage": "Pages divided successfully!"
+        },
+        "extractAttachments": {
+            "uploadLabel": "Upload PDF Files",
+            "uploadDescription": "Select PDF files to extract attachments from.",
+            "filesTitle": "Selected Files",
+            "extractButton": "Extract Attachments",
+            "extractedTitle": "Extracted Attachments",
+            "downloadAll": "Download All",
+            "successMessage": "Attachments extracted successfully!"
+        },
+        "extractImages": {
+            "uploadLabel": "Upload PDF Files",
+            "uploadDescription": "Select PDF files to extract images from.",
+            "filesTitle": "Selected Files",
+            "filterTitle": "Filter Options",
+            "filterDescription": "Filter out small images (icons, decorations, etc.)",
+            "minWidth": "Min Width (px)",
+            "minHeight": "Min Height (px)",
+            "minSizeKB": "Min Size (KB)",
+            "extractButton": "Extract Images",
+            "extractedTitle": "Extracted Images",
+            "downloadAll": "Download All",
+            "downloadZip": "Download as ZIP",
+            "page": "Page",
+            "successMessage": "Images extracted successfully! Click to download individual images or use \"Download as ZIP\".",
+            "optionsTitle": "Settings",
+            "format": "Output Format",
+            "minSize": "Minimum Size (px)"
+        },
+        "addAttachments": {
+            "pdfFileTitle": "1. Select PDF File",
+            "pdfUploadLabel": "Upload PDF File",
+            "pdfUploadDescription": "Select the PDF file to add attachments to.",
+            "attachmentsTitle": "2. Select Files to Attach",
+            "attachmentsUploadLabel": "Upload Attachments",
+            "attachmentsUploadDescription": "Select files to embed in the PDF. Any file type is supported.",
+            "optionsTitle": "Attachment Options",
+            "attachmentLevel": "Attachment Level",
+            "documentLevel": "Document Level",
+            "pageLevel": "Page Level",
+            "pageRange": "Page Range",
+            "pageRangeHint": "Specify which pages to attach files to.",
+            "addButton": "Add Attachments",
+            "successMessage": "Attachments added successfully! Click the download button to save your file."
+        },
+        "editAttachments": {
+            "uploadLabel": "Upload PDF File",
+            "uploadDescription": "Select a PDF file to view and manage its attachments.",
+            "loadingAttachments": "Loading attachments...",
+            "attachmentsTitle": "Attachments",
+            "selectAll": "Select All",
+            "deselectAll": "Deselect All",
+            "removeButton": "Remove Selected",
+            "noAttachments": "No attachments found in this PDF file.",
+            "selectedCount": "{count} attachment(s) selected for removal",
+            "selectAtLeastOne": "Please select at least one attachment to remove.",
+            "attachmentCount": "attachment(s)",
+            "saveButton": "Save Changes",
+            "successMessage": "Attachments removed successfully! Click the download button to save your file."
+        },
+        "comparePdfs": {
+            "file1Label": "First PDF (Original)",
+            "uploadFile1": "Upload First PDF",
+            "file2Label": "Second PDF (Modified)",
+            "uploadFile2": "Upload Second PDF",
+            "uploadDescription": "Drag and drop or click to browse",
+            "compareButton": "Compare PDFs",
+            "resultsTitle": "Comparison Results",
+            "newComparison": "New Comparison",
+            "viewMode": "View Mode:",
+            "sideBySide": "Side by Side",
+            "overlay": "Overlay",
+            "differences": "Differences",
+            "opacity": "Opacity:",
+            "diffView": "Difference View (Red areas show changes)",
+            "pageOverview": "Page Overview",
+            "fullscreen": "Fullscreen",
+            "exitFullscreen": "Exit Fullscreen",
+            "successMessage": "Comparison complete! Use the view modes and page navigation to explore differences."
+        },
+        "pdfToZip": {
+            "uploadLabel": "Upload PDF Files",
+            "uploadDescription": "Drag and drop PDF files to package.",
+            "filesTitle": "Files to Package",
+            "totalSize": "Total size",
+            "optionsTitle": "ZIP Options",
+            "compressionLevel": "Compression Level",
+            "noCompression": "No compression (fastest)",
+            "lowCompression": "Low compression (fast)",
+            "mediumCompression": "Medium compression (balanced)",
+            "highCompression": "High compression (smaller file)",
+            "createButton": "Create ZIP Archive",
+            "successMessage": "Successfully packaged PDF files into a ZIP archive. Click the download button to save your file."
+        },
+        "pdfToGreyscale": {
+            "uploadLabel": "Upload PDF File",
+            "uploadDescription": "Drag and drop a PDF file to convert to greyscale.",
+            "optionsTitle": "Greyscale Options",
+            "method": "Conversion Method",
+            "methodLuminosity": "Luminosity (Recommended)",
+            "methodAverage": "Average",
+            "methodLightness": "Lightness",
+            "quality": "Quality",
+            "qualityLow": "Low (Faster)",
+            "qualityMedium": "Medium (Recommended)",
+            "qualityHigh": "High (Slower)",
+            "pageRange": "Page Range",
+            "pageRangePlaceholder": "e.g., 1-3, 5, 7",
+            "pageRangeHint": "Leave empty for all pages",
+            "convertButton": "Convert to Greyscale",
+            "successMessage": "PDF converted to greyscale successfully!"
+        },
+        "linearizePdf": {
+            "uploadLabel": "Upload PDF Files",
+            "uploadDescription": "Drag and drop PDF files here, or click to browse. You can select multiple files.",
+            "selectedFiles": "Selected Files",
+            "optionsTitle": "Linearization Options",
+            "info": "Linearization optimizes PDFs for fast web viewing. The first page will display before the entire file is downloaded, improving user experience for web-hosted documents.",
+            "useObjectStreams": "Use object streams for better compression",
+            "useObjectStreamsDesc": "Recommended for smaller file sizes. Disable for maximum compatibility with older PDF readers.",
+            "linearizeButton": "Linearize PDF",
+            "successMessage": "PDF linearized successfully!",
+            "filesProcessed": "Files:",
+            "pages": "Pages:",
+            "originalSize": "Original:",
+            "optimizedSize": "Optimized:"
+        },
+        "pageDimensions": {
+            "uploadLabel": "Upload PDF File",
+            "uploadDescription": "Drag and drop a PDF file here, or click to browse.",
+            "displayOptions": "Display Options",
+            "unitLabel": "Measurement Unit",
+            "unitPoints": "Points",
+            "unitInches": "Inches",
+            "unitMm": "Millimeters",
+            "analyzeButton": "Analyze Dimensions",
+            "summary": "Summary",
+            "totalPages": "Total Pages",
+            "uniqueSizes": "Unique Sizes",
+            "uniformSize": "Uniform Size",
+            "yes": "Yes",
+            "no": "No",
+            "sizeDistribution": "Size Distribution",
+            "pageDetails": "Page Details",
+            "page": "Page",
+            "width": "Width",
+            "height": "Height",
+            "orientation": "Orientation",
+            "standardSize": "Standard Size",
+            "showingFirst50": "Showing first 50 pages. Download JSON for complete data.",
+            "successMessage": "Dimensions analyzed successfully!"
+        },
+        "fixPageSize": {
+            "uploadLabel": "Upload PDF File",
+            "uploadDescription": "Drag and drop a PDF file here, or click to browse.",
+            "optionsTitle": "Page Size Options",
+            "targetSize": "Target Page Size",
+            "custom": "Custom",
+            "width": "Width (points)",
+            "height": "Height (points)",
+            "scaleMode": "Content Scaling",
+            "scaleFit": "Fit",
+            "scaleFill": "Fill",
+            "scaleStretch": "Stretch",
+            "scaleCenter": "Center",
+            "scaleFitDesc": "Scale content to fit within page, maintaining aspect ratio",
+            "scaleFillDesc": "Scale content to fill page, may crop edges",
+            "scaleStretchDesc": "Stretch content to fill page exactly",
+            "scaleCenterDesc": "Center content without scaling",
+            "orientation": "Page Orientation",
+            "orientAuto": "Auto",
+            "orientPortrait": "Portrait",
+            "orientLandscape": "Landscape",
+            "maintainAspectRatio": "Maintain aspect ratio",
+            "applyButton": "Fix Page Sizes",
+            "successMessage": "Page sizes fixed successfully!"
+        },
+        "bookmark": {
+            "uploadLabel": "Upload PDF File",
+            "uploadDescription": "Drag and drop a PDF file to edit bookmarks.",
+            "pdfPreview": "PDF Preview",
+            "bookmarksTitle": "Bookmarks",
+            "addBookmark": "Add Bookmark",
+            "noBookmarks": "No bookmarks yet. Click 'Add Bookmark' to create one.",
+            "hint": "Click a bookmark to preview its page. Use +/✎/× to add child, edit, or delete.",
+            "saveButton": "Save Bookmarks",
+            "successMessage": "Bookmarks saved successfully!"
+        },
+        "stamps": {
+            "uploadLabel": "Upload PDF File",
+            "uploadDescription": "Drag and drop a PDF file here.",
+            "instructionsTitle": "How to Add Stamps",
+            "instruction1": "Click the Stamp tool (image icon) in the toolbar above",
+            "instruction2": "Click \"Add image\" to upload your stamp image",
+            "instruction3": "Click on the PDF where you want to place the stamp",
+            "instruction4": "Drag to resize or reposition the stamp",
+            "instruction5": "Click \"Save Stamped PDF\" below when done",
+            "saveButton": "Save Stamped PDF",
+            "viewerNotReady": "Viewer not ready. Please wait for the PDF to load.",
+            "saveFailed": "Failed to save stamped PDF. Please try again.",
+            "successMessage": "Stamps added successfully!"
+        },
+        "formFiller": {
+            "uploadLabel": "Upload PDF File",
+            "uploadDescription": "Drag and drop a PDF form.",
+            "saveButton": "Save Form",
+            "successMessage": "Form saved successfully!"
+        },
+        "removeBlankPages": {
+            "uploadLabel": "Upload PDF File",
+            "uploadDescription": "Drag and drop a PDF file.",
+            "optionsTitle": "Detection Options",
+            "removeButton": "Remove Blank Pages",
+            "successMessage": "Blank pages removed successfully!"
+        },
+        "tableOfContents": {
+            "uploadLabel": "Upload PDF File",
+            "uploadDescription": "Drag and drop a PDF file.",
+            "optionsTitle": "TOC Options",
+            "generateButton": "Generate TOC",
+            "successMessage": "Table of contents generated successfully!",
+            "options": "TOC Options",
+            "tocTitle": "TOC Title",
+            "tocTitlePlaceholder": "Enter TOC title...",
+            "fontSize": "Font Size",
+            "fontFamily": "Font Family",
+            "addBookmark": "Add TOC entry to bookmarks",
+            "bookmarkRequired": "This tool generates a clickable table of contents from existing PDF bookmarks. Please ensure your PDF has bookmarks before using this tool. You can add bookmarks using the Edit Bookmarks tool.",
+            "generate": "Generate Table of Contents",
+            "success": "Table of contents generated successfully!"
+        },
+        "markdownToPdf": {
+            "uploadLabel": "Upload Markdown File",
+            "uploadDescription": "Drag and drop a .md or .markdown file to convert to PDF.",
+            "manualInput": "Write Markdown",
+            "uploadFile": "Upload File",
+            "editorLabel": "Markdown Editor",
+            "previewLabel": "Preview",
+            "showPreview": "Show Preview",
+            "hidePreview": "Hide Preview",
+            "optionsTitle": "Conversion Options",
+            "themeLabel": "Theme",
+            "pageSizeLabel": "Page Size",
+            "gfmLabel": "Enable GitHub Flavored Markdown (tables, task lists, etc.)",
+            "syntaxHighlightLabel": "Enable syntax highlighting for code blocks",
+            "convertButton": "Convert to PDF",
+            "successMessage": "PDF created successfully! Click download to save."
+        },
+        "wordToPdf": {
+            "uploadLabel": "Upload Word Document",
+            "uploadDescription": "Drag and drop a Word document (.docx) here, or click to browse.",
+            "convertButton": "Convert to PDF",
+            "successMessage": "Your Word document has been successfully converted to PDF!"
+        },
+        "psdToPdf": {
+            "uploadLabel": "Upload PSD File",
+            "uploadDescription": "Drag and drop a PSD (Photoshop) file here, or click to browse.",
+            "convertButton": "Convert to PDF",
+            "successMessage": "PSD converted to PDF successfully! Click the download button to save your file."
+        },
+        "excelToPdf": {
+            "uploadLabel": "Upload Excel File",
+            "uploadDescription": "Drag and drop an Excel file (.xlsx) here, or click to browse.",
+            "convertButton": "Convert to PDF",
+            "successMessage": "Your Excel file has been successfully converted to PDF!"
+        },
+        "pptxToPdf": {
+            "uploadLabel": "Upload PowerPoint File",
+            "uploadDescription": "Drag and drop a PowerPoint file (.pptx) here, or click to browse.",
+            "convertButton": "Convert to PDF",
+            "successMessage": "Your PowerPoint file has been successfully converted to PDF!"
+        },
+        "xpsToPdf": {
+            "uploadLabel": "Upload XPS File",
+            "uploadDescription": "Drag and drop an XPS file here, or click to browse.",
+            "convertButton": "Convert to PDF",
+            "successMessage": "Your XPS file has been successfully converted to PDF!"
+        },
+        "rtfToPdf": {
+            "uploadLabel": "Upload RTF File",
+            "uploadDescription": "Drag and drop an RTF file here, or click to browse.",
+            "convertButton": "Convert to PDF",
+            "successMessage": "Your RTF file has been successfully converted to PDF!"
+        },
+        "epubToPdf": {
+            "uploadLabel": "Upload EPUB File",
+            "uploadDescription": "Drag and drop an EPUB e-book file here, or click to browse.",
+            "convertButton": "Convert to PDF",
+            "successMessage": "Your EPUB file has been successfully converted to PDF!"
+        },
+        "mobiToPdf": {
+            "uploadLabel": "Upload MOBI File",
+            "uploadDescription": "Drag and drop a MOBI/AZW e-book file here, or click to browse.",
+            "convertButton": "Convert to PDF",
+            "successMessage": "Your MOBI file has been successfully converted to PDF!"
+        },
+        "fb2ToPdf": {
+            "uploadLabel": "Upload FB2 Files",
+            "uploadDescription": "Drag and drop FB2 e-book files here, or click to browse. Supports multiple files.",
+            "convertButton": "Convert to PDF",
+            "successMessage": "Your FB2 file(s) have been successfully converted to PDF!"
+        },
+        "djvuToPdf": {
+            "uploadLabel": "Upload DJVU File",
+            "uploadDescription": "Drag and drop a DJVU file here, or click to browse.",
+            "optionsTitle": "Conversion Options",
+            "dpiLabel": "Output DPI",
+            "dpiHint": "Higher DPI = larger file size, better quality",
+            "qualityLabel": "Image Quality",
+            "qualityHint": "JPEG compression quality for pages",
+            "convertButton": "Convert to PDF",
+            "successTitle": "Conversion Successful!",
+            "successMessage": "Your DJVU file has been successfully converted to PDF!"
+        },
+        "deskewPdf": {
+            "uploadLabel": "Upload Scanned PDF Files",
+            "uploadDescription": "Drag and drop PDF files here. You can process up to 10 files at once.",
+            "filesTitle": "Files to Deskew",
+            "optionsTitle": "Deskew Options",
+            "thresholdLabel": "Detection Threshold",
+            "thresholdDesc": "Higher values detect more subtle skew angles. Default: 10",
+            "dpiLabel": "Analysis DPI",
+            "dpiDesc": "Higher DPI provides more accurate detection but takes longer.",
+            "processButton": "Deskew PDFs",
+            "downloadAllZip": "Download All as ZIP",
+            "successMessage": "Successfully deskewed PDF file(s)!"
+        },
+        "pdfBooklet": {
+            "uploadLabel": "Upload PDF File",
+            "uploadDescription": "Drag and drop a PDF file to create a booklet layout.",
+            "optionsTitle": "Booklet Options",
+            "gridModeLabel": "Grid Mode",
+            "gridModeDesc": "1x2 is standard for booklets. Use larger grids to save paper.",
+            "paperSizeLabel": "Paper Size",
+            "orientationLabel": "Orientation",
+            "rotationLabel": "Page Rotation",
+            "paddingLabel": "Padding",
+            "previewLabel": "Layout Preview",
+            "previewDesc": "This preview shows how pages will be arranged on each sheet.",
+            "createButton": "Create Booklet",
+            "successMessage": "Booklet created successfully! Click download to save."
+        },
+        "emailToPdf": {
+            "uploadLabel": "Upload Email File",
+            "uploadDescription": "Drag and drop an email file (.eml) to convert to PDF.",
+            "optionsTitle": "Conversion Options",
+            "pageSizeLabel": "Page Size",
+            "includeCcBccLabel": "Include CC/BCC fields",
+            "includeAttachmentsLabel": "Include attachment list",
+            "timezoneLabel": "Timezone",
+            "convertButton": "Convert to PDF",
+            "successMessage": "Email converted successfully!"
+        },
+        "cbzToPdf": {
+            "uploadLabel": "Upload CBZ File",
+            "uploadDescription": "Drag and drop a comic book archive (.cbz) to convert to PDF.",
+            "optionsTitle": "Conversion Options",
+            "pageSizeLabel": "Page Size",
+            "qualityLabel": "Image Quality",
+            "preserveAspectLabel": "Preserve aspect ratio",
+            "convertButton": "Convert to PDF",
+            "successMessage": "Comic converted successfully!"
+        },
+        "pdfToPdfa": {
+            "uploadLabel": "Upload PDF Files",
+            "uploadDescription": "Drag and drop PDF files to convert to PDF/A format.",
+            "filesTitle": "Files to Convert",
+            "optionsTitle": "PDF/A Options",
+            "levelLabel": "PDF/A Level",
+            "embedFontsLabel": "Embed all fonts",
+            "flattenTransparencyLabel": "Flatten transparency (required for PDF/A-1b)",
+            "convertButton": "Convert to PDF/A",
+            "downloadAllZip": "Download All as ZIP",
+            "successMessage": "Successfully converted file(s) to PDF/A!"
+        },
+        "extractTables": {
+            "uploadLabel": "Upload PDF File",
+            "uploadDescription": "Drag and drop a PDF file to extract tables from.",
+            "optionsTitle": "Extraction Options",
+            "formatLabel": "Output Format",
+            "pageRangeLabel": "Page Range (optional)",
+            "minColumnsLabel": "Min Columns",
+            "minRowsLabel": "Min Rows",
+            "includePageNumbersLabel": "Include page numbers in output",
+            "extractButton": "Extract Tables",
+            "successMessage": "Tables extracted successfully! Click download to save."
+        },
+        "pdfReader": {
+            "uploadLabel": "Open PDF File",
+            "uploadDescription": "Open a PDF file to read and view."
         }
     },
     "removeAnnotations": {
@@ -1455,5 +2584,102 @@
         "removeStrikeOut": "إزالة خط يتوسطه نص",
         "removeSquiggly": "إزالة الخطوط المتعرجة",
         "removeDrawings": "إزالة الرسومات (القلم، النص، التواقيع)"
+    },
+    "businessPage": {
+        "hero": {
+            "tagline": "Powering Enterprise Workflows",
+            "title": "The PDF Solution for Modern Businesses",
+            "description": "Secure, scalable, and powerful PDF tools designed to streamline document management for your entire organization.",
+            "ctaCommon": "Start Now - It's Free",
+            "ctaSales": "Contact Us"
+        },
+        "trust": {
+            "title": "Trusted by innovative teams at"
+        },
+        "features": {
+            "title": "Everything your team needs to work faster",
+            "subtitle": "Replace fragmented tools with one complete PDF solution.",
+            "security": {
+                "title": "Enterprise-Grade Security",
+                "description": "ISO 27001 certified, GDPR compliant, and end-to-end encryption for all your sensitive documents."
+            },
+            "team": {
+                "title": "Team Management",
+                "description": "Centralized dashboard to manage users and permissions across your entire organization."
+            },
+            "api": {
+                "title": "Powerful API",
+                "description": "Automate document workflows by integrating our robust PDF conversion and editing API."
+            },
+            "esign": {
+                "title": "E-Signatures",
+                "description": "Legally binding digital signatures to speed up contracts and agreements."
+            },
+            "remote": {
+                "title": "Work from Anywhere",
+                "description": "Cloud-based access ensures your team stays productive whether in the office or remote."
+            },
+            "batch": {
+                "title": "Batch Processing",
+                "description": "Process thousands of documents in seconds with our high-performance bulk tools."
+            }
+        },
+        "cta": {
+            "title": "Ready to upgrade your business workflow?",
+            "button": "Contact Us"
+        }
+    },
+    "educationPage": {
+        "hero": {
+            "tagline": "PDFTheory for Education",
+            "title": "Empowering Students & Teachers",
+            "description": "Simplify coursework, research, and grading with powerful PDF tools tailored for the classroom. Fast, free, and easy to use.",
+            "ctaStart": "Start Using for Free",
+            "ctaPricing": "For Schools"
+        },
+        "benefits": {
+            "title": "Tools for the Next Generation of Learners",
+            "description": "Whether you're a student pulling a study all-nighter or a teacher grading dozens of papers, PDFTheory removes the friction of document handling so you can focus on learning.",
+            "list": {
+                "free": "100% Free for everyone",
+                "noInstall": "No install required - works on any library computer",
+                "mobile": "Mobile friendly for studying on the go"
+            },
+            "grid": {
+                "essay": {
+                    "title": "Essay Formatting",
+                    "description": "Merge research and format citations effortlessly."
+                },
+                "group": {
+                    "title": "Group Projects",
+                    "description": "Share and comment on PDFs for easy collaboration."
+                },
+                "textbooks": {
+                    "title": "Digital Textbooks",
+                    "description": "Compress large files to email assignments easily."
+                },
+                "secure": {
+                    "title": "Secure Submissions",
+                    "description": "Protect your work with passwords."
+                }
+            }
+        },
+        "cta": {
+            "title": "Bring PDFTheory to your School",
+            "button": "Contact Us"
+        }
+    },
+    "blogPage": {
+        "title": "Blog",
+        "subtitle": "Discover tips, tutorials, and news about PDF tools and productivity",
+        "searchPlaceholder": "Search articles...",
+        "allPosts": "All Posts",
+        "backToBlog": "Back to Blog",
+        "minRead": "min read",
+        "relatedPosts": "Related Posts",
+        "meta": {
+            "title": "Blog - PDFTheory",
+            "description": "Read our latest articles about PDF Theory tools, productivity tips, and tutorials."
+        }
     }
 }
