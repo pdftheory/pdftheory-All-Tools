@@ -2106,30 +2106,6 @@ export const toolContentZh: Record<string, ToolContent> = {
     ],
   },
 
-  'remove-metadata-full': {
-    title: '元数据的完全删除',
-    metaDescription: '从 PDF 文件中剥离所有元数据和属性。清理以增加匿名性。',
-    keywords: ['pdf 元数据 删除', 'pdf 属性 清除', 'pdf 匿名化', 'pdf 隐私'],
-    description: `
-      <p>删除 PDF 文件中隐藏的所有信息，如作者、创建软件和创建日期/时间。这在从公开发布的材料中清除内部信息时非常重要。</p>
-    `,
-    howToUse: [
-      { step: 1, title: '选择 PDF', description: '上传您想要清理的 PDF 文件。' },
-      { step: 2, title: '执行删除', description: '点击“删除元数据”按钮。' },
-      { step: 3, title: '保存', description: '下载属性为空的 PDF。' },
-    ],
-    useCases: [
-      { title: '公共文档分发', description: '在互联网上发布之前删除作者的个人姓名。', icon: 'shield' },
-      { title: '企业对企业交易', description: '清除不必要的元数据（如创建历史记录）以保持机密性。', icon: 'briefcase' },
-      { title: '匿名材料创建', description: '确保无法通过属性识别身份。', icon: 'user-x' },
-    ],
-    faq: [
-      { question: '文件内容会改变吗？', answer: '不会，任何可见内容（如文本或图像）都不会改变。' },
-      { question: '哪些项目会消失？', answer: '标题、作者、主题、关键词、创建日期、修改日期、PDF 创建程序名称等将被删除。' },
-      { question: '可以恢复吗？', answer: '删除后的文件中的元数据无法恢复。' },
-    ],
-  },
-
   'remove-metadata': {
     title: '删除元数据',
     metaDescription: '从PDF文件中去除元数据。删除作者、日期和文档属性。',
@@ -2567,6 +2543,346 @@ export const toolContentZh: Record<string, ToolContent> = {
       { question: '可以检测复杂表格吗？', answer: '该工具最适合简单的网格表格。复杂的合并单元格可能需要手动调整。' },
       { question: '如果找不到表格怎么办？', answer: '尝试调整最小列/行阈值或检查PDF是否包含实际的表格结构。' },
       { question: '可以从特定页面提取吗？', answer: '是的，指定页面范围以将提取限制在某些页面。' },
+    ],
+  },
+
+  'add-metadata': {
+    title: '添加元数据',
+    metaDescription: '为PDF文档添加元数据。添加标题、作者、主题、关键词等。',
+    keywords: ['添加元数据', 'pdf元数据', '文档属性', 'pdf信息', '添加pdf详情'],
+    description: `
+      <p>添加元数据允许您在PDF文件中添加或更新文档属性和元数据。添加标题、作者、主题、关键词、创建日期、修改日期等。</p>
+      <p>对于组织文档、添加归属或准备分发文件非常有用。</p>
+      <p>所有处理都在您的浏览器中进行，确保您的文档保持私密。</p>
+    `,
+    howToUse: [
+      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 2, title: '添加元数据', description: '输入您想要添加或更新的元数据字段。' },
+      { step: 3, title: '保存并下载', description: '点击保存应用更改并下载。' },
+    ],
+    useCases: [
+      { title: '文档组织', description: '添加元数据以便更好地管理文件。', icon: 'folder' },
+      { title: '添加归属', description: '添加作者和创建者信息。', icon: 'user' },
+      { title: '搜索优化', description: '添加关键词以提高文档的可搜索性。', icon: 'search' },
+    ],
+    faq: [
+      { question: '可以添加哪些字段？', answer: '标题、作者、主题、关键词、创建者和生产者字段。' },
+      { question: '会覆盖现有的元数据吗？', answer: '是的，如果您为现有字段提供了新值，它们将被覆盖。' },
+      { question: '支持XMP元数据吗？', answer: '是的，标准元数据和XMP元数据都会更新。' },
+    ],
+  },
+
+  'pdf-workflow': {
+    title: 'PDF工作流',
+    metaDescription: '创建自动化的PDF工作流。在浏览器中构建、保存并执行复杂的PDF处理流水线。',
+    keywords: ['pdf工作流', '自动化pdf', 'pdf流水线', 'pdf自动化', '批量pdf处理'],
+    description: `
+      <p>PDF工作流允许您为处理PDF文档创建自定义的自动化流水线。您可以构建一个可视化工作流，将合并、拆分、压缩等多个步骤组合成一次执行，而不是手动执行多个步骤。</p>
+      <p>使用我们直观的拖放构建器构建工作流，保存供以后使用，并一致且快速地处理数百个文档。无论您是需要准备月度报告还是处理批量发票，PDF工作流都能简化您的任务。</p>
+      <p>所有处理都直接在您的浏览器中进行，确保您的文档在整个工作流执行过程中保持私密。</p>
+    `,
+    howToUse: [
+      { step: 1, title: '打开工作流构建器', description: '访问可视化构建器开始创建您的PDF处理流水线。' },
+      { step: 2, title: '添加并连接工具', description: '选择您需要的工具（如合并、压缩、水印）并按所需顺序连接它们。' },
+      { step: 3, title: '配置设置', description: '为流水线中的每个工具设置参数，如压缩级别或水印文本。' },
+      { step: 4, title: '执行并保存', description: '使用您的文档运行工作流，并保存模板以供将来使用。' },
+    ],
+    useCases: [
+      { title: '报告自动化', description: '自动化月度财务报告的组装、品牌化和优化。', icon: 'file-bar-chart' },
+      { title: '批量优化', description: '压缩并线性化整个PDF文档库以供网络分发。', icon: 'archive' },
+      { title: '一致的品牌化', description: '在所有公司文档中一致地应用水印、页眉和页脚。', icon: 'shield-check' },
+    ],
+    faq: [
+      { question: '工作流步骤有限制吗？', answer: '您可以在单个工作流流水线中添加多达20个处理步骤。' },
+      { question: '可以保存我的工作流吗？', answer: '是的，工作流可以作为模板保存在浏览器中，用于重复性任务。' },
+      { question: '我的数据会保持私密吗？', answer: '当然。所有处理都在浏览器本地完成，文件永远不会离开您的设备。' },
+    ],
+  },
+
+  'html-to-pdf': {
+    title: 'HTML转PDF',
+    metaDescription: '将HTML文件和原始HTML代码转换为专业的PDF文档。客户端转换确保完全的隐私。',
+    keywords: ['html转pdf', '转换html', '网页转pdf', 'html转换器', '代码转pdf'],
+    description: `
+      <p>HTML转PDF将您的HTML文件或原始HTML代码转换为高质量的PDF文档。无论您是有计算机上的HTML文件还是想直接编写HTML代码，此工具都能立即创建专业的PDF。</p>
+      <p>功能包括实时预览、多种页面尺寸（A4、Letter、Legal）、纵向和横向方向以及可调的质量设置。非常适合转换网页、报告、发票或任何HTML内容。</p>
+      <p>所有转换都在浏览器中利用先进的渲染技术完成。您的HTML永远不会离开您的设备，确保完全的隐私和安全。</p>
+    `,
+    howToUse: [
+      { step: 1, title: '选择输入模式', description: '选择是直接编写HTML代码还是从设备上传HTML文件。' },
+      { step: 2, title: '输入或上传HTML', description: '在带有实时预览的编辑器中编写HTML代码，或上传现有的.html文件。' },
+      { step: 3, title: '配置选项', description: '选择页面大小（A4、Letter、Legal）、方向（纵向/横向）和质量级别。' },
+      { step: 4, title: '转换并下载', description: '点击转换为PDF以生成文档并下载结果。' },
+    ],
+    useCases: [
+      { title: '网页存档', description: '将网页和HTML内容转换为PDF，以便离线存储和共享。', icon: 'globe' },
+      { title: '报告生成', description: '使用带有自定义样式的HTML模板创建专业的PDF报告。', icon: 'file-text' },
+      { title: '发票创建', description: '将HTML发票和收据转换为PDF格式发送给客户。', icon: 'receipt' },
+    ],
+    faq: [
+      { question: '支持CSS样式吗？', answer: '是的，支持完整的CSS样式，包括颜色、字体、布局、表格和渐变。' },
+      { question: '我的HTML代码会保持私密吗？', answer: '当然。所有转换都在您的浏览器中完成。您的HTML永远不会离开您的设备。' },
+      { question: '我可以在HTML中包含图片吗？', answer: '是的，完全支持嵌入式图片（base64）和内联样式。' },
+    ],
+  },
+
+  'pdf-to-heic': {
+    title: 'PDF转HEIC',
+    metaDescription: '将PDF页面转换为高质量的HEIC图像。利用Apple的高效图像格式保留细节。',
+    keywords: ['pdf转heic', '转换pdf为heif', 'pdf转apple图像', '以heic格式导出pdf'],
+    description: `
+      <p>PDF转HEIC将您的PDF页面转换为Apple的高效率HEIC图像格式。与JPEG相比，HEIC在更小的文件大小下提供卓越的图像质量。</p>
+      <p>根据您的需求自定义输出质量和DPI。非常适合在节省空间的同时，保留从PDF中提取的照片和图形的高分辨率。</p>
+      <p>所有处理都在浏览器本地完成，确保您的文档保持私密。</p>
+    `,
+    howToUse: [
+      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 2, title: '配置设置', description: '为HEIC输出选择页面范围、质量和DPI。' },
+      { step: 3, title: '转换并下载', description: '处理页面并下载您的HEIC图像。' },
+    ],
+    useCases: [
+      { title: '存储效率', description: '保存文件大小比JPG小得多的高质量图像。', icon: 'hard-drive' },
+      { title: 'Apple生态系统', description: '将PDF转换为Apple设备和软件的本机格式。', icon: 'smartphone' },
+      { title: '高质量', description: '比标准JPEG保持更好的色彩深度和细节。', icon: 'image' },
+    ],
+    faq: [
+      { question: '什么是HEIC？', answer: 'HEIC是一种高效率图像容器，提供比JPEG更好的压缩。' },
+      { question: '它能在Windows上运行吗？', answer: '大多数现代Windows 10/11系统都支持HEIC，或者您可能需要HEVC扩展。' },
+      { question: '我可以转换多个页面吗？', answer: '是的，所有选定的页面都会被转换，并可以作为ZIP文件下载。' },
+    ],
+  },
+
+  'pdf-to-psd': {
+    title: 'PDF转PSD',
+    metaDescription: '将PDF转换为Adobe Photoshop (PSD)文件。保留图层和高保真图形以便编辑。',
+    keywords: ['pdf转psd', '转换pdf为photoshop', 'pdf转图层', '以psd格式导出pdf'],
+    description: `
+      <p>PDF转PSD将您的PDF文档转换为Adobe Photoshop文件。此工具尝试保留图层和文本结构，使在Photoshop中编辑PDF设计变得更加容易。</p>
+      <p>高保真转换确保图形和文本在专业设计工作中保持清晰。非常适合需要重新设计PDF资产的设计师。</p>
+      <p>所有处理都在浏览器本地完成，确保您的设计保持私密。</p>
+    `,
+    howToUse: [
+      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 2, title: '配置PSD', description: '选择分辨率以及是否尝试保留图层。' },
+      { step: 3, title: '转换并下载', description: '生成PSD文件并下载进行编辑。' },
+    ],
+    useCases: [
+      { title: '设计编辑', description: '在Photoshop中打开带有可编辑图层的PDF设计。', icon: 'palette' },
+      { title: '图形恢复', description: '提取高质量图形用于新的设计项目。', icon: 'image' },
+      { title: '专业印刷', description: '在PSD中为专业印刷工作流准备PDF资产。', icon: 'printer' },
+    ],
+    faq: [
+      { question: '所有的图层都会保留吗？', answer: '工具尝试保留逻辑图层，但复杂的PDF结构可能会被扁平化。' },
+      { question: '生成的PSD兼容吗？', answer: '是的，输出是与Adobe Photoshop和GIMP兼容的标准PSD文件。' },
+      { question: '最大文件限制是多少？', answer: '我们支持高达100MB的PDF转换为PSD。' },
+    ],
+  },
+
+  'pdf-to-xps': {
+    title: 'PDF转XPS',
+    metaDescription: '将PDF转换为XML Paper Specification (XPS)格式。保留矢量精度和文档布局。',
+    keywords: ['pdf转xps', '转换pdf为oxps', 'pdf转microsoft存档', '以xps格式导出pdf'],
+    description: `
+      <p>PDF转XPS将您的PDF文档转换为Microsoft的XML Paper Specification格式。XPS是一种开放、免版税的固定布局文档标准。</p>
+      <p>在Windows环境中为文档存档和打印保留矢量精度和准确的布局。非常适合商业文档的长期存储。</p>
+      <p>所有处理都在浏览器本地完成，确保您的文档保持私密。</p>
+    `,
+    howToUse: [
+      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 2, title: '选择选项', description: '在标准XPS或OpenXPS格式之间选择。' },
+      { step: 3, title: '转换并下载', description: '生成XPS文件并下载。' },
+    ],
+    useCases: [
+      { title: 'Windows存档', description: '以Windows原生存档格式保存文档。', icon: 'archive' },
+      { title: '打印保真度', description: '确保Windows工作流中的高保真打印。', icon: 'printer' },
+      { title: '标准合规性', description: '转换为OpenXPS等开放标准以便进行文档交换。', icon: 'file-check' },
+    ],
+    faq: [
+      { question: '什么是XPS？', answer: 'XPS是Microsoft对PDF的替代方案，用于固定布局文档的打印和存档。' },
+      { question: '我可以在Mac上查看XPS吗？', answer: '在macOS上查看XPS需要第三方软件或将其转换回PDF。' },
+      { question: 'PDF和XPS有什么区别？', answer: '两者都是固定布局；XPS基于XML构建，且原生支持Windows打印。' },
+    ],
+  },
+
+  'pdf-to-rtf': {
+    title: 'PDF转RTF',
+    metaDescription: '将PDF转换为富文本格式 (RTF)。提取文本和基本格式，方便字处理。',
+    keywords: ['pdf转rtf', '转换pdf为富文本', '从pdf中提取文本', 'pdf转rtf转换器'],
+    description: `
+      <p>PDF转RTF从您的PDF中提取内容并将其保存为富文本格式文件。RTF与几乎所有的字处理软件都具有高度的兼容性。</p>
+      <p>该工具保留基本格式、字体样式和对齐方式，同时使内容易于编辑。当您不需要DOCX文件的完整复杂性时，非常适合提取文本。</p>
+      <p>所有处理都在浏览器本地完成，确保您的文档保持私密。</p>
+    `,
+    howToUse: [
+      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 2, title: '提取', description: '工具将分析并把PDF内容转换为RTF。' },
+      { step: 3, title: '下载RTF', description: '下载您的可编辑富文本文件。' },
+    ],
+    useCases: [
+      { title: '简单编辑', description: '在任何字处理软件中快速提取并编辑文本。', icon: 'edit' },
+      { title: '跨应用支持', description: '在旧版或专用写作软件中使用提取的文本。', icon: 'copy' },
+      { title: '去除布局', description: '提取文本内容，同时去除复杂的PDF布局元素。', icon: 'type' },
+    ],
+    faq: [
+      { question: '支持图片吗？', answer: '基本的RTF支持图片，但纯文本为主的文档效果更好。' },
+      { question: '字体会保留吗？', answer: '标准字体会保留；自定义嵌入字体可能会被映射到类似的系统字体。' },
+      { question: 'RTF比TXT好吗？', answer: '是的，RTF与纯文本不同，它可以保持加粗、斜体和基本布局。' },
+    ],
+  },
+
+  'pdf-to-epub': {
+    title: 'PDF转EPUB',
+    metaDescription: '将PDF转换为EPUB电子书。自适应文本，可在电子阅读器和移动设备上舒适阅读。',
+    keywords: ['pdf转epub', '转换pdf为电子书', 'pdf转kindle', '自适应pdf'],
+    description: `
+      <p>PDF转EPUB将固定布局的PDF转换为自适应电子书。这使得在手机和电子阅读器等小屏幕上阅读更舒适，因为文本会自动调整以适应屏幕。</p>
+      <p>工具尝试识别标题、章节和图像以创建结构化的电子书。非常适合将PDF书籍和长文档转换为移动阅读格式。</p>
+      <p>所有处理都在浏览器本地完成，确保您的书籍保持私密。</p>
+    `,
+    howToUse: [
+      { step: 1, title: '上传PDF文件', description: '拖放您的PDF书籍或点击选择。' },
+      { step: 2, title: '设置', description: '为EPUB输入标题和作者等书籍元数据。' },
+      { step: 3, title: '转换并下载', description: '生成EPUB文件并下载到您的电子阅读器。' },
+    ],
+    useCases: [
+      { title: '移动阅读', description: '在智能手机和平板电脑上舒适地阅读PDF内容。', icon: 'smartphone' },
+      { title: '电子阅读器支持', description: '为Kindle、Kobo和其他电子阅读设备转换PDF。', icon: 'book' },
+      { title: '可访问性', description: '通过EPUB中可调节的字体和文本大小提高可读性。', icon: 'user-check' },
+    ],
+    faq: [
+      { question: '格式会变吗？', answer: '是的，由于EPUB是自适应的，固定的PDF布局将被转换为灵活的结构。' },
+      { question: '支持Kindle吗？', answer: '是的，大多数现代Kindle直接支持EPUB，或者您可以使用我们的MOBI转换器。' },
+      { question: '能转换扫描的PDF吗？', answer: '扫描的PDF需要先进行OCR，以提取用于电子书转换的文本。' },
+    ],
+  },
+
+  'pdf-to-mobi': {
+    title: 'PDF转MOBI',
+    metaDescription: '将PDF转换为MOBI电子书。为Kindle设备进行适当格式优化。',
+    keywords: ['pdf转mobi', '转换pdf为kindle', 'mobi转换器', 'pdf电子书'],
+    description: `
+      <p>PDF转MOBI将您的文档转换为Amazon Kindle设备使用的MOBI/AZW格式。这在旧型号和专用Kindle机型上提供了原生的阅读体验。</p>
+      <p>工具为Kindle屏幕优化文本流和图像放置。非常适合PDF格式的长文档、手册和个人电子书。</p>
+      <p>所有处理都在浏览器本地完成，确保您的文档保持私密。</p>
+    `,
+    howToUse: [
+      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 2, title: '元数据', description: '添加书名、作者和可选的封面图片。' },
+      { step: 3, title: '转换并下载', description: '创建MOBI文件并下载到您的Kindle中。' },
+    ],
+    useCases: [
+      { title: 'Kindle阅读', description: '通过原生的功能支持在Kindle上享受PDF书籍。', icon: 'book-open' },
+      { title: '离线阅读', description: '转换文档以便在专用的电子墨水设备上阅读。', icon: 'wifi-off' },
+      { title: '旧版支持', description: '支持那些更喜欢MOBI而非EPUB的旧款电子阅读器。', icon: 'history' },
+    ],
+    faq: [
+      { question: '什么是MOBI？', answer: 'MOBI是一种最初由Mobipocket使用的电子书格式，后来被Amazon用于Kindle。' },
+      { question: '与EPUB有什么区别？', answer: 'MOBI是Amazon/Kindle的专有格式；EPUB是开放的行业标准。' },
+      { question: '如何传输到Kindle？', answer: '通过USB连接或使用Amazon的“发送至Kindle”服务。' },
+    ],
+  },
+
+  'pdf-to-djvu': {
+    title: 'PDF转DJVU',
+    metaDescription: '将PDF转换为DJVU格式。针对高分辨率扫描文档的专门压缩。',
+    keywords: ['pdf转djvu', '转换pdf为扫描件', '高压缩文档', 'djvu转换器'],
+    description: `
+      <p>PDF转DJVU将您的文档转换为DjVu格式，该格式是专门为扫描文档设计的。DjVu为高分辨率彩色页面提供极高的压缩比。</p>
+      <p>非常适合需要高质量但文件大小极小的扫描书籍数字图书馆和档案馆。保留文档结构和文本层。</p>
+      <p>所有处理都在浏览器本地完成，确保您的存档保持私密。</p>
+    `,
+    howToUse: [
+      { step: 1, title: '上传PDF文件', description: '拖放您的PDF（理想情况下是扫描件）或点击选择。' },
+      { step: 2, title: '选择质量', description: '为DJVU输出选择压缩级别和分辨率。' },
+      { step: 3, title: '转换并下载', description: '生成DJVU文件并下载进行存档。' },
+    ],
+    useCases: [
+      { title: '数字图书馆', description: '为大型扫描藏品实现显著的空间节省。', icon: 'library' },
+      { title: '历史档案馆', description: '高效存储遗产文档的高分辨率图像。', icon: 'archive' },
+      { title: '共享扫描件', description: '在有限的带宽上发送高质量的扫描文档。', icon: 'share' },
+    ],
+    faq: [
+      { question: '什么是DJVU？', answer: 'DjVu是一种文档格式，它使用先进的分段技术将扫描图像压缩得非常好。' },
+      { question: '它比PDF更好吗？', answer: '对于扫描文档，DjVu通常比标准PDF提供5-10倍的更好压缩。' },
+      { question: '如何查看DJVU？', answer: '使用专用查看器（如DjView）或浏览器扩展。' },
+    ],
+  },
+
+  'pdf-to-fb2': {
+    title: 'PDF转FB2',
+    metaDescription: '将PDF转换为FictionBook (FB2)。用于结构化阅读的语义化XML电子书格式。',
+    keywords: ['pdf转fb2', 'fictionbook转换器', 'pdf电子书xml', '转换pdf为结构化文本'],
+    description: `
+      <p>PDF转FB2将文档转换为FictionBook (XML)格式。FB2是一种语义化格式，它描述书籍的结构而非外观，使其在阅读应用中非常通用。</p>
+      <p>该工具在保持逻辑结构的同时提取文本、元数据和图像。因其开放性和语义化特性，在各种电子阅读社区中被广泛使用。</p>
+      <p>所有处理都在浏览器本地完成，确保您的内容保持私密。</p>
+    `,
+    howToUse: [
+      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 2, title: '书籍信息', description: '验证流派、作者和书名等元数据。' },
+      { step: 3, title: '转换并下载', description: '生成FB2文件并下载到您喜欢的阅读器中。' },
+    ],
+    useCases: [
+      { title: '语义化阅读', description: '使用根据您的个人偏好为书籍设置样式的阅读器。', icon: 'settings' },
+      { title: '开放格式', description: '将您的图书库保持在完全开放、基于XML的语义格式中。', icon: 'unlock' },
+      { title: '跨设备同步', description: 'FB2文件非常轻量，易于在多台阅读设备之间同步。', icon: 'refresh-ccw' },
+    ],
+    faq: [
+      { question: '什么是FB2？', answer: 'FictionBook (FB2)是一种专注于语义标记的基于XML的电子书格式。' },
+      { question: '它在哪里流行？', answer: 'FB2在东欧以及开放文档标准爱好者中非常流行。' },
+      { question: '我可以添加封面吗？', answer: '是的，您可以在转换过程中指定或提取封面图片。' },
+    ],
+  },
+
+  'pdf-to-email': {
+    title: 'PDF转电子邮件 (EML)',
+    metaDescription: '将PDF转换为EML电子邮件文件。将文本和图像提取为草稿邮件格式。',
+    keywords: ['pdf转邮件', 'pdf转eml', '将pdf提取到邮件', 'pdf草稿转换器'],
+    description: `
+      <p>PDF转电子邮件将您的PDF内容转换为草稿邮件文件 (.eml)。它提取文本作为正文，并尝试将图像放置为内联资产或附件。</p>
+      <p>非常适合将PDF通讯、报告或备忘录转换为可在Outlook、Gmail或Apple Mail中打开的电子邮件草稿。节省复制粘贴和手动格式设置的时间。</p>
+      <p>所有处理都在浏览器本地完成，确保您的邮件保持私密。</p>
+    `,
+    howToUse: [
+      { step: 1, title: '上传PDF文件', description: '拖放您的PDF文件或点击选择。' },
+      { step: 2, title: '草稿设置', description: '如果需要，添加默认主题和发件人信息。' },
+      { step: 3, title: '转换并下载', description: '生成EML文件并在您的邮件客户端中打开它。' },
+    ],
+    useCases: [
+      { title: '通讯迁移', description: '快速将PDF通讯转变为电子邮件营销。', icon: 'mail' },
+      { title: '简报分享', description: '将PDF简报作为电子邮件的实际正文进行分享。', icon: 'send' },
+      { title: '内容提取', description: '将PDF报告转换为可编辑的电子邮件报告。', icon: 'file-text' },
+    ],
+    faq: [
+      { question: '什么是EML文件？', answer: 'EML是包含邮件头和正文内容的电子邮件消息的标准文件格式。' },
+      { question: '哪些邮件应用能打开它？', answer: 'Outlook、Apple Mail、Thunderbird以及几乎所有的桌面邮件客户端都支持EML。' },
+      { question: '格式是如何处理的？', answer: '工具将PDF块转换为HTML部分，以在邮件正文中保持基本布局。' },
+    ],
+  },
+
+  'pdf-to-cbz': {
+    title: 'PDF转CBZ',
+    metaDescription: '将PDF转换为漫画书归档 (CBZ)。将文档页面打包为漫画阅读器的图像存档。',
+    keywords: ['pdf转cbz', '文档转漫画', 'pdf图像存档', '漫画创建者'],
+    description: `
+      <p>PDF转CBZ将您的文档转换为漫画书归档。每个PDF页面都被渲染为高质量图像，并打包成一个带.cbz扩展名的ZIP归档。</p>
+      <p>非常适合将以PDF形式存储的数字漫画、艺术书或手册转换为专用于Chunky或CDisplayEx等漫画阅读应用的格式。</p>
+      <p>所有处理都在浏览器本地完成，确保您的存档保持私密。</p>
+    `,
+    howToUse: [
+      { step: 1, title: '上传PDF文件', description: '拖放您的PDF或点击选择。' },
+      { step: 2, title: '质量设置', description: '为漫画页面选择图像格式 (JPG/PNG) 和分辨率。' },
+      { step: 3, title: '转换并下载', description: '生成CBZ文件并下载供您的漫画阅读器使用。' },
+    ],
+    useCases: [
+      { title: '漫画阅读', description: '在针对高性能图像浏览优化的应用中查看PDF。', icon: 'image' },
+      { title: '作品集', description: '将艺术书PDF转换为易于管理的图像集。', icon: 'palette' },
+      { title: '资源打包', description: '将所有页面提取为单个归档中的有序图像。', icon: 'package' },
+    ],
+    faq: [
+      { question: '什么是CBZ？', answer: 'CBZ文件本质上是一个包含图像的ZIP归档，主要由漫画书阅读器使用。' },
+      { question: '哪种格式最好？', answer: 'JPG用于更小的文件大小，PNG用于最高质量且无压缩伪影。' },
+      { question: '我可以选择页面吗？', answer: '是的，您可以将所有页面或特定范围转换为CBZ归档。' },
     ],
   },
 };

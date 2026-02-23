@@ -1538,30 +1538,6 @@ export const toolContentJa: Record<string, ToolContent> = {
       { question: '権限は削除できますか？', answer: 'はい、オーナーパスワードまたは制限削除ツールを使用して削除できます。' },
       { question: 'すべてのPDFリーダーは互換性がありますか？', answer: 'ほとんどのPDFリーダーは権限を尊重しますが、一部は強制しない場合があります。' },
     ],
-  }, 'pdf-to-docx': {
-    title: 'PDFからWord',
-    metaDescription: 'PDFを編集可能なWord（DOCX）ドキュメントに変換。フォーマットとレイアウトを最大限に保持。',
-    keywords: ['pdf word 変換', 'pdf docx 変換', 'pdf 編集可能', 'pdf ワード 変換'],
-    description: `
-      <p>PDFドキュメントを完全に編集可能なMicrosoft Word（DOCX）ファイルに変換します。このツールは、元のレイアウト、フォント、画像、テキストのフローを可能な限り正確に保持します。</p>
-      <p>再入力の手間を省き、Wordで簡単にPDFコンテンツを編集できます。契約書、レポート、履歴書の修正に最適です。</p>
-      <p>WebAssembly技術を使用してブラウザ内でローカルに変換が行われるため、ドキュメントがデバイスから離れることはなく、プライバシーが守られます。</p>
-    `,
-    howToUse: [
-      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
-      { step: 2, title: '変換', description: '変換プロセスが完了するまで数秒待ちます。' },
-      { step: 3, title: 'ダウンロード', description: '完全に編集可能なDOCXファイルをダウンロードします。' },
-    ],
-    useCases: [
-      { title: '契約書の編集', description: 'PDF形式の契約書をWordに変換し、修正や再交渉を容易にします。', icon: 'file-text' },
-      { title: '履歴書の更新', description: '古いPDFの履歴書をWordに変換して、最新の情報に更新します。', icon: 'user' },
-      { title: 'コンテンツの再利用', description: 'PDFレポートからテキストやレイアウトを抽出し、新しいドキュメントに活用します。', icon: 'copy' },
-    ],
-    faq: [
-      { question: 'フォーマットは保持されますか？', answer: 'はい、ツールはレイアウト、フォント、画像を可能な限り忠実に再現するように設計されています。' },
-      { question: 'スキャンしたPDFも変換できますか？', answer: 'スキャンされたPDFはWord内で画像として配置されます。テキストとして編集したい場合は、先に当サイトのOCRツールを使用することをお勧めします。' },
-      { question: 'Microsoft Wordと互換性はありますか？', answer: 'はい、出力される.docxファイルは、Microsoft Word、Googleドキュメント、LibreOfficeと完全に互換性があります。' },
-    ],
   },
 
   'rotate-custom': {
@@ -1620,29 +1596,7 @@ export const toolContentJa: Record<string, ToolContent> = {
   // ==================== ADDITIONAL UTILITIES ====================
   // 补全由于翻译分段可能遗漏的关键词或模块
 
-  'remove-metadata-full': {
-    title: 'メタデータの完全削除',
-    metaDescription: 'PDFファイルからすべてのメタデータとプロパティをストリップ。匿名性を高めるためのクリーンアップ。',
-    keywords: ['pdf メタデータ 削除', 'pdf プロパティ 消去', 'pdf 匿名化', 'pdf プライバシー'],
-    description: `
-      <p>PDFファイルに隠されている作成者、作成ソフト、作成日時などの情報をすべて削除します。外部へ公開する資料から内部情報を消去する際に非常に重要です。</p>
-    `,
-    howToUse: [
-      { step: 1, title: 'PDFを選択', description: 'クリーンアップしたいPDFファイルをアップロードします。' },
-      { step: 2, title: '削除実行', description: '「メタデータを削除」ボタンをクリックします。' },
-      { step: 3, title: '保存', description: 'プロパティが空になったPDFをダウンロードします。' },
-    ],
-    useCases: [
-      { title: '公的書類の配布', description: '作成者の個人名を消してからインターネットで公開します。', icon: 'shield' },
-      { title: '企業間取引', description: '作成履歴などの不要なメタデータを消去して機密性を保ちます。', icon: 'briefcase' },
-      { title: '匿名資料の作成', description: 'プロパティから身元が特定されないようにします。', icon: 'user-x' },
-    ],
-    faq: [
-      { question: 'ファイルの中身は変わりますか？', answer: 'いいえ、テキストや画像などの目に見えるコンテンツは一切変更されません。' },
-      { question: 'どの項目が消えますか？', answer: 'タイトル、作成者、件名、キーワード、作成日、更新日、PDF作成プログラム名などが消去されます。' },
-      { question: '復元はできますか？', answer: '削除後のファイルからメタデータを復元することはできません。' },
-    ],
-  },
+
 
   'psd-to-pdf': {
     title: 'PSDをPDFに変換',
@@ -2162,4 +2116,477 @@ export const toolContentJa: Record<string, ToolContent> = {
       { question: '特定のページから抽出できますか？', answer: 'はい、特定のページに抽出を制限するためにページ範囲を指定します。' },
     ],
   },
+
+  'pdf-to-txt': {
+    title: 'PDFをテキストに変換',
+    metaDescription: 'PDFドキュメントからテキストを即座に抽出します。スキャンしたファイル用のOCRサポートを備えた無料のオンラインPDFからTXTへのコンバーター。プライバシー重視。',
+    keywords: ['pdfをtxtに', 'pdfをテキストに', 'pdfからテキスト抽出', 'pdf テキスト 変換', 'ocr pdf テキスト'],
+    description: `
+      <p>PDFドキュメントからテキストを抽出する必要がありますか？当社のPDFからテキストへのコンバーターを使用すると、任意のPDFファイルからプレーンテキストコンテンツを簡単に取得できます。データ分析、コンテンツの移行、または単に読み取り専用ドキュメントから編集可能なテキストを取得するのに最適です。</p>
+      <p>このツールは、高度なクライアントサイド技術を使用して完全にブラウザ内で実行されるため、機密ドキュメントがデバイスから離れることはありません。スキャンされたドキュメントや画像を自動的に処理するための内蔵OCR（光学式文字認識）も含まれています。</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDFをアップロード', description: 'デバイスからPDFファイルを選択します。' },
+      { step: 2, title: 'テキストを抽出', description: 'ツールが自動的にファイルを処理し、利用可能なすべてのテキストを抽出します。' },
+      { step: 3, title: 'コピーまたはダウンロード', description: '抽出されたテキストをクリップボードにコピーするか、.txtファイルとしてダウンロードします。' },
+    ],
+    useCases: [
+      { title: 'コンテンツの移行', description: 'レガシーPDFドキュメントからCMSやデータベースにコンテンツを素早く移動します。', icon: 'arrow-right-circle' },
+      { title: 'データ分析', description: '自然言語処理やテキスト分析ツール用に生テキストを抽出します。', icon: 'bar-chart-2' },
+      { title: 'スキャンされたドキュメント', description: '内蔵のOCRを使用して、スキャンされた契約書や手紙を編集可能なテキストに変換します。', icon: 'scan' },
+    ],
+    faq: [
+      { question: 'スキャンのPDFにも対応していますか？', answer: 'はい！ページが画像（スキャン）であることをツールが検出すると、自動的にOCRを使用してテキストを認識し抽出します。' },
+      { question: 'データは安全ですか？', answer: 'もちろんです。すべての処理はブラウザ内で行われます。PDFファイルが当社のサーバーにアップロードされることはありません。' },
+      { question: '書式は保持されますか？', answer: 'このツールは、最大限の互換性のために生テキストの抽出に重点を置いています。レイアウトを保持する必要がある場合は、PDFからHTMLまたはWordへのツールをお試しください。' },
+    ],
+  },
+
+  'add-metadata': {
+    title: 'メタデータの追加',
+    metaDescription: 'PDFドキュメントにメタデータを追加します。タイトル、作成者、件名、キーワードなどを追加。',
+    keywords: ['メタデータ追加', 'pdf メタデータ', 'ドキュメントのプロパティ', 'pdf 情報', 'pdf 詳細追加'],
+    description: `
+      <p>メタデータの追加により、PDFファイルのドキュメントプロパティやメタデータを追加または更新できます。タイトル、作成者、件名、キーワード、作成日、更新日などを追加できます。</p>
+      <p>ドキュメントの整理、著作情報の追加、または配布用のファイルの準備に役立ちます。</p>
+      <p>すべての処理はブラウザ内で行われるため、ドキュメントのプライバシーは保護されます。</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 2, title: 'メタデータを追加', description: '追加または更新したいメタデータフィールドを入力します。' },
+      { step: 3, title: '保存してダウンロード', description: '「保存」をクリックして変更を適用し、ダウンロードします。' },
+    ],
+    useCases: [
+      { title: 'ドキュメントの整理', description: 'ファイルの整理を容易にするためにメタデータを追加します。', icon: 'folder' },
+      { title: '著作情報の追加', description: '作成者やクリエイターの情報を追加します。', icon: 'user' },
+      { title: '検索性の向上', description: 'ドキュメントの検索性を高めるためにキーワードを追加します。', icon: 'search' },
+    ],
+    faq: [
+      { question: 'どのフィールドを追加できますか？', answer: 'タイトル、作成者、件名、キーワード、作成者（Creator）、プロデューサー（Producer）のフィールドです。' },
+      { question: '既存のメタデータは上書きされますか？', answer: 'はい、既存のフィールドに新しい値を入力すると上書きされます。' },
+      { question: 'XMPメタデータはサポートされていますか？', answer: 'はい、標準のメタデータとXMPメタデータの両方が更新されます。' },
+    ],
+  },
+
+  'pdf-to-docx': {
+    title: 'PDFをWordに変換',
+    metaDescription: 'PDFを編集可能なWord（DOCX）ドキュメントに変換します。書式とレイアウトを保持。',
+    keywords: ['pdf word 変換', 'pdf docx 変換', 'pdf doc 変換', '編集可能 pdf'],
+    description: `
+      <p>PDFをWordに変換ツールは、PDFドキュメントを編集可能なMicrosoft Word（DOCX）ファイルに変換します。元のレイアウト、書式、画像、およびテキストの流れを保持します。</p>
+      <p>再入力することなく、WordでPDFコンテンツを簡単に編集できます。契約書、レポート、履歴書に最適です。</p>
+      <p>WebAssembly技術を使用してブラウザ内でローカルに変換が行われるため、ドキュメントがデバイスから離れることはありません。</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 2, title: '変換', description: '変換プロセスが完了するまで待ちます。' },
+      { step: 3, title: 'Wordドキュメントをダウンロード', description: '完全に編集可能なDOCXファイルをダウンロードします。' },
+    ],
+    useCases: [
+      { title: '契約書の編集', description: 'PDFの契約書を編集や改訂のためにWordに変換します。', icon: 'file-text' },
+      { title: '履歴書の更新', description: '古いPDFの履歴書をWordに変換して更新します。', icon: 'user' },
+      { title: 'コンテンツの再利用', description: '他のドキュメント用にPDFレポートからコンテンツを抽出します。', icon: 'copy' },
+    ],
+    faq: [
+      { question: '書式は保持されますか？', answer: 'はい、ツールはレイアウト、フォント、画像を可能な限り忠実に保持することを目指しています。' },
+      { question: 'スキャンのPDFを変換できますか？', answer: 'スキャンされたPDFは、事前にOCRを使用しない限り、Word内で画像として変換されます。' },
+      { question: 'Wordと互換性がありますか？', answer: 'はい、出力はMicrosoft WordやGoogleドキュメントと互換性のある標準の.docxファイルです。' },
+    ],
+  },
+
+  'ocg-manager': {
+    title: 'PDFレイヤー管理（OCG）',
+    metaDescription: 'PDFレイヤー（Optional Content Groups）を管理します。表示・非表示の切り替え、追加、削除、名前変更が可能。',
+    keywords: ['pdf レイヤー', 'ocg 管理', 'pdf レイヤー 表示', 'pdf レイヤー 操作'],
+    description: `
+      <p>PDFレイヤー管理ツールを使用すると、PDFドキュメント内のOptional Content Groups（OCG）を表示および管理できます。OCGレイヤーは、テクニカル図面、地図、複雑なドキュメントでコンテンツを切り替え可能なレイヤーに整理するために使用されます。</p>
+      <p>PDF内のすべてのレイヤーを表示し、可視性を切り替えたり、新しいレイヤーを追加したり、不要なレイヤーを削除したり、既存のレイヤーの名前を変更したりできます。建築計画、CADエクスポート、印刷用ドキュメントなどのレイヤー化されたPDFを扱う際に不可欠なツールです。</p>
+      <p>すべての処理はブラウザ内でローカルに行われるため、ドキュメントのプライバシーとセキュリティが確保されます。</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDFをアップロード', description: 'レイヤー（OCG）が含まれている、またはレイヤーを追加したいPDFファイルをアップロードします。' },
+      { step: 2, title: 'レイヤーを表示', description: 'ツールがドキュメント内にあるすべてのレイヤーとその表示状態を自動的にリストします。' },
+      { step: 3, title: 'レイヤーを管理', description: '表示の切り替え、名前の変更、追加、または削除を行います。' },
+      { step: 4, title: '保存してダウンロード', description: 'レイヤーの変更が適用された修正後のPDFをダウンロードします。' },
+    ],
+    useCases: [
+      { title: 'テクニカル図面', description: 'CADエクスポートのレイヤーを管理して、寸法、注釈、または異なるビューを表示/非表示にします。', icon: 'ruler' },
+      { title: '地図の編集', description: '地形、道路、ラベルなどの異なるレイヤーを切り替えて、カスタム地図を作成します。', icon: 'map' },
+      { title: '印刷の準備', description: '異なるバージョンに合わせて適切なレイヤーを切り替え、レイヤー化されたPDFを印刷用に準備します。', icon: 'printer' },
+    ],
+    faq: [
+      { question: 'PDFレイヤー（OCG）とは何ですか？', answer: 'Optional Content Groups（OCG）は、表示または非表示にできるPDF内のレイヤーです。CAD図面や地図などでよく使用されます。' },
+      { question: 'PDFにレイヤーが表示されないのはなぜですか？', answer: 'すべてのPDFにレイヤーが含まれているわけではありません。レイヤーは通常、デザインソフトやCADアプリからのPDF作成時に追加されます。' },
+      { question: 'レイヤーの変更は元のコンテンツに影響しますか？', answer: '表示の変更は表示や印刷にのみ影響します。実際のコンテンツはドキュメント内に残ります。' },
+    ],
+  },
+
+  'pdf-reader': {
+    title: 'PDFリーダー',
+    metaDescription: '無料のオンラインPDFリーダー。ブラウザで直接PDFを表示、ナビゲート、ズーム、回転、印刷できます。',
+    keywords: ['pdf リーダー', 'pdf ビューアー', 'pdf オンライン 閲覧', 'pdf 読む'],
+    description: `
+      <p>PDFリーダーは、ブラウザで直接PDFドキュメントを読んでナビゲートできるフル機能のPDFビューアーです。ソフトウェアのインストールは不要です。PDFをアップロードして読み始めるだけです。</p>
+      <p>ページ間の移動、ズームイン・ズームアウト、表示の回転、集中して読むための全画面モードを使用できます。ドキュメントを印刷したり、オフラインアクセスのためにダウンロードしたりすることも可能です。</p>
+      <p>すべての閲覧はブラウザ内でローカルに行われます。ドキュメントがサーバーにアップロードされることはなく、完全なプライバシーが保証されます。</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDFを開く', description: 'クリックしてアップロードするか、PDFファイルをドラッグ＆ドロップしてリーダーで開きます。' },
+      { step: 2, title: 'ページを移動', description: 'ページコントロールを使用して、前後のページに移動したり、特定のページ番号にジャンプしたりします。' },
+      { step: 3, title: '表示を調整', description: 'ズームイン・ズームアウト、表示の回転、または快適に読むための全画面モードに入ります。' },
+      { step: 4, title: '印刷またはダウンロード', description: 'ドキュメントを印刷するか、必要に応じてオフラインアクセスのためにダウンロードします。' },
+    ],
+    useCases: [
+      { title: 'ドキュメントの確認', description: 'ソフトウェアをインストールせずに、PDFドキュメントを素早く確認します。', icon: 'book-open' },
+      { title: 'モバイルでの閲覧', description: 'ウェブブラウザを搭載したあらゆるデバイスでPDFドキュメントを読みます。', icon: 'smartphone' },
+      { title: 'クイックプレビュー', description: 'ダウンロードや印刷をする前に、PDFをプレビューします。', icon: 'eye' },
+    ],
+    faq: [
+      { question: 'ドキュメントは安全ですか？', answer: 'はい、ドキュメントは完全にブラウザ内で処理され、サーバーにアップロードされることはありません。' },
+      { question: '注釈や編集はできますか？', answer: 'このツールは閲覧専用です。編集には「PDFに署名」や「PDFに注釈」ツールを使用してください。' },
+      { question: 'モバイルデバイスで動作しますか？', answer: 'はい、PDFリーダーは最新のウェブブラウザを搭載したすべてのデバイスで動作します。' },
+    ],
+  },
+
+  'pdf-workflow': {
+    title: 'PDFワークフロー',
+    metaDescription: '自動化されたPDFワークフローを作成します。複雑なPDF処理パイプラインを構築、保存、実行。',
+    keywords: ['pdf ワークフロー', 'pdf 自動化', 'pdf パイプライン', 'pdf 一括処理'],
+    description: `
+      <p>PDFワークフローを使用すると、PDFドキュメントのカスタム自動処理パイプラインを作成できます。複数のステップを手動で行う代わりに、結合、分割、圧縮などを1回の実行に組み合わせたビジュアルワークフローを構築できます。</p>
+      <p>直感的なドラッグ＆ドロップビルダーを使用してワークフローを構築し、将来の使用のために保存して、何百ものドキュメントを一貫して素早く処理できます。月次レポートの作成でも請求書の一括処理でも、PDFワークフローはタスクを合理化します。</p>
+      <p>すべての処理はブラウザ内で直接行われるため、ワークフローの実行中ずっとドキュメントのプライバシーが保たれます。</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'ワークフロービルダーを開く', description: 'PDF処理パイプラインの作成を開始するために、ビジュアルビルダーにアクセスします。' },
+      { step: 2, title: 'ツールを追加して接続', description: '必要なツール（結合、圧縮、透かしなど）を選択し、希望の順序で接続します。' },
+      { step: 3, title: '設定を構成', description: '圧縮レベルや透かしテキストなど、パイプライン内の各ツールのパラメーターを設定します。' },
+      { step: 4, title: '実行と保存', description: 'ドキュメントを使用してワークフローを実行し、将来使用するためにテンプレートを保存します。' },
+    ],
+    useCases: [
+      { title: 'レポートの自動化', description: '月次財務レポートの組み立て、ブランディング、最適化を自動化します。', icon: 'file-bar-chart' },
+      { title: '一括最適化', description: 'ウェブ配布用にPDFドキュメントのアーカイブ全体を圧縮および線形化します。', icon: 'archive' },
+      { title: '一貫したブランディング', description: 'すべての企業ドキュメントに透かし、ヘッダー、フッターを一貫して適用します。', icon: 'shield-check' },
+    ],
+    faq: [
+      { question: 'ワークフローステップに制限はありますか？', answer: '1つのワークフローパイプラインに最大20の処理ステップを追加できます。' },
+      { question: 'ワークフローを保存できますか？', answer: 'はい、ワークフローは繰り返し行うタスクのためにブラウザのテンプレートとして保存できます。' },
+      { question: 'データは非公開のままですか？', answer: 'もちろんです。すべての処理はブラウザ内でローカルに行われ、ファイルがデバイスから離れることはありません。' },
+    ],
+  },
+
+  'html-to-pdf': {
+    title: 'HTMLをPDFに変換',
+    metaDescription: 'HTMLファイルや生のHTMLコードをプロフェッショナルなPDFドキュメントに変換します。クライアントサイドでの変換により、完全なプライバシーを確保。',
+    keywords: ['htmlをpdfに', 'html変換', 'ウェブページをpdfに', 'htmlコンバーター', 'コードをpdfに'],
+    description: `
+      <p>HTMLをPDFに変換は、HTMLファイルや生のHTMLコードを高品質なPDFドキュメントに変換します。コンピュータ上のHTMLファイルがある場合でも、HTMLコードを直接記述する場合でも、このツールは即座にプロフェッショナルなPDFを作成します。</p>
+      <p>ライブプレビュー、複数のページサイズ（A4、レター、リーガル）、縦・横の向き、調整可能な品質設定などの機能を備えています。ウェブページ、レポート、請求書、またはあらゆるHTMLコンテンツの変換に最適です。</p>
+      <p>すべての変換は、高度なレンダリング技術を使用して完全にブラウザ内で行われます。HTMLがデバイスから離れることはなく、完全なプライバシーとセキュリティが保証されます。</p>
+    `,
+    howToUse: [
+      { step: 1, title: '入力モードを選択', description: 'HTMLコードを直接入力するか、デバイスからHTMLファイルをアップロードするかを選択します。' },
+      { step: 2, title: 'HTMLを入力またはアップロード', description: 'ライブプレビュー付きのエディタでHTMLコードを記述するか、既存の.htmlファイルをアップロードします。' },
+      { step: 3, title: 'オプションを設定', description: 'ページサイズ（A4、レター、リーガル）、向き（縦/横）、および品質レベルを選択します。' },
+      { step: 4, title: '変換してダウンロード', description: '「PDFに変換」をクリックしてドキュメントを生成し、結果をダウンロードします。' },
+    ],
+    useCases: [
+      { title: 'ウェブページのアーカイブ', description: 'オフラインでの保存や共有のために、ウェブページやHTMLコンテンツをPDFに変換します。', icon: 'globe' },
+      { title: 'レポート生成', description: 'カスタムスタイリングを施したHTMLテンプレートからプロフェッショナルなPDFレポートを作成します。', icon: 'file-text' },
+      { title: '請求書の作成', description: 'クライアント向けにHTMLの請求書や領収書をPDF形式に変換します。', icon: 'receipt' },
+    ],
+    faq: [
+      { question: 'CSSスタイリングをサポートしていますか？', answer: 'はい、色、フォント、レイアウト、表、グラデーションを含む完全なCSSスタイリングがサポートされています。' },
+      { question: 'HTMLコードのプライバシーは守られますか？', answer: 'もちろんです。すべての変換はブラウザ内で行われます。HTMLがデバイスから離れることはありません。' },
+      { question: 'HTMLに画像を含めることはできますか？', answer: 'はい、埋め込み画像（base64）やインラインスタイルは完全にサポートされています。' },
+    ],
+  },
+
+  'pdf-to-html': {
+    title: 'PDFをHTMLに変換',
+    metaDescription: 'PDFドキュメントをクリーンでセマンティックなHTMLコードに変換します。レイアウトとスタイリングを保持。',
+    keywords: ['pdfをhtmlに', 'pdfをhtmlに変換', 'pdfコンバーター', 'pdfをコードに', 'pdfからhtmlを抽出'],
+    description: `
+      <p>PDFをHTMLに変換は、PDFドキュメントをウェブサイトや他のアプリケーションで使用できるクリーンでセマンティックなHTMLコードに変換します。このツールは、元のレイアウトを可能な限り保持しながら、テキストと構造を抽出します。</p>
+      <p>3つの出力モードから選択できます：Styled（視覚的なレイアウトを保持）、Structured（基本的な構造を持つセマンティックなHTML）、またはPlain（生のコンテンツ）。CSSスタイルを含めるか、コンテンツを完全なHTMLドキュメントでラップするかを選択することもできます。</p>
+      <p>すべての抽出は、高度なPDF解析技術を使用して完全にブラウザ内で行われます。ドキュメントは完全にプライベートで安全なままです。</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDFをアップロード', description: '変換したいドキュメントをドラッグ＆ドロップするか、クリックしてアップロードします。' },
+      { step: 2, title: '出力スタイルを選択', description: '視覚的な忠実度のために「Styled」、クリーンなセマンティクスのために「Structured」、または生のテキストのために「Plain」を選択します。' },
+      { step: 3, title: 'オプションを設定', description: '「レイアウトを保持」、「ページ区切りを含める」、「CSSスタイルを含める」などのオプションを切り替えます。' },
+      { step: 4, title: '変換してダウンロード', description: '「変換」をクリックしてHTMLコードを生成し、ファイルをダウンロードするかコードをコピーします。' },
+    ],
+    useCases: [
+      { title: 'ウェブコンテンツの抽出', description: 'ウェブサイトへの掲載のために、PDFのレポートや記事からコンテンツを抽出します。', icon: 'layout' },
+      { title: 'ドキュメントの移行', description: 'レガシーなPDFドキュメントを、現代的で検索可能なHTML形式に変換します。', icon: 'database' },
+      { title: '電子書籍の作成', description: 'EPUB作成や読書アプリのために、PDFの書籍をリフロー可能なHTMLに変換します。', icon: 'book' },
+    ],
+    faq: [
+      { question: 'HTMLはレスポンシブですか？', answer: '「Structured」モードは自然に流れるセマンティックなHTMLを生成しますが、「Styled」モードはPDFの固定レイアウトの保持を試みます。' },
+      { question: '画像は抽出されますか？', answer: '現在、このツールはテキストと構造の抽出に重点を置いています。画像の抽出サポートについては現在開発中です。' },
+      { question: 'マルチページのPDFをサポートしていますか？', answer: 'はい、ツールはすべてのページを処理し、ページ間にページ区切りマーカーを含めることができます。' },
+    ],
+  },
+
+  'pdf-to-heic': {
+    title: 'PDFをHEICに変換',
+    metaDescription: 'PDFページを高品質なHEIC画像に変換します。Appleの効率的な画像形式で詳細を保持。',
+    keywords: ['pdfをheicに', 'pdfをheifに変換', 'pdfをapple画像に', 'pdfをheicとして書き出し'],
+    description: `
+      <p>PDFをHEICに変換は、PDFのページをAppleの高効率HEIC画像形式に変換します。HEICは、JPEGと比較して小さなファイルサイズで優れた画質を提供します。</p>
+      <p>ニーズに合わせて出力品質とDPIをカスタマイズできます。PDFから抽出した写真やグラフィックスの高解像度を維持しながら、スペースを節約するのに最適です。</p>
+      <p>すべての処理はブラウザ内でローカルに行われるため、ドキュメントのプライバシーが確保されます。</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 2, title: '設定を構成', description: 'HEIC出力のページ範囲、品質、およびDPIを選択します。' },
+      { step: 3, title: '変換してダウンロード', description: 'ページを処理し、HEIC画像をダウンロードします。' },
+    ],
+    useCases: [
+      { title: 'ストレージの効率化', description: 'JPGよりも大幅に小さいファイルサイズで高品質な画像を保存します。', icon: 'hard-drive' },
+      { title: 'Appleエコシステム', description: 'Appleのデバイスやソフトウェアに適したネイティブ形式にPDFを変換します。', icon: 'smartphone' },
+      { title: '高品質維持', description: '標準のJPEGよりも優れた色深度と詳細を維持します。', icon: 'image' },
+    ],
+    faq: [
+      { question: 'HEICとは何ですか？', answer: 'HEICは、JPEGよりも優れた圧縮を提供する高効率画像コンテナです。' },
+      { question: 'Windowsで動作しますか？', answer: '最新のWindows 10/11システムの多くはHEICをサポートしていますが、HEVC拡張機能が必要な場合があります。' },
+      { question: '複数のページを変換できますか？', answer: 'はい、選択したすべてのページが変換され、ZIPとしてダウンロードできます。' },
+    ],
+  },
+
+  'pdf-to-psd': {
+    title: 'PDFをPSDに変換',
+    metaDescription: 'PDFをAdobe Photoshop（PSD）ファイルに変換します。編集用にレイヤーと高忠実度グラフィックスを保持。',
+    keywords: ['pdfをpsdに', 'pdfをphotoshopに変換', 'pdfをレイヤーに', 'pdfをpsdとして書き出し'],
+    description: `
+      <p>PDFをPSDに変換は、PDFドキュメントをAdobe Photoshopファイルに変換します。このツールは、レイヤーとテキスト構造の保持を試み、PhotoshopでのPDFデザインの編集を容易にします。</p>
+      <p>高忠実度の変換により、プロフェッショナルなデザイン作業のためにグラフィックスとテキストが鮮明なまま維持されます。PDFアセットを作り直す必要があるデザイナーに最適です。</p>
+      <p>すべての処理はブラウザ内でローカルに行われるため、デザインのプライバシーが確保されます。</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 2, title: 'PSDを設定', description: '解像度と、レイヤー保持を試みるかどうかを選択します。' },
+      { step: 3, title: '変換してダウンロード', description: 'PSDファイルを生成し、編集用にダウンロードします。' },
+    ],
+    useCases: [
+      { title: 'デザインの編集', description: 'Photoshopで編集可能なレイヤーとしてPDFデザインを開きます。', icon: 'palette' },
+      { title: 'グラフィックの復元', description: '新しいデザインプロジェクトで使用するために、高品質なグラフィックスを抽出します。', icon: 'image' },
+      { title: 'プロフェッショナルな印刷', description: 'PSDでのプロフェッショナルな印刷ワークフロー用にPDFアセットを準備します。', icon: 'printer' },
+    ],
+    faq: [
+      { question: 'すべてのレイヤーが保持されますか？', answer: 'ツールは論理的なレイヤーの保持を試みますが、複雑なPDF構造は統合（フラット化）される場合があります。' },
+      { question: 'PSDは互換性がありますか？', answer: 'はい、出力はAdobe PhotoshopやGIMPと互換性のある標準のPSDファイルです。' },
+      { question: '最大ファイルサイズは？', answer: 'PSDへの移行のために、最大100MBまでのPDFをサポートしています。' },
+    ],
+  },
+
+  'pdf-to-xps': {
+    title: 'PDFをXPSに変換',
+    metaDescription: 'PDFをXML Paper Specification（XPS）形式に変換します。ベクターの精度とドキュメントのレイアウトを保持。',
+    keywords: ['pdfをxpsに', 'pdfをoxpsに変換', 'pdfをmicrosoftアーカイブに', 'pdfをxpsとして書き出し'],
+    description: `
+      <p>PDFをXPSに変換は、PDFドキュメントをMicrosoftのXML Paper Specification形式に変換します。XPSは、固定レイアウトドキュメントのためのオープンでロイヤリティフリーな標準です。</p>
+      <p>Windows環境でのドキュメントのアーカイブや印刷のために、ベクターの精度と正確なレイアウトを維持します。ビジネスドキュメントの長期保存に最適です。</p>
+      <p>すべての処理はブラウザ内でローカルに行われるため、ドキュメントのプライバシーが確保されます。</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 2, title: 'オプションを選択', description: '標準のXPSまたはOpenXPS形式から選択します。' },
+      { step: 3, title: '変換してダウンロード', description: 'XPSファイルを生成してダウンロードします。' },
+    ],
+    useCases: [
+      { title: 'Windowsアーカイブ', description: 'Windowsネイティブのアーカイブ形式でドキュメントを保存します。', icon: 'archive' },
+      { title: '印刷の忠実度', description: 'Windowsベースのワークフローにおいて、高忠実度の印刷を保証します。', icon: 'printer' },
+      { title: '標準への準拠', description: 'ドキュメント交換のために、OpenXPSなどのオープン標準に変換します。', icon: 'file-check' },
+    ],
+    faq: [
+      { question: 'XPSとは何ですか？', answer: 'XPSはPDFに代わるMicrosoftの形式で、固定レイアウトのドキュメントの印刷やアーカイブに使用されます。' },
+      { question: 'MacでXPSを表示できますか？', answer: 'macOSでのXPS閲覧には、サードパーティのソフトウェアか、PDFへの再変換が必要です。' },
+      { question: 'PDFとXPSの違いは？', answer: 'どちらも固定レイアウトですが、XPSはXMLに基づいて構築されており、Windowsの印刷にネイティブです。' },
+    ],
+  },
+
+  'pdf-to-rtf': {
+    title: 'PDFをRTFに変換',
+    metaDescription: 'PDFをリッチテキスト形式（RTF）に変換します。ワードプロセッサで簡単に編集できるようにテキストと基本的な書式を抽出。',
+    keywords: ['pdfをrtfに', 'pdfをリッチテキストに変換', 'pdfからテキストを抽出', 'pdf rtfコンバーター'],
+    description: `
+      <p>PDFをRTFに変換は、PDFからコンテンツを抽出し、リッチテキスト形式ファイルとして保存します。RTFは、ほぼすべてのワードプロセッサソフトウェアと高い互換性があります。</p>
+      <p>このツールは、基本的な書式、フォントスタイル、および配置を保持しながら、コンテンツを簡単に編集できるようにします。DOCXファイルの全複雑さを必要としない場合に、テキストを抽出するのに最適です。</p>
+      <p>すべての処理はブラウザ内でローカルに行われるため、ドキュメント呈現のプライバシーが確保されます。</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 2, title: '抽出', description: 'ツールがPDFコンテンツを解析してRTFに変換します。' },
+      { step: 3, title: 'RTFをダウンロード', description: '編集可能なリッチテキストドキュメントをダウンロードします。' },
+    ],
+    useCases: [
+      { title: '簡単な編集', description: '任意のワードプロセッサでテキストを素早く抽出して編集します。', icon: 'edit' },
+      { title: 'アプリ間のサポート', description: '抽出したテキストを古いソフトウェアや特殊な執筆ソフトウェアで使用します。', icon: 'copy' },
+      { title: 'レイアウトの除去', description: '複雑なPDFレイアウト要素を削除しながら、テキストコンテンツのみを抽出します。', icon: 'type' },
+    ],
+    faq: [
+      { question: '画像はサポートされていますか？', answer: '基本的なRTFサポートには画像も含まれますが、テキスト中心のドキュメントの方が良い結果が得られます。' },
+      { question: 'フォントは保持されますか？', answer: '標準的なフォントは保持されます。カスタムの埋め込みフォントは、類似のシステムフォントにマッピングされる場合があります。' },
+      { question: 'RTFはTXTよりも優れていますか？', answer: 'はい、RTFはプレーンテキストとは異なり、太字、斜体、および基本的なレイアウトを維持します。' },
+    ],
+  },
+
+  'pdf-to-epub': {
+    title: 'PDFをEPUBに変換',
+    metaDescription: 'PDFをEPUB電子書籍に変換します。電子書籍リーダーやモバイルデバイスで快適に読めるリフロー可能なテキスト。',
+    keywords: ['pdfをepubに', 'pdfを電子書籍に変換', 'pdfをkindleに', 'リフロー可能 pdf'],
+    description: `
+      <p>PDFをEPUBに変換は、固定レイアウトのPDFをリフロー可能な電子書籍に変換します。これにより、スマートフォンや電子書籍リーダーなどの小さな画面でも、テキストが画面に合わせて調整されるため、より快適に読むことができます。</p>
+      <p>ツールは、見出し、章、および画像を識別して、構造化された電子書籍の作成を試みます。PDFの書籍や長いドキュメントをモバイル閲覧用に変換するのに最適です。</p>
+      <p>すべての処理はブラウザ内でローカルに行われるため、書籍のプライバシーが確保されます。</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDFをアップロード', description: 'PDFの書籍をドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 2, title: '設定', description: 'EPUB用のタイトルや作成者などの書籍メタデータを入力します。' },
+      { step: 3, title: '変換してダウンロード', description: 'EPUBファイルを生成し、電子書籍リーダー用にダウンロードします。' },
+    ],
+    useCases: [
+      { title: 'モバイルでの読書', description: 'スマートフォンやタブレットでPDFコンテンツを快適に読みます。', icon: 'smartphone' },
+      { title: '電子書籍リーダーのサポート', description: 'Kindle、Kobo、およびその他の電子書籍デバイス用にPDFを変換します。', icon: 'book' },
+      { title: 'アクセシビリティ', description: 'EPUBで調整可能なフォントやテキストサイズにより、読みやすさを向上させます。', icon: 'user-check' },
+    ],
+    faq: [
+      { question: '書式は変わりますか？', answer: 'はい、EPUBはリフロー可能であるため、固定されたPDFレイアウトは柔軟な構造に変換されます。' },
+      { question: 'Kindleをサポートしていますか？', answer: 'はい、最近のKindleの多くはEPUBを直接サポートしています。また、当社のMOBIコンバーターも使用できます。' },
+      { question: 'スキャンのPDFを変換できますか？', answer: 'スキャンされたPDFは、電子書籍変換のためにテキストを抽出するために、まずOCRが必要です。' },
+    ],
+  },
+
+  'pdf-to-mobi': {
+    title: 'PDFをMOBIに変換',
+    metaDescription: 'PDFをMOBI電子書籍に変換します。Amazon Kindleデバイス向けに適切な書式で最適化。',
+    keywords: ['pdfをmobiに', 'pdfをkindleに変換', 'mobiコンバーター', 'pdf 電子書籍'],
+    description: `
+      <p>PDFをMOBIに変換は、ドキュメントをAmazon Kindleデバイスで使用されるMOBI/AZW形式に変換します。これにより、旧型や特殊なKindleモデルでもネイティブな読書体験が提供されます。</p>
+      <p>ツールはKindleの画面に合わせてテキストの流れと画像の配置を最適化します。PDF形式で保存された長文のドキュメント、マニュアル、書籍に理想的です。</p>
+      <p>すべての処理はブラウザ内でローカルに行われるため、ドキュメントのプライバシーが確保されます。</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 2, title: 'メタ情報', description: '書籍のタイトル、作成者、およびオプションの表紙画像を追加します。' },
+      { step: 3, title: '変換してダウンロード', description: 'MOBIファイルを作成し、Kindle用にダウンロードします。' },
+    ],
+    useCases: [
+      { title: 'Kindleでの読書', description: 'Kindleでネイティブ機能のサポートを受けてPDFの書籍を楽しみます。', icon: 'book-open' },
+      { title: 'オフラインでの読書', description: '専用の電子ペーパーデバイスでの読書用にドキュメントを変換します。', icon: 'wifi-off' },
+      { title: 'レガシーサポート', description: 'EPUBよりもMOBIを好む古い電子書籍リーダーをサポートします。', icon: 'history' },
+    ],
+    faq: [
+      { question: 'MOBIとは何ですか？', answer: 'MOBIは当初Mobipocketによって使用され、AmazonがKindleのために採用した電子書籍形式です。' },
+      { question: 'EPUBとの違いは？', answer: 'MOBIはAmazon/Kindleの独自形式であり、EPUBはオープンな業界標準です。' },
+      { question: 'Kindleに転送する方法は？', answer: 'USBで接続するか、Amazonの「Kindleに転送」サービスを使用してください。' },
+    ],
+  },
+
+  'pdf-to-djvu': {
+    title: 'PDFをDjVuに変換',
+    metaDescription: 'PDFをDjVu形式に変換します。高解像度のスキャン文書に特化した圧縮。',
+    keywords: ['pdfをdjvuに', 'pdfをスキャンに変換', '高圧縮ドキュメント', 'djvuコンバーター'],
+    description: `
+      <p>PDFをDjVuに変換は、スキャンされたドキュメント用に科学的に設計されたDjVu形式にドキュメントを変換します。DjVuは、高解像度のカラーページに対して極めて高い圧縮率を提供します。</p>
+      <p>高品質でありながら非常に小さいファイルサイズが必要な、スキャンされた書籍のデジタルライブラリやアーカイブに最適です。ドキュメントの構造とテキストレイヤーを維持します。</p>
+      <p>すべての処理はブラウザ内でローカルに行われるため、アーカイブのプライバシーが確保されます。</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDFをアップロード', description: 'PDF（理想的にはスキャンされたもの）をドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 2, title: '品質を選択', description: 'DjVu出力の圧縮レベルと解像度を選択します。' },
+      { step: 3, title: '変換してダウンロード', description: 'DjVuファイルを生成し、アーカイブ用にダウンロードします。' },
+    ],
+    useCases: [
+      { title: 'デジタルライブラリ', description: '大規模なスキャンコレクションに対して、大幅なスペース節約を実現します。', icon: 'library' },
+      { title: '歴史的アーカイブ', description: '文化遺産ドキュメントの高解像度画像を効率的に保存します。', icon: 'archive' },
+      { title: 'スキャンの共有', description: '制限された帯域幅で、高品質なスキャンドキュメントを送信します。', icon: 'share' },
+    ],
+    faq: [
+      { question: 'DjVuとは何ですか？', answer: 'DjVuは、高度なセグメンテーションを使用してスキャンされた画像を非常によく圧縮するドキュメント形式です。' },
+      { question: 'PDFよりも優れていますか？', answer: 'スキャンされたドキュメントの場合、DjVuは標準のPDFよりも5〜10倍優れた圧縮を提供することがよくあります。' },
+      { question: 'DjVuを表示する方法は？', answer: 'DjViewなどの専用ビューアーやブラウザ拡張機能を使用してください。' },
+    ],
+  },
+
+  'pdf-to-fb2': {
+    title: 'PDFをFB2に変換',
+    metaDescription: 'PDFをFictionBook（FB2）に変換します。構造化された読書のためのセマンティックなXMLベースの電子書籍形式。',
+    keywords: ['pdfをfb2に', 'fictionbookコンバーター', 'pdf 電子書籍 xml', 'pdfを構造化テキストに変換'],
+    description: `
+      <p>PDFをFB2に変換は、ドキュメントをFictionBook（XML）形式に変換します。FB2は、書籍の外見ではなく構造を記述するセマンティックな形式であり、読書アプリにおいて非常に汎用性が高いです。</p>
+      <p>このツールは、論理的な構造を維持しながら、テキスト、メタデータ、および画像を抽出します。そのオープン性とセマンティックな性質から、様々な電子書籍コミュニティで広く使用されています。</p>
+      <p>すべての処理はブラウザ内でローカルに行われるため、コンテンツのプライバシーが確保されます。</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 2, title: '書籍情報', description: 'ジャンル、作成者、書籍タイトルなどのメタデータを確認します。' },
+      { step: 3, title: '変換してダウンロード', description: 'FB2ファイルを生成し、お好みのリーダー用にダウンロードします。' },
+    ],
+    useCases: [
+      { title: 'セマンティックな読書', description: '個人の好みに基づいて書籍をスタイリングするリーダーを使用します。', icon: 'settings' },
+      { title: 'オープン形式', description: 'ライブラリを完全にオープンなXMLベースのセマンティック形式で保持します。', icon: 'unlock' },
+      { title: 'デバイス間の同期', description: 'FB2ファイルは軽量で、複数の読書デバイス間での同期が容易です。', icon: 'refresh-ccw' },
+    ],
+    faq: [
+      { question: 'FB2とは何ですか？', answer: 'FictionBook（FB2）は、セマンティックなマークアップに重点を置いたXMLベースの電子書籍形式です。' },
+      { question: 'どこで人気がありますか？', answer: 'FB2は東欧や、オープンなドキュメント標準のファンの間で非常に人気があります。' },
+      { question: '表紙を追加できますか？', answer: 'はい、変換中に表紙画像を指定または抽出することができます。' },
+    ],
+  },
+
+  'pdf-to-email': {
+    title: 'PDFをメールに変換（EML）',
+    metaDescription: 'PDFをEMLメールファイルに変換します。ドラフトメール形式でテキストと画像を抽出。',
+    keywords: ['pdfをメールに', 'pdfをemlに', 'pdfをメールに抽出', 'pdfドラフトコンバーター'],
+    description: `
+      <p>PDFをメールに変換は、PDFコンテンツをメールのドラフトファイル（.eml）に変換します。テキストを本文として抽出し、画像をインラインアセットまたは添付ファイルとして配置を試みます。</p>
+      <p>PDFのニュースレター、レポート、またはメモを、Outlook、Gmail、またはApple Mailで開けるメールのドラフトに変換するのに最適です。コピー＆ペーストや手動の書式設定の手間を省けます。</p>
+      <p>すべての処理はブラウザ内でローカルに行われるため、メールのプライバシーが確保されます。</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 2, title: 'ドラフト設定', description: '必要に応じてデフォルトの件名と送信者情報を追加します。' },
+      { step: 3, title: '変換してダウンロード', description: 'EMLファイルを生成し、メールクライアントで開きます。' },
+    ],
+    useCases: [
+      { title: 'ニュースレターの移行', description: 'PDFのニュースレターを素早くメールキャンペーンに作り変えます。', icon: 'mail' },
+      { title: 'ブリーフィングの共有', description: 'PDFのブリーフィングをメールの本文としてそのまま共有します。', icon: 'send' },
+      { title: 'コンテンツの抽出', description: 'PDFのレポートを編集可能なメールレポートに変換します。', icon: 'file-text' },
+    ],
+    faq: [
+      { question: 'EMLファイルとは何ですか？', answer: 'EMLは、ヘッダーと本文コンテンツを含むメールメッセージの標準ファイル形式です。' },
+      { question: 'どのメールアプリで開けますか？', answer: 'Outlook、Apple Mail、Thunderbird、およびほぼすべてのデスクトップメールクライアントがEMLをサポートしています。' },
+      { question: '書式設定はどう扱われますか？', answer: 'ツールはPDFブロックをHTMLセクションに変換し、メール本文での基本的なレイアウトの維持を試みます。' },
+    ],
+  },
+
+  'pdf-to-cbz': {
+    title: 'PDFをCBZに変換',
+    metaDescription: 'PDFをコミックブックアーカイブ（CBZ）に変換します。ドキュメントのページを、コミックリーダー用の画像アーカイブとしてパッケージ化。',
+    keywords: ['pdfをcbzに', 'ドキュメントをコミックに', 'pdf画像アーカイブ', 'コミッククリエイター'],
+    description: `
+      <p>PDFをCBZに変換は、ドキュメントをコミックブックアーカイブに変換します。各PDFページは高品質な画像としてレンダリングされ、.cbz拡張子のZIPアーカイブにパッケージ化されます。</p>
+      <p>PDFとして保存されているデジタルコミック、アートブック、またはマニュアルを、ChunkyやCDisplayExなどの専用コミック閲覧アプリケーションで使用するために変換するのに最適です。</p>
+      <p>すべての処理はブラウザ内でローカルに行われるため、アーカイブのプライバシーが確保されます。</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDFをアップロード', description: 'PDFファイルをドラッグ＆ドロップするか、クリックして選択します。' },
+      { step: 2, title: '品質設定', description: 'コミックページ用の画像形式（JPG/PNG）と解像度を選択します。' },
+      { step: 3, title: '変換してダウンロード', description: 'CBZファイルを生成し、コミックリーダー用にダウンロードします。' },
+    ],
+    useCases: [
+      { title: 'コミックの閲覧', description: '高性能な画像閲覧に最適化されたアプリでPDFを表示します。', icon: 'image' },
+      { title: 'アートポートフォリオ', description: 'アートブックのPDFを扱いやすい画像コレクションに変換します。', icon: 'palette' },
+      { title: 'アセットのパッケージ化', description: 'すべてのページを整理された画像として1つのアーカイブに抽出します。', icon: 'package' },
+    ],
+    faq: [
+      { question: 'CBZとは何ですか？', answer: 'CBZファイルは、主にコミックブックリーダーで使用される、画像のみを含むZIPアーカイブです。' },
+      { question: 'どの形式が最適ですか？', answer: 'ファイルサイズを小さくするにはJPG、最高の画質で圧縮ノイズを避けるにはPNGが適しています。' },
+      { question: 'ページを選択できますか？', answer: 'はい、すべてのページまたは特定の範囲をCBZアーカイブに変換できます。' },
+    ],
+  },
 };
+

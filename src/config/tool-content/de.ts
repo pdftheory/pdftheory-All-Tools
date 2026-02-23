@@ -1696,4 +1696,1101 @@ export const toolContentDe: Record<string, ToolContent> = {
       { question: 'Kann ich von PDF/A zurückkonvertieren?', answer: 'PDF/A-Dateien sind Standard-PDFs und können normal geöffnet werden. Die Archivfunktionen fügen Einschränkungen hinzu, keine Limitierungen.' },
     ],
   },
+  'bmp-to-pdf': {
+    title: 'BMP zu PDF',
+    metaDescription: 'BMP-Bitmap-Bilder in PDF konvertieren. Unterstützung für Legacy-Formate bei gleichzeitiger Qualitätserhaltung.',
+    keywords: ['bmp zu pdf', 'bmp konvertieren', 'bitmap zu pdf', 'bmp konverter'],
+    description: `
+      <p>BMP zu PDF konvertiert Bitmap-Bilder in PDF-Dokumente. BMP ist ein älteres Bildformat, das häufig in Windows-Umgebungen verwendet wird. Dieses Tool macht es einfach, diese Dateien in das moderne PDF-Format zu konvertieren.</p>
+      <p>Kombinieren Sie mehrere BMP-Dateien zu einem einzigen PDF mit anpassbaren Einstellungen. Die Konvertierung komprimiert die normalerweise großen BMP-Dateien, während die Bildqualität erhalten bleibt.</p>
+      <p>Die gesamte Konvertierung erfolgt in Ihrem Browser, sodass Ihre Bilder privat bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'BMP-Dateien hochladen', description: 'Ziehen Sie Ihre BMP-Bilder per Drag & Drop oder klicken Sie, um Dateien auszuwählen.' },
+      { step: 2, title: 'Optionen konfigurieren', description: 'Ordnen Sie die Bilder an und wählen Sie die Seiteneinstellungen aus.' },
+      { step: 3, title: 'Konvertieren und Herunterladen', description: 'Klicken Sie auf "Konvertieren", um Ihr PDF zu erstellen.' },
+    ],
+    useCases: [
+      { title: 'Konvertierung alter Dateien', description: 'Konvertieren Sie alte BMP-Dateien in das moderne PDF-Format.', icon: 'history' },
+      { title: 'Windows-Screenshots', description: 'Konvertieren Sie Windows-Bitmap-Screenshots in PDF.', icon: 'monitor' },
+      { title: 'Archiv-Modernisierung', description: 'Aktualisieren Sie alte Bildarchive in das PDF-Format.', icon: 'archive' },
+    ],
+    faq: [
+      { question: 'Wird die Dateigröße reduziert?', answer: 'Ja, BMP-Dateien werden bei der Konvertierung in PDF normalerweise erheblich komprimiert.' },
+      { question: 'Bleibt die Qualität erhalten?', answer: 'Ja, die Bildqualität bleibt während der Konvertierung erhalten.' },
+      { question: 'Welche BMP-Farbtiefen werden unterstützt?', answer: 'Alle Standard-BMP-Farbtiefen werden unterstützt, einschließlich 24-Bit und 32-Bit.' },
+    ],
+  },
+
+  'psd-to-pdf': {
+    title: 'PSD zu PDF',
+    metaDescription: 'Adobe Photoshop (PSD)-Dateien in das PDF-Format konvertieren. Unterstützt mehrere Dateien und bewahrt die Bildqualität.',
+    keywords: ['psd zu pdf', 'psd konvertieren', 'photoshop zu pdf', 'psd konverter', 'adobe psd zu pdf'],
+    description: `
+      <p>PSD zu PDF konvertiert Adobe Photoshop (PSD)-Dateien in PDF-Dokumente. Mit diesem Tool können Sie PSD-Designs anzeigen und teilen, ohne Photoshop installiert zu haben.</p>
+      <p>Sie können mehrere PSD-Dateien gleichzeitig konvertieren und sie zu einem einzigen PDF-Dokument zusammenführen. Das Tool verarbeitet jede PSD-Datei und rendert die sichtbaren Ebenen in hochwertige PDF-Seiten.</p>
+      <p>Die gesamte Konvertierung erfolgt lokal in Ihrem Browser, sodass Ihre Designs privat und sicher bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PSD-Dateien hochladen', description: 'Ziehen Sie Ihre PSD- oder PSB-Dateien per Drag & Drop oder klicken Sie, um sie von Ihrem Gerät auszuwählen.' },
+      { step: 2, title: 'Reihenfolge anordnen', description: 'Ziehen Sie die Datei-Thumbnails per Drag & Drop, um sie in der gewünschten Reihenfolge anzuordnen.' },
+      { step: 3, title: 'Konvertieren und Herunterladen', description: 'Klicken Sie auf "Konvertieren", um die PSDs zu rendern und Ihr PDF-Dokument herunterzuladen.' },
+    ],
+    useCases: [
+      { title: 'Designs teilen', description: 'Teilen Sie Photoshop-Designs mit Kunden oder Kollegen, die kein Photoshop haben.', icon: 'share-2' },
+      { title: 'Portfolio-Erstellung', description: 'Stellen Sie Ihre Designarbeit in einem professionellen PDF-Portfolio zusammen.', icon: 'layout' },
+      { title: 'Druckvorbereitung', description: 'Konvertieren Sie Designs für Druckzwecke in PDF.', icon: 'printer' },
+    ],
+    faq: [
+      { question: 'Muss ich Photoshop installiert haben?', answer: 'Nein, dieses Tool funktioniert vollständig in Ihrem Browser, ohne dass Adobe Photoshop erforderlich ist.' },
+      { question: 'Bleiben Ebenen erhalten?', answer: 'Das Tool rendert den sichtbaren Status der PSD (Composite-Bild). Einzelne Ebenen werden im PDF zusammengefasst.' },
+      { question: 'Was ist die maximale Dateigröße?', answer: 'Sie können Dateien bis zu einer Größe von jeweils 100 MB hochladen. Große PSD-Dateien können einen Moment zur Verarbeitung benötigen.' },
+    ],
+  },
+
+  'tiff-to-pdf': {
+    title: 'TIFF zu PDF',
+    metaDescription: 'TIFF-Bilder in PDF konvertieren. Unterstützung für mehrseitige TIFF-Dateien und hochwertige Konvertierung.',
+    keywords: ['tiff zu pdf', 'tiff konvertieren', 'tif zu pdf', 'mehrseitiges tiff'],
+    description: `
+      <p>TIFF zu PDF konvertiert TIFF-Bilder, einschließlich mehrseitiger TIFF-Dateien, in PDF-Dokumente. TIFF wird häufig für hochwertige Scans und professionelle Grafiken verwendet.</p>
+      <p>Mehrseitige TIFF-Dateien werden automatisch in mehrseitige PDFs konvertiert. Die Konvertierung bewahrt die hohe Qualität Ihrer Originalbilder.</p>
+      <p>Die gesamte Konvertierung erfolgt in Ihrem Browser, sodass Ihre Dateien privat bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'TIFF-Dateien hochladen', description: 'Ziehen Sie Ihre TIFF-Dateien per Drag & Drop oder klicken Sie, um sie auszuwählen.' },
+      { step: 2, title: 'Optionen konfigurieren', description: 'Wählen Sie Seiteneinstellungen und Komprimierungsoptionen aus.' },
+      { step: 3, title: 'Konvertieren und Herunterladen', description: 'Klicken Sie auf "Konvertieren", um Ihr PDF zu erstellen.' },
+    ],
+    useCases: [
+      { title: 'Gescannte Dokumente', description: 'Konvertieren Sie hochwertige Scans von TIFF in PDF.', icon: 'scan' },
+      { title: 'Professionelle Grafiken', description: 'Konvertieren Sie professionelle TIFF-Grafiken für die Verteilung.', icon: 'image' },
+      { title: 'Archiv-Konvertierung', description: 'Konvertieren Sie TIFF-Archive in das besser zugängliche PDF-Format.', icon: 'archive' },
+    ],
+    faq: [
+      { question: 'Werden mehrseitige TIFFs unterstützt?', answer: 'Ja, mehrseitige TIFF-Dateien werden automatisch in mehrseitige PDFs konvertiert.' },
+      { question: 'Bleibt die Qualität erhalten?', answer: 'Ja, die TIFF-Qualität bleibt in der PDF-Ausgabe vollständig erhalten.' },
+      { question: 'Welche Komprimierung wird verwendet?', answer: 'Sie können zwischen verlustfreien und verlustbehafteten Komprimierungsoptionen wählen.' },
+    ],
+  },
+
+  'word-to-pdf': {
+    title: 'Word zu PDF',
+    metaDescription: 'Word-Dokumente (DOCX) in PDF konvertieren. Behalten Sie Formatierung und Layout in Ihren konvertierten Dokumenten bei.',
+    keywords: ['word zu pdf', 'docx zu pdf', 'word konvertieren', 'word konverter', 'microsoft word zu pdf'],
+    description: `
+      <p>Word zu PDF konvertiert Microsoft Word-Dokumente in das PDF-Format, wobei die ursprüngliche Formatierung, das Layout und die Inhaltsstruktur erhalten bleiben.</p>
+      <p>Laden Sie Ihre DOCX-Dateien hoch und erhalten Sie eine hochwertige PDF-Ausgabe, die zum Teilen, Drucken oder Archivieren geeignet ist. Die Konvertierung behält Textformatierung, Absatzstile und die grundlegende Dokumentstruktur bei.</p>
+      <p>Die gesamte Konvertierung erfolgt lokal in Ihrem Browser, sodass Ihre Dokumente privat und sicher bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'Word-Dokument hochladen', description: 'Ziehen Sie Ihre .docx-Datei per Drag & Drop oder klicken Sie, um sie von Ihrem Gerät auszuwählen.' },
+      { step: 2, title: 'Warten auf Verarbeitung', description: 'Das Tool lädt das Dokument und bereitet es für die Konvertierung vor.' },
+      { step: 3, title: 'PDF herunterladen', description: 'Klicken Sie auf "Herunterladen", um Ihr konvertiertes PDF-Dokument zu speichern.' },
+    ],
+    useCases: [
+      { title: 'Dokumente teilen', description: 'Konvertieren Sie Word-Dokumente in PDF für universelles Teilen und Anzeigen.', icon: 'share-2' },
+      { title: 'Druckvorbereitung', description: 'Erstellen Sie druckfertige PDFs aus Word-Dokumenten.', icon: 'printer' },
+      { title: 'Dokumentenarchiv', description: 'Archivieren Sie Word-Dokumente im stabilen PDF-Format für die Langzeitaufbewahrung.', icon: 'archive' },
+    ],
+    faq: [
+      { question: 'Wird das .doc-Format unterstützt?', answer: 'Derzeit wird nur das .docx-Format unterstützt. Bitte konvertieren Sie .doc-Dateien zuerst mit Microsoft Word oder LibreOffice in .docx.' },
+      { question: 'Bleiben Bilder erhalten?', answer: 'Textinhalt und grundlegende Formatierung bleiben erhalten. Komplexe Layouts mit vielen Bildern können vereinfacht gerendert werden.' },
+      { question: 'Ist die Konvertierung sicher?', answer: 'Ja, die gesamte Verarbeitung erfolgt in Ihrem Browser. Ihre Dokumente verlassen niemals Ihr Gerät.' },
+    ],
+  },
+
+  'excel-to-pdf': {
+    title: 'Excel zu PDF',
+    metaDescription: 'Excel-Tabellen (XLSX) in PDF konvertieren. Behalten Sie Tabellen und Daten in Ihren konvertierten Dokumenten bei.',
+    keywords: ['excel zu pdf', 'xlsx zu pdf', 'excel konvertieren', 'tabelle zu pdf', 'microsoft excel zu pdf'],
+    description: `
+      <p>Excel zu PDF konvertiert Microsoft Excel-Tabellen in das PDF-Format, wobei die Tabellenstruktur und die Datenorganisation erhalten bleiben.</p>
+      <p>Laden Sie Ihre XLSX-Dateien hoch und erhalten Sie eine saubere PDF-Ausgabe mit korrekt formatierten Tabellen. Jedes Blatt in Ihrer Arbeitsmappe wird zu einem separaten Abschnitt im PDF.</p>
+      <p>Die gesamte Konvertierung erfolgt lokal in Ihrem Browser, sodass Ihre Daten privat und sicher bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'Excel-Datei hochladen', description: 'Ziehen Sie Ihre .xlsx-Datei per Drag & Drop oder klicken Sie, um sie von Ihrem Gerät auszuwählen.' },
+      { step: 2, title: 'Warten auf Verarbeitung', description: 'Das Tool lädt die Tabelle und konvertiert alle Blätter.' },
+      { step: 3, title: 'PDF herunterladen', description: 'Klicken Sie auf "Herunterladen", um Ihr konvertiertes PDF-Dokument zu speichern.' },
+    ],
+    useCases: [
+      { title: 'Berichte teilen', description: 'Konvertieren Sie Excel-Berichte in PDF für die Verteilung an Stakeholder.', icon: 'file-text' },
+      { title: 'Datenarchivierung', description: 'Archivieren Sie Tabellendaten im stabilen PDF-Format.', icon: 'archive' },
+      { title: 'Print Preparation', description: 'Erstellen Sie druckfertige PDFs aus Excel-Arbeitsblättern.', icon: 'printer' },
+    ],
+    faq: [
+      { question: 'Werden mehrere Blätter unterstützt?', answer: 'Ja, alle Blätter in der Arbeitsmappe werden konvertiert und in das PDF aufgenommen.' },
+      { question: 'Wird das .xls-Format unterstützt?', answer: 'Derzeit wird nur das .xlsx-Format unterstützt. Bitte speichern Sie .xls-Dateien zuerst als .xlsx.' },
+      { question: 'Bleiben Formeln erhalten?', answer: 'Das PDF zeigt berechnete Werte an. Formeln sind im PDF-Format nicht ausführbar.' },
+    ],
+  },
+  'pptx-to-pdf': {
+    title: 'PowerPoint zu PDF',
+    metaDescription: 'PowerPoint-Präsentationen (PPTX) in PDF konvertieren. Bewahren Sie Folien und Inhalte für einfaches Teilen.',
+    keywords: ['powerpoint zu pdf', 'pptx zu pdf', 'pptx konvertieren', 'präsentation zu pdf', 'folien zu pdf'],
+    description: `
+      <p>PowerPoint zu PDF konvertiert Microsoft PowerPoint-Präsentationen in das PDF-Format, wobei Folieninhalte und Texte für einfaches Teilen und Anzeigen erhalten bleiben.</p>
+      <p>Jede Folie wird zu einer Seite im PDF, wodurch der Präsentationsfluss beibehalten wird. Perfekt zum Teilen von Präsentationen mit Personen, die kein PowerPoint installiert haben.</p>
+      <p>Die gesamte Konvertierung erfolgt lokal in Ihrem Browser, sodass Ihre Präsentationen privat und sicher bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PowerPoint-Datei hochladen', description: 'Ziehen Sie Ihre .pptx-Datei per Drag & Drop oder klicken Sie, um sie von Ihrem Gerät auszuwählen.' },
+      { step: 2, title: 'Warten auf Verarbeitung', description: 'Das Tool extrahiert den Folieninhalt und erstellt das PDF.' },
+      { step: 3, title: 'Download PDF', description: 'Klicken Sie auf "Herunterladen", um Ihr konvertiertes PDF-Dokument zu speichern.' },
+    ],
+    useCases: [
+      { title: 'Präsentationen teilen', description: 'Teilen Sie Präsentationen mit jedem, ohne dass PowerPoint erforderlich ist.', icon: 'share-2' },
+      { title: 'Handouts erstellen', description: 'Erstellen Sie PDF-Handouts aus Ihren Präsentationsfolien.', icon: 'file-text' },
+      { title: 'Präsentationen archivieren', description: 'Archivieren Sie Präsentationen in einem stabilen PDF-Format.', icon: 'archive' },
+    ],
+    faq: [
+      { question: 'Bleiben Animationen erhalten?', answer: 'PDF ist ein statisches Format, daher bleiben Animationen und Übergänge nicht erhalten. Jede Folie wird zu einer statischen Seite.' },
+      { question: 'Wird das .ppt-Format unterstützt?', answer: 'Derzeit wird nur das .pptx-Format unterstützt. Bitte konvertieren Sie .ppt-Dateien zuerst in .pptx.' },
+      { question: 'Sind Sprechernotizen enthalten?', answer: 'Derzeit sind Sprechernotizen nicht in der PDF-Ausgabe enthalten.' },
+    ],
+  },
+
+  'xps-to-pdf': {
+    title: 'XPS zu PDF',
+    metaDescription: 'XPS-Dokumente in das PDF-Format konvertieren. Hochpräzise Konvertierung unter Beibehaltung von Layout und Grafiken.',
+    keywords: ['xps zu pdf', 'xps konvertieren', 'xps konverter', 'microsoft xps to pdf', 'oxps zu pdf'],
+    description: `
+      <p>XPS zu PDF konvertiert Microsoft XPS (XML Paper Specification)-Dokumente in das PDF-Format, wobei das ursprüngliche Layout, der Text und die Vektorgrafiken erhalten bleiben.</p>
+      <p>XPS ist ein festes Dokumentformat ähnlich wie PDF. Dieses Tool bietet eine hochpräzise Konvertierung mit nativer XPS-Analyse, um eine genaue Reproduktion Ihrer Dokumente zu gewährleisten.</p>
+      <p>Die gesamte Konvertierung erfolgt lokal in Ihrem Browser, sodass Ihre Dokumente privat und sicher bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'XPS-Datei hochladen', description: 'Ziehen Sie Ihre .xps-Datei per Drag & Drop oder klicken Sie, um sie von Ihrem Gerät auszuwählen.' },
+      { step: 2, title: 'Warten auf Verarbeitung', description: 'Das Tool analysiert und konvertiert das XPS-Dokument.' },
+      { step: 3, title: 'Download PDF', description: 'Klicken Sie auf "Herunterladen", um Ihr konvertiertes PDF-Dokument zu speichern.' },
+    ],
+    useCases: [
+      { title: 'Formatkonvertierung', description: 'Konvertieren Sie XPS-Dokumente in das weiter verbreitete PDF-Format.', icon: 'file' },
+      { title: 'Dokumente teilen', description: 'Teilen Sie XPS-Dokumente mit Nutzern, die keine XPS-Viewer haben.', icon: 'share-2' },
+      { title: 'Archivmigration', description: 'Migrieren Sie XPS-Archive in das PDF-Format für bessere Kompatibilität.', icon: 'archive' },
+    ],
+    faq: [
+      { question: 'Was ist das XPS-Format?', answer: 'XPS (XML Paper Specification) ist das feste Dokumentformat von Microsoft, ähnlich wie PDF. Es wird häufig für das Drucken unter Windows verwendet.' },
+      { question: 'Ist die Konvertierung verlustfrei?', answer: 'Ja, die Konvertierung bewahrt Text, Grafiken und Layout mit hoher Präzision.' },
+      { question: 'Werden mehrseitige XPS-Dateien unterstützt?', answer: 'Ja, alle Seiten im XPS-Dokument werden in das PDF konvertiert.' },
+    ],
+  },
+
+  'rtf-to-pdf': {
+    title: 'RTF zu PDF',
+    metaDescription: 'RTF (Rich Text Format)-Dateien in PDF konvertieren. Bewahren Sie die Textformatierung in Ihren Dokumenten.',
+    keywords: ['rtf zu pdf', 'rtf konvertieren', 'rich text zu pdf', 'rtf konverter'],
+    description: `
+      <p>RTF zu PDF konvertiert Rich Text Format-Dateien in PDF-Dokumente. RTF ist ein weit verbreitetes Textformat, das grundlegende Formatierungen wie Schriftarten, Farben und Stile enthält.</p>
+      <p>Laden Sie Ihre RTF-Dateien hoch und erhalten Sie eine saubere PDF-Ausgabe, während Textinhalt und grundlegende Formatierung erhalten bleiben. Perfekt für die Konvertierung alter Dokumente in das moderne PDF-Format.</p>
+      <p>Die gesamte Konvertierung erfolgt lokal in Ihrem Browser, sodass Ihre Dokumente privat und sicher bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'RTF-Datei hochladen', description: 'Ziehen Sie Ihre .rtf-Datei per Drag & Drop oder klicken Sie, um sie von Ihrem Gerät auszuwählen.' },
+      { step: 2, title: 'Warten auf Verarbeitung', description: 'Das Tool analysiert und konvertiert den RTF-Inhalt.' },
+      { step: 3, title: 'Download PDF', description: 'Klicken Sie auf "Herunterladen", um Ihr konvertiertes PDF-Dokument zu speichern.' },
+    ],
+    useCases: [
+      { title: 'Konvertierung alter Dateien', description: 'Konvertieren Sie alte RTF-Dokumente in das moderne PDF-Format.', icon: 'history' },
+      { title: 'Dokumente teilen', description: 'Teilen Sie RTF-Dokumente im universell anzeigbaren PDF-Format.', icon: 'share-2' },
+      { title: 'Dokumente archivieren', description: 'Archivieren Sie RTF-Dateien im stabilen PDF-Format für die Langzeitaufbewahrung.', icon: 'archive' },
+    ],
+    faq: [
+      { question: 'Welche Formatierung bleibt erhalten?', answer: 'Grundlegende Textformatierungen wie Schriftarten, Absätze und Stile werden konvertiert. Komplexe RTF-Funktionen können vereinfacht werden.' },
+      { question: 'Kann ich mehrere RTF-Dateien konvertieren?', answer: 'Derzeit wird jeweils eine Datei konvertiert. Nutzen Sie "PDF zusammenfügen", um mehrere konvertierte Dateien zu kombinieren.' },
+      { question: 'Werden eingebettete Bilder unterstützt?', answer: 'Der Fokus liegt primär auf dem Textinhalt. Eingebettete Objekte werden möglicherweise nicht gerendert.' },
+    ],
+  },
+
+  'epub-to-pdf': {
+    title: 'EPUB zu PDF',
+    metaDescription: 'EPUB E-Books in PDF konvertieren. Bewahren Sie Formatierung, Bilder und Kapitelstruktur.',
+    keywords: ['epub zu pdf', 'epub konvertieren', 'ebook zu pdf', 'epub konverter'],
+    description: `
+      <p>EPUB zu PDF konvertiert elektronische Buchdateien in hochwertige PDF-Dokumente. EPUB ist das beliebteste E-Book-Format, das von den meisten E-Readern und digitalen Bibliotheken verwendet wird.</p>
+      <p>Dieses Tool bewahrt die Textformatierung, Bilder und die Kapitelstruktur Ihrer E-Books. Perfekt zum Drucken, Archivieren oder Teilen von E-Books in einem universell anzeigbaren Format.</p>
+      <p>Die gesamte Konvertierung erfolgt lokal in Ihrem Browser unter Verwendung fortschrittlicher Rendering-Technologie, was sicherstellt, dass Ihre Bücher privat bleiben und die Konvertierung schnell erfolgt.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'EPUB-Datei hochladen', description: 'Ziehen Sie Ihre .epub-Datei per Drag & Drop oder klicken Sie, um sie von Ihrem Gerät auszuwählen.' },
+      { step: 2, title: 'Warten auf Konvertierung', description: 'Das Tool rendert und konvertiert alle Seiten Ihres E-Books.' },
+      { step: 3, title: 'Download PDF', description: 'Klicken Sie auf "Herunterladen", um Ihr konvertiertes PDF-Dokument zu speichern.' },
+    ],
+    useCases: [
+      { title: 'E-Books drucken', description: 'Konvertieren Sie E-Books in PDF für den physischen Druck.', icon: 'printer' },
+      { title: 'Bücher archivieren', description: 'Speichern Sie E-Books in einem langfristig stabilen PDF-Format.', icon: 'archive' },
+      { title: 'Dokumente teilen', description: 'Teilen Sie E-Books mit jedem, auch ohne E-Reader.', icon: 'share-2' },
+    ],
+    faq: [
+      { question: 'Bleibt die Formatierung erhalten?', answer: 'Ja! Dieses Tool nutzt natives EPUB-Rendering und bewahrt Textformatierung, Bilder und Layout mit hoher Präzision.' },
+      { question: 'Werden DRM-geschützte EPUBs unterstützt?', answer: 'Nein, DRM-geschützte E-Books können nicht konvertiert werden. Es werden nur DRM-freie EPUB-Dateien unterstützt.' },
+      { question: 'Wie wird die Seitengröße bestimmt?', answer: 'EPUB-Inhalte werden für optimale Lesbarkeit auf die Standard-A4-Seitengröße gerendert.' },
+    ],
+  },
+
+  'mobi-to-pdf': {
+    title: 'MOBI zu PDF',
+    metaDescription: 'MOBI E-Books in PDF konvertieren. Unterstützung für das Kindle-Format mit hochwertigem Rendering.',
+    keywords: ['mobi zu pdf', 'mobi konvertieren', 'kindle zu pdf', 'azw zu pdf', 'mobi konverter'],
+    description: `
+      <p>MOBI zu PDF konvertiert Amazon Kindle E-Book-Dateien in hochwertige PDF-Dokumente. Das MOBI-Format (einschließlich AZW und AZW3) ist das proprietäre E-Book-Format von Amazon, das auf Kindle-Geräten verwendet wird.</p>
+      <p>Dieses Tool bewahrt die Textformatierung, Bilder und die Struktur Ihrer Kindle-Bücher. Perfekt zum Drucken, Archivieren oder Lesen auf Geräten, die das MOBI-Format nicht unterstützen.</p>
+      <p>Die gesamte Konvertierung erfolgt lokal in Ihrem Browser unter Verwendung fortschrittlicher Rendering-Technologie, sodass Ihre Bücher privat bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'MOBI-Datei hochladen', description: 'Ziehen Sie Ihre .mobi-, .azw- oder .azw3-Datei per Drag & Drop oder klicken Sie, um sie von Ihrem Gerät auszuwählen.' },
+      { step: 2, title: 'Warten auf Konvertierung', description: 'Das Tool rendert und konvertiert alle Seiten Ihres E-Books.' },
+      { step: 3, title: 'Download PDF', description: 'Klicken Sie auf "Herunterladen", um Ihr konvertiertes PDF-Dokument zu speichern.' },
+    ],
+    useCases: [
+      { title: 'Kindle-Bücher drucken', description: 'Konvertieren Sie Kindle E-Books in PDF für den physischen Druck.', icon: 'printer' },
+      { title: 'Bücher archivieren', description: 'Speichern Sie Kindle-Bücher im universellen PDF-Format.', icon: 'archive' },
+      { title: 'Geräteübergreifendes Lesen', description: 'Lesen Sie Kindle-Bücher auf Geräten, die nur PDF unterstützen.', icon: 'tablet-smartphone' },
+    ],
+    faq: [
+      { question: 'Welche MOBI-Formate werden unterstützt?', answer: 'Dieses Tool unterstützt .mobi-, .azw- und .azw3-Dateien (nicht DRM-geschützte Versionen).' },
+      { question: 'Werden DRM-geschützte Kindle-Bücher unterstützt?', answer: 'Nein, DRM-geschützte E-Books können nicht konvertiert werden. Es werden nur DRM-freie Dateien unterstützt.' },
+      { question: 'Bleibt meine Formatierung erhalten?', answer: 'Ja! Das Tool nutzt natives MOBI-Rendering, um Text, Bilder und Layout zu bewahren.' },
+    ],
+  },
+  'pdf-to-svg': {
+    title: 'PDF zu SVG',
+    metaDescription: 'PDF-Seiten in SVG-Vektorgrafiken konvertieren. Perfekte Skalierbarkeit bei jeder Größe mit individuellem Seitenexport.',
+    keywords: ['pdf zu svg', 'pdf konvertieren zu svg', 'vektorgrafiken', 'skalierbares pdf', 'svg konverter'],
+    description: `
+      <p>PDF zu SVG konvertiert jede Seite Ihres PDF-Dokuments in eine skalierbare Vektorgrafik (SVG). SVG ist ein Vektorformat, das bei jedem Zoom-Level oder jeder Druckgröße eine perfekte Qualität beibehält.</p>
+      <p>Im Gegensatz zu Rasterformaten (JPG, PNG) werden SVG-Grafiken beim Skalieren niemals pixelig. Dies macht sie ideal für Logos, Diagramme, technische Zeichnungen und alle Inhalte, die in verschiedenen Größen angezeigt werden müssen.</p>
+      <p>Vorschau jeder konvertierten Seite und Download einzeln oder als ZIP-Datei. Die gesamte Verarbeitung erfolgt lokal in Ihrem Browser, was vollständige Privatsphäre für Ihre Dokumente gewährleistet.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDF hochladen', description: 'Ziehen Sie Ihre PDF-Datei per Drag & Drop oder klicken Sie, um sie auszuwählen.' },
+      { step: 2, title: 'Optionen konfigurieren', description: 'Legen Sie die Auflösungsqualität fest und geben Sie optional Seitenbereiche an.' },
+      { step: 3, title: 'Vorschau und Konvertieren', description: 'Klicken Sie auf "Konvertieren", um den Vorgang zu starten. Sehen Sie sich die Vorschau jeder Seite an, indem Sie auf die Thumbnails klicken.' },
+      { step: 4, title: 'Herunterladen', description: 'Laden Sie einzelne SVG-Dateien oder alle Seiten als ZIP-Archiv herunter.' },
+    ],
+    useCases: [
+      { title: 'Logos und Grafiken', description: 'Extrahieren Sie Logos und Vektorgrafiken aus PDFs für die Verwendung in Design-Software.', icon: 'pen-tool' },
+      { title: 'Technische Diagramme', description: 'Konvertieren Sie technische Zeichnungen und Diagramme in das skalierbare SVG-Format.', icon: 'ruler' },
+      { title: 'Web-Entwicklung', description: 'Erstellen Sie web-taugliche SVG-Dateien aus PDF-Inhalten für responsive Websites.', icon: 'globe' },
+      { title: 'Druck in jeder Größe', description: 'Erzeugen Sie Vektorgrafiken, die in jeder Größe perfekt drucken.', icon: 'printer' },
+    ],
+    faq: [
+      { question: 'Was ist das SVG-Format?', answer: 'SVG (Scalable Vector Graphics) ist ein Vektorbildformat, das ohne Qualitätsverlust auf jede Größe skaliert werden kann. Es wird häufig für Logos, Icons und Webgrafiken verwendet.' },
+      { question: 'Wird die SVG wirklich ein Vektor sein?', answer: 'Die SVG enthält eine hochauflösende Darstellung der PDF-Seite. Bei PDFs mit Vektorinhalt erhalten Sie eine gestochen scharfe Ausgabe bei jedem Maßstab.' },
+      { question: 'Kann ich vor dem Herunterladen eine Vorschau sehen?', answer: 'Ja! Klicken Sie auf ein beliebiges Thumbnail, um eine Vollbildvorschau der SVG zu sehen. Sie können einzelne Seiten oder alle auf einmal herunterladen.' },
+      { question: 'Welche Auflösung soll ich wählen?', answer: 'Eine höhere Auflösung (216 oder 288 DPI) erzeugt größere, detailliertere SVGs. Verwenden Sie niedrigere Einstellungen für schnellere Verarbeitung und kleinere Dateien.' },
+    ],
+  },
+
+  'pdf-to-txt': {
+    title: 'PDF zu Text',
+    metaDescription: 'Text aus PDF extrahieren. Konvertieren Sie PDF-Dokumente in bearbeitbare Textdateien (TXT).',
+    keywords: ['pdf zu text', 'pdf zu txt', 'text extrahieren aus pdf', 'pdf text extraktor', 'pdf konverter'],
+    description: `
+      <p>PDF zu Text extrahiert den gesamten Textinhalt aus Ihren PDF-Dokumenten und konvertiert ihn in das einfache Textformat (TXT). Es ist der schnellste Weg, um Inhalte für die Bearbeitung oder Analyse zu erhalten.</p>
+      <p>Das Tool bewahrt die Textreihenfolge und das grundlegende Layout, während alle Formatierungen und Bilder entfernt werden, um Ihnen eine saubere Textdatei zu liefern.</p>
+      <p>Die gesamte Extraktion erfolgt lokal in Ihrem Browser, sodass Ihre Dokumente privat bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDF hochladen', description: 'Laden Sie die PDF-Datei hoch, aus der Sie den Text extrahieren möchten.' },
+      { step: 2, title: 'Extraktion starten', description: 'Das Tool erkennt und extrahiert automatisch den gesamten Textinhalt.' },
+      { step: 3, title: 'TXT-Datei herunterladen', description: 'Speichern Sie den extrahierten Text als .txt-Datei auf Ihrem Gerät.' },
+    ],
+    useCases: [
+      { title: 'Inhalte bearbeiten', description: 'Erhalten Sie schnell bearbeitbaren Text aus PDF-Dokumenten.', icon: 'edit' },
+      { title: 'Datenanalyse', description: 'Extrahieren Sie Text für die Verarbeitung in anderen Anwendungen.', icon: 'bar-chart' },
+      { title: 'Barrierefreiheit', description: 'Erstellen Sie Nur-Text-Versionen von PDF-Dokumenten.', icon: 'accessibility' },
+    ],
+    faq: [
+      { question: 'Werden Bilder konvertiert?', answer: 'Nein, dieses Tool extrahiert nur den Textinhalt. Bilder werden während des Vorgangs ignoriert.' },
+      { question: 'Wird gescannter Text erkannt?', answer: 'Dieses Tool extrahiert nur eingebetteten Text. Für gescannte PDFs verwenden Sie bitte unser OCR-Tool.' },
+      { question: 'Bleibt die Formatierung erhalten?', answer: 'Die Formatierung (Fett, Kursiv, etc.) wird entfernt, um eine reine Textdatei zu erzeugen. Die Grundstruktur bleibt jedoch gewahrt.' },
+    ],
+  },
+
+  'extract-images': {
+    title: 'Bilder extrahieren',
+    metaDescription: 'Alle Bilder aus einer PDF-Datei extrahieren. Speichern Sie eingebettete Fotos und Grafiken als separate Bilddateien.',
+    keywords: ['bilder extrahieren aus pdf', 'pdf bilder speichern', 'grafiken aus pdf extrahieren', 'pdf bild-extraktor'],
+    description: `
+      <p>Bilder extrahieren findet und speichert automatisch alle in Ihrem PDF-Dokument eingebetteten Bilder. Anstatt ganze Seiten zu konvertieren, erhalten Sie die tatsächlichen Original-Bilddateien.</p>
+      <p>Das Tool scannt das Dokument nach Bitmaps und Fotos und extrahiert sie in ihrer ursprünglichen Qualität und ihrem ursprünglichen Format. Ideal zum Wiederherstellen von Fotos aus alten Dokumenten.</p>
+      <p>Die gesamte Verarbeitung erfolgt in Ihrem Browser, sodass Ihre Bilder privat und sicher bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDF hochladen', description: 'Wählen Sie das PDF aus, das die Bilder enthält, die Sie extrahieren möchten.' },
+      { step: 2, title: 'Bilder scannen', description: 'Das Tool analysiert das Dokument und listet alle gefundenen Bilder auf.' },
+      { step: 3, title: 'Bilder herunterladen', description: 'Laden Sie einzelne Bilder oder alle gesammelt als ZIP-Archiv herunter.' },
+    ],
+    useCases: [
+      { title: 'Foto-Wiederherstellung', description: 'Extrahieren Sie Originalfotos aus PDF-Portfolios oder Berichten.', icon: 'image' },
+      { title: 'Grafik-Wiederverwendung', description: 'Erhalten Sie eingebettete Grafiken für die Verwendung in anderen Projekten.', icon: 'palette' },
+      { title: 'Inhaltsprüfung', description: 'Überprüfen Sie alle in einem Dokument verwendeten Bild-Assets.', icon: 'check-square' },
+    ],
+    faq: [
+      { question: 'In welchem Format werden die Bilder gespeichert?', answer: 'Bilder werden normalerweise in ihrem Originalformat (JPG oder PNG) gespeichert, wie sie im PDF eingebettet sind.' },
+      { question: 'Bleibt die Bildqualität erhalten?', answer: 'Ja, die Bilder werden ohne Neukomprimierung extrahiert, was die Originalqualität beibehält.' },
+      { question: 'Werden Vektorgrafiken extrahiert?', answer: 'Dieses Tool extrahiert Rasterbilder (Fotos). Für Vektorgrafiken verwenden Sie bitte unser PDF zu SVG Tool.' },
+    ],
+  },
+
+  'edit-attachments': {
+    title: 'Anhänge bearbeiten',
+    metaDescription: 'PDF-Anhänge verwalten, hinzufügen oder entfernen. Organisieren Sie eingebettete Dateien in Ihren PDF-Dokumenten.',
+    keywords: ['pdf anhänge bearbeiten', 'anhänge hinzufügen zu pdf', 'dateien in pdf einbetten', 'pdf anhänge entfernen'],
+    description: `
+      <p>Anhänge bearbeiten ermöglicht es Ihnen, Dateien direkt in Ihren PDF-Dokumenten zu verwalten. Sie können neue Dateianhänge hinzufügen, bestehende umbenennen oder nicht mehr benötigte Anhänge löschen.</p>
+      <p>Eingebettete Dateien sind Teil des PDF-Dokuments und reisen mit ihm mit, was ideal für Quellcode, Datensätze oder ergänzende Dokumentation ist.</p>
+      <p>Die gesamte Bearbeitung erfolgt lokal in Ihrem Browser, sodass Ihre Dateien niemals Ihr Gerät verlassen.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDF hochladen', description: 'Laden Sie Ihr PDF-Dokument hoch, um die aktuellen Anhänge zu sehen.' },
+      { step: 2, title: 'Anhänge verwalten', description: 'Fügen Sie neue Dateien hinzu, löschen Sie vorhandene oder benennen Sie sie um.' },
+      { step: 3, title: 'PDF speichern', description: 'Speichern Sie das aktualisierte PDF-Dokument mit den neuen Anhängen.' },
+    ],
+    useCases: [
+      { title: 'Ergänzende Daten', description: 'Betten Sie Excel-Tabellen oder CSV-Dateien als Referenz in einen Bericht ein.', icon: 'database' },
+      { title: 'Quellcode-Archivierung', description: 'Fügen Sie Quellcode-Dateien zu einer technischen Dokumentation im PDF-Format hinzu.', icon: 'code' },
+      { title: 'Kombinierte Pakete', description: 'Senden Sie mehrere verwandte Dateien als einen einzigen PDF-Container.', icon: 'archive' },
+    ],
+    faq: [
+      { question: 'Welche Dateitypen können angehängt werden?', answer: 'Sie können fast jeden Dateityp an eine PDF-Datei anhängen, einschließlich Bilder, Dokumente und ZIP-Archive.' },
+      { question: 'Gibt es eine Größenbeschränkung für Anhänge?', answer: 'Die Gesamtgröße des PDFs steigt mit jedem Anhang. Wir empfehlen, die gesamte Dateigröße für einfaches Teilen unter 50 MB zu halten.' },
+      { question: 'Sind Anhänge in allen PDF-Viewern sichtbar?', answer: 'Die meisten professionellen PDF-Viewer (wie Adobe Acrobat) unterstützen Anhänge. Einige einfache Browser-Viewer zeigen sie jedoch möglicherweise nicht an.' },
+    ],
+  },
+
+  'add-blank-page': {
+    title: 'Leere Seite hinzufügen',
+    metaDescription: 'Leere Seiten an beliebiger Stelle in Ihr PDF einfügen. Fügen Sie Platz für Notizen oder Trennblätter hinzu.',
+    keywords: ['leere seite zu pdf hinzufügen', 'pdf seite einfügen', 'trennblatt in pdf', 'leere pdf seite'],
+    description: `
+      <p>Leere Seite hinzufügen ermöglicht es Ihnen, leere Seiten an jeder gewünschten Position in Ihr PDF-Dokument einzufügen. Ideal zum Erstellen von Trennblättern oder Platz für handschriftliche Notizen.</p>
+      <p>Wählen Sie die Position (vor oder nach einer bestimmten Seite) und die Anzahl der einzufügenden Seiten. Sie können auch die Seitengröße an den Rest des Dokuments anpassen.</p>
+      <p>Die gesamte Bearbeitung erfolgt direkt in Ihrem Browser, was Schnelligkeit und Privatsphäre garantiert.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDF hochladen', description: 'Laden Sie das PDF hoch, dem Sie Seiten hinzufügen möchten.' },
+      { step: 2, title: 'Position wählen', description: 'Bestimmen Sie, wo im Dokument die neuen Seiten eingefügt werden sollen.' },
+      { step: 3, title: 'Seite hinzufügen und Speichern', description: 'Fügen Sie die Seiten hinzu und laden Sie das neue Dokument herunter.' },
+    ],
+    useCases: [
+      { title: 'Trennblätter', description: 'Fügen Sie zwischen verschiedenen Abschnitten eines Berichts leere Seiten als Trenner ein.', icon: 'layout' },
+      { title: 'Platz für Notizen', description: 'Fügen Sie am Ende eines Dokuments leere Seiten für Notizen oder Skizzen hinzu.', icon: 'edit-3' },
+      { title: 'Layout-Korrektur', description: 'Korrigieren Sie die Seitenzahl für den doppelseitigen Druck durch Einfügen von Leerseiten.', icon: 'columns' },
+    ],
+    faq: [
+      { question: 'Welche Größe haben die neuen Seiten?', answer: 'Standardmäßig haben die neuen Seiten die gleiche Größe wie die erste Seite Ihres Originaldokuments.' },
+      { question: 'Kann ich mehr als eine Seite hinzufügen?', answer: 'Ja, Sie können beliebig viele leere Seiten an verschiedenen Stellen im Dokument einfügen.' },
+      { question: 'Werden die Seitenzahlen aktualisiert?', answer: 'Ja, die Gesamtzahl der Seiten wird automatisch angepasst, und vorhandene Seitenzahlen verschieben sich entsprechend.' },
+    ],
+  },
+  'rotate-pdf': {
+    title: 'PDF drehen',
+    metaDescription: 'PDF-Seiten drehen. Drehen Sie Seiten um 90, 180 oder 270 Grad.',
+    keywords: ['pdf drehen', 'pdf seiten drehen', 'pdf rotation', 'ausrichtung korrigieren'],
+    description: `
+      <p>PDF drehen dreht Seiten in Ihrem Dokument um 90, 180 oder 270 Grad. Korrigieren Sie falsch ausgerichtete Scans, drehen Sie Querformat-Seiten oder passen Sie die Seitenausrichtung für die Ansicht an.</p>
+      <p>Drehen Sie alle Seiten einheitlich oder wählen Sie spezifische Seiten aus, um sie einzeln zu drehen. Das Tool bewahrt alle Inhalte und Formatierungen.</p>
+      <p>Die gesamte Verarbeitung erfolgt in Ihrem Browser, sodass Ihre Dokumente privat bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDF hochladen', description: 'Ziehen Sie Ihre PDF-Datei per Drag & Drop oder klicken Sie, um sie auszuwählen.' },
+      { step: 2, title: 'Drehung wählen', description: 'Wählen Sie den Drehwinkel und welche Seiten gedreht werden sollen.' },
+      { step: 3, title: 'Drehen und Herunterladen', description: 'Klicken Sie auf "Drehen", um die Änderungen anzuwenden und herunterzuladen.' },
+    ],
+    useCases: [
+      { title: 'Scans korrigieren', description: 'Korrigieren Sie die Ausrichtung von gescannten Dokumenten.', icon: 'rotate-cw' },
+      { title: 'Querformat-Seiten', description: 'Drehen Sie Querformat-Seiten für eine korrekte Ansicht.', icon: 'monitor' },
+      { title: 'Gemischte Ausrichtung', description: 'Vereinheitlichen Sie die Seitenausrichtung in gemischten Dokumenten.', icon: 'layout' },
+    ],
+    faq: [
+      { question: 'Kann ich verschiedene Seiten unterschiedlich drehen?', answer: 'Ja, Sie können verschiedene Drehungen auf verschiedene Seiten anwenden.' },
+      { question: 'Beeinflusst das Drehen die Druckqualität?', answer: 'Nein, das Drehen bewahrt die gesamte Inhaltsqualität.' },
+      { question: 'Kann ich um benutzerdefinierte Winkel drehen?', answer: 'Die Drehung ist auf 90-Grad-Schritte (90, 180, 270) beschränkt.' },
+    ],
+  },
+
+  'combine-single-page': {
+    title: 'Zu einer Seite kombinieren',
+    metaDescription: 'PDF-Seiten zu einer fortlaufenden Seite zusammenfügen. Erstellen Sie scrollbare Einzelseiten-Dokumente.',
+    keywords: ['seiten kombinieren', 'einzelseiten pdf', 'seiten zusammenfügen', 'fortlaufendes scrollen'],
+    description: `
+      <p>Zu einer Seite kombinieren fügt alle PDF-Seiten zu einer einzigen fortlaufenden Seite zusammen. Erstellen Sie scrollbare Dokumente, die perfekt für die Webansicht oder fortlaufendes Lesen geeignet sind.</p>
+      <p>Seiten werden vertikal mit anpassbarem Abstand verbunden. Das Ergebnis ist eine einzige lange Seite, die alle Inhalte enthält.</p>
+      <p>Die gesamte Verarbeitung erfolgt in Ihrem Browser, sodass Ihre Dokumente privat bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDF hochladen', description: 'Ziehen Sie Ihre PDF-Datei per Drag & Drop oder klicken Sie, um sie auszuwählen.' },
+      { step: 2, title: 'Abstand festlegen', description: 'Wählen Sie den Abstand zwischen den zusammengefügten Seiten.' },
+      { step: 3, title: 'Kombinieren und Herunterladen', description: 'Klicken Sie auf "Kombinieren", um das Einzelseiten-PDF zu erstellen.' },
+    ],
+    useCases: [
+      { title: 'Web-Dokumente', description: 'Erstellen Sie scrollbare PDFs für die Einbettung im Web.', icon: 'globe' },
+      { title: 'Fortlaufendes Lesen', description: 'Konvertieren Sie paginierte Dokumente in fortlaufendes Scrollen.', icon: 'scroll' },
+      { title: 'Lange Inhalte', description: 'Kombinieren Sie Seiten für ein nahtloses Lesen langer Texte.', icon: 'file-text' },
+    ],
+    faq: [
+      { question: 'Gibt es ein Seitenlimit?', answer: 'Sehr lange Dokumente können durch den Arbeitsspeicher des Browsers begrenzt sein.' },
+      { question: 'Kann ich Trenner zwischen den Seiten hinzufügen?', answer: 'Ja, Sie können Abstände oder Linien zwischen den Originalseiten hinzufügen.' },
+      { question: 'Funktioniert dies für den Druck?', answer: 'Das Ergebnis ist am besten für die Bildschirmanzeige geeignet; verwenden Sie N-Up für Drucklayouts.' },
+    ],
+  },
+
+  'view-metadata': {
+    title: 'Metadaten anzeigen',
+    metaDescription: 'PDF-Dokumenteigenschaften anzeigen. Sehen Sie Autor, Titel, Daten und andere Metadaten.',
+    keywords: ['pdf metadaten', 'dokumenteigenschaften', 'pdf info', 'pdf details anzeigen'],
+    description: `
+      <p>Metadaten anzeigen zeigt alle Dokumenteigenschaften und Metadaten aus Ihren PDF-Dateien an. Sehen Sie Autor, Titel, Betreff, Schlüsselwörter, Erstellungsdatum, Änderungsdatum und mehr.</p>
+      <p>Nützlich für die Überprüfung von Dokumenten, das Prüfen von Dateiinformationen oder das Verifizieren der Dokumentauthentizität.</p>
+      <p>Alle Anzeigen erfolgen in Ihrem Browser, sodass Ihre Dokumente privat bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDF hochladen', description: 'Ziehen Sie Ihre PDF-Datei per Drag & Drop oder klicken Sie, um sie auszuwählen.' },
+      { step: 2, title: 'Eigenschaften anzeigen', description: 'Sehen Sie alle Metadaten in einem organisierten Format angezeigt.' },
+      { step: 3, title: 'Exportieren falls nötig', description: 'Exportieren Sie Metadaten optional als JSON.' },
+    ],
+    useCases: [
+      { title: 'Dokumentenprüfung', description: 'Überprüfen Sie Dokumenteigenschaften auf Compliance.', icon: 'clipboard-check' },
+      { title: 'Authentizität verifizieren', description: 'Prüfen Sie Erstellungsdaten und Autoreninformationen.', icon: 'shield' },
+      { title: 'Dateiinformationen', description: 'Erhalten Sie detaillierte Informationen über PDF-Dateien.', icon: 'info' },
+    ],
+    faq: [
+      { question: 'Welche Metadaten werden gezeigt?', answer: 'Titel, Autor, Betreff, Schlüsselwörter, Ersteller, Produzent, Daten und PDF-Version.' },
+      { question: 'Kann ich hier Metadaten bearbeiten?', answer: 'Verwenden Sie das Tool "Metadaten bearbeiten", um Dokumenteigenschaften zu ändern.' },
+      { question: 'Sind XMP-Metadaten enthalten?', answer: 'Ja, sowohl Standard- als auch XMP-Metadaten werden angezeigt.' },
+    ],
+  },
+
+  'add-metadata': {
+    title: 'Metadaten hinzufügen',
+    metaDescription: 'Metadaten zu PDF-Dokumenten hinzufügen. Fügen Sie Titel, Autor, Betreff, Schlüsselwörter und mehr hinzu.',
+    keywords: ['metadaten hinzufügen', 'pdf metadaten', 'dokumenteigenschaften', 'pdf info', 'pdf details hinzufügen'],
+    description: `
+      <p>Metadaten hinzufügen ermöglicht es Ihnen, Dokumenteigenschaften und Metadaten in Ihren PDF-Dateien hinzuzufügen oder zu aktualisieren. Fügen Sie Titel, Autor, Betreff, Schlüsselwörter, Erstellungsdatum, Änderungsdatum und mehr hinzu.</p>
+      <p>Nützlich zum Organisieren von Dokumenten, zum Hinzufügen von Urheberrechten oder zur Vorbereitung von Dateien für die Verteilung.</p>
+      <p>Die gesamte Verarbeitung erfolgt in Ihrem Browser, sodass Ihre Dokumente privat bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDF hochladen', description: 'Ziehen Sie Ihre PDF-Datei per Drag & Drop oder klicken Sie, um sie auszuwählen.' },
+      { step: 2, title: 'Metadaten hinzufügen', description: 'Geben Sie die Metadatenfelder ein, die Sie hinzufügen oder aktualisieren möchten.' },
+      { step: 3, title: 'Speichern und Herunterladen', description: 'Klicken Sie auf "Speichern", um die Änderungen anzuwenden und herunterzuladen.' },
+    ],
+    useCases: [
+      { title: 'Dokumentenorganisation', description: 'Fügen Sie Metadaten für eine bessere Dateiorganisation hinzu.', icon: 'folder' },
+      { title: 'Urheberrecht', description: 'Fügen Sie Autoren- und Erstellerinformationen hinzu.', icon: 'user' },
+      { title: 'Suchbarkeit', description: 'Fügen Sie Schlüsselwörter hinzu, um die Suchbarkeit von Dokumenten zu verbessern.', icon: 'search' },
+    ],
+    faq: [
+      { question: 'Welche Felder kann ich hinzufügen?', answer: 'Titel, Autor, Betreff, Schlüsselwörter, Ersteller und Produzentenfelder.' },
+      { question: 'Werden vorhandene Metadaten überschrieben?', answer: 'Ja, wenn Sie neue Werte für vorhandene Felder angeben.' },
+      { question: 'Werden XMP-Metadaten unterstützt?', answer: 'Ja, sowohl Standard- als auch XMP-Metadaten werden aktualisiert.' },
+    ],
+  },
+
+  'pdf-to-zip': {
+    title: 'PDFs zu ZIP',
+    metaDescription: 'Mehrere PDFs in ein ZIP-Archiv packen. Komprimieren und bündeln Sie PDF-Dateien.',
+    keywords: ['pdf zu zip', 'pdfs komprimieren', 'pdfs bündeln', 'pdfs archivieren'],
+    description: `
+      <p>PDFs zu ZIP packt mehrere PDF-Dateien in ein einziges ZIP-Archiv. Komprimieren und bündeln Sie Ihre PDFs für einfacheres Teilen, Speichern oder Sichern.</p>
+      <p>Das Tool erstellt ein komprimiertes Archiv, das alle Ihre PDF-Dateien enthält, was die Gesamtgröße reduziert und die Dateiverwaltung vereinfacht.</p>
+      <p>Die gesamte Verarbeitung erfolgt in Ihrem Browser, sodass Ihre Dateien privat bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDFs hochladen', description: 'Ziehen Sie mehrere PDF-Dateien per Drag & Drop oder klicken Sie, um sie auszuwählen.' },
+      { step: 2, title: 'Archiv konfigurieren', description: 'Legen Sie optional den Archivnamen und die Komprimierungsstufe fest.' },
+      { step: 3, title: 'Erstellen und Herunterladen', description: 'Klicken Sie auf "Erstellen", um das ZIP-Archiv zu generieren.' },
+    ],
+    useCases: [
+      { title: 'Dateien teilen', description: 'Bündeln Sie mehrere PDFs für ein einfacheres Teilen.', icon: 'share-2' },
+      { title: 'Sicherung erstellen', description: 'Erstellen Sie komprimierte Sicherungen von PDF-Sammlungen.', icon: 'archive' },
+      { title: 'E-Mail-Anhänge', description: 'Kombinieren Sie PDFs in einen einzigen Anhang für E-Mails.', icon: 'mail' },
+    ],
+    faq: [
+      { question: 'Wie viel Komprimierung wird angewendet?', answer: 'Die ZIP-Komprimierung reduziert die Gesamtgröße normalerweise um 10-30%.' },
+      { question: 'Gibt es ein Datei-Limit?', answer: 'Sie können bis zu 100 PDFs in ein einziges Archiv aufnehmen.' },
+      { question: 'Kann ich ein Passwort festlegen?', answer: 'Die Erstellung passwortgeschützter ZIP-Archive wird derzeit nicht unterstützt.' },
+    ],
+  },
+
+  'posterize-pdf': {
+    title: 'PDF posterisieren',
+    metaDescription: 'Große PDF-Seiten in druckbare Kacheln aufteilen. Erstellen Sie Poster aus PDF-Seiten.',
+    keywords: ['pdf posterisieren', 'pdf kacheln', 'großformatdruck', 'pdf poster'],
+    description: `
+      <p>PDF posterisieren teilt große PDF-Seiten in kleinere Kacheln auf, die auf Standardpapier gedruckt und zu Postern zusammengesetzt werden können. Perfekt für den Druck großer Diagramme, Karten oder Kunstwerke.</p>
+      <p>Konfigurieren Sie die Rastergröße und Überlappung für eine einfache Montage. Das Tool berechnet automatisch die Kachelabmessungen für Ihre Zielausgabegröße.</p>
+      <p>Die gesamte Verarbeitung erfolgt in Ihrem Browser, sodass Ihre Dokumente privat bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDF hochladen', description: 'Ziehen Sie Ihr großformatiges PDF per Drag & Drop oder klicken Sie, um es auszuwählen.' },
+      { step: 2, title: 'Kacheln konfigurieren', description: 'Legen Sie Rastergröße, Überlappung und Ausgabepapiergröße fest.' },
+      { step: 3, title: 'Erstellen und Herunterladen', description: 'Klicken Sie auf "Erstellen", um druckbare Kacheln zu generieren.' },
+    ],
+    useCases: [
+      { title: 'Posterdruck', description: 'Drucken Sie große Poster auf Standardpapier.', icon: 'maximize-2' },
+      { title: 'Kartendruck', description: 'Drucken Sie große Karten in Abschnitten für die Montage.', icon: 'map' },
+      { title: 'Kunstwerkreproduktion', description: 'Erstellen Sie große Drucke aus PDF-Kunstwerken.', icon: 'image' },
+    ],
+    faq: [
+      { question: 'Welche Überlappung sollte ich verwenden?', answer: 'Eine Überlappung von 10-20 mm wird für eine einfache Ausrichtung bei der Montage empfohlen.' },
+      { question: 'Kann ich Schnittmarken hinzufügen?', answer: 'Ja, Schnittmarken können hinzugefügt werden, um beim Schneiden und Ausrichten zu helfen.' },
+      { question: 'Welche Papiergrößen werden unterstützt?', answer: 'A4, Letter, A3 und benutzerdefinierte Größen werden unterstützt.' },
+    ],
+  },
+
+
+  'page-dimensions': {
+    title: 'Seitenabmessungen',
+    metaDescription: 'PDF-Seitengrößen analysieren. Sehen Sie die Abmessungen aller Seiten in Ihrem Dokument.',
+    keywords: ['pdf seitengröße', 'seitenabmessungen', 'pdf messungen', 'dokumentgröße'],
+    description: `
+      <p>Seitenabmessungen analysiert und zeigt die Größe jeder Seite in Ihrem PDF-Dokument an. Zeigen Sie Abmessungen in verschiedenen Einheiten an (Zoll, mm, Punkte) und identifizieren Sie Seiten mit nicht standardmäßigen Größen.</p>
+      <p>Nützlich für die Druckvorbereitung, Dokumentenanalyse oder die Identifizierung inkonsistenter Seitengrößen.</p>
+      <p>Die gesamte Analyse erfolgt in Ihrem Browser, sodass Ihre Dokumente privat bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDF hochladen', description: 'Ziehen Sie Ihre PDF-Datei per Drag & Drop oder klicken Sie, um sie auszuwählen.' },
+      { step: 2, title: 'Abmessungen anzeigen', description: 'Sehen Sie die Seitengrößen für alle Seiten angezeigt.' },
+      { step: 3, title: 'Bericht exportieren', description: 'Exportieren Sie Abmessungen optional als JSON.' },
+    ],
+    useCases: [
+      { title: 'Druckplanung', description: 'Überprüfen Sie Seitengrößen vor dem Drucken.', icon: 'printer' },
+      { title: 'Dokumentenanalyse', description: 'Identifizieren Sie Seiten mit ungewöhnlichen Abmessungen.', icon: 'search' },
+      { title: 'Qualitätskontrolle', description: 'Verifizieren Sie, dass Seitengrößen den Spezifikationen entsprechen.', icon: 'check-circle' },
+    ],
+    faq: [
+      { question: 'Welche Einheiten sind verfügbar?', answer: 'Zoll, Millimeter, Zentimeter und Punkte.' },
+      { question: 'Wird die Ausrichtung angezeigt?', answer: 'Ja, Hoch- oder Querformat wird angegeben.' },
+      { question: 'Kann ich inkonsistente Größen korrigieren?', answer: 'Verwenden Sie das Tool "Seitengröße korrigieren", um Abmessungen zu standardisieren.' },
+    ],
+  },
+
+  'remove-restrictions': {
+    title: 'Einschränkungen aufheben',
+    metaDescription: 'PDF-Einschränkungen entfernen. Schalten Sie Druck-, Kopier- und Bearbeitungsrechte frei.',
+    keywords: ['pdf einschränkungen aufheben', 'pdf entsperren', 'pdf berechtigungen', 'pdf einschränkungen entfernen'],
+    description: `
+      <p>Einschränkungen aufheben entsperrt PDFs, die über Berechtigungseinschränkungen verfügen, die das Drucken, Kopieren oder Bearbeiten verhindern. Dieses Tool entfernt die Passworteinschränkungen des Eigentümers, während der Dokumentinhalt erhalten bleibt.</p>
+      <p>Hinweis: Dieses Tool kann keine Benutzerpasswörter entfernen, die das Öffnen des Dokuments verhindern. Verwenden Sie "PDF entschlüsseln" für passwortgeschützte Dateien.</p>
+      <p>Die gesamte Verarbeitung erfolgt in Ihrem Browser, sodass Ihre Dokumente privat bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'Eingeschränktes PDF hochladen', description: 'Wählen Sie das eingeschränkte PDF-Dokument aus.' },
+      { step: 2, title: 'Einschränkungen entfernen', description: 'Klicken Sie auf "Aufheben", um das Dokument zu entsperren.' },
+      { step: 3, title: 'Herunterladen', description: 'Laden Sie das uneingeschränkte PDF herunter.' },
+    ],
+    useCases: [
+      { title: 'Drucken ermöglichen', description: 'Entsperren Sie PDFs, die das Drucken verhindern.', icon: 'printer' },
+      { title: 'Kopieren ermöglichen', description: 'Erlauben Sie die Textauswahl und das Kopieren.', icon: 'copy' },
+      { title: 'Bearbeitung ermöglichen', description: 'Entfernen Sie Einschränkungen für die Dokumentbearbeitung.', icon: 'edit' },
+    ],
+    faq: [
+      { question: 'Ist das legal?', answer: 'Das Entfernen von Einschränkungen von Dokumenten, die Sie besitzen oder an denen Sie Rechte haben, ist allgemein legal.' },
+      { question: 'Kann es Öffnen-Passwörter entfernen?', answer: 'Nein, verwenden Sie "PDF entschlüsseln" für passwortgeschützte Dokumente.' },
+      { question: 'Wird der Inhalt beeinflusst?', answer: 'Nein, nur die Einschränkungen werden entfernt; der Inhalt bleibt unverändert.' },
+    ],
+  },
+
+  'sanitize-pdf': {
+    title: 'PDF bereinigen',
+    metaDescription: 'Versteckte Daten aus PDFs entfernen. Bereinigen Sie Metadaten, Skripte und sensible Informationen.',
+    keywords: ['pdf bereinigen', 'pdf säubern', 'versteckte daten entfernen', 'pdf datenschutz'],
+    description: `
+      <p>PDF bereinigen entfernt versteckte Daten und potenziell sensible Informationen aus Ihren Dokumenten. Entfernen Sie Metadaten, eingebettete Skripte, Anhänge, Kommentare und andere versteckte Inhalte.</p>
+      <p>Unverzichtbar für die Vorbereitung von Dokumenten für die öffentliche Verbreitung oder wenn Datenschutz ein Anliegen ist.</p>
+      <p>Die gesamte Bereinigung erfolgt in Ihrem Browser, sodass Ihre Dokumente privat bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDF hochladen', description: 'Ziehen Sie Ihre PDF-Datei per Drag & Drop oder klicken Sie, um sie auszuwählen.' },
+      { step: 2, title: 'Zu entfernende Daten wählen', description: 'Wählen Sie aus, welche Arten von versteckten Daten entfernt werden sollen.' },
+      { step: 3, title: 'Bereinigen und Herunterladen', description: 'Klicken Sie auf "Bereinigen", um das PDF zu säubern und herunterzuladen.' },
+    ],
+    useCases: [
+      { title: 'Öffentliche Veröffentlichung', description: 'Bereiten Sie Dokumente für die öffentliche Verteilung vor.', icon: 'globe' },
+      { title: 'Datenschutz', description: 'Entfernen Sie persönliche Informationen vor dem Teilen.', icon: 'shield' },
+      { title: 'Compliance', description: 'Erfüllen Sie Sicherheitsanforderungen für den Dokumentenumgang.', icon: 'check-circle' },
+    ],
+    faq: [
+      { question: 'Welche versteckten Daten werden entfernt?', answer: 'Metadaten, Skripte, Anhänge, Kommentare, Formulardaten und versteckte Ebenen.' },
+      { question: 'Wird der sichtbare Inhalt beeinflusst?', answer: 'Nein, nur versteckte Daten werden entfernt; der sichtbare Inhalt bleibt erhalten.' },
+      { question: 'Ist dies rückgängig zu machen?', answer: 'Nein, entfernte Daten können nicht wiederhergestellt werden. Behalten Sie ein Backup des Originals.' },
+    ],
+  },
+
+  'flatten-pdf': {
+    title: 'PDF flachrechnen',
+    metaDescription: 'PDF-Formulare und Annotationen flachrechnen. Machen Sie Inhalte nicht mehr bearbeitbar.',
+    keywords: ['pdf flachrechnen', 'formular flachrechnen', 'annotationen festschreiben', 'nicht bearbeitbares pdf'],
+    description: `
+      <p>PDF flachrechnen konvertiert interaktive Elemente wie Formularfelder und Annotationen in statischen Inhalt. Das flachgerechnete PDF sieht gleich aus, kann aber nicht mehr bearbeitet werden.</p>
+      <p>Perfekt zum Finalisieren ausgefüllter Formulare, zum dauerhaften Speichern von Anmerkungen oder zum Erstellen nicht bearbeitbarer Dokumentversionen.</p>
+      <p>Die gesamte Verarbeitung erfolgt in Ihrem Browser, sodass Ihre Dokumente privat bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDF hochladen', description: 'Laden Sie Ihr PDF mit Formularen oder Annotationen hoch.' },
+      { step: 2, title: 'Was flachgerechnet werden soll', description: 'Wählen Sie, ob Formulare, Annotationen oder beides flachgerechnet werden sollen.' },
+      { step: 3, title: 'Flachrechnen und Herunterladen', description: 'Klicken Sie auf "Flachrechnen", um das statische PDF zu erstellen.' },
+    ],
+    useCases: [
+      { title: 'Formulare finalisieren', description: 'Sperren Sie ausgefüllte Formulardaten, um Änderungen zu verhindern.', icon: 'lock' },
+      { title: 'Anmerkungen dauerhaft machen', description: 'Machen Sie Annotationen permanent im Dokument.', icon: 'check-circle' },
+      { title: 'Dokumente archivieren', description: 'Erstellen Sie nicht bearbeitbare Versionen für die Archivierung.', icon: 'archive' },
+    ],
+    faq: [
+      { question: 'Ist das Flachrechnen rückgängig zu machen?', answer: 'Nein, das Flachrechnen ist permanent. Behalten Sie ein Backup des Originals.' },
+      { question: 'Ändert sich das Aussehen?', answer: 'Nein, das Dokument sieht gleich aus, ist aber nicht mehr interaktiv.' },
+      { question: 'Reduziert es die Dateigröße?', answer: 'Manchmal, da interaktive Elemente in einfacheren Inhalt umgewandelt werden.' },
+    ],
+  },
+
+  'remove-metadata': {
+    title: 'Metadaten entfernen',
+    metaDescription: 'Metadaten aus PDF-Dateien löschen. Entfernen Sie Autor, Daten und Dokumenteigenschaften.',
+    keywords: ['pdf metadaten entfernen', 'metadaten löschen', 'pdf datenschutz', 'anonymes pdf'],
+    description: `
+      <p>Metadaten entfernen löscht alle Dokumenteigenschaften und Metadaten aus Ihren PDF-Dateien. Entfernen Sie Autorennamen, Erstellungsdaten, Software-Informationen und andere identifizierende Daten.</p>
+      <p>Unverzichtbar für den Datenschutz beim Teilen von Dokumenten oder wenn Metadaten sensible Informationen preisgeben könnten.</p>
+      <p>Die gesamte Verarbeitung erfolgt in Ihrem Browser, sodass Ihre Dokumente privat bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDF hochladen', description: 'Ziehen Sie Ihre PDF-Datei per Drag & Drop oder klicken Sie, um sie auszuwählen.' },
+      { step: 2, title: 'Metadaten entfernen', description: 'Klicken Sie auf "Entfernen", um alle Metadaten zu löschen.' },
+      { step: 3, title: 'Herunterladen', description: 'Laden Sie das metadatenfreie PDF herunter.' },
+    ],
+    useCases: [
+      { title: 'Datenschutz', description: 'Entfernen Sie persönliche Informationen vor dem Teilen.', icon: 'shield' },
+      { title: 'Anonyme Dokumente', description: 'Erstellen Sie Dokumente ohne Autorenzuordnung.', icon: 'user-x' },
+      { title: 'Saubere Verteilung', description: 'Verteilen Sie Dokumente ohne interne Metadaten.', icon: 'send' },
+    ],
+    faq: [
+      { question: 'Welche Metadaten werden entfernt?', answer: 'Autor, Titel, Betreff, Schlüsselwörter, Daten, Ersteller und Produzenteninformationen.' },
+      { question: 'Werden XMP-Metadaten entfernt?', answer: 'Ja, sowohl Standard- als auch XMP-Metadaten werden gelöscht.' },
+      { question: 'Wird der Inhalt beeinflusst?', answer: 'Nein, nur die Metadaten werden entfernt; der Dokumentinhalt bleibt unverändert.' },
+    ],
+  },
+
+  'change-permissions': {
+    title: 'Berechtigungen ändern',
+    metaDescription: 'PDF-Berechtigungen ändern. Steuern Sie den Zugriff auf Drucken, Kopieren und Bearbeiten.',
+    keywords: ['pdf berechtigungen', 'pdf zugriff ändern', 'pdf einschränken', 'pdf sicherheit'],
+    description: `
+      <p>Berechtigungen ändern modifiziert die Zugriffskontrollen für Ihre PDF-Dokumente. Aktivieren oder deaktivieren Sie Berechtigungen für Drucken, Kopieren, Bearbeiten und Kommentieren.</p>
+      <p>Legen Sie ein Eigentümerpasswort fest, um diese Einschränkungen durchzusetzen. Empfänger können das Dokument anzeigen, sind aber in ihren Aktionen eingeschränkt.</p>
+      <p>Die gesamte Verarbeitung erfolgt in Ihrem Browser, sodass Ihre Dokumente privat bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDF hochladen', description: 'Ziehen Sie Ihre PDF-Datei per Drag & Drop oder klicken Sie, um sie auszuwählen.' },
+      { step: 2, title: 'Berechtigungen festlegen', description: 'Aktivieren oder deaktivieren Sie Drucken, Kopieren, Bearbeiten und Kommentare.' },
+      { step: 3, title: 'Anwenden and Herunterladen', description: 'Laden Sie das eingeschränkte PDF mit Eigentümerpasswort herunter.' },
+    ],
+    useCases: [
+      { title: 'Kopieren verhindern', description: 'Deaktivieren Sie das Kopieren von Text, um Inhalte zu schützen.', icon: 'copy' },
+      { title: 'Drucken kontrollieren', description: 'Beschränken oder erlauben Sie das Drucken von Dokumenten.', icon: 'printer' },
+      { title: 'Bearbeitung einschränken', description: 'Verhindern Sie Änderungen am Dokument.', icon: 'edit-3' },
+    ],
+    faq: [
+      { question: 'Benötige ich ein Passwort?', answer: 'Ein Eigentümerpasswort ist erforderlich, um Berechtigungen durchzusetzen.' },
+      { question: 'Können Berechtigungen entfernt werden?', answer: 'Ja, mit dem Eigentümerpasswort oder dem Tool "Einschränkungen aufheben".' },
+      { question: 'Sind alle PDF-Reader kompatibel?', answer: 'Die meisten PDF-Reader respektieren Berechtigungen, aber einige erzwingen sie möglicherweise nicht.' },
+    ],
+  },
+
+  'ocg-manager': {
+    title: 'PDF Ebenen-Manager (OCG)',
+    metaDescription: 'PDF-Ebenen (Optional Content Groups) verwalten. Ebenen anzeigen, umschalten, hinzufügen, löschen und umbenennen.',
+    keywords: ['pdf ebenen', 'ocg manager', 'optional content groups', 'pdf ebenen sichtbarkeit', 'pdf ebenen verwalten'],
+    description: `
+      <p>Der PDF Ebenen-Manager ermöglicht es Ihnen, Optional Content Groups (OCG) in Ihren PDF-Dokumenten anzuzeigen und zu verwalten. OCG-Ebenen werden in technischen Zeichnungen, Karten und komplexen Dokumenten verwendet, um Inhalte in umschaltbare Ebenen zu organisieren.</p>
+      <p>Zeigen Sie alle Ebenen in Ihrem PDF an, schalten Sie deren Sichtbarkeit um, fügen Sie neue Ebenen hinzu, löschen Sie unerwünschte oder benennen Sie bestehende Ebenen um. Dieses Tool ist unverzichtbar für die Arbeit mit geschichteten PDFs wie Architekturplänen, CAD-Exporten und druckfertigen Dokumenten.</p>
+      <p>Die gesamte Verarbeitung erfolgt lokal in Ihrem Browser, sodass Ihre Dokumente privat und sicher bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDF hochladen', description: 'Laden Sie eine PDF-Datei hoch, die Ebenen (OCG) enthält oder der Sie Ebenen hinzufügen möchten.' },
+      { step: 2, title: 'Ebenen anzeigen', description: 'Das Tool listet automatisch alle im Dokument gefundenen Ebenen mit ihrem Sichtbarkeitsstatus auf.' },
+      { step: 3, title: 'Ebenen verwalten', description: 'Schalten Sie die Sichtbarkeit von Ebenen um, benennen Sie Ebenen um, fügen Sie neue hinzu oder löschen Sie unerwünschte Ebenen.' },
+      { step: 4, title: 'Speichern und Herunterladen', description: 'Laden Sie Ihr modifiziertes PDF mit den angewendeten Ebenenänderungen herunter.' },
+    ],
+    useCases: [
+      { title: 'Technische Zeichnungen', description: 'Verwalten Sie Ebenen in CAD-Exporten, um Maße, Anmerkungen oder verschiedene Ansichten ein-/auszublenden.', icon: 'ruler' },
+      { title: 'Kartenbearbeitung', description: 'Schalten Sie verschiedene Kartenebenen wie Topographie, Straßen und Beschriftungen für individuelle Kartenausdrucke um.', icon: 'map' },
+      { title: 'Druckvorbereitung', description: 'Bereiten Sie geschichtete PDFs für den Druck vor, indem Sie entsprechende Ebenen für verschiedene Versionen umschalten.', icon: 'printer' },
+    ],
+    faq: [
+      { question: 'Was sind PDF-Ebenen (OCG)?', answer: 'Optional Content Groups (OCG) sind Ebenen in einem PDF, die ein- oder ausgeblendet werden können. Sie werden häufig in CAD-Zeichnungen, Karten und komplexen Dokumenten verwendet.' },
+      { question: 'Warum zeigt mein PDF keine Ebenen an?', answer: 'Nicht alle PDFs enthalten Ebenen. Ebenen werden normalerweise während der PDF-Erstellung aus Designsoftware oder CAD-Anwendungen hinzugefügt.' },
+      { question: 'Beeinflussen Ebenenänderungen den Originalinhalt?', answer: 'Änderungen der Ebenensichtbarkeit beeinflussen nur, was angezeigt oder gedruckt wird. Der eigentliche Inhalt bleibt im Dokument erhalten.' },
+    ],
+  },
+
+  'pdf-reader': {
+    title: 'PDF Reader',
+    metaDescription: 'Kostenloser Online-PDF-Reader. PDFs direkt im Browser anzeigen, navigieren, zoomen, drehen und drucken.',
+    keywords: ['pdf reader', 'pdf viewer', 'pdf online ansehen', 'pdf lesen', 'pdf browser viewer'],
+    description: `
+      <p>Der PDF Reader ist ein voll ausgestatteter PDF-Viewer, mit dem Sie PDF-Dokumente direkt in Ihrem Browser lesen und navigieren können. Keine Softwareinstallation erforderlich - laden Sie einfach Ihr PDF hoch und beginnen Sie mit dem Lesen.</p>
+      <p>Navigieren Sie zwischen den Seiten, zoomen Sie hinein und heraus, drehen Sie die Ansicht und nutzen Sie den Vollbildmodus für ablenkungsfreies Lesen. Sie können Dokumente auch drucken oder für den Offline-Zugriff herunterladen.</p>
+      <p>Das gesamte Betrachten erfolgt lokal in Ihrem Browser. Ihre Dokumente werden niemals auf einen Server hochgeladen, was absolute Privatsphäre gewährleistet.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDF öffnen', description: 'Klicken Sie zum Hochladen oder ziehen Sie eine PDF-Datei per Drag & Drop, um sie im Reader zu öffnen.' },
+      { step: 2, title: 'Seiten navigieren', description: 'Verwenden Sie die Seitensteuerung, um zur vorherigen oder nächsten Seite zu gelangen oder zu einer bestimmten Seitenzahl zu springen.' },
+      { step: 3, title: 'Ansicht anpassen', description: 'Zoomen Sie hinein oder heraus, drehen Sie die Ansicht oder wechseln Sie in den Vollbildmodus für komfortables Lesen.' },
+      { step: 4, title: 'Drucken oder Herunterladen', description: 'Drucken Sie das Dokument aus oder laden Sie es für den Offline-Zugriff herunter, wenn benötigt.' },
+    ],
+    useCases: [
+      { title: 'Dokumentenprüfung', description: 'Prüfen Sie PDF-Dokumente schnell ohne Installation von Software.', icon: 'book-open' },
+      { title: 'Mobiles Lesen', description: 'Lesen Sie PDF-Dokumente auf jedem Gerät mit einem Webbrowser.', icon: 'smartphone' },
+      { title: 'Schnellvorschau', description: 'Vorschau von PDFs, bevor Sie sich für den Download oder Druck entscheiden.', icon: 'eye' },
+    ],
+    faq: [
+      { question: 'Ist mein Dokument sicher?', answer: 'Ja, Ihr Dokument wird vollständig in Ihrem Browser verarbeitet und niemals auf einen Server hochgeladen.' },
+      { question: 'Kann ich das PDF kommentieren oder bearbeiten?', answer: 'Dieses Tool ist nur zum Betrachten gedacht. Verwenden Sie unsere Tools "PDF unterzeichnen" oder "PDF annotieren" zur Bearbeitung.' },
+      { question: 'Funktioniert es auf mobilen Geräten?', answer: 'Ja, der PDF Reader funktioniert auf allen Geräten mit einem modernen Webbrowser.' },
+    ],
+  },
+
+  'pdf-workflow': {
+    title: 'PDF Workflow',
+    metaDescription: 'Automatisierte PDF-Workflows erstellen. Komplexe PDF-Verarbeitungspipelinen im Browser erstellen, speichern und ausführen.',
+    keywords: ['pdf workflow', 'automatisiertes pdf', 'pdf pipeline', 'pdf automatisierung', 'batch pdf verarbeitung'],
+    description: `
+      <p>PDF Workflow ermöglicht es Ihnen, benutzerdefinierte, automatisierte Verarbeitungspipelinen für Ihre PDF-Dokumente zu erstellen. Anstatt mehrere Schritte manuell durchzuführen, können Sie einen visuellen Workflow erstellen, der Zusammenfügen, Aufteilen, Komprimieren und mehr in einer einzigen Ausführung kombiniert.</p>
+      <p>Erstellen Sie Ihren Workflow mit unserem intuitiven Drag-and-Drop-Builder, speichern Sie ihn für die zukünftige Verwendung und verarbeiten Sie hunderte von Dokumenten konsistent und schnell. Egal, ob Sie monatliche Berichte vorbereiten oder einen Stapel Rechnungen verarbeiten müssen, PDF Workflow rationalisiert Ihre Aufgaben.</p>
+      <p>Die gesamte Verarbeitung erfolgt direkt in Ihrem Browser, sodass Ihre Dokumente während der gesamten Workflow-Ausführung privat bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'Workflow-Builder öffnen', description: 'Greifen Sie auf den visuellen Builder zu, um mit der Erstellung Ihrer PDF-Verarbeitungspipeline zu beginnen.' },
+      { step: 2, title: 'Tools hinzufügen und verbinden', description: 'Wählen Sie die benötigten Tools aus (z. B. Zusammenfügen, Komprimieren, Wasserzeichen) und verbinden Sie diese in der gewünschten Reihenfolge.' },
+      { step: 3, title: 'Einstellungen konfigurieren', description: 'Legen Sie Parameter für jedes Tool in der Pipeline fest, wie z. B. Komprimierungsstufe oder Wasserzeichentext.' },
+      { step: 4, title: 'Ausführen und Speichern', description: 'Führen Sie Ihren Workflow mit Ihren Dokumenten aus und speichern Sie die Vorlage für die zukünftige Verwendung.' },
+    ],
+    useCases: [
+      { title: 'Berichtsautomatisierung', description: 'Automatisieren Sie die Zusammenstellung, das Branding und die Optimierung von monatlichen Finanzberichten.', icon: 'file-bar-chart' },
+      { title: 'Stapeloptimierung', description: 'Komprimieren und linearisieren Sie ganze Archive von PDF-Dokumenten für die Web-Distribution.', icon: 'archive' },
+      { title: 'Konsistentes Branding', description: 'Verwenden Sie Wasserzeichen, Kopf- und Fußzeilen konsistent für alle Unternehmensdokumente.', icon: 'shield-check' },
+    ],
+    faq: [
+      { question: 'Gibt es ein Limit für Workflow-Schritte?', answer: 'Sie können bis zu 20 Verarbeitungsschritte zu einer einzigen Workflow-Pipeline hinzufügen.' },
+      { question: 'Kann ich meine Workflows speichern?', answer: 'Ja, Workflows können als Vorlagen in Ihrem Browser für wiederkehrende Aufgaben gespeichert werden.' },
+      { question: 'Bleiben meine Daten privat?', answer: 'Absolut. Die gesamte Verarbeitung erfolgt lokal in Ihrem Browser, und es verlassen keine Dateien Ihr Gerät.' },
+    ],
+  },
+
+  'html-to-pdf': {
+    title: 'HTML zu PDF',
+    metaDescription: 'HTML-Dateien und rohen HTML-Code in professionelle PDF-Dokumente konvertieren. Clientseitige Konvertierung gewährleistet absolute Privatsphäre.',
+    keywords: ['html zu pdf', 'html konvertieren', 'webseite zu pdf', 'html konverter', 'code zu pdf'],
+    description: `
+      <p>HTML zu PDF konvertiert Ihre HTML-Dateien oder rohen HTML-Code in hochwertige PDF-Dokumente. Egal, ob Sie eine HTML-Datei von Ihrem Computer haben oder HTML-Code direkt schreiben möchten, dieses Tool erstellt sofort professionelle PDFs.</p>
+      <p>Funktionen umfassen Live-Vorschau, mehrere Seitengrößen (A4, Letter, Legal), Hoch- und Querformat-Ausrichtung sowie anpassbare Qualitätseinstellungen. Perfekt zum Konvertieren von Webseiten, Berichten, Rechnungen oder jeglichem HTML-Inhalt.</p>
+      <p>Die gesamte Konvertierung erfolgt vollständig in Ihrem Browser mit fortschrittlicher Rendering-Technologie. Ihr HTML verlässt niemals Ihr Gerät, was absolute Privatsphäre und Sicherheit gewährleistet.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'Eingabemodus wählen', description: 'Wählen Sie, ob Sie HTML-Code direkt schreiben oder eine HTML-Datei von Ihrem Gerät hochladen möchten.' },
+      { step: 2, title: 'HTML eingeben oder hochladen', description: 'Schreiben Sie Ihren HTML-Code im Editor mit Live-Vorschau oder laden Sie eine vorhandene .html-Datei hoch.' },
+      { step: 3, title: 'Optionen konfigurieren', description: 'Wählen Sie Seitengröße (A4, Letter, Legal), Ausrichtung (Hoch-/Querformat) und Qualitätsstufe.' },
+      { step: 4, title: 'Konvertieren und Herunterladen', description: 'Klicken Sie auf "In PDF konvertieren", um Ihr Dokument zu generieren und das Ergebnis herunterzuladen.' },
+    ],
+    useCases: [
+      { title: 'Webseiten-Archivierung', description: 'Konvertieren Sie Webseiten und HTML-Inhalte in PDF für die Offline-Speicherung und das Teilen.', icon: 'globe' },
+      { title: 'Berichtserstellung', description: 'Erstellen Sie professionelle PDF-Berichte aus HTML-Vorlagen mit individuellem Styling.', icon: 'file-text' },
+      { title: 'Rechnungserstellung', description: 'Konvertieren Sie HTML-Rechnungen und Quittungen in das PDF-Format für Kunden.', icon: 'receipt' },
+    ],
+    faq: [
+      { question: 'Unterstützt es CSS-Styling?', answer: 'Ja, volles CSS-Styling wird unterstützt, einschließlich Farben, Schriftarten, Layouts, Tabellen und Farbverläufe.' },
+      { question: 'Bleibt mein HTML-Code privat?', answer: 'Absolut. Die gesamte Konvertierung erfolgt in Ihrem Browser. Ihr HTML verlässt niemals Ihr Gerät.' },
+      { question: 'Kann ich Bilder in mein HTML einbinden?', answer: 'Ja, eingebettete Bilder (base64) und Inline-Styles werden vollständig unterstützt.' },
+    ],
+  },
+
+  'pdf-to-html': {
+    title: 'PDF zu HTML',
+    metaDescription: 'PDF-Dokumente in sauberen, semantischen HTML-Code konvertieren. Layout und Styling beibehalten.',
+    keywords: ['pdf zu html', 'pdf in html konvertieren', 'pdf konverter', 'pdf zu code', 'html aus pdf extrahieren'],
+    description: `
+      <p>PDF zu HTML konvertiert Ihre PDF-Dokumente in sauberen, semantischen HTML-Code, den Sie auf Webseiten oder in anderen Anwendungen verwenden können. Das Tool extrahiert Text und Struktur, während das ursprüngliche Layout so weit wie möglich erhalten bleibt.</p>
+      <p>Wählen Sie aus drei Ausgabemodi: Gestylt (bewahrt das visuelle Layout), Strukturiert (semantisches HTML mit Grundstruktur) oder Einfach (roher Inhalt). Sie können auch CSS-Styles einbinden und wählen, ob der Inhalt in ein vollständiges HTML-Dokument eingebettet werden soll.</p>
+      <p>Die gesamte Extraktion erfolgt vollständig in Ihrem Browser mit fortschrittlicher PDF-Parsing-Technologie. Ihre Dokumente bleiben vollkommen privat und sicher.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDF hochladen', description: 'Ziehen Sie Ihre PDF-Datei per Drag & Drop oder klicken Sie zum Hochladen des Dokuments, das Sie konvertieren möchten.' },
+      { step: 2, title: 'Ausgabestil wählen', description: 'Wählen Sie "Gestylt" für visuelle Treue, "Strukturiert" für saubere Semantik oder "Einfach" für rohen Text.' },
+      { step: 3, title: 'Optionen konfigurieren', description: 'Schalten Sie Optionen wie "Layout erhalten", "Seitenumbrüche einschließen" und "CSS-Styles einschließen" um.' },
+      { step: 4, title: 'Konvertieren und Herunterladen', description: 'Klicken Sie auf "Konvertieren", um den HTML-Code zu generieren, und laden Sie dann die Datei herunter oder kopieren Sie den Code.' },
+    ],
+    useCases: [
+      { title: 'Extraktion von Webinhalten', description: 'Extrahieren Sie Inhalte aus PDF-Berichten oder Artikeln zur Veröffentlichung auf Webseiten.', icon: 'layout' },
+      { title: 'Dokumentenmigration', description: 'Konvertieren Sie alte PDF-Dokumentationen in ein modernes, durchsuchbares HTML-Format.', icon: 'database' },
+      { title: 'E-Book-Erstellung', description: 'Konvertieren Sie PDF-Bücher in fließendes HTML für die EPUB-Erstellung oder Lese-Apps.', icon: 'book' },
+    ],
+    faq: [
+      { question: 'Ist das HTML responsive?', answer: 'Der Modus "Strukturiert" erzeugt semantisches HTML, das natürlich fließt, während der Modus "Gestylt" versucht, das feste Layout des PDFs zu bewahren.' },
+      { question: 'Werden Bilder extrahiert?', answer: 'Derzeit konzentriert sich das Tool auf die Text- und Strukturextraktion. Wir arbeiten an der Unterstützung der Bildextraktion.' },
+      { question: 'Unterstützt es mehrseitige PDFs?', answer: 'Ja, das Tool verarbeitet alle Seiten und kann Seitenumbruch-Markierungen dazwischen einfügen.' },
+    ],
+  },
+
+  'pdf-to-heic': {
+    title: 'PDF zu HEIC',
+    metaDescription: 'PDF-Seiten in hochwertige HEIC-Bilder konvertieren. Bewahren Sie Details mit dem effizienten Bildformat von Apple.',
+    keywords: ['pdf zu heic', 'pdf in heif konvertieren', 'pdf zu apple bild', 'pdf als heic exportieren'],
+    description: `
+      <p>PDF zu HEIC konvertiert Ihre PDF-Seiten in das hocheffiziente HEIC-Bildformat von Apple. HEIC bietet im Vergleich zu JPEG eine überlegene Bildqualität bei kleineren Dateigrößen.</p>
+      <p>Passen Sie die Ausgabequalität und DPI an Ihre Bedürfnisse an. Perfekt, um Platz zu sparen und gleichzeitig eine hohe Auflösung für aus PDFs extrahierte Fotos und Grafiken beizubehalten.</p>
+      <p>Die gesamte Verarbeitung erfolgt lokal in Ihrem Browser, sodass Ihre Dokumente privat bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDF hochladen', description: 'Ziehen Sie Ihre PDF-Datei per Drag & Drop oder klicken Sie, um sie auszuwählen.' },
+      { step: 2, title: 'Einstellungen konfigurieren', description: 'Wählen Sie den Seitenbereich, die Qualität und die DPI für die HEIC-Ausgabe.' },
+      { step: 3, title: 'Konvertieren und Herunterladen', description: 'Verarbeiten Sie die Seiten und laden Sie Ihre HEIC-Bilder herunter.' },
+    ],
+    useCases: [
+      { title: 'Speichereffizienz', description: 'Speichern Sie hochwertige Bilder mit viel kleineren Dateigrößen als JPG.', icon: 'hard-drive' },
+      { title: 'Apple-Ökosystem', description: 'Konvertieren Sie PDFs in ein natives Format für Apple-Geräte und -Software.', icon: 'smartphone' },
+      { title: 'Hohe Qualität', description: 'Behalten Sie eine bessere Farbtiefe und Details als beim Standard-JPEG bei.', icon: 'image' },
+    ],
+    faq: [
+      { question: 'Was ist HEIC?', answer: 'HEIC ist ein hocheffizienter Bildcontainer, der eine bessere Kompression als JPEG bietet.' },
+      { question: 'Funktioniert es auf Windows?', answer: 'Die meisten modernen Windows 10/11-Systeme unterstützen HEIC, oder Sie benötigen die HEVC-Erweiterung.' },
+      { question: 'Kann ich mehrere Seiten konvertieren?', answer: 'Ja, alle ausgewählten Seiten werden konvertiert und können als ZIP heruntergeladen werden.' },
+    ],
+  },
+
+  'pdf-to-psd': {
+    title: 'PDF zu PSD',
+    metaDescription: 'PDF-Dateien in Adobe Photoshop (PSD) konvertieren. Behalten Sie Ebenen und hochwertige Grafiken für die Bearbeitung bei.',
+    keywords: ['pdf zu psd', 'pdf in photoshop konvertieren', 'pdf zu ebenen', 'pdf als psd exportieren'],
+    description: `
+      <p>PDF zu PSD konvertiert Ihre PDF-Dokumente in Adobe Photoshop-Dateien. Dieses Tool versucht, Ebenen und die Textstruktur beizubehalten, um die Bearbeitung von PDF-Designs in Photoshop zu erleichtern.</p>
+      <p>Die High-Fidelity-Konvertierung stellt sicher, dass Grafiken und text für professionelle Designarbeiten scharf bleiben. Perfekt für Designer, die PDF-Assets überarbeiten müssen.</p>
+      <p>Die gesamte Verarbeitung erfolgt lokal in Ihrem Browser, sodass Ihre Designs privat bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDF hochladen', description: 'Ziehen Sie Ihre PDF-Datei per Drag & Drop oder klicken Sie, um sie auszuwählen.' },
+      { step: 2, title: 'PSD konfigurieren', description: 'Wählen Sie die Auflösung und ob eine Ebenenerhaltung versucht werden soll.' },
+      { step: 3, title: 'Konvertieren und Herunterladen', description: 'Erstellen Sie die PSD-Datei und laden Sie sie zur Bearbeitung herunter.' },
+    ],
+    useCases: [
+      { title: 'Design-Bearbeitung', description: 'Öffnen Sie PDF-Designs in Photoshop mit bearbeitbaren Ebenen.', icon: 'palette' },
+      { title: 'Grafik-Wiederherstellung', description: 'Extrahieren Sie hochwertige Grafiken für die Verwendung in neuen Designprojekten.', icon: 'image' },
+      { title: 'Professioneller Druck', description: 'Bereiten Sie PDF-Assets für professionelle Druck-Workflows in PSD vor.', icon: 'printer' },
+    ],
+    faq: [
+      { question: 'Werden alle Ebenen beibehalten?', answer: 'Das Tool versucht, logische Ebenen beizubehalten, aber komplexe PDF-Strukturen können flachgerechnet werden.' },
+      { question: 'Ist die PSD kompatibel?', answer: 'Ja, die Ausgabe ist eine Standard-PSD-Datei, die mit Adobe Photoshop und GIMP kompatibel ist.' },
+      { question: 'Maximale Dateigröße?', answer: 'Wir unterstützen PDFs bis zu 100 MB für den Übergang zu PSD.' },
+    ],
+  },
+
+  'pdf-to-xps': {
+    title: 'PDF zu XPS',
+    metaDescription: 'PDF in das XML Paper Specification (XPS) Format konvertieren. Behalten Sie die Vektorpräzision und das Dokumentenlayout bei.',
+    keywords: ['pdf zu xps', 'pdf in oxps konvertieren', 'pdf zu microsoft archiv', 'pdf als xps exportieren'],
+    description: `
+      <p>PDF zu XPS konvertiert Ihre PDF-Dokumente in das XML Paper Specification-Format von Microsoft. XPS ist ein offener, lizenzfreier Standard für Dokumente mit festem Layout.</p>
+      <p>Behält die Vektorpräzision und das exakte Layout für die Dokumentarchivierung und den Druck in Windows-Umgebungen bei. Perfekt für die langfristige Speicherung von Geschäftsdokumenten.</p>
+      <p>Die gesamte Verarbeitung erfolgt lokal in Ihrem Browser, sodass Ihre Dokumente privat bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDF hochladen', description: 'Ziehen Sie Ihre PDF-Datei per Drag & Drop oder klicken Sie, um sie auszuwählen.' },
+      { step: 2, title: 'Optionen wählen', description: 'Wählen Sie zwischen Standard-XPS- oder OpenXPS-Formaten.' },
+      { step: 3, title: 'Konvertieren und Herunterladen', description: 'Erstellen Sie die XPS-Datei und laden Sie sie herunter.' },
+    ],
+    useCases: [
+      { title: 'Windows-Archivierung', description: 'Speichern Sie Dokumente im nativen Windows-Archivformat.', icon: 'archive' },
+      { title: 'Drucktreue', description: 'Gewährleisten Sie hohe Drucktreue in Windows-basierten Workflows.', icon: 'printer' },
+      { title: 'Standardkonformität', description: 'Konvertieren Sie in offene Standards wie OpenXPS für den Dokumentenaustausch.', icon: 'file-check' },
+    ],
+    faq: [
+      { question: 'Was ist XPS?', answer: 'XPS ist die Alternative von Microsoft zu PDF, die für den Druck und die Archivierung von Dokumenten mit festem Layout verwendet wird.' },
+      { question: 'Kann ich XPS auf dem Mac ansehen?', answer: 'Das Betrachten von XPS auf macOS erfordert Drittanbietersoftware oder die Konvertierung zurück in PDF.' },
+      { question: 'Unterschied zwischen PDF und XPS?', answer: 'Beide haben ein festes Layout; XPS basiert auf XML und ist nativ für das Drucken unter Windows.' },
+    ],
+  },
+
+  'pdf-to-rtf': {
+    title: 'PDF zu RTF',
+    metaDescription: 'PDF in Rich Text Format (RTF) konvertieren. Extrahieren Sie Text und grundlegende Formatierung für die einfache Textverarbeitung.',
+    keywords: ['pdf zu rtf', 'pdf in rich text konvertieren', 'text aus pdf extrahieren', 'pdf rtf konverter'],
+    description: `
+      <p>PDF zu RTF extrahiert Inhalte aus Ihrem PDF und speichert sie als Rich-Text-Format-Datei. RTF ist mit fast jeder Textverarbeitungssoftware hochgradig kompatibel.</p>
+      <p>Das Tool bewahrt grundlegende Formatierungen, Schriftstile und Ausrichtungen, während der Inhalt leicht bearbeitbar gemacht wird. Perfekt zum Extrahieren von Text, wenn Sie nicht die volle Komplexität einer DOCX-Datei benötigen.</p>
+      <p>Die gesamte Verarbeitung erfolgt lokal in Ihrem Browser, sodass Ihre Dokumente privat bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDF hochladen', description: 'Ziehen Sie Ihre PDF-Datei per Drag & Drop oder klicken Sie, um sie auszuwählen.' },
+      { step: 2, title: 'Extrahieren', description: 'Das Tool analysiert den PDF-Inhalt und wandelt ihn in RTF um.' },
+      { step: 3, title: 'RTF herunterladen', description: 'Laden Sie Ihr bearbeitbares Rich-Text-Dokument herunter.' },
+    ],
+    useCases: [
+      { title: 'Einfache Bearbeitung', description: 'Extrahieren und bearbeiten Sie Text schnell in jeder Textverarbeitung.', icon: 'edit' },
+      { title: 'App-übergreifend', description: 'Nutzen Sie extrahierten Text in älterer oder spezieller Schreibsoftware.', icon: 'copy' },
+      { title: 'Layout entfernen', description: 'Extrahieren Sie Textinhalte, während komplexe PDF-Layoutelemente entfernt werden.', icon: 'type' },
+    ],
+    faq: [
+      { question: 'Unterstützt es Bilder?', answer: 'Grundlegende RTF-Unterstützung umfasst Bilder, aber textlastige Dokumente liefern bessere Ergebnisse.' },
+      { question: 'Bleiben Schriftarten erhalten?', answer: 'Standardschriftarten bleiben erhalten; benutzerdefinierte eingebettete Schriftarten können ähnlichen Systemschriftarten zugeordnet werden.' },
+      { question: 'Ist RTF besser als TXT?', answer: 'Ja, RTF behält Fettdruck, Kursivschrift und grundlegendes Layout bei, im Gegensatz zu reinem Text.' },
+    ],
+  },
+
+  'pdf-to-epub': {
+    title: 'PDF zu EPUB',
+    metaDescription: 'PDF in EPUB-E-Books konvertieren. Fließtext für komfortables Lesen auf E-Readern und mobilen Geräten.',
+    keywords: ['pdf zu epub', 'pdf in ebook konvertieren', 'pdf zu kindle', 'reflowable pdf'],
+    description: `
+      <p>PDF zu EPUB konvertiert PDFs mit festem Layout in fließfähige E-Books. Dies macht das Lesen auf kleinen Bildschirmen, wie Telefonen und E-Readern, wesentlich komfortabler, da sich der Text an den Bildschirm anpasst.</p>
+      <p>Das Tool versucht, Überschriften, Kapitel und Bilder zu identifizieren, um ein strukturiertes E-Book zu erstellen. Perfekt für das Konvertieren von PDF-Büchern und langen Dokumenten für das mobile Lesen.</p>
+      <p>Die gesamte Verarbeitung erfolgt lokal in Ihrem Browser, sodass Ihre Bücher privat bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDF hochladen', description: 'Ziehen Sie Ihre PDF-Datei per Drag & Drop oder klicken Sie, um sie auszuwählen.' },
+      { step: 2, title: 'Einstellungen', description: 'Geben Sie Buch-Metadaten wie Titel und Autor für das EPUB ein.' },
+      { step: 3, title: 'Konvertieren und Herunterladen', description: 'Erstellen Sie die EPUB-Datei und laden Sie sie für Ihren E-Reader herunter.' },
+    ],
+    useCases: [
+      { title: 'Mobiles Lesen', description: 'PDF-Inhalte komfortabel auf Smartphones und Tablets lesen.', icon: 'smartphone' },
+      { title: 'E-Reader-Unterstützung', description: 'Konvertieren Sie PDFs für Kindle, Kobo und andere E-Reading-Geräte.', icon: 'book' },
+      { title: 'Barrierefreiheit', description: 'Verbessern Sie die Lesbarkeit mit anpassbaren Schriftarten und Textgrößen in EPUB.', icon: 'user-check' },
+    ],
+    faq: [
+      { question: 'Ändert sich die Formatierung?', answer: 'Ja, EPUB ist fließfähig, sodass feste PDF-Layouts in eine flexible Struktur umgewandelt werden.' },
+      { question: 'Unterstützt es Kindle?', answer: 'Ja, die meisten modernen Kindles unterstützen EPUB direkt, oder Sie können unseren MOBI-Konverter verwenden.' },
+      { question: 'Kann es gescannte PDFs konvertieren?', answer: 'Gescannte PDFs erfordern zuerst eine OCR, um Text für die E-Book-Konvertierung zu extrahieren.' },
+    ],
+  },
+
+  'pdf-to-mobi': {
+    title: 'PDF zu MOBI',
+    metaDescription: 'PDF-Dateien in MOBI-E-Books konvertieren. Optimiert für Kindle-Geräte mit korrekter Formatierung.',
+    keywords: ['pdf zu mobi', 'pdf in kindle konvertieren', 'mobi konverter', 'pdf ebook'],
+    description: `
+      <p>PDF zu MOBI konvertiert Ihre Dokumente in das MOBI/AZW-Format, das von Amazon Kindle-Geräten verwendet wird. Dies bietet ein natives Leseerlebnis auf älteren und spezialisierten Kindle-Modellen.</p>
+      <p>Das Tool optimiert den Textfluss und die Platzierung von Bildern für Kindle-Bildschirme. Ideal für längere Dokumente, Handbücher und Bücher, die im PDF-Format gespeichert sind.</p>
+      <p>Die gesamte Verarbeitung erfolgt lokal in Ihrem Browser, sodass Ihre Dokumente privat bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDF hochladen', description: 'Ziehen Sie Ihre PDF-Datei per Drag & Drop oder klicken Sie, um sie auszuwählen.' },
+      { step: 2, title: 'Metadaten', description: 'Fügen Sie Buchtitel, Autor und optional ein Cover-Bild hinzu.' },
+      { step: 3, title: 'Konvertieren und Herunterladen', description: 'Erstellen Sie die MOBI-Datei und laden Sie sie für Ihren Kindle herunter.' },
+    ],
+    useCases: [
+      { title: 'Kindle-Leseerlebnis', description: 'Genießen Sie PDF-Bücher auf dem Kindle mit Unterstützung nativer Funktionen.', icon: 'book-open' },
+      { title: 'Offline-Lesen', description: 'Konvertieren Sie Dokumente für das Lesen auf dedizierten E-Ink-Geräten.', icon: 'wifi-off' },
+      { title: 'Legacy-Unterstützung', description: 'Unterstützung für ältere E-Reader, die MOBI gegenüber EPUB bevorzugen.', icon: 'history' },
+    ],
+    faq: [
+      { question: 'Was ist MOBI?', answer: 'MOBI ist ein E-Book-Format, das ursprünglich von Mobipocket verwendet und von Amazon für den Kindle übernommen wurde.' },
+      { question: 'Unterschied zu EPUB?', answer: 'MOBI ist proprietär für Amazon/Kindle; EPUB ist der offene Industriestandard.' },
+      { question: 'Wie übertrage ich es auf den Kindle?', answer: 'Verbinden Sie es über USB oder nutzen Sie den Amazon-Dienst "Send to Kindle".' },
+    ],
+  },
+
+  'pdf-to-djvu': {
+    title: 'PDF zu DJVU',
+    metaDescription: 'PDF-Dateien in das DJVU-Format konvertieren. Spezialsierte Kompression für hochauflösende gescannte Dokumente.',
+    keywords: ['pdf zu djvu', 'pdf in scan konvertieren', 'hochkomprimierte dokumente', 'djvu konverter'],
+    description: `
+      <p>PDF zu DJVU konvertiert Ihre Dokumente in das DjVu-Format, das wissenschaftlich für gescannte Dokumente entwickelt wurde. DjVu bietet extreme Kompressionsraten für hochauflösende Farbungseiten.</p>
+      <p>Perfekt für digitale Bibliotheken und Archive von gescannten Büchern, bei denen Sie hohe Qualität, aber sehr kleine Dateigrößen benötigen. Dokumentenstruktur und Textebenen bleiben erhalten.</p>
+      <p>Die gesamte Verarbeitung erfolgt lokal in Ihrem Browser, sodass Ihre Archive privat bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDF hochladen', description: 'Ziehen Sie Ihr PDF (idealerweise gescannt) per Drag & Drop oder klicken Sie, um sie auszuwählen.' },
+      { step: 2, title: 'Qualität wählen', description: 'Wählen Sie Kompressionsstufe und Auflösung für die DJVU-Ausgabe.' },
+      { step: 3, title: 'Konvertieren und Herunterladen', description: 'Erstellen Sie die DJVU-Datei und laden Sie sie zur Archivierung herunter.' },
+    ],
+    useCases: [
+      { title: 'Digitale Bibliotheken', description: 'Erzielen Sie erhebliche Platzersparnisse für große gescannte Sammlungen.', icon: 'library' },
+      { title: 'Historische Archive', description: 'Speichern Sie hochauflösende Bilder von Kulturerbe-Dokumenten effizient.', icon: 'archive' },
+      { title: 'Scans teilen', description: 'Senden Sie hochwertige gescannte Dokumente über begrenzte Bandbreiten.', icon: 'share' },
+    ],
+    faq: [
+      { question: 'Was ist DJVU?', answer: 'DjVu ist ein Dokumentenformat, das eine fortschrittliche Segmentierung verwendet, um gescannte Bilder extrem gut zu komprimieren.' },
+      { question: 'Ist es besser als PDF?', answer: 'Für gescannte Dokumente bietet DjVu oft eine 5-10-mal bessere Kompression als Standard-PDF.' },
+      { question: 'Wie betrachte ich DJVU?', answer: 'Verwenden Sie dedizierte Viewer wie DjView oder Browser-Erweiterungen.' },
+    ],
+  },
+
+  'pdf-to-fb2': {
+    title: 'PDF zu FB2',
+    metaDescription: 'PDF-Dateien in FictionBook (FB2) konvertieren. Semantisches XML-basiertes E-Book-Format für strukturiertes Lesen.',
+    keywords: ['pdf zu fb2', 'fictionbook konverter', 'pdf ebook xml', 'pdf in strukturierten text konvertieren'],
+    description: `
+      <p>PDF zu FB2 konvertiert Dokumente in das FictionBook-Format (XML). FB2 ist ein semantisches Format, das die Struktur eines Buches beschreibt anstatt seines Aussehens, was es für Lese-Apps sehr vielseitig macht.</p>
+      <p>Dieses Tool extrahiert Text, Metadaten und Bilder unter Beibehaltung der logischen Struktur. Weithin verwendet in verschiedenen E-Reading-Communities aufgrund seiner Offenheit und Semantik.</p>
+      <p>Die gesamte Verarbeitung erfolgt lokal in Ihrem Browser, sodass Ihre Inhalte privat bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDF hochladen', description: 'Ziehen Sie Ihre PDF-Datei per Drag & Drop oder klicken Sie, um sie auszuwählen.' },
+      { step: 2, title: 'Buch-Infos', description: 'Überprüfen Sie Metadaten wie genre, autor und buchtitel.' },
+      { step: 3, title: 'Konvertieren und Herunterladen', description: 'Erstellen Sie die FB2-Datei und laden Sie sie für Ihren Lieblings-Reader herunter.' },
+    ],
+    useCases: [
+      { title: 'Semantisches Lesen', description: 'Verwenden Sie Reader, die Bücher nach Ihren persönlichen Vorlieben stylen.', icon: 'settings' },
+      { title: 'Offene Formate', description: 'Behalten Sie Ihre Bibliothek in einem vollkommen offenen, XML-basierten semantischen Format.', icon: 'unlock' },
+      { title: 'Geräteübergreifend', description: 'FB2-Dateien sind leichtgewichtig und lassen sich einfach zwischen mehreren Lesegeräten synchronisieren.', icon: 'refresh-ccw' },
+    ],
+    faq: [
+      { question: 'Was ist FB2?', answer: 'FictionBook (FB2) ist ein XML-basiertes E-Book-Format, das sich auf semantisches Markup konzentriert.' },
+      { question: 'Wo ist es beliebt?', answer: 'FB2 ist sehr beliebt in Osteuropa und bei Fans offener Dokumentenstandards.' },
+      { question: 'Kann ich ein Cover hinzufügen?', answer: 'Ja, Sie können während der Konvertierung ein Cover-Bild angeben oder extrahieren.' },
+    ],
+  },
+
+  'pdf-to-email': {
+    title: 'PDF zu E-Mail (EML)',
+    metaDescription: 'PDF in EML-E-Mail-Dateien konvertieren. Extrahieren Sie Text und Bilder in ein Entwurfsformat.',
+    keywords: ['pdf zu email', 'pdf zu eml', 'pdf in mail extrahieren', 'pdf entwurf konverter'],
+    description: `
+      <p>PDF zu E-Mail konvertiert Ihren PDF-Inhalt in eine E-Mail-Entwurfsdatei (.eml). Es extrahiert Text als Textkörper und versucht, Bilder als Inline-Assets oder Anhänge zu platzieren.</p>
+      <p>Perfekt, um PDF-Newsletter, Berichte oder Memos in E-Mail-Entwürfe umzuwandeln, die Sie in Outlook, Gmail oder Apple Mail öffnen können. Spart Zeit beim Kopieren und Einfügen sowie beim manuellen Formatieren.</p>
+      <p>Die gesamte Verarbeitung erfolgt lokal in Ihrem Browser, sodass Ihre E-Mails privat bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDF hochladen', description: 'Ziehen Sie Ihre PDF-Datei per Drag & Drop oder klicken Sie, um sie auszuwählen.' },
+      { step: 2, title: 'Entwurfseinstellungen', description: 'Fügen Sie standardmäßig Betreff und Absender-Informationen hinzu, falls gewünscht.' },
+      { step: 3, title: 'Konvertieren und Herunterladen', description: 'Erstellen Sie die EML-Datei und öffnen Sie diese in Ihrem E-Mail-Client.' },
+    ],
+    useCases: [
+      { title: 'Newsletter-Migration', description: 'Wandeln Sie PDF-Newsletter schnell in E-Mail-Kampagnen um.', icon: 'mail' },
+      { title: 'Briefing teilen', description: 'Teilen Sie PDF-Briefings direkt als Textkörper einer E-Mail.', icon: 'send' },
+      { title: 'Inhaltsextraktion', description: 'Konvertieren Sie PDF-Berichte in bearbeitbare E-Mail-Berichte.', icon: 'file-text' },
+    ],
+    faq: [
+      { question: 'Was ist eine EML-Datei?', answer: 'EML ist ein Standard-Dateiformat für E-Mail-Nachrichten, das Kopfzeilen und den Textkörper enthält.' },
+      { question: 'Welche E-Mail-Apps öffnen sie?', answer: 'Outlook, Apple Mail, Thunderbird und fast alle Desktop-Mail-Clients unterstützen EML.' },
+      { question: 'Wie wird die Formatierung gehandhabt?', answer: 'Das Tool konvertiert PDF-Blöcke in HTML-Abschnitte, um das grundlegende Layout im E-Mail-Textkörper beizubehalten.' },
+    ],
+  },
+
+  'pdf-to-cbz': {
+    title: 'PDF zu CBZ',
+    metaDescription: 'PDF in das Comic Book Archive (CBZ) Format konvertieren. Packen Sie Dokumentenseiten als Bildarchiv für Comic-Reader.',
+    keywords: ['pdf zu cbz', 'dokument zu comic', 'pdf bildarchiv', 'comic creator'],
+    description: `
+      <p>PDF zu CBZ konvertiert Ihre Dokumente in ein Comic Book Archive. Jede PDF-Seite wird als hochwertiges Bild gerendert und in ein ZIP-Archiv mit der Endung .cbz gepackt.</p>
+      <p>Ideal zum Konvertieren digitaler Comics, Kunstbücher oder Handbücher, die als PDF gespeichert sind, für die Verwendung in speziellen Comic-Leseanwendungen wie Chunky oder CDisplayEx.</p>
+      <p>Die gesamte Verarbeitung erfolgt lokal in Ihrem Browser, sodass Ihre Archive privat bleiben.</p>
+    `,
+    howToUse: [
+      { step: 1, title: 'PDF hochladen', description: 'Ziehen Sie Ihr PDF per Drag & Drop oder klicken Sie, um sie auszuwählen.' },
+      { step: 2, title: 'Qualitätseinstellungen', description: 'Wählen Sie das Bildformat (JPG/PNG) und die Auflösung für die Comic-Seiten.' },
+      { step: 3, title: 'Konvertieren und Herunterladen', description: 'Erstellen Sie die CBZ-Datei und laden Sie sie für Ihren Comic-Reader herunter.' },
+    ],
+    useCases: [
+      { title: 'Comic-Lesen', description: 'Betrachten Sie PDFs in Apps, die für Hochleistungs-Bildbrowsing optimiert sind.', icon: 'image' },
+      { title: 'Kunstportfolios', description: 'Konvertieren Sie Kunstbuch-PDFs in handliche Bildersammlungen.', icon: 'palette' },
+      { title: 'Asset-Packaging', description: 'Extrahieren Sie alle Seiten als organisierte Bilder in einem einzigen Archiv.', icon: 'package' },
+    ],
+    faq: [
+      { question: 'Was ist CBZ?', answer: 'Eine CBZ file ist im Grunde ein ZIP-Archiv, das Bilder enthält und primär von Comic-Readern verwendet wird.' },
+      { question: 'Welches Format ist am besten?', answer: 'JPG für kleinere Dateigrößen, PNG für maximale Qualität ohne Kompressionsartefakte.' },
+      { question: 'Kann ich Seiten auswählen?', answer: 'Ja, Sie können alle Seiten oder einen bestimmten Bereich in das CBZ-Archiv konvertieren.' },
+    ],
+  },
 };
