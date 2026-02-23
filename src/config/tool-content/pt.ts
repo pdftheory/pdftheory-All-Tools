@@ -1749,7 +1749,7 @@ export const toolContentPt: Record<string, ToolContent> = {
     faq: [
       { question: 'O texto continua sendo texto?', answer: 'Sim, sempre que possível, o texto no SVG é mantido como caminhos vetoriais ou glifos de texto para preservar a aparência exata.' },
       { question: 'Posso converter várias páginas?', answer: 'Sim, cada página do seu PDF se tornará um arquivo SVG separado.' },
-      { question: 'Qual a vantagem do SVG sobre o JPG?', answer: 'O SVG não pixeliza quando ampliado e geralmente tem um tamanho de arquivo menor para gráficos e diagramas.', icon: 'check' },
+      { question: 'Qual a vantagem do SVG sobre o JPG?', answer: 'O SVG não pixeliza quando ampliado e geralmente tem um tamanho de arquivo menor para gráficos e diagramas.' },
     ],
   },
 
@@ -1973,7 +1973,7 @@ export const toolContentPt: Record<string, ToolContent> = {
     ],
     faq: [
       { question: 'Existe limite de páginas?', answer: 'Documentos extremamente longos podem ser limitados pela memória do seu navegador.' },
-      { question: 'Isso é bom para imprimir?', answer: 'Não recomendado para impressão comum, pois cria uma página fora dos padrões de papel.', icon: 'alert-triangle' },
+      { question: 'Isso é bom para imprimir?', answer: 'Não recomendado para impressão comum, pois cria uma página fora dos padrões de papel.' },
       { question: 'Posso adicionar linhas divisórias?', answer: 'Sim, você pode configurar o estilo da transição entre as páginas.' },
     ],
   },
