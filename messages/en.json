@@ -172,6 +172,274 @@
       "viewAllPdfTools": "View All PDF Tools",
       "popular": "Popular",
       "seeAll": "See all"
+    },
+    "selectLanguage": "Select Language",
+    "uploadLabel": "Upload File",
+    "uploadDescription": "Drag and drop your file here, or click to browse.",
+    "successMessage": "Operation completed successfully!",
+    "applyButton": "Apply",
+    "removeButton": "Remove",
+    "invertButton": "Invert",
+    "noResults": "No results found.",
+    "title": "Title",
+    "subtitle": "Subtitle",
+    "description": "Description",
+    "searchPlaceholder": "Search...",
+    "optionsTitle": "Options",
+    "colorLabel": "Color",
+    "colorHexLabel": "Color (Hex)",
+    "thresholdLabel": "Threshold",
+    "thresholdHint": "Adjust the threshold to control sensitivity.",
+    "modeDark": "Dark",
+    "modeLight": "Light",
+    "modeLabel": "Mode",
+    "minRead": "min read",
+    "allPosts": "All Posts",
+    "backToBlog": "Back to Blog",
+    "relatedPosts": "Related Posts",
+    "meta": {
+      "title": "PDFTheory - Professional PDF Tools",
+      "description": "Free, private, and powerful PDF tools. All processing happens in your browser."
+    },
+    "about": {
+      "title": "About",
+      "description": "Learn about PDFTheory - your free, private PDF toolkit."
+    },
+    "contact": {
+      "title": "Contact Us",
+      "description": "Get in touch with the PDFTheory team."
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "description": "Your files never leave your device."
+    },
+    "home": {
+      "title": "PDFTheory - Professional PDF Tools",
+      "description": "Free, private and powerful PDF tools in your browser.",
+      "categories": {
+        "organizeManage": "Organize & Manage",
+        "editAnnotate": "Edit & Annotate",
+        "convertToPdf": "Convert to PDF",
+        "convertFromPdf": "Convert from PDF",
+        "optimizeRepair": "Optimize & Repair",
+        "securePdf": "Secure PDF"
+      }
+    },
+    "hero": {
+      "title": "Every tool you need to work with PDFs",
+      "tagline": "Free, Private & Powerful PDF Tools",
+      "description": "100% free, browser-based PDF tools. Your files never leave your device.",
+      "ctaStart": "Get Started",
+      "ctaCommon": "Try Now",
+      "ctaSales": "Learn More",
+      "ctaPricing": "View Pricing"
+    },
+    "benefits": {
+      "title": "Why Choose PDFTheory?",
+      "description": "Everything you need to work with PDFs, for free.",
+      "list": {
+        "free": "Completely free to use",
+        "noInstall": "No installation required",
+        "mobile": "Works on any device"
+      },
+      "grid": {
+        "secure": {
+          "title": "100% Secure",
+          "description": "Files never leave your device. All processing is local."
+        },
+        "free": {
+          "title": "Always Free",
+          "description": "No hidden costs, no registration, no limits."
+        },
+        "essay": {
+          "title": "Easy to Use",
+          "description": "Simple, intuitive interface for everyone."
+        },
+        "group": {
+          "title": "110+ Tools",
+          "description": "All the PDF tools you'll ever need."
+        },
+        "textbooks": {
+          "title": "Works Offline",
+          "description": "Process files even without internet after loading."
+        }
+      }
+    },
+    "features": {
+      "title": "Features",
+      "subtitle": "Everything you need",
+      "api": {
+        "title": "Developer API",
+        "description": "Integrate PDF tools into your own applications."
+      },
+      "batch": {
+        "title": "Batch Processing",
+        "description": "Process multiple files at once to save time."
+      },
+      "esign": {
+        "title": "E-Signatures",
+        "description": "Sign documents digitally with ease."
+      },
+      "remote": {
+        "title": "Remote Access",
+        "description": "Access your tools from anywhere."
+      },
+      "security": {
+        "title": "Security",
+        "description": "Military-grade encryption for your documents."
+      },
+      "team": {
+        "title": "Team Collaboration",
+        "description": "Share and collaborate on PDF documents."
+      }
+    },
+    "cta": {
+      "title": "Ready to get started?",
+      "description": "Join thousands of users who trust PDFTheory for their PDF needs.",
+      "button": "Try Free Now"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "description": "Find answers to common questions.",
+      "button": "View All FAQs"
+    },
+    "trust": {
+      "title": "Trusted by users worldwide"
+    },
+    "mission": {
+      "title": "Our Mission",
+      "p1": "We believe everyone deserves free, private PDF tools.",
+      "p2": "All processing happens locally in your browser.",
+      "p3": "No uploads, no servers, no privacy concerns."
+    },
+    "technology": {
+      "title": "Built with Modern Technology",
+      "description": "Using cutting-edge web technologies for the best experience."
+    },
+    "values": {
+      "title": "Our Values",
+      "privacy": {
+        "title": "Privacy First",
+        "description": "Your files never leave your device."
+      },
+      "fast": {
+        "title": "Fast & Efficient",
+        "description": "Lightning-fast PDF processing."
+      },
+      "accessible": {
+        "title": "Accessible Everywhere",
+        "description": "Works on any device with a modern browser."
+      },
+      "free": {
+        "title": "Free Forever",
+        "description": "No hidden costs or registration required."
+      },
+      "openSource": {
+        "title": "Open Source",
+        "description": "Transparent and community-verified code."
+      },
+      "community": {
+        "title": "Community Driven",
+        "description": "Continuously improving based on your feedback."
+      }
+    },
+    "form": {
+      "title": "Send us a Message",
+      "description": "We'll get back to you as soon as possible.",
+      "error": "Something went wrong. Please try again.",
+      "fields": {
+        "name": {
+          "label": "Name",
+          "placeholder": "Your name"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "your@email.com"
+        },
+        "subject": {
+          "label": "Subject",
+          "placeholder": "Select a subject",
+          "options": {
+            "general": "General Inquiry",
+            "bug": "Bug Report",
+            "feature": "Feature Request",
+            "feedback": "Feedback",
+            "other": "Other"
+          }
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Tell us more..."
+        }
+      },
+      "submit": {
+        "default": "Send Message",
+        "loading": "Sending..."
+      },
+      "success": {
+        "title": "Message Sent!",
+        "description": "Thank you! We'll get back to you within 24-48 hours.",
+        "button": "Send Another Message"
+      }
+    },
+    "categories": {
+      "all": "All",
+      "general": "General",
+      "privacy": "Privacy & Security",
+      "features": "Features",
+      "technical": "Technical",
+      "languages": "Languages"
+    },
+    "expandAll": "Expand All",
+    "collapseAll": "Collapse All",
+    "errors": {
+      "conversionFailed": "Conversion failed. Please try again.",
+      "fileCorrupted": "The file appears to be corrupted.",
+      "processingFailed": "Processing failed. Please try again.",
+      "unexpectedError": "An unexpected error occurred.",
+      "unknown": "An unknown error occurred.",
+      "uploadFile": "Please upload a file first."
+    },
+    "toolsPage": {
+      "title": "Professional PDF Tools",
+      "subtitle": "110+ free, secure, and easy-to-use tools.",
+      "allTools": "All Tools",
+      "noToolsFound": "No tools found."
+    },
+    "tools": {
+      "title": "PDF Tools",
+      "description": "All the PDF tools you need.",
+      "about": "About This Tool",
+      "howToUse": "How to Use",
+      "useCases": "Use Cases",
+      "faq": "Frequently Asked Questions",
+      "relatedTools": "You May Also Like",
+      "comingSoon": "This tool is coming soon.",
+      "search": {
+        "placeholder": "Search tools...",
+        "noResults": "No tools found."
+      },
+      "favorite": {
+        "add": "Add to Favorites",
+        "remove": "Remove from Favorites",
+        "saved": "Saved",
+        "title": "Favorite Tools",
+        "empty": "No favorite tools yet.",
+        "hint": "Click the star icon to save tools for quick access."
+      }
+    },
+    "common": {
+      "brand": "PDFTheory",
+      "buttons": {
+        "next": "Next"
+      },
+      "navigation": {
+        "home": "Home",
+        "tools": "Tools"
+      },
+      "header": {
+        "seeAll": "See all"
+      }
     }
   },
   "footer": {
@@ -802,7 +1070,10 @@
       "pages": "pages",
       "previewInfoAllPages": "{fileCount} PDF(s) with {totalPages} total pages will be arranged in a {layout} grid across {outputPages} output page(s).",
       "previewInfoFirstPage": "{fileCount} PDF(s) will be arranged in a {layout} grid across {outputPages} page(s).",
-      "minFilesError": "Please add at least 2 PDF files to combine."
+      "minFilesError": "Please add at least 2 PDF files to combine.",
+      "moveUp": "Move Up",
+      "moveDown": "Move Down",
+      "removeFile": "Remove"
     },
     "nUpPdf": {
       "uploadLabel": "Upload PDF File",
@@ -907,7 +1178,8 @@
       "pageRangePlaceholder": "e.g., 1-5, 8, 10-15 (leave empty for all pages)",
       "previewInfo": "Each page will be split into {rows}×{cols} = {total} tiles.",
       "createButton": "Posterize PDF",
-      "successMessage": "PDF posterized successfully! Click the download button to save your file."
+      "successMessage": "PDF posterized successfully! Click the download button to save your file.",
+      "overlapUnit": "px"
     },
     "pdfMultiTool": {
       "uploadLabel": "Upload PDF Files",
@@ -1283,7 +1555,9 @@
       "separatorColor": "Separator Color",
       "previewInfo": "{pages} pages will be combined into 1 continuous {orientation} page.",
       "combineButton": "Combine Pages",
-      "successMessage": "Pages combined successfully! Click the download button to save your file."
+      "successMessage": "Pages combined successfully! Click the download button to save your file.",
+      "backgroundColorHex": "Background Color (Hex)",
+      "separatorColorHex": "Separator Color (Hex)"
     },
     "addAttachments": {
       "pdfFileTitle": "1. Select PDF File",
@@ -1398,13 +1672,24 @@
       "selectLanguages": "Select Languages",
       "selectLanguagesPlaceholder": "Select languages...",
       "searchLanguages": "Search languages...",
-      "languageHint": "Select languages used in your text for proper font support"
+      "languageHint": "Select languages used in your text for proper font support",
+      "removeFile": "Remove",
+      "selectTextColor": "Select Text Color",
+      "textColorHex": "Text Color Hex"
     },
     "jsonToPdf": {
       "uploadLabel": "Upload JSON File",
       "uploadDescription": "Drag and drop a JSON file.",
       "convertButton": "Convert to PDF",
-      "successMessage": "JSON converted to PDF successfully!"
+      "successMessage": "JSON converted to PDF successfully!",
+      "optionsTitle": "Conversion Options",
+      "filesTitle": "JSON Files",
+      "pageSize": "Page Size",
+      "fontSize": "Font Size",
+      "indentSpaces": "Indent Spaces",
+      "prettyPrint": "Pretty Print",
+      "showLineNumbers": "Show Line Numbers",
+      "preview": "Preview"
     },
     "pdfToImage": {
       "uploadLabel": "Upload PDF File",
@@ -1571,7 +1856,8 @@
       "removeAnnotations": "Remove Annotations",
       "sanitizeButton": "Sanitize PDF",
       "successMessage": "PDF sanitized successfully!",
-      "removedItems": "Removed:"
+      "removedItems": "Removed:",
+      "flattenForms": "Flatten Form Fields"
     },
     "flattenPdf": {
       "uploadLabel": "Upload PDF File",
@@ -1580,7 +1866,13 @@
       "flattenForms": "Flatten Form Fields",
       "flattenAnnotations": "Flatten Annotations",
       "flattenButton": "Flatten PDF",
-      "successMessage": "PDF flattened successfully!"
+      "successMessage": "PDF flattened successfully!",
+      "info": "Flattening converts interactive elements (forms, annotations, layers) into static page content. This makes the PDF non-editable but ensures consistent appearance across all viewers.",
+      "flattenFormsDesc": "Convert fillable form fields to static text",
+      "flattenAnnotationsDesc": "Merge comments, highlights, and stamps into page content",
+      "flattenLayers": "Flatten Layers",
+      "flattenLayersDesc": "Merge all visible layers into a single layer",
+      "flattenedItems": "Flattened:"
     },
     "removeMetadata": {
       "uploadLabel": "Upload PDF File",
@@ -1722,7 +2014,9 @@
       "posBottomRight": "Bottom Right",
       "posTopLeft": "Top Left",
       "posTopCenter": "Top Center",
-      "posTopRight": "Top Right"
+      "posTopRight": "Top Right",
+      "selectColor": "Select Color",
+      "colorHex": "Color Hex"
     },
     "watermark": {
       "uploadLabel": "Upload PDF File",
@@ -1929,7 +2223,17 @@
       "fieldLabelPlaceholder": "Enter label text...",
       "labelPosition": "Position",
       "labelAbove": "Above",
-      "labelLeft": "Left"
+      "labelLeft": "Left",
+      "selectToolLabel": "Select a field type to add",
+      "selectTemplateLabel": "Start from a template",
+      "fieldTypeLabel": "Field Type",
+      "fieldNameLabel": "Field Name",
+      "optionsLabel": "Options (one per line)",
+      "defaultSelectionLabel": "Default Selection",
+      "defaultDateLabel": "Default Date",
+      "dateFormatLabel": "Date Format",
+      "pageCountLabel": "Total Pages",
+      "pageSizeLabel": "Page Size"
     },
     "removeBlankPages": {
       "uploadLabel": "Upload PDF File",
@@ -2076,7 +2380,8 @@
       "pageRangeDesc": "Leave empty to convert all pages.",
       "bgColorLabel": "Background Color",
       "convertButton": "Convert to Images",
-      "successMessage": "Images created successfully! Click download to save."
+      "successMessage": "Images created successfully! Click download to save.",
+      "bgColorHex": "Background Color (Hex)"
     },
     "emailToPdf": {
       "uploadLabel": "Upload Email File",
@@ -2119,7 +2424,10 @@
       "dpiLabel": "Rasterization DPI",
       "convertButton": "Convert Fonts to Outlines",
       "downloadAllZip": "Download All as ZIP",
-      "successMessage": "Successfully converted file(s)!"
+      "successMessage": "Successfully converted file(s)!",
+      "preserveTextLabel": "Preserve Original Text Layer",
+      "preserveTextDesc": "Keep the original text layer alongside the outlined version",
+      "dpiDesc": "Resolution for rasterized elements (higher = better quality, larger file)"
     },
     "extractTables": {
       "uploadLabel": "Upload PDF File",
@@ -2139,12 +2447,47 @@
       "layersTitle": "PDF Layers",
       "noLayers": "This PDF has no layers (OCG).",
       "addLayerLabel": "Add New Layer",
-      "successMessage": "Layer changes saved successfully!"
+      "successMessage": "Layer changes saved successfully!",
+      "addLayerPlaceholder": "Enter layer name..."
     },
     "pdfReader": {
       "uploadLabel": "Open PDF File",
       "uploadDescription": "Open a PDF file to read and view."
-    }
+    },
+    "uploadLabel": "Upload PDF File",
+    "uploadDescription": "Drag and drop your PDF file here, or click to browse.",
+    "optionsTitle": "Options",
+    "successMessage": "Operation completed successfully!",
+    "failed": "Operation failed. Please try again.",
+    "generate": "Generate",
+    "saveButton": "Save",
+    "saveFailed": "Failed to save. Please try again.",
+    "success": "Success!",
+    "options": "Options",
+    "viewerNotReady": "Viewer is not ready yet. Please wait.",
+    "unsupportedImage": "Unsupported image format",
+    "selectImage": "Select Image",
+    "imageWatermark": "Image Watermark",
+    "textWatermark": "Text Watermark",
+    "watermarkText": "Text Watermark",
+    "watermarkImage": "Image Watermark",
+    "opacity": "Opacity",
+    "color": "Color",
+    "colorHex": "Color (Hex)",
+    "angle": "Angle",
+    "fontFamily": "Font Family",
+    "fontSize": "Font Size",
+    "enterText": "Enter text...",
+    "instructionsTitle": "How to Use",
+    "instruction1": "Upload your PDF file",
+    "instruction2": "Configure the options",
+    "instruction3": "Click the process button",
+    "instruction4": "Download the result",
+    "instruction5": "Enjoy your processed PDF!",
+    "tocTitle": "Table of Contents",
+    "addBookmark": "Add Bookmark",
+    "addButton": "Add",
+    "bookmarkRequired": "Bookmark title is required"
   },
   "businessPage": {
     "hero": {
