@@ -217,7 +217,27 @@
     "auth": {
       "login": "Log in",
       "signup": "Sign up",
-      "logout": "Log out"
+      "logout": "Log out",
+      "forgotPassword": {
+        "title": "Forgot Password",
+        "subtitle": "Enter your email to receive a reset link.",
+        "emailLabel": "Email Address",
+        "emailPlaceholder": "your@email.com",
+        "submit": "Send Reset Link",
+        "sending": "Sending...",
+        "success": "Check your email for the reset link.",
+        "backToLogin": "Back to Login"
+      },
+      "resetPassword": {
+        "title": "Reset Password",
+        "subtitle": "Set a new, secure password for your account.",
+        "newPasswordLabel": "New Password",
+        "confirmPasswordLabel": "Confirm New Password",
+        "submit": "Update Password",
+        "updating": "Updating...",
+        "success": "Your password has been updated successfully.",
+        "backToLogin": "Back to Login"
+      }
     },
     "header": {
       "allPdfTools": "All PDF Tools",

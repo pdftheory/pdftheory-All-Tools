@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { tools } from '@/config/tools';
+import { getToolContent, type Locale } from '@/config/tool-content';
 import { getToolIcon } from '@/config/icons';
 import {
     Search,
@@ -43,12 +44,14 @@ export default function FavoritesPageClient({ locale }: { locale: string }) {
 
     const favoriteTools = tools.filter(tool => favorites.includes(tool.id));
     const filteredFavorites = favoriteTools.filter(tool => {
-        const title = t(`quickTools.list.${tool.id}.title`, { defaultValue: tool.id.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') });
+        const content = getToolContent(locale as Locale, tool.id);
+        const title = content?.title || tool.id.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
         return title.toLowerCase().includes(searchQuery.toLowerCase());
     });
 
     const availableTools = tools.filter(tool => {
-        const title = t(`quickTools.list.${tool.id}.title`, { defaultValue: tool.id.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') });
+        const content = getToolContent(locale as Locale, tool.id);
+        const title = content?.title || tool.id.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
         return title.toLowerCase().includes(modalSearch.toLowerCase());
     });
 
@@ -132,10 +135,10 @@ export default function FavoritesPageClient({ locale }: { locale: string }) {
                                 </div>
 
                                 <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[hsl(var(--color-primary))] transition-colors">
-                                    {t(`quickTools.list.${tool.id}.title`, { defaultValue: tool.id.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') })}
+                                    {getToolContent(locale as Locale, tool.id)?.title || tool.id.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
                                 </h3>
                                 <p className="text-sm text-gray-400 leading-relaxed mb-8">
-                                    {t(`quickTools.list.${tool.id}.description`, { defaultValue: t('toolDesc') })}
+                                    {getToolContent(locale as Locale, tool.id)?.metaDescription || t('toolDesc')}
                                 </p>
 
                                 <Link
@@ -224,7 +227,7 @@ export default function FavoritesPageClient({ locale }: { locale: string }) {
                                             </div>
                                             <div className="text-left flex-1 min-w-0">
                                                 <h4 className="font-bold text-gray-900 truncate">
-                                                    {t(`quickTools.list.${tool.id}.title`, { defaultValue: tool.id.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') })}
+                                                    {getToolContent(locale as Locale, tool.id)?.title || tool.id.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
                                                 </h4>
                                                 <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest">
                                                     {t('modal.category', { category: t('modal.defaultCategory') })}
