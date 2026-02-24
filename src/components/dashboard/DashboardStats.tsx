@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { FileCheck, Clock, Zap, TrendingUp, Loader2 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
 import { useAuth } from '@/components/providers/AuthProvider';
 import { HistoryService, HistoryItem } from '@/lib/services/history';
 
