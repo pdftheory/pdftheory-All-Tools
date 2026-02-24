@@ -93,7 +93,7 @@ export default function UsagePage() {
                         <h4 className="text-amber-900 dark:text-amber-100 font-bold mb-1">{t('usage.exceeded.title')}</h4>
                         <p className="text-amber-800 dark:text-amber-200 text-sm m-0">
                             {t.rich('usage.exceeded.desc', {
-                                code429: (chunks: React.ReactNode) => <code>{chunks}</code>
+                                code: (chunks: React.ReactNode) => <code>{chunks}</code>
                             })}
                         </p>
                     </div>

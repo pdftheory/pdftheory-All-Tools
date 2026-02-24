@@ -46,7 +46,11 @@
         "kb": "KB",
         "mb": "MB",
         "gb": "GB"
-      }
+      },
+      "uploadPdf": "Upload PDF File",
+      "convertDescription": "Drag and drop a PDF file to convert to {format}.",
+      "pasteHint": "Ctrl+V to paste",
+      "filesLimit": "Max: {count} files"
     },
     "downloader": {
       "showSize": "Mostrar tamaño",
@@ -653,10 +657,39 @@
         "Sin subidas al servidor",
         "Funciona sin conexión",
         "Código abierto"
-      ]
+      ],
+      "title": "Our Mission",
+      "p1": "We believe that everyone should have access to powerful PDF tools without compromising their privacy or paying expensive subscription fees. That's why we created {brand} – a comprehensive PDF toolkit that puts your privacy first.",
+      "p2": "Unlike traditional PDF services that require you to upload your files to remote servers, {brand} processes everything locally in your browser. Your sensitive documents never leave your device, giving you complete control over your data.",
+      "p3": "Whether you're a student, professional, or casual user, {brand} provides all the tools you need to work with PDFs efficiently and securely."
     },
     "values": {
-      "subtitle": "Los principios que impulsan cada función que creamos."
+      "subtitle": "Los principios que impulsan cada función que creamos.",
+      "title": "Our Values",
+      "privacy": {
+        "title": "Privacy First",
+        "description": "Your files never leave your device. All processing happens locally in your browser, ensuring complete privacy and security."
+      },
+      "fast": {
+        "title": "Fast & Efficient",
+        "description": "Powered by modern web technologies, pdftheory delivers lightning-fast PDF processing without the need for uploads or downloads."
+      },
+      "accessible": {
+        "title": "Accessible Everywhere",
+        "description": "Available in 9 languages and works on any device with a modern browser. No installation required."
+      },
+      "free": {
+        "title": "Free Forever",
+        "description": "pdftheory is completely free to use with no hidden costs, no registration required, and no limits on usage."
+      },
+      "openSource": {
+        "title": "Open Source",
+        "description": "Built with transparency in mind. Our code is open source, allowing anyone to verify our privacy claims."
+      },
+      "community": {
+        "title": "Community Driven",
+        "description": "Developed with feedback from users around the world. We continuously improve based on your needs."
+      }
     },
     "technology": {
       "list": [
@@ -680,7 +713,10 @@
           "name": "IndexedDB",
           "desc": "Almacenamiento local"
         }
-      ]
+      ],
+      "title": "Built with Modern Technology",
+      "description": "{brand} is built using cutting-edge web technologies to ensure the best possible experience:",
+      "summary": "This combination of technologies allows us to provide professional-grade PDF tools that run entirely in your browser, without any server-side processing."
     },
     "cta": {
       "title": "Ready to Get Started?",
@@ -2603,7 +2639,8 @@
         "FastTrack",
         "SecureNet",
         "DataFlow"
-      ]
+      ],
+      "title": "Trusted by innovative teams at"
     },
     "features": {
       "title": "Everything your team needs to work faster",
@@ -2640,7 +2677,12 @@
   },
   "educationPage": {
     "hero": {
-      "imageAlt": "Estudiantes estudiando"
+      "imageAlt": "Estudiantes estudiando",
+      "tagline": "PDFTheory for Education",
+      "title": "Empowering Students & Teachers",
+      "description": "Simplify coursework, research, and grading with powerful PDF tools tailored for the classroom. Fast, free, and easy to use.",
+      "ctaStart": "Start Using for Free",
+      "ctaPricing": "For Schools"
     },
     "benefits": {
       "title": "Tools for the Next Generation of Learners",
@@ -3319,6 +3361,731 @@
         "generalContact": "Contacto general",
         "responseTime": "Incluya una descripción detallada de la vulnerabilidad y los pasos para reproducirla. Nuestro objetivo es responder dentro de las 48 horas."
       }
+    }
+  },
+  "developers": {
+    "quickstart": {
+      "desc": "Get up and running with pdftheory API in minutes. This guide will walk you through obtaining your API key and making your first request.",
+      "breadcrumb": "Quickstart",
+      "title": "Quickstart Guide",
+      "subtitle": "Get up and running with pdftheory API in minutes. This guide will walk you through obtaining your API key and making your first request.",
+      "step1": {
+        "title": "Get your API Key",
+        "desc": "Before you can make requests, you'll need an API key. Head over to the developer dashboard to generate your first key.",
+        "button": "Go to Dashboard"
+      },
+      "step2": {
+        "title": "Make your first request",
+        "desc": "The simplest way to test your integration is using {curl} to compress a PDF. Replace {apikey} with the key you generated in the previous step.",
+        "codeFilename": "Terminal"
+      },
+      "step3": {
+        "title": "Explore the Reference",
+        "desc": "Now that you've successfully processed your first PDF, explore our other powerful endpoints designed for merging, splitting, and securing your documents.",
+        "apiRef": {
+          "title": "API Reference",
+          "desc": "Full endpoint details"
+        },
+        "usage": {
+          "title": "Usage Limits",
+          "desc": "Rate limits and quotas"
+        }
+      },
+      "tip": {
+        "title": "Pro Tip: Use our SDKs",
+        "desc": "While raw REST requests work great, our official SDKs handle buffering, error retries, and type safety out of the box."
+      }
+    },
+    "apiReference": {
+      "desc": "Our API is organized around REST. All endpoints use standard HTTP response codes, authentication, and verbs.",
+      "breadcrumb": "API Reference",
+      "title": "API Reference",
+      "subtitle": "Our API is organized around REST. All endpoints use standard HTTP response codes, authentication, and verbs.",
+      "notFound": {
+        "title": "Endpoint not found",
+        "link": "Return to API Reference"
+      },
+      "labels": {
+        "endpoint": "Endpoint",
+        "parameters": "Parameters",
+        "example": "Implementation Example",
+        "tableName": "Name",
+        "tableType": "Type",
+        "tableDesc": "Description",
+        "important": "Important Notice",
+        "back": "Back to Reference"
+      },
+      "messages": {
+        "example": "Use our standard multipart/form-data interface to process files. Ensure you include your <apiLink>x-api-key</apiLink> in the request headers.",
+        "sizeLimit": "Maximum file size is currently 50MB. If you need to process larger files, please contact our enterprise sales team."
+      },
+      "baseUrl": {
+        "title": "Base URL"
+      },
+      "endpoints": {
+        "title": "Endpoints",
+        "compress": {
+          "title": "Compress PDF",
+          "desc": "Reduce file size while preserving quality and integrity.",
+          "params": {
+            "file": "The PDF file to compress.",
+            "quality": "Compression level: low, medium, high. Default is medium."
+          }
+        },
+        "merge": {
+          "title": "Merge PDFs",
+          "desc": "Concatenate multiple PDF documents into a single resulting file.",
+          "params": {
+            "files": "Array of PDF files to merge."
+          }
+        },
+        "split": {
+          "title": "Split PDF",
+          "desc": "Divide a PDF into multiple documents by specifying page ranges.",
+          "params": {
+            "file": "The PDF file to split.",
+            "pages": "Page ranges (e.g., \"1-3, 5, 8-10\")."
+          }
+        },
+        "convert": {
+          "title": "Convert PDF",
+          "desc": "Professional-grade conversion from PDF to images or text."
+        }
+      },
+      "standards": {
+        "title": "API Standards",
+        "json": {
+          "title": "JSON Responses",
+          "desc": "All error responses are returned as structured JSON for easy parsing."
+        },
+        "cdn": {
+          "title": "Global CDN",
+          "desc": "Requests are routed through our global edge network for maximum speed."
+        },
+        "security": {
+          "title": "Security First",
+          "desc": "TLS 1.3 encryption and automated compliance checks on every request."
+        },
+        "rate": {
+          "title": "Rate Limiting",
+          "desc": "Fair use limits ensure high availability for all developers."
+        }
+      },
+      "help": {
+        "text": "Need more help? Join our <discord>Developer Discord</discord> or contact <support>Support</support>."
+      }
+    },
+    "breadcrumb": "Docs",
+    "intro": "Introduction",
+    "v1Status": "v1.0 is now live",
+    "title": "Developer Documentation",
+    "subtitle": "Everything you need to integrate professional-grade PDF processing into your applications. Built for speed, security, and developer happiness.",
+    "dashboard": {
+      "breadcrumb": "API Keys",
+      "title": "Developer Dashboard",
+      "subtitle": "Manage your API keys and monitor your application usage.",
+      "errors": {
+        "createFailed": "Failed to create API key"
+      },
+      "modals": {
+        "success": {
+          "title": "API Key Created Successfully",
+          "desc": "Please copy your key now. You won't be able to see it again!"
+        }
+      },
+      "keys": {
+        "title": "API Keys",
+        "button": "Create New Key",
+        "empty": "No API keys found. Create one to get started.",
+        "revoke": {
+          "confirm": "Are you sure you want to revoke key \"{name}\"? This action cannot be undone.",
+          "button": "Revoke"
+        },
+        "createdLabel": "Created {date}",
+        "status": {
+          "active": "active",
+          "revoked": "revoked"
+        }
+      }
+    },
+    "infrastructure": {
+      "title": "Core Infrastructure",
+      "edge": {
+        "title": "Edge Runtime",
+        "desc": "Processing happens near your users for sub-second latency."
+      },
+      "security": {
+        "title": "Zero-Trust Security",
+        "desc": "Files never touch local storage. Encryption at rest and in transit."
+      },
+      "api": {
+        "title": "Intuitive API",
+        "desc": "Clean REST endpoints with consistent parameters and clear errors."
+      },
+      "scale": {
+        "title": "Global Scale",
+        "desc": "Built on high-performance infrastructure that scales with your traffic."
+      }
+    },
+    "authentication": {
+      "title": "Authentication",
+      "desc": "All API requests must be authenticated using a secret API key. You can generate and manage multiple keys in your <link>Developer Dashboard</link>.",
+      "codeFilename": "Request Headers",
+      "explore": {
+        "title": "Explore the API",
+        "desc": "Ready to start building? Head over to the <link>API Reference</link> to see our complete set of PDF processing endpoints."
+      }
+    },
+    "community": {
+      "title": "Join our Developer Community",
+      "desc": "Stay up to date with the latest features, share your projects, and get help from other developers.",
+      "github": "Star on GitHub",
+      "discord": "Join Discord"
+    },
+    "usage": {
+      "breadcrumb": "Usage & Limits",
+      "title": "Usage & Rate Limits",
+      "subtitle": "Understand how we measure API usage and the limits applied to ensure high reliability and performance for all users.",
+      "fairUse": {
+        "title": "Fair Use Policy",
+        "desc": "pdftheory is currently free to use with reasonable limits. To maintain quality of service, we implement rate limits based on your account tier.",
+        "tiers": {
+          "free": {
+            "title": "Free Tier",
+            "value": "100 requests",
+            "unit": "per day"
+          },
+          "wait": {
+            "title": "Wait Period",
+            "value": "1 request",
+            "unit": "per second"
+          },
+          "size": {
+            "title": "File Size",
+            "value": "50 MB",
+            "unit": "per upload"
+          }
+        }
+      },
+      "headers": {
+        "title": "Rate Limit Headers",
+        "desc": "Every API response includes standard HTTP headers indicating your current usage and remaining quota.",
+        "table": {
+          "header": "Header",
+          "description": "Description",
+          "limit": {
+            "desc": "The total number of requests allowed per period."
+          },
+          "remaining": {
+            "desc": "The number of requests remaining in the current window."
+          },
+          "reset": {
+            "desc": "The time at which the current limit resets (Unix timestamp)."
+          }
+        }
+      },
+      "exceeded": {
+        "title": "Limit Exceeded Code",
+        "desc": "When you exceed a rate limit, the API will return a <code>429 Too Many Requests</code> status code. Your integration should handle this gracefully with an exponential backoff strategy."
+      },
+      "footer": {
+        "apiRef": "API Reference",
+        "checkUsage": "Check your Usage"
+      }
+    },
+    "feedback": {
+      "breadcrumb": "Feedback",
+      "title": "Feedback & Roadmap",
+      "subtitle": "We're building pdftheory for you. Share your ideas, report bugs, or let us know what features you'd like to see next.",
+      "success": {
+        "title": "You're Awesome!",
+        "desc": "Thank you for helping us make pdftheory better. Your feedback has been logged and will be reviewed by our product team.",
+        "button": "Share more feedback"
+      },
+      "cards": {
+        "feature": {
+          "title": "Feature Requests",
+          "desc": "Something missing from our API? Tell us about the use case and we'll see if it fits into our upcoming roadmap."
+        },
+        "bug": {
+          "title": "Bug Reports",
+          "desc": "Found a glitch in the matrix? Let us know the steps to reproduce it and we'll squash it as fast as possible."
+        }
+      },
+      "form": {
+        "title": "Share Your Thoughts",
+        "labels": {
+          "type": "What kind of feedback do you have?",
+          "detail": "Detail",
+          "email": "Your Email (Optional)"
+        },
+        "types": {
+          "feature": "Feature Request",
+          "bug": "Bug Report",
+          "other": "General Feedback"
+        },
+        "placeholders": {
+          "detail": "Tell us what's on your mind. Be as specific as you can...",
+          "email": "To get updates on your request"
+        },
+        "button": "Submit Feedback"
+      }
+    },
+    "support": {
+      "breadcrumb": "Support",
+      "title": "Support",
+      "subtitle": "Need help with the pdftheory API? Our engineering team is here to assist you with integration, troubleshooting, and best practices.",
+      "success": {
+        "title": "Support Request Received",
+        "desc": "Thank you for reaching out! Our team has received your message and will get back to you via email within 24-48 hours.",
+        "button": "Send another message"
+      },
+      "channels": {
+        "email": {
+          "title": "Email Support",
+          "desc": "Best for account issues or billing."
+        },
+        "discord": {
+          "title": "Community",
+          "desc": "Join our Discord for real-time help.",
+          "button": "Join Discord"
+        },
+        "github": {
+          "title": "GitHub Issues",
+          "desc": "Report technical bugs directly.",
+          "button": "Open Issue"
+        }
+      },
+      "form": {
+        "title": "Submit a Support Request",
+        "labels": {
+          "name": "Full Name",
+          "email": "Work Email",
+          "subject": "Subject",
+          "message": "Message"
+        },
+        "placeholders": {
+          "name": "Jane Doe",
+          "email": "jane@company.com",
+          "message": "Please provide as much detail as possible, including request IDs if applicable..."
+        },
+        "subjects": {
+          "integration": "Technical Integration",
+          "bug": "API Error/Bug",
+          "billing": "Billing Question",
+          "feature": "Feature Request",
+          "other": "Other"
+        },
+        "button": "Send Support Request"
+      }
+    }
+  },
+  "dashboard": {
+    "welcome": "Welcome back,",
+    "overviewSubtitle": "Here's an overview of your recent PDF activities.",
+    "sidebar": {
+      "overview": "Overview",
+      "favorites": "Favorites",
+      "history": "Activity Hub",
+      "workflows": "Pro Workflows",
+      "security": "Account Security",
+      "settings": "Settings",
+      "support": "Support Center",
+      "mgmtSection": "Management",
+      "prefSection": "Preferences",
+      "toolLibrary": "TOOL LIBRARY"
+    },
+    "stats": {
+      "totalProcessed": "Total Processed",
+      "toolsUsed": "Tools Utilized",
+      "timeSaved": "Estimated Savings",
+      "processedDesc": "PDFs managed by you",
+      "toolsDesc": "Unique tools explored",
+      "savingsDesc": "Time saved using {brand}"
+    },
+    "quickTools": {
+      "title": "Quick Actions",
+      "viewAll": "View all {count} tools",
+      "list": {
+        "pdf-multi-tool": {
+          "title": "All-in-One Tool",
+          "description": "Merge, split, rotate and organize PDF pages in one go."
+        },
+        "merge-pdf": {
+          "title": "Merge PDF",
+          "description": "Combine multiple PDF files into a single document."
+        },
+        "split-pdf": {
+          "title": "Split PDF",
+          "description": "Separate one page or a whole set for easy conversion."
+        },
+        "edit-pdf": {
+          "title": "Edit PDF",
+          "description": "Add text, images, and annotations to your PDF."
+        },
+        "sign-pdf": {
+          "title": "Sign PDF",
+          "description": "Request signatures or sign your documents securely."
+        },
+        "jpg-to-pdf": {
+          "title": "JPG to PDF",
+          "description": "Convert JPG, PNG, BMP and more to PDF format."
+        }
+      }
+    },
+    "recentActivity": {
+      "title": "Recent Activity",
+      "logsSection": "LATEST LOGS",
+      "mgmtHub": "Management Hub",
+      "noActivity": "No activity recorded",
+      "noActivityDesc": "Your professional PDF journey starts here. Process a file and track its history with ease.",
+      "exploreTools": "Explore 99+ Tools",
+      "status": {
+        "completed": "Completed"
+      },
+      "timeAgo": {
+        "justNow": "Just now",
+        "mins": "{count}m ago",
+        "hours": "{count}h ago",
+        "days": "{count}d ago"
+      }
+    },
+    "history": {
+      "breadcrumb": "Activity History",
+      "title": "Activity Hub",
+      "subtitle": "A comprehensive log of all your PDF transformations. Your data is encrypted and accessible only by you.",
+      "loading": "Accessing Logs...",
+      "searchPlaceholder": "Search by filename...",
+      "filterAll": "Every Action",
+      "filterAria": "Filter history by action type",
+      "advancedFilters": "Advanced filters",
+      "privacyTitle": "Privacy Focused Logging",
+      "privacyDesc": "We only store essential metadata about your file operations. Original files are never stored on our servers after processing is complete. Your history is automatically purged after 30 days unless you choose to delete it manually.",
+      "table": {
+        "details": "Document Details",
+        "task": "Operational Task",
+        "timeline": "Timeline",
+        "execution": "Execution",
+        "noResults": "No matching activities found",
+        "moreOptions": "More options",
+        "status": {
+          "verified": "Verified"
+        },
+        "pagination": {
+          "info": "Showing {count} of {total} records",
+          "prev": "Previous",
+          "next": "Next Page"
+        }
+      },
+      "export": {
+        "button": "EXPORT DATA",
+        "preparing": "PREPARING...",
+        "noData": "No activity data found to export.",
+        "error": "An error occurred while exporting your data.",
+        "headers": {
+          "action": "Action Type",
+          "file": "File Name",
+          "date": "Created At",
+          "metadata": "Metadata"
+        }
+      }
+    },
+    "analytics": {
+      "section": "Efficiency Analytics",
+      "weeklySavings": {
+        "title": "Weekly Savings",
+        "subtitle": "Cumulative hours saved through automations."
+      },
+      "improvement": "+24% IMPROVEMENT",
+      "versus": "Versus last 7 days",
+      "cloud": {
+        "title": "Cloud Workspace",
+        "subtitle": "Real-time processing status across nodes.",
+        "uptime": "Uptime",
+        "latency": "Latency",
+        "successRate": "Success Rate"
+      }
+    },
+    "favorites": {
+      "title": "Pinned Tools",
+      "subtitle": "Your personalized collection of frequently used PDF processors.",
+      "searchPlaceholder": "Search pinned...",
+      "clearSearch": "Clear search",
+      "unpin": "Unpin from dashboard",
+      "launch": "Launch Tool",
+      "toolDesc": "Professional-grade PDF tool with optimized processing engine.",
+      "addMore": {
+        "title": "Pin More Tools",
+        "desc": "Browse the library and star your favorite tools for quick access."
+      },
+      "noTools": {
+        "title": "No tools found",
+        "searchDesc": "No results for \"{query}\" in your pins.",
+        "emptyDesc": "You haven't pinned any tools yet. Start building your perfect workspace.",
+        "button": "Explore Tool Library"
+      },
+      "modal": {
+        "title": "Tool Repository",
+        "subtitle": "Select tools to pin on your dashboard",
+        "close": "Close repository",
+        "searchPlaceholder": "Instant tool lookup...",
+        "category": "Category: {category}",
+        "defaultCategory": "Utility",
+        "pinnedCount": "{count} TOOLS PINNED",
+        "done": "Done"
+      }
+    },
+    "security": {
+      "breadcrumb": "Security Hub",
+      "title": "Security Hub",
+      "subtitle": "Manage your account security, passwords, and authentication methods to keep your professional documents protected.",
+      "credentials": {
+        "title": "Access Credentials",
+        "subtitle": "Set a strong, unique password to ensure your account remains secure and inaccessible to others.",
+        "button": "Change Password"
+      },
+      "enhanced": {
+        "title": "Enhanced Security",
+        "subtitle": "Add an extra layer of protection by requiring both your password and a verification code from your phone.",
+        "tfa": "Two-Factor Auth",
+        "comingSoon": "Coming Soon"
+      },
+      "session": {
+        "title": "Current Session",
+        "status": "Live Connection",
+        "activeNow": "Active now",
+        "unknown": "Unknown",
+        "loading": "Checking session...",
+        "signOut": "Sign Out"
+      },
+      "accountInfo": {
+        "title": "Account Information",
+        "email": "Email Address",
+        "created": "Account Created",
+        "lastSignIn": "Last Sign In",
+        "notAvailable": "Not available"
+      },
+      "modal": {
+        "title": "Change Password",
+        "close": "Close dialog",
+        "successTitle": "Password Updated!",
+        "successDesc": "Your password has been changed successfully.",
+        "newPassword": "New Password",
+        "confirmPassword": "Confirm New Password",
+        "placeholders": {
+          "new": "Enter new password",
+          "confirm": "Confirm new password"
+        },
+        "aria": {
+          "hide": "Hide password",
+          "show": "Show password"
+        },
+        "requirements": "Min 8 characters with uppercase, lowercase, and number",
+        "cancel": "Cancel",
+        "update": "Update Password",
+        "updating": "Updating..."
+      },
+      "errors": {
+        "minLength": "Password must be at least 8 characters long",
+        "match": "Passwords do not match",
+        "format": "Password must contain uppercase, lowercase, and a number"
+      }
+    },
+    "settings": {
+      "breadcrumb": "Global Settings",
+      "title": "Settings",
+      "subtitle": "Control your PDF processing environment and workspace behavior.",
+      "save": {
+        "apply": "Apply Changes",
+        "saving": "Saving...",
+        "success": "Saved!"
+      },
+      "profile": {
+        "title": "Personal Identity",
+        "displayName": "Display Name",
+        "email": "Email Address",
+        "language": "Preferred Language",
+        "languageWarning": "Saving will redirect you to the selected language."
+      },
+      "engine": {
+        "title": "Processing Engine",
+        "status": "Active",
+        "compression": {
+          "title": "Default Compression Level",
+          "desc": "High compression results in smaller files but may affect graphic quality.",
+          "low": "Low",
+          "medium": "Medium",
+          "high": "High"
+        },
+        "linearize": "Fast Web View (Linearize)",
+        "info": {
+          "title": "Settings Info",
+          "desc": "These preferences are stored locally and apply to all PDF tools. Processing always happens in your browser for maximum privacy."
+        }
+      },
+      "privacy": {
+        "title": "Privacy Hub",
+        "desc": "All processed files stay in your browser and are never uploaded to servers.",
+        "history": {
+          "title": "Activity History Retention",
+          "options": {
+            "0": "Forever",
+            "7": "7 Days",
+            "30": "30 Days (Recommended)",
+            "90": "90 Days"
+          }
+        }
+      },
+      "workspace": {
+        "title": "Workspace",
+        "display": {
+          "title": "Tool Library Display",
+          "grid": "Grid",
+          "list": "List"
+        },
+        "notifications": {
+          "usage": "Email Usage Reports"
+        }
+      },
+      "footer": {
+        "info": "Settings are stored locally on your device for privacy.",
+        "securityLink": "Security Hub"
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome back",
+      "subtitle": "Sign in to your account",
+      "emailLabel": "Email address",
+      "passwordLabel": "Password",
+      "placeholder": {
+        "email": "you@example.com",
+        "password": "••••••••"
+      },
+      "forgotPassword": "Forgot password?",
+      "button": "Sign in",
+      "signingIn": "Signing in...",
+      "noAccount": "Don't have an account?",
+      "signupLink": "Sign up for free",
+      "error": "Failed to sign in"
+    },
+    "signup": {
+      "title": "Create an account",
+      "subtitle": "Get unlimited access to all PDF tools",
+      "emailLabel": "Email address",
+      "passwordLabel": "Password",
+      "placeholder": {
+        "email": "you@example.com",
+        "password": "At least 6 characters"
+      },
+      "button": "Sign up",
+      "signingUp": "Creating account...",
+      "haveAccount": "Already have an account?",
+      "loginLink": "Sign in",
+      "captchaError": "Please solve the CAPTCHA to continue",
+      "captchaFailed": "CAPTCHA verification failed. Please try again.",
+      "userExists": "User already exists",
+      "success": {
+        "title": "Check your email",
+        "desc": "We've sent a verification link to <strong>{email}</strong>.",
+        "inbox": "Please check your inbox (and spam folder) to complete your registration.",
+        "backButton": "Back to Sign in"
+      }
+    }
+  },
+  "press": {
+    "hero": {
+      "badge": "Official Media Resources",
+      "title": "Tell the <blue>pdftheory</blue> Story",
+      "subtitle": "Access official brand assets, high-fidelity product mockups, and the latest news about our privacy-first browser technology.",
+      "cta": "Open Digital Press Kit"
+    },
+    "kit": {
+      "title": "Digital Press Kit",
+      "subtitle": "Everything you need, organized in one place.",
+      "tabs": {
+        "kit": "Brand Assets",
+        "gallery": "Media Gallery",
+        "facts": "Fact Sheet"
+      },
+      "logos": {
+        "primary": {
+          "title": "Primary Logo",
+          "desc": "The main mark. Use whenever possible.",
+          "downloadSvg": "Download SVG",
+          "downloadPng": "Download PNG"
+        },
+        "monochrome": {
+          "title": "Monochrome",
+          "desc": "For dark backgrounds.",
+          "downloadSvg": "Download SVG",
+          "downloadPng": "Download PNG"
+        }
+      },
+      "colors": {
+        "title": "Brand Colors"
+      },
+      "gallery": {
+        "download": "Download High-Res"
+      },
+      "facts": {
+        "boilerplate": {
+          "title": "Company Boilerplate",
+          "content": "pdftheory is the world's leading browser-based PDF utility platform. By processing files locally using WebAssembly technology, pdftheory offers privacy-first document management without uploads or server-side risks. Founded in 2024, the platform provides 110 free tools to millions of users worldwide."
+        },
+        "statistics": {
+          "title": "Key Facts & Statistics",
+          "labels": {
+            "founded": "Founded",
+            "headquarters": "Headquarters",
+            "coreTech": "Core Technology",
+            "privacyModel": "Privacy Model",
+            "totalTools": "Total Tools",
+            "pricing": "Pricing",
+            "platforms": "Supported Platforms",
+            "registration": "User Registration"
+          },
+          "values": {
+            "founded": "2024",
+            "headquarters": "Remote / Global",
+            "coreTech": "Client-Side WASM",
+            "privacyModel": "Zero Server Uploads",
+            "totalTools": "110",
+            "pricing": "100% Free / Open",
+            "platforms": "All Modern Browsers",
+            "registration": "Not Required"
+          }
+        }
+      }
+    },
+    "featuredIn": "As Featured In",
+    "story": {
+      "badge": "Our Story",
+      "title": "About pdftheory",
+      "cards": {
+        "who": {
+          "title": "Who are we?",
+          "desc": "pdftheory is a forward-thinking software collective dedicated to building the web's most powerful privacy-first document tools. We are a team of engineers passionate about open web technologies."
+        },
+        "what": {
+          "title": "What do we do?",
+          "desc": "We engineer high-performance, client-side PDF utilities that run entirely in your browser using advanced WebAssembly. We simplify complex document tasks without expensive software."
+        },
+        "global": {
+          "title": "Helping People Globally",
+          "desc": "pdftheory is designed to be fast, reliable, and secure, handling everything from everyday document tasks to large-scale workflows."
+        },
+        "privacy": {
+          "title": "Privacy at the Core",
+          "desc": "We believe utility shouldn't cost privacy. Our Zero-Upload architecture means we never see, store, or touch your documents—they stay on your device, always."
+        }
+      }
+    },
+    "contact": {
+      "title": "Media Inquiries",
+      "subtitle": "For interviews, detailed specs, or specific asset requests.",
+      "button": "Contact Press Relations"
     }
   }
 }

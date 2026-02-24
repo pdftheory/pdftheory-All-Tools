@@ -393,7 +393,7 @@ export function PDFToFormatTool({
                     loading={isProcessing}
                 >
                     <FileText className="w-4 h-4 mr-2" />
-                    {isProcessing ? t('status.processing') : (resultBlob ? t('buttons.convertAgain') : `${t('common.buttons.process')} to ${outputFormat.toUpperCase()}`)}
+                    {isProcessing ? t('status.processing') : (resultBlob ? t('buttons.convertAgain') : `${t('buttons.process')} to ${outputFormat.toUpperCase()}`)}
                 </Button>
 
                 {resultBlob && (

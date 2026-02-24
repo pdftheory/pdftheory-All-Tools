@@ -3665,6 +3665,7 @@
     "apiReference": {
       "breadcrumb": "API Reference",
       "title": "API Reference",
+      "desc": "Our API is organized around REST. All endpoints use standard HTTP response codes, authentication, and verbs.",
       "subtitle": "Our API is organized around REST. All endpoints use standard HTTP response codes, authentication, and verbs.",
       "notFound": {
         "title": "Endpoint not found",
@@ -3914,6 +3915,7 @@
     "quickstart": {
       "breadcrumb": "Quickstart",
       "title": "Quickstart Guide",
+      "desc": "Get up and running with pdftheory API in minutes. This guide will walk you through obtaining your API key and making your first request.",
       "subtitle": "Get up and running with pdftheory API in minutes. This guide will walk you through obtaining your API key and making your first request.",
       "step1": {
         "title": "Get your API Key",
