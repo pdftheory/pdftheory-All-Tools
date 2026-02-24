@@ -113,27 +113,6 @@
       ],
       "destination": "https://www.pdftheory.com/:path*",
       "permanent": true
-    },
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.pdftheory.com"
-        }
-      ],
-      "destination": "/en/",
-      "permanent": true
-    },
-    {
-      "source": "/:locale(ja|ko|es|fr|de|zh|zh-TW|pt|ar)",
-      "destination": "/:locale/",
-      "permanent": true
-    },
-    {
-      "source": "/en",
-      "destination": "/en/",
-      "permanent": true
     }
   ]
 }
