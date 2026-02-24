@@ -9,6 +9,7 @@ import { createClient } from '@/lib/supabase/client';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { AlertCircle, ArrowRight, Loader2 } from 'lucide-react';
+import { Turnstile } from '@marsidev/react-turnstile';
 
 export default function LoginPage({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = use(params);
@@ -18,6 +19,7 @@ export default function LoginPage({ params }: { params: Promise<{ locale: string
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [captchaToken, setCaptchaToken] = useState<string | undefined>(undefined);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
@@ -30,6 +32,9 @@ export default function LoginPage({ params }: { params: Promise<{ locale: string
             const { error } = await supabase.auth.signInWithPassword({
                 email,
                 password,
+                options: {
+                    captchaToken,
+                },
             });
 
             if (error) {
@@ -94,6 +99,15 @@ export default function LoginPage({ params }: { params: Promise<{ locale: string
                                     </Link>
                                 </div>
                             </div>
+                        </div>
+
+                        <div className="flex justify-center">
+                            <Turnstile
+                                siteKey="0x4AAAAAACZhc6xfIJocDmiF"
+                                onSuccess={(token) => setCaptchaToken(token)}
+                                onExpire={() => setCaptchaToken(undefined)}
+                                onError={() => setCaptchaToken(undefined)}
+                            />
                         </div>
 
                         {error && (

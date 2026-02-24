@@ -8,6 +8,7 @@ import { createClient } from '@/lib/supabase/client';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { AlertCircle, ArrowRight, Loader2, CheckCircle2 } from 'lucide-react';
+import { Turnstile } from '@marsidev/react-turnstile';
 
 export default function ForgotPasswordPage({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = use(params);
@@ -15,6 +16,7 @@ export default function ForgotPasswordPage({ params }: { params: Promise<{ local
     const supabase = createClient();
 
     const [email, setEmail] = useState('');
+    const [captchaToken, setCaptchaToken] = useState<string | undefined>(undefined);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [success, setSuccess] = useState(false);
@@ -27,6 +29,7 @@ export default function ForgotPasswordPage({ params }: { params: Promise<{ local
         try {
             const { error } = await supabase.auth.resetPasswordForEmail(email, {
                 redirectTo: `${window.location.origin}/${locale}/auth/callback?next=/${locale}/reset-password`,
+                captchaToken,
             });
 
             if (error) {
@@ -93,6 +96,15 @@ export default function ForgotPasswordPage({ params }: { params: Promise<{ local
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 placeholder={t('forgotPassword.placeholder')}
+                            />
+                        </div>
+
+                        <div className="flex justify-center">
+                            <Turnstile
+                                siteKey="0x4AAAAAACZhc6xfIJocDmiF"
+                                onSuccess={(token) => setCaptchaToken(token)}
+                                onExpire={() => setCaptchaToken(undefined)}
+                                onError={() => setCaptchaToken(undefined)}
                             />
                         </div>
 
