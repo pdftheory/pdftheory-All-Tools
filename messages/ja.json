@@ -3017,7 +3017,22 @@
     "email": "メール",
     "phone": "電話",
     "mailingAddress": "郵送先住所",
-    "termsAndConditions": "利用規約"
+    "termsAndConditions": "利用規約",
+    "youProvide": "Information you provide to us directly:",
+    "automaticallyCollected": "Information collected automatically via the service:",
+    "filesYouProcess": "Files You Process",
+    "importantPrivacy": "Important Privacy Information",
+    "localProcessing": "Files are processed locally in your browser and never leave your device.",
+    "cookieType": "Cookie Type",
+    "purpose": "Purpose",
+    "essentialCookies": "Essential",
+    "essentialPurpose": "Required for the website to function correctly.",
+    "analyticsCookies": "Analytics",
+    "analyticsPurpose": "Used to understand how users interact with our service.",
+    "marketingCookies": "Marketing",
+    "marketingPurpose": "Used to show relevant advertisements.",
+    "cookieControl": "You can control or reset your cookies through your web browser settings at any time.",
+    "noSell": "We do not sell your personal information."
   },
   "privacyPage": {
     "title": "プライバシーポリシー",
@@ -3039,7 +3054,8 @@
           "利用データ：訪問したページ、使用した機能、セッション時間。",
           "IPアドレス：分析およびセキュリティ目的で収集。",
           "Cookie：当社のCookieポリシーに記載のとおり。"
-        ]
+        ],
+        "noUploadGuarantee": "Your files are <strong>never uploaded</strong> to our servers."
       },
       "s2": {
         "title": "2. 情報の利用方法",
@@ -3091,7 +3107,8 @@
       },
       "s8": {
         "title": "8. 児童のプライバシー",
-        "text": "当社のサービスは16歳未満の児童を対象としていません。児童から意図的に個人情報を収集することはありません。児童が当社に個人データを提供したと思われる場合は、ご連絡ください。削除いたします。"
+        "text": "当社のサービスは16歳未満の児童を対象としていません。児童から意図的に個人情報を収集することはありません。児童が当社に個人データを提供したと思われる場合は、ご連絡ください。削除いたします。",
+        "items": []
       },
       "s9": {
         "title": "9. セキュリティ",
@@ -3104,7 +3121,8 @@
           "広告はお客様の閲覧行動に基づいてパーソナライズされる場合があります。",
           "Googleの広告設定またはデバイスの設定を通じて、パーソナライズされた広告をオプトアウトできます。",
           "当社はGoogle Analyticsを使用して、訪問者がサービスをどのように利用しているかを理解しています。"
-        ]
+        ],
+        "optOut": "You can opt-out of personalized advertising by visiting the <link1>DAA Consumer Choice Page</link1> or the <link2>NAI Opt-Out Page</link2>."
       },
       "s11": {
         "title": "11. AGPL-3.0ライセンスの開示",

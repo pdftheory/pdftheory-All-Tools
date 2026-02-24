@@ -2835,7 +2835,22 @@
     "email": "البريد الإلكتروني",
     "phone": "الهاتف",
     "mailingAddress": "العنوان البريدي",
-    "termsAndConditions": "الشروط والأحكام"
+    "termsAndConditions": "الشروط والأحكام",
+    "youProvide": "Information you provide to us directly:",
+    "automaticallyCollected": "Information collected automatically via the service:",
+    "filesYouProcess": "Files You Process",
+    "importantPrivacy": "Important Privacy Information",
+    "localProcessing": "Files are processed locally in your browser and never leave your device.",
+    "cookieType": "Cookie Type",
+    "purpose": "Purpose",
+    "essentialCookies": "Essential",
+    "essentialPurpose": "Required for the website to function correctly.",
+    "analyticsCookies": "Analytics",
+    "analyticsPurpose": "Used to understand how users interact with our service.",
+    "marketingCookies": "Marketing",
+    "marketingPurpose": "Used to show relevant advertisements.",
+    "cookieControl": "You can control or reset your cookies through your web browser settings at any time.",
+    "noSell": "We do not sell your personal information."
   },
   "privacyPage": {
     "title": "سياسة الخصوصية",
@@ -2857,7 +2872,8 @@
           "بيانات الاستخدام: الصفحات المزارة والميزات المستخدمة ومدة الجلسة.",
           "عنوان IP: يتم جمعه لأغراض التحليلات والأمان.",
           "ملفات تعريف الارتباط: كما هو موضح في سياسة ملفات تعريف الارتباط الخاصة بنا."
-        ]
+        ],
+        "noUploadGuarantee": "Your files are <strong>never uploaded</strong> to our servers."
       },
       "s2": {
         "title": "2. كيف نستخدم معلوماتك",
@@ -2909,7 +2925,8 @@
       },
       "s8": {
         "title": "8. خصوصية الأطفال",
-        "text": "خدمتنا غير مخصصة للأطفال دون سن 16 عاماً. نحن لا نجمع معلومات شخصية من الأطفال عن قصد. إذا كنت تعتقد أن طفلاً قد زودنا ببيانات شخصية، يرجى الاتصال بنا وسنقوم بحذفها."
+        "text": "خدمتنا غير مخصصة للأطفال دون سن 16 عاماً. نحن لا نجمع معلومات شخصية من الأطفال عن قصد. إذا كنت تعتقد أن طفلاً قد زودنا ببيانات شخصية، يرجى الاتصال بنا وسنقوم بحذفها.",
+        "items": []
       },
       "s9": {
         "title": "9. الأمان",
@@ -2922,7 +2939,8 @@
           "قد يتم تخصيص الإعلانات بناءً على سلوك التصفح الخاص بك.",
           "يمكنك إلغاء الاشتراك في الإعلانات المخصصة عبر إعدادات إعلانات Google أو إعدادات جهازك.",
           "نستخدم Google Analytics لفهم كيفية استخدام الزوار لخدمتنا."
-        ]
+        ],
+        "optOut": "You can opt-out of personalized advertising by visiting the <link1>DAA Consumer Choice Page</link1> or the <link2>NAI Opt-Out Page</link2>."
       },
       "s11": {
         "title": "11. الإفصاح عن ترخيص AGPL-3.0",

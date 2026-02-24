@@ -3017,7 +3017,22 @@
     "email": "이메일",
     "phone": "전화",
     "mailingAddress": "우편 주소",
-    "termsAndConditions": "이용약관"
+    "termsAndConditions": "이용약관",
+    "youProvide": "Information you provide to us directly:",
+    "automaticallyCollected": "Information collected automatically via the service:",
+    "filesYouProcess": "Files You Process",
+    "importantPrivacy": "Important Privacy Information",
+    "localProcessing": "Files are processed locally in your browser and never leave your device.",
+    "cookieType": "Cookie Type",
+    "purpose": "Purpose",
+    "essentialCookies": "Essential",
+    "essentialPurpose": "Required for the website to function correctly.",
+    "analyticsCookies": "Analytics",
+    "analyticsPurpose": "Used to understand how users interact with our service.",
+    "marketingCookies": "Marketing",
+    "marketingPurpose": "Used to show relevant advertisements.",
+    "cookieControl": "You can control or reset your cookies through your web browser settings at any time.",
+    "noSell": "We do not sell your personal information."
   },
   "privacyPage": {
     "title": "개인정보 보호정책",
@@ -3039,7 +3054,8 @@
           "사용 데이터: 방문한 페이지, 사용한 기능, 세션 시간.",
           "IP 주소: 분석 및 보안 목적으로 수집.",
           "쿠키: 당사의 쿠키 정책에 설명된 대로."
-        ]
+        ],
+        "noUploadGuarantee": "Your files are <strong>never uploaded</strong> to our servers."
       },
       "s2": {
         "title": "2. 정보 사용 방법",
@@ -3091,7 +3107,8 @@
       },
       "s8": {
         "title": "8. 아동 개인정보 보호",
-        "text": "당사의 서비스는 16세 미만 아동을 대상으로 하지 않습니다. 당사는 아동의 개인정보를 의도적으로 수집하지 않습니다. 아동이 당사에 개인 데이터를 제공했다고 생각되면 연락해 주시면 삭제하겠습니다."
+        "text": "당사의 서비스는 16세 미만 아동을 대상으로 하지 않습니다. 당사는 아동의 개인정보를 의도적으로 수집하지 않습니다. 아동이 당사에 개인 데이터를 제공했다고 생각되면 연락해 주시면 삭제하겠습니다.",
+        "items": []
       },
       "s9": {
         "title": "9. 보안",
@@ -3104,7 +3121,8 @@
           "광고는 귀하의 브라우징 행동에 따라 개인화될 수 있습니다.",
           "Google 광고 설정 또는 기기 설정을 통해 개인화 광고를 거부할 수 있습니다.",
           "당사는 방문자가 서비스를 어떻게 사용하는지 이해하기 위해 Google Analytics를 사용합니다."
-        ]
+        ],
+        "optOut": "You can opt-out of personalized advertising by visiting the <link1>DAA Consumer Choice Page</link1> or the <link2>NAI Opt-Out Page</link2>."
       },
       "s11": {
         "title": "11. AGPL-3.0 라이선스 공개",

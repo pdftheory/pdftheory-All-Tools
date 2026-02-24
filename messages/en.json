@@ -2773,7 +2773,7 @@
     "home": "Home",
     "onThisPage": "On this page",
     "effective": "Effective: January 30, 2026",
-    "lastUpdated": "Last updated: January 30, 2026",
+    "lastUpdated": "Last updated: February 24, 2026",
     "relatedPolicies": "Related Policies",
     "privacyPolicy": "Privacy Policy",
     "termsOfService": "Terms of Service",
@@ -2782,7 +2782,22 @@
     "email": "Email",
     "phone": "Phone",
     "mailingAddress": "Mailing Address",
-    "termsAndConditions": "Terms and Conditions"
+    "termsAndConditions": "Terms and Conditions",
+    "youProvide": "Information you provide to us directly:",
+    "automaticallyCollected": "Information collected automatically via the service:",
+    "filesYouProcess": "Files You Process",
+    "importantPrivacy": "Important Privacy Information",
+    "localProcessing": "Files are processed locally in your browser and never leave your device.",
+    "cookieType": "Cookie Type",
+    "purpose": "Purpose",
+    "essentialCookies": "Essential",
+    "essentialPurpose": "Required for the website to function correctly.",
+    "analyticsCookies": "Analytics",
+    "analyticsPurpose": "Used to understand how users interact with our service.",
+    "marketingCookies": "Marketing",
+    "marketingPurpose": "Used to show relevant advertisements.",
+    "cookieControl": "You can control or reset your cookies through your web browser settings at any time.",
+    "noSell": "We do not sell your personal information."
   },
   "privacyPage": {
     "title": "Privacy Policy",
@@ -2804,7 +2819,8 @@
           "Usage Data: pages visited, features used, session duration.",
           "IP Address: collected for analytics and security purposes.",
           "Cookies: as described in our Cookie Policy."
-        ]
+        ],
+        "noUploadGuarantee": "Your files are <strong>never uploaded</strong> to our servers."
       },
       "s2": {
         "title": "2. How We Use Your Information",
@@ -2856,7 +2872,8 @@
       },
       "s8": {
         "title": "8. Children’s Privacy",
-        "text": "Our Service is not intended for children under 16. We do not knowingly collect personal information from children. If you believe a child has provided us with personal data, please contact us and we will delete it."
+        "text": "Our Service is not intended for children under 16. We do not knowingly collect personal information from children. If you believe a child has provided us with personal data, please contact us and we will delete it.",
+        "items": []
       },
       "s9": {
         "title": "9. Security",
@@ -2869,11 +2886,12 @@
           "Ads may be personalized based on your browsing behavior.",
           "You can opt out of personalized ads via Google Ad Settings or your device settings.",
           "We use Google Analytics to understand how visitors use our Service."
-        ]
+        ],
+        "optOut": "You can opt-out of personalized advertising by visiting the <link1>DAA Consumer Choice Page</link1> or the <link2>NAI Opt-Out Page</link2>."
       },
       "s11": {
         "title": "11. AGPL-3.0 License Disclosure",
-        "text": "Certain components of pdftheory are licensed under the GNU Affero General Public License v3. The source code is available at github.com/pdftheory."
+        "text": "PDFTheory is built with open-source technology. Certain components are licensed under the AGPL-3.0. You can view our source code on <link>GitHub</link>."
       },
       "s12": {
         "title": "12. Links to Other Websites",

@@ -2789,7 +2789,22 @@
     "email": "E-Mail",
     "phone": "Telefon",
     "mailingAddress": "Postanschrift",
-    "termsAndConditions": "Allgemeine Geschäftsbedingungen"
+    "termsAndConditions": "Allgemeine Geschäftsbedingungen",
+    "youProvide": "Information you provide to us directly:",
+    "automaticallyCollected": "Information collected automatically via the service:",
+    "filesYouProcess": "Files You Process",
+    "importantPrivacy": "Important Privacy Information",
+    "localProcessing": "Files are processed locally in your browser and never leave your device.",
+    "cookieType": "Cookie Type",
+    "purpose": "Purpose",
+    "essentialCookies": "Essential",
+    "essentialPurpose": "Required for the website to function correctly.",
+    "analyticsCookies": "Analytics",
+    "analyticsPurpose": "Used to understand how users interact with our service.",
+    "marketingCookies": "Marketing",
+    "marketingPurpose": "Used to show relevant advertisements.",
+    "cookieControl": "You can control or reset your cookies through your web browser settings at any time.",
+    "noSell": "We do not sell your personal information."
   },
   "privacyPage": {
     "title": "Datenschutzrichtlinie",
@@ -2811,7 +2826,8 @@
           "Nutzungsdaten: besuchte Seiten, genutzte Funktionen, Sitzungsdauer.",
           "IP-Adresse: für Analyse- und Sicherheitszwecke erfasst.",
           "Cookies: wie in unserer Cookie-Richtlinie beschrieben."
-        ]
+        ],
+        "noUploadGuarantee": "Your files are <strong>never uploaded</strong> to our servers."
       },
       "s2": {
         "title": "2. Wie wir Ihre Informationen verwenden",
@@ -2863,7 +2879,8 @@
       },
       "s8": {
         "title": "8. Datenschutz für Kinder",
-        "text": "Unser Dienst ist nicht für Kinder unter 16 Jahren bestimmt. Wir sammeln wissentlich keine personenbezogenen Daten von Kindern. Wenn Sie glauben, dass ein Kind uns personenbezogene Daten zur Verfügung gestellt hat, kontaktieren Sie uns bitte und wir werden sie löschen."
+        "text": "Unser Dienst ist nicht für Kinder unter 16 Jahren bestimmt. Wir sammeln wissentlich keine personenbezogenen Daten von Kindern. Wenn Sie glauben, dass ein Kind uns personenbezogene Daten zur Verfügung gestellt hat, kontaktieren Sie uns bitte und wir werden sie löschen.",
+        "items": []
       },
       "s9": {
         "title": "9. Sicherheit",
@@ -2876,7 +2893,8 @@
           "Werbung kann basierend auf Ihrem Surfverhalten personalisiert werden.",
           "Sie können personalisierte Werbung über die Google-Anzeigeneinstellungen oder Ihre Geräteeinstellungen deaktivieren.",
           "Wir verwenden Google Analytics, um zu verstehen, wie Besucher unseren Dienst nutzen."
-        ]
+        ],
+        "optOut": "You can opt-out of personalized advertising by visiting the <link1>DAA Consumer Choice Page</link1> or the <link2>NAI Opt-Out Page</link2>."
       },
       "s11": {
         "title": "11. AGPL-3.0-Lizenzoffenlegung",

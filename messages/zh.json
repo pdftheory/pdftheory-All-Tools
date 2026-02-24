@@ -2788,7 +2788,22 @@
     "email": "电子邮件",
     "phone": "电话",
     "mailingAddress": "邮寄地址",
-    "termsAndConditions": "条款和条件"
+    "termsAndConditions": "条款和条件",
+    "youProvide": "Information you provide to us directly:",
+    "automaticallyCollected": "Information collected automatically via the service:",
+    "filesYouProcess": "Files You Process",
+    "importantPrivacy": "Important Privacy Information",
+    "localProcessing": "Files are processed locally in your browser and never leave your device.",
+    "cookieType": "Cookie Type",
+    "purpose": "Purpose",
+    "essentialCookies": "Essential",
+    "essentialPurpose": "Required for the website to function correctly.",
+    "analyticsCookies": "Analytics",
+    "analyticsPurpose": "Used to understand how users interact with our service.",
+    "marketingCookies": "Marketing",
+    "marketingPurpose": "Used to show relevant advertisements.",
+    "cookieControl": "You can control or reset your cookies through your web browser settings at any time.",
+    "noSell": "We do not sell your personal information."
   },
   "privacyPage": {
     "title": "隐私政策",
@@ -2810,7 +2825,8 @@
           "使用数据：访问的页面、使用的功能、会话持续时间。",
           "IP 地址：出于分析和安全目的收集。",
           "Cookie：如我们的 Cookie 政策所述。"
-        ]
+        ],
+        "noUploadGuarantee": "Your files are <strong>never uploaded</strong> to our servers."
       },
       "s2": {
         "title": "2. 我们如何使用您的信息",
@@ -2862,7 +2878,8 @@
       },
       "s8": {
         "title": "8. 儿童隐私",
-        "text": "我们的服务不面向 16 岁以下的儿童。我们不会故意收集儿童的个人信息。如果您认为有儿童向我们提供了个人数据，请联系我们，我们将予以删除。"
+        "text": "我们的服务不面向 16 岁以下的儿童。我们不会故意收集儿童的个人信息。如果您认为有儿童向我们提供了个人数据，请联系我们，我们将予以删除。",
+        "items": []
       },
       "s9": {
         "title": "9. 安全",
@@ -2875,7 +2892,8 @@
           "广告可能根据您的浏览行为进行个性化定制。",
           "您可以通过 Google 广告设置或设备设置选择退出个性化广告。",
           "我们使用 Google Analytics 了解访问者如何使用我们的服务。"
-        ]
+        ],
+        "optOut": "You can opt-out of personalized advertising by visiting the <link1>DAA Consumer Choice Page</link1> or the <link2>NAI Opt-Out Page</link2>."
       },
       "s11": {
         "title": "11. AGPL-3.0 许可证披露",
