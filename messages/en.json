@@ -3625,7 +3625,36 @@
         "desc": "We've sent a verification link to <strong>{email}</strong>.",
         "inbox": "Please check your inbox (and spam folder) to complete your registration.",
         "backButton": "Back to Sign in"
-      }
+      },
+      "error": "Failed to create account"
+    },
+    "forgotPassword": {
+      "title": "Reset your password",
+      "subtitle": "Enter your email to receive a reset link",
+      "emailLabel": "Email address",
+      "placeholder": "you@example.com",
+      "button": "Send reset link",
+      "sending": "Sending link...",
+      "success": {
+        "title": "Check your email",
+        "desc": "If an account exists for <strong>{email}</strong>, you will receive a password reset link shortly.",
+        "backButton": "Back to Sign in"
+      },
+      "error": "Failed to send reset link"
+    },
+    "resetPassword": {
+      "title": "Update password",
+      "subtitle": "Choose a new secure password",
+      "passwordLabel": "New password",
+      "placeholder": "At least 6 characters",
+      "button": "Update password",
+      "updating": "Updating...",
+      "success": {
+        "title": "Password updated",
+        "desc": "Your password has been successfully updated. You can now sign in with your new password.",
+        "button": "Back to Sign in"
+      },
+      "error": "Failed to update password"
     }
   },
   "developers": {
