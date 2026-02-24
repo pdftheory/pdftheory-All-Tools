@@ -3,36 +3,33 @@
 import React, { useState } from 'react';
 import { Download, Loader2 } from 'lucide-react';
 import { HistoryService } from '@/lib/services/history';
+import { useTranslations } from 'next-intl';
 
 interface HistoryExportButtonProps {
     userId: string;
 }
 
 export const HistoryExportButton = ({ userId }: HistoryExportButtonProps) => {
-    const [isExporting, setIsExporting] = useState(false);
+    const t = useTranslations('dashboard.history.export');
+    const [exporting, setExporting] = useState(false);
 
     const handleExport = async () => {
-        if (isExporting) return;
-
-        setIsExporting(true);
         try {
-            // Fetch a larger set for export (e.g., last 1000 items)
-            const { success, data, error } = await HistoryService.getUserHistory(userId, 1000);
+            setExporting(true);
+            const { success, data } = await HistoryService.getUserHistory(userId, 1000);
 
             if (!success || !data || data.length === 0) {
-                console.error('Export failed: No data found or error occurred', error);
-                alert('No activity data found to export.');
-                setIsExporting(false);
+                alert(t('noData'));
                 return;
             }
 
-            // Convert to CSV
-            const headers = ['Action Type', 'File Name', 'Created At', 'Metadata'];
+            // Simple CSV conversion
+            const headers = [t('headers.action'), t('headers.file'), t('headers.date'), t('headers.metadata')];
             const rows = data.map(item => [
                 item.action_type,
                 item.file_name,
-                new Date(item.created_at).toLocaleString(),
-                JSON.stringify(item.metadata).replace(/"/g, '""') // Escape quotes for CSV
+                item.created_at,
+                JSON.stringify(item.metadata || {})
             ]);
 
             const csvContent = [
@@ -40,41 +37,40 @@ export const HistoryExportButton = ({ userId }: HistoryExportButtonProps) => {
                 ...rows.map(row => row.map(cell => `"${cell}"`).join(','))
             ].join('\n');
 
-            // Trigger download
             const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-            const url = URL.createObjectURL(blob);
             const link = document.createElement('a');
-            const date = new Date().toISOString().split('T')[0];
-
+            const url = URL.createObjectURL(blob);
             link.setAttribute('href', url);
-            link.setAttribute('download', `pdftheory-activity-${date}.csv`);
+            link.setAttribute('download', `pdfcraft_activity_history_${new Date().toISOString().split('T')[0]}.csv`);
             link.style.visibility = 'hidden';
-
             document.body.appendChild(link);
             link.click();
             document.body.removeChild(link);
-
-            URL.revokeObjectURL(url);
-        } catch (err) {
-            console.error('Export error:', err);
-            alert('An error occurred while exporting your data.');
+        } catch (error) {
+            console.error('Export error:', error);
+            alert(t('error'));
         } finally {
-            setIsExporting(false);
+            setExporting(false);
         }
     };
 
     return (
         <button
             onClick={handleExport}
-            disabled={isExporting}
-            className="flex items-center gap-2 px-6 py-3.5 bg-white border border-gray-100 text-sm font-black text-gray-600 rounded-2xl hover:bg-gray-50 transition-all shadow-sm disabled:opacity-50 disabled:cursor-not-allowed"
+            disabled={exporting}
+            className="flex items-center gap-3 px-6 py-4 bg-white border-2 border-gray-900 text-gray-900 rounded-2xl font-bold text-sm hover:bg-gray-900 hover:text-white transition-all shadow-sm active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed group mr-6"
         >
-            {isExporting ? (
-                <Loader2 className="w-4 h-4 animate-spin text-[hsl(var(--color-primary))]" />
+            {exporting ? (
+                <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span className="uppercase tracking-widest">{t('preparing')}</span>
+                </>
             ) : (
-                <Download className="w-4 h-4" />
+                <>
+                    <Download className="w-4 h-4 group-hover:-translate-y-1 transition-transform" />
+                    <span className="uppercase tracking-widest">{t('button')}</span>
+                </>
             )}
-            {isExporting ? 'PREPARING...' : 'EXPORT DATA'}
         </button>
     );
 };

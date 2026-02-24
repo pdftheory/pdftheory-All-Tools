@@ -32,6 +32,8 @@ export function PDFToFormatTool({
     className = ''
 }: PDFToFormatToolProps) {
     const t = useTranslations('common');
+    const tTool = useTranslations('toolCommon');
+    const tErrors = useTranslations('errors');
     const { logToolUsage } = useHistoryLogger();
 
     // State
@@ -158,11 +160,11 @@ export function PDFToFormatTool({
                     ...finalOptions
                 });
             } else {
-                setError(output.error?.message || 'Conversion failed. Please try again.');
+                setError(output.error?.message || tErrors('processingFailed'));
             }
         } catch (err) {
             console.error('Conversion error:', err);
-            setError(err instanceof Error ? err.message : 'An unexpected error occurred.');
+            setError(err instanceof Error ? err.message : tErrors('unexpectedError'));
         } finally {
             setIsProcessing(false);
         }
@@ -193,8 +195,8 @@ export function PDFToFormatTool({
                     onFilesSelected={handleFilesSelected}
                     onError={handleUploadError}
                     disabled={isProcessing}
-                    label="Upload PDF File"
-                    description={`Drag and drop a PDF file to convert to ${outputFormat.toUpperCase()}.`}
+                    label={tTool('uploader.uploadPdf')}
+                    description={tTool('uploader.convertDescription', { format: outputFormat.toUpperCase() })}
                 />
             )}
 
@@ -209,12 +211,12 @@ export function PDFToFormatTool({
                             <div>
                                 <p className="font-medium text-[hsl(var(--color-foreground))]">{file.name}</p>
                                 <p className="text-sm text-[hsl(var(--color-muted-foreground))]">
-                                    {(file.size / 1024).toFixed(2)} KB
+                                    {(file.size / 1024).toFixed(2)} {tTool('uploader.units.kb')}
                                 </p>
                             </div>
                         </div>
                         <Button variant="ghost" size="sm" onClick={handleReset} disabled={isProcessing}>
-                            {t('buttons.clear') || 'Clear'}
+                            {t('buttons.clear')}
                         </Button>
                     </div>
                 </Card>
@@ -225,23 +227,23 @@ export function PDFToFormatTool({
                 <Card variant="outlined" className="p-4 space-y-4">
                     <div className="flex items-center gap-2 mb-2 text-[hsl(var(--color-foreground))]">
                         <Settings2 className="w-4 h-4" />
-                        <h3 className="font-semibold">Tool Options</h3>
+                        <h3 className="font-semibold">{tTool('options.title')}</h3>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         {/* Common: Page Range */}
-                        <FormField label="Page Range" helpText="e.g. 1, 2, 5-10 (leave empty for all)">
+                        <FormField label={tTool('options.pageRange')} helpText={tTool('options.pageRangeHelp')}>
                             <Input
                                 value={settings.pages}
                                 onChange={e => updateSetting('pages', e.target.value)}
-                                placeholder="All pages"
+                                placeholder={tTool('options.pageRangePlaceholder')}
                             />
                         </FormField>
 
                         {/* Image based options (HEIC, PSD, CBZ, XPS, DJVU) */}
                         {['pdf-to-heic', 'pdf-to-psd', 'pdf-to-cbz', 'pdf-to-xps', 'pdf-to-djvu'].includes(toolId) && (
                             <>
-                                <FormField label="Scale Factor" helpText="Higher is better quality (e.g. 2, 3)">
+                                <FormField label={tTool('options.scaleFactor')} helpText={tTool('options.scaleHelp')}>
                                     <Input
                                         type="number"
                                         min="1"
@@ -252,7 +254,7 @@ export function PDFToFormatTool({
                                     />
                                 </FormField>
                                 {['pdf-to-heic', 'pdf-to-cbz', 'pdf-to-djvu'].includes(toolId) && (
-                                    <FormField label="Quality (0.1 - 1.0)">
+                                    <FormField label={tTool('options.quality')}>
                                         <Input
                                             type="number"
                                             min="0.1"
@@ -270,7 +272,7 @@ export function PDFToFormatTool({
                         {toolId === 'pdf-to-rtf' && (
                             <div className="flex items-center pt-6">
                                 <Checkbox
-                                    label="Preserve Formatting"
+                                    label={tTool('options.preserveFormatting')}
                                     checked={settings.preserveFormatting}
                                     onChange={e => updateSetting('preserveFormatting', e.target.checked)}
                                 />
@@ -280,7 +282,7 @@ export function PDFToFormatTool({
                         {/* PSD Specific */}
                         {toolId === 'pdf-to-psd' && (
                             <>
-                                <FormField label="DPI">
+                                <FormField label={tTool('options.dpi')}>
                                     <Input
                                         type="number"
                                         value={settings.dpi}
@@ -289,7 +291,7 @@ export function PDFToFormatTool({
                                 </FormField>
                                 <div className="flex items-center pt-6">
                                     <Checkbox
-                                        label="Preserve Layers"
+                                        label={tTool('options.preserveLayers')}
                                         checked={settings.preserveLayers}
                                         onChange={e => updateSetting('preserveLayers', e.target.checked)}
                                     />
@@ -299,7 +301,7 @@ export function PDFToFormatTool({
 
                         {/* CBZ Specific */}
                         {toolId === 'pdf-to-cbz' && (
-                            <FormField label="Image Format">
+                            <FormField label={tTool('options.imageFormat')}>
                                 <Select
                                     value={settings.format}
                                     onChange={e => updateSetting('format', e.target.value)}
@@ -313,13 +315,13 @@ export function PDFToFormatTool({
                         {/* PDF to Email specific */}
                         {toolId === 'pdf-to-email' && (
                             <>
-                                <FormField label="Email Subject">
+                                <FormField label={tTool('options.emailSubject')}>
                                     <Input
                                         value={settings.subject}
                                         onChange={e => updateSetting('subject', e.target.value)}
                                     />
                                 </FormField>
-                                <FormField label="Sender Email">
+                                <FormField label={tTool('options.senderEmail')}>
                                     <Input
                                         value={settings.from}
                                         onChange={e => updateSetting('from', e.target.value)}
@@ -331,13 +333,13 @@ export function PDFToFormatTool({
                         {/* E-books specific */}
                         {['pdf-to-epub', 'pdf-to-mobi', 'pdf-to-fb2'].includes(toolId) && (
                             <>
-                                <FormField label="Book Title">
+                                <FormField label={tTool('options.bookTitle')}>
                                     <Input
                                         value={settings.title}
                                         onChange={e => updateSetting('title', e.target.value)}
                                     />
                                 </FormField>
-                                <FormField label="Author">
+                                <FormField label={tTool('options.author')}>
                                     <Input
                                         value={settings.author}
                                         onChange={e => updateSetting('author', e.target.value)}
@@ -350,7 +352,7 @@ export function PDFToFormatTool({
                         {toolId === 'pdf-to-txt' && (
                             <div className="flex items-center pt-6">
                                 <Checkbox
-                                    label="Include Page Markers"
+                                    label={tTool('options.includePageMarkers')}
                                     checked={settings.includePageMarkers}
                                     onChange={e => updateSetting('includePageMarkers', e.target.checked)}
                                 />
@@ -376,7 +378,7 @@ export function PDFToFormatTool({
                 <ProcessingProgress
                     progress={progress}
                     status={progress < 100 ? 'processing' : 'complete'}
-                    message={progress < 100 ? 'Converting...' : 'Conversion complete!'}
+                    message={progress < 100 ? t('status.processing') : t('status.complete')}
                     showPercentage
                 />
             )}
@@ -391,7 +393,7 @@ export function PDFToFormatTool({
                     loading={isProcessing}
                 >
                     <FileText className="w-4 h-4 mr-2" />
-                    {isProcessing ? 'Converting...' : (resultBlob ? 'Convert Again' : `Convert to ${outputFormat.toUpperCase()}`)}
+                    {isProcessing ? t('status.processing') : (resultBlob ? t('buttons.convertAgain') : `${t('common.buttons.process')} to ${outputFormat.toUpperCase()}`)}
                 </Button>
 
                 {resultBlob && (

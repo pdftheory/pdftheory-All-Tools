@@ -23,6 +23,7 @@ interface HomePageClientProps {
 
 export default function HomePageClient({ locale, localizedToolContent }: HomePageClientProps) {
   const t = useTranslations();
+  const h = useTranslations('homePage');
   const popularTools = getPopularTools().slice(0, 8); // Limit to 8 popular tools
   const router = useRouter();
 
@@ -78,6 +79,8 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
     { id: 'protect-pdf', icon: 'lock', color: 'bg-red-500' },
   ];
 
+  const toolCount = getAllTools().length;
+
   return (
     <main id="main-content" className="relative overflow-hidden bg-white" tabIndex={-1}>
 
@@ -102,21 +105,21 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
               <div className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-blue-50 border border-blue-100">
                 <Sparkles className="h-4 w-4 text-blue-600" />
                 <span className="text-sm font-semibold text-blue-700">
-                  100% Free & Private
+                  {h('badge')}
                 </span>
               </div>
 
               {/* Headline */}
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-gray-900 leading-[1.1] mb-6">
-                All Your PDF Tools
+                {h('headline1')}
                 <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
-                  In One Place
+                  {h('headline2')}
                 </span>
               </h1>
 
               {/* Subtitle */}
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Merge, split, compress, convert, and edit PDFs instantly. All processing happens in your browser – your files never leave your device.
+                {h('subtitle')}
               </p>
 
               {/* Search Bar */}
@@ -125,7 +128,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                   <Search className={`absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 ${isSearchFocused ? 'text-blue-600' : 'text-gray-400'}`} />
                   <input
                     type="text"
-                    placeholder="Search for a PDF tool..."
+                    placeholder={h('searchPlaceholder')}
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     onKeyDown={handleKeyDown}
@@ -137,8 +140,8 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                     <button
                       onClick={() => setSearchQuery('')}
                       className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
-                      title="Clear search"
-                      aria-label="Clear search"
+                      title={h('clearSearch')}
+                      aria-label={h('clearSearch')}
                     >
                       <X className="h-5 w-5" />
                     </button>
@@ -167,7 +170,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                               {localizedToolContent?.[result.tool.id]?.title || result.tool.id.replace(/-/g, ' ')}
                             </p>
                             <p className={`text-sm truncate max-w-[250px] ${isActive ? 'text-blue-500' : 'text-gray-500'}`}>
-                              {localizedToolContent?.[result.tool.id]?.description || 'Professional PDF tool'}
+                              {localizedToolContent?.[result.tool.id]?.description || h('popularTools.fallbackDesc')}
                             </p>
                           </div>
                           <ChevronRight className={`w-4 h-4 ml-auto transition-transform ${isActive ? 'text-blue-600 translate-x-1' : 'text-gray-400'}`} />
@@ -186,7 +189,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                     size="lg"
                     className="h-14 px-8 text-base rounded-xl shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 transition-all"
                   >
-                    Explore All Tools
+                    {h('exploreAllTools')}
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
                 </Link>
@@ -195,7 +198,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                   className="inline-flex items-center gap-2 h-14 px-6 rounded-xl border-2 border-gray-200 bg-white font-semibold text-gray-700 hover:bg-gray-50 hover:border-gray-300 transition-all"
                 >
                   <Play className="w-5 h-5" />
-                  How It Works
+                  {h('howItWorksLink')}
                 </Link>
               </div>
             </div>
@@ -211,7 +214,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-gray-400/20 border border-gray-100">
                   <Image
                     src="/images/hero-illustration.png"
-                    alt="PDF Tools Illustration"
+                    alt={h('heroImageAlt')}
                     width={600}
                     height={500}
                     className="w-full h-auto"
@@ -225,8 +228,8 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                     <ShieldCheck className="w-5 h-5 text-green-600" />
                   </div>
                   <div>
-                    <p className="text-sm font-bold text-gray-900">100% Secure</p>
-                    <p className="text-xs text-gray-500">Files stay local</p>
+                    <p className="text-sm font-bold text-gray-900">{h('secureLabel')}</p>
+                    <p className="text-xs text-gray-500">{h('secureDesc')}</p>
                   </div>
                 </div>
 
@@ -236,8 +239,8 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                     <Zap className="w-5 h-5 text-blue-600" />
                   </div>
                   <div>
-                    <p className="text-sm font-bold text-gray-900">Lightning Fast</p>
-                    <p className="text-xs text-gray-500">No uploads needed</p>
+                    <p className="text-sm font-bold text-gray-900">{h('fastLabel')}</p>
+                    <p className="text-xs text-gray-500">{h('fastDesc')}</p>
                   </div>
                 </div>
               </div>
@@ -251,10 +254,10 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
         <div className="container mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
-              Most Popular PDF Tools
+              {h('popularTools.title')}
             </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Quick access to our most-used features. All tools are completely free with no limits.
+              {h('popularTools.subtitle')}
             </p>
           </div>
 
@@ -287,7 +290,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
           <div className="text-center mt-10">
             <Link href={`/${locale}/tools`}>
               <Button variant="secondary" size="lg" className="rounded-xl">
-                View All {getAllTools().length} Tools
+                {h('popularTools.viewAll', { count: toolCount })}
                 <ArrowRight className="w-5 h-5 ml-2" />
               </Button>
             </Link>
@@ -304,15 +307,15 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
             <div className="max-w-lg">
               <span className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-purple-100 border border-purple-200">
                 <Sparkles className="h-4 w-4 text-purple-600" />
-                <span className="text-sm font-semibold text-purple-700">Power Feature</span>
+                <span className="text-sm font-semibold text-purple-700">{h('workflow.badge')}</span>
               </span>
 
               <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
-                PDF Workflow Builder
+                {h('workflow.title')}
               </h2>
 
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Automate your PDF tasks by chaining multiple actions together. Create custom workflows that merge, compress, convert, and organize your documents in one go.
+                {h('workflow.description')}
               </p>
 
               {/* Feature List */}
@@ -323,7 +326,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <span className="text-gray-700"><strong>Drag & Drop</strong> – Visually build your workflow with an intuitive editor</span>
+                  <span className="text-gray-700" dangerouslySetInnerHTML={{ __html: h('workflow.feature1') }} />
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -331,7 +334,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <span className="text-gray-700"><strong>Chain Actions</strong> – Combine merge, split, compress, convert in sequence</span>
+                  <span className="text-gray-700" dangerouslySetInnerHTML={{ __html: h('workflow.feature2') }} />
                 </li>
                 <li className="flex items-start gap-3">
                   <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -339,7 +342,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <span className="text-gray-700"><strong>Save Time</strong> – Process multiple files with a single click</span>
+                  <span className="text-gray-700" dangerouslySetInnerHTML={{ __html: h('workflow.feature3') }} />
                 </li>
               </ul>
 
@@ -349,7 +352,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                   size="lg"
                   className="rounded-xl shadow-lg shadow-purple-500/25 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
                 >
-                  Try Workflow Builder
+                  {h('workflow.cta')}
                   <ArrowRight className="w-5 h-5 ml-2" />
                 </Button>
               </Link>
@@ -364,7 +367,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
               <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-200 bg-white">
                 <Image
                   src="/images/workflow-illustration.png"
-                  alt="PDF Workflow Builder Preview"
+                  alt={h('workflow.workflowImageAlt')}
                   width={600}
                   height={400}
                   className="w-full h-auto"
@@ -380,8 +383,8 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                   <FileText className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-gray-900">{getAllTools().length} Actions</p>
-                  <p className="text-xs text-gray-500">Available in workflows</p>
+                  <p className="text-sm font-bold text-gray-900">{h('workflow.actionsCount', { count: toolCount })}</p>
+                  <p className="text-xs text-gray-500">{h('workflow.actionsAvailable')}</p>
                 </div>
               </div>
 
@@ -390,7 +393,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                   <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center">
                     <Zap className="w-4 h-4 text-green-600" />
                   </div>
-                  <span className="text-sm font-semibold text-gray-900">Instant Processing</span>
+                  <span className="text-sm font-semibold text-gray-900">{h('workflow.instantProcessing')}</span>
                 </div>
               </div>
             </div>
@@ -403,13 +406,13 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <span className="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold mb-4">
-              Simple & Fast
+              {h('howItWorks.badge')}
             </span>
             <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
-              How It Works
+              {h('howItWorks.title')}
             </h2>
             <p className="text-gray-600 max-w-xl mx-auto">
-              Complete privacy. Zero uploads. Everything happens right in your browser.
+              {h('howItWorks.subtitle')}
             </p>
           </div>
 
@@ -419,9 +422,9 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
               <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center text-white text-2xl font-black shadow-lg shadow-blue-500/30">
                 1
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Choose a Tool</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">{h('howItWorks.step1Title')}</h3>
               <p className="text-gray-600">
-                Select from 110 professional PDF tools. Merge, split, convert, compress, and more.
+                {h('howItWorks.step1Desc')}
               </p>
             </div>
 
@@ -430,9 +433,9 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
               <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center text-white text-2xl font-black shadow-lg shadow-purple-500/30">
                 2
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Add Your Files</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">{h('howItWorks.step2Title')}</h3>
               <p className="text-gray-600">
-                Drag and drop your PDFs. Files are processed locally in your browser for complete privacy.
+                {h('howItWorks.step2Desc')}
               </p>
             </div>
 
@@ -441,9 +444,9 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
               <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-emerald-500 to-emerald-600 flex items-center justify-center text-white text-2xl font-black shadow-lg shadow-emerald-500/30">
                 3
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Download Result</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">{h('howItWorks.step3Title')}</h3>
               <p className="text-gray-600">
-                Get your processed PDF instantly. No waiting, no account required.
+                {h('howItWorks.step3Desc')}
               </p>
             </div>
           </div>
@@ -455,10 +458,10 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-black mb-4">
-              Why Choose {t('common.brand')}?
+              {h('features.title', { brand: t('common.brand') })}
             </h2>
             <p className="text-gray-400 max-w-xl mx-auto">
-              Trusted by millions of users worldwide for secure, fast, and reliable PDF processing.
+              {h('features.subtitle')}
             </p>
           </div>
 
@@ -468,9 +471,9 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
               <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center mb-4">
                 <Lock className="w-6 h-6 text-blue-400" />
               </div>
-              <h3 className="text-lg font-bold mb-2">100% Private</h3>
+              <h3 className="text-lg font-bold mb-2">{h('features.private')}</h3>
               <p className="text-gray-400 text-sm">
-                Files never leave your device. All processing happens locally in your browser.
+                {h('features.privateDesc')}
               </p>
             </div>
 
@@ -479,9 +482,9 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
               <div className="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center mb-4">
                 <Zap className="w-6 h-6 text-emerald-400" />
               </div>
-              <h3 className="text-lg font-bold mb-2">Lightning Fast</h3>
+              <h3 className="text-lg font-bold mb-2">{h('features.fast')}</h3>
               <p className="text-gray-400 text-sm">
-                No server uploads. Instant results without waiting in queues.
+                {h('features.fastDesc')}
               </p>
             </div>
 
@@ -490,9 +493,9 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
               <div className="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center mb-4">
                 <Cloud className="w-6 h-6 text-purple-400" />
               </div>
-              <h3 className="text-lg font-bold mb-2">No Account Needed</h3>
+              <h3 className="text-lg font-bold mb-2">{h('features.noAccount')}</h3>
               <p className="text-gray-400 text-sm">
-                Start using immediately. No sign-up, no email verification required.
+                {h('features.noAccountDesc')}
               </p>
             </div>
 
@@ -501,9 +504,9 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
               <div className="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center mb-4">
                 <Globe className="w-6 h-6 text-orange-400" />
               </div>
-              <h3 className="text-lg font-bold mb-2">Works Everywhere</h3>
+              <h3 className="text-lg font-bold mb-2">{h('features.everywhere')}</h3>
               <p className="text-gray-400 text-sm">
-                Use on any device with a modern browser. Desktop, tablet, or mobile.
+                {h('features.everywhereDesc')}
               </p>
             </div>
           </div>
@@ -511,20 +514,20 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 pt-16 border-t border-white/10">
             <div className="text-center">
-              <div className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">{getAllTools().length}</div>
-              <div className="text-gray-400 mt-2 text-sm uppercase tracking-wider font-semibold">PDF Tools</div>
+              <div className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">{toolCount}</div>
+              <div className="text-gray-400 mt-2 text-sm uppercase tracking-wider font-semibold">{h('stats.pdfTools')}</div>
             </div>
             <div className="text-center">
               <div className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">1M+</div>
-              <div className="text-gray-400 mt-2 text-sm uppercase tracking-wider font-semibold">Happy Users</div>
+              <div className="text-gray-400 mt-2 text-sm uppercase tracking-wider font-semibold">{h('stats.happyUsers')}</div>
             </div>
             <div className="text-center">
               <div className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">100%</div>
-              <div className="text-gray-400 mt-2 text-sm uppercase tracking-wider font-semibold">Free Forever</div>
+              <div className="text-gray-400 mt-2 text-sm uppercase tracking-wider font-semibold">{h('stats.freeForever')}</div>
             </div>
             <div className="text-center">
               <div className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">0</div>
-              <div className="text-gray-400 mt-2 text-sm uppercase tracking-wider font-semibold">Server Uploads</div>
+              <div className="text-gray-400 mt-2 text-sm uppercase tracking-wider font-semibold">{h('stats.serverUploads')}</div>
             </div>
           </div>
         </div>
@@ -534,17 +537,17 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
       <section className="py-20 bg-gradient-to-br from-blue-600 to-purple-600 text-white">
         <div className="container mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-black mb-4">
-            Ready to Get Started?
+            {h('cta.title')}
           </h2>
           <p className="text-white/80 max-w-xl mx-auto mb-8">
-            Join millions of users who trust {t('common.brand')} for their PDF needs. Free, fast, and completely private.
+            {h('cta.subtitle', { brand: t('common.brand') })}
           </p>
           <Link href={`/${locale}/tools`}>
             <Button
               size="lg"
               className="h-14 px-10 text-lg rounded-xl bg-white text-blue-600 font-bold hover:bg-gray-100 shadow-xl"
             >
-              Start Using PDF Tools
+              {h('cta.button')}
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
           </Link>

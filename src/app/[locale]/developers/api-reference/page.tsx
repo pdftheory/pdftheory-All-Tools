@@ -13,44 +13,44 @@ import {
     Shield,
     Globe
 } from 'lucide-react';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 
 export default function ApiReferencePage() {
     const locale = useLocale();
+    const t = useTranslations('developers');
 
     const endpoints = [
-        { title: 'Compress PDF', slug: 'compress', desc: 'Reduce file size while preserving quality and integrity.', method: 'POST' },
-        { title: 'Merge PDFs', slug: 'merge', desc: 'Concatenate multiple PDF documents into a single resulting file.', method: 'POST' },
-        { title: 'Split PDF', slug: 'split', desc: 'Divide a PDF into multiple documents by specifying page ranges.', method: 'POST' },
-        { title: 'Convert PDF', slug: 'convert', desc: 'Professional-grade conversion from PDF to images or text.', method: 'POST' },
+        { title: t('apiReference.endpoints.compress.title'), slug: 'compress', desc: t('apiReference.endpoints.compress.desc'), method: 'POST' },
+        { title: t('apiReference.endpoints.merge.title'), slug: 'merge', desc: t('apiReference.endpoints.merge.desc'), method: 'POST' },
+        { title: t('apiReference.endpoints.split.title'), slug: 'split', desc: t('apiReference.endpoints.split.desc'), method: 'POST' },
+        { title: t('apiReference.endpoints.convert.title'), slug: 'convert', desc: t('apiReference.endpoints.convert.desc'), method: 'POST' },
     ];
 
     return (
         <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
             {/* Breadcrumbs */}
             <div className="flex items-center gap-2 text-sm text-slate-500 mb-10">
-                <Link href="/developers" className="hover:text-slate-900 dark:hover:text-white transition-colors">Docs</Link>
+                <Link href="/developers" className="hover:text-slate-900 dark:hover:text-white transition-colors">{t('breadcrumb')}</Link>
                 <ChevronRight className="w-3.5 h-3.5" />
-                <span className="text-slate-900 dark:text-slate-100 font-medium">API Reference</span>
+                <span className="text-slate-900 dark:text-slate-100 font-medium">{t('apiReference.breadcrumb')}</span>
             </div>
 
             <header className="mb-16">
                 <h1 className="text-4xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight">
-                    API Reference
+                    {t('apiReference.title')}
                 </h1>
                 <p className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-3xl">
-                    Our API is organized around REST. All endpoints use standard HTTP response codes,
-                    authentication, and verbs.
+                    {t('apiReference.subtitle')}
                 </p>
             </header>
 
             <div className="prose prose-slate dark:prose-invert max-w-none">
-                <h2 id="base-url" className="text-2xl font-bold mb-6 pt-4 border-b border-slate-100 dark:border-slate-800 pb-2">Base URL</h2>
+                <h2 id="base-url" className="text-2xl font-bold mb-6 pt-4 border-b border-slate-100 dark:border-slate-800 pb-2">{t('apiReference.baseUrl.title')}</h2>
                 <div className="p-4 bg-slate-100 dark:bg-slate-900 rounded-xl font-mono text-sm border border-slate-200 dark:border-slate-800 mb-12">
                     https://api.pdftheory.com/v1
                 </div>
 
-                <h2 id="endpoints" className="text-2xl font-bold mb-10 pt-4 border-b border-slate-100 dark:border-slate-800 pb-2">Endpoints</h2>
+                <h2 id="endpoints" className="text-2xl font-bold mb-10 pt-4 border-b border-slate-100 dark:border-slate-800 pb-2">{t('apiReference.endpoints.title')}</h2>
                 <div className="grid gap-6 not-prose mb-20">
                     {endpoints.map((item, i) => (
                         <Link
@@ -76,13 +76,13 @@ export default function ApiReferencePage() {
                     ))}
                 </div>
 
-                <h2 id="standards" className="text-2xl font-bold mb-8 pt-4 border-b border-slate-100 dark:border-slate-800 pb-2">API Standards</h2>
+                <h2 id="standards" className="text-2xl font-bold mb-8 pt-4 border-b border-slate-100 dark:border-slate-800 pb-2">{t('apiReference.standards.title')}</h2>
                 <div className="grid sm:grid-cols-2 gap-8 mb-20 not-prose">
                     {[
-                        { title: 'JSON Responses', desc: 'All error responses are returned as structured JSON for easy parsing.', icon: Code2 },
-                        { title: 'Global CDN', desc: 'Requests are routed through our global edge network for maximum speed.', icon: Globe },
-                        { title: 'Security First', desc: 'TLS 1.3 encryption and automated compliance checks on every request.', icon: Shield },
-                        { title: 'Rate Limiting', desc: 'Fair use limits ensure high availability for all developers.', icon: Cpu },
+                        { title: t('apiReference.standards.json.title'), desc: t('apiReference.standards.json.desc'), icon: Code2 },
+                        { title: t('apiReference.standards.cdn.title'), desc: t('apiReference.standards.cdn.desc'), icon: Globe },
+                        { title: t('apiReference.standards.security.title'), desc: t('apiReference.standards.security.desc'), icon: Shield },
+                        { title: t('apiReference.standards.rate.title'), desc: t('apiReference.standards.rate.desc'), icon: Cpu },
                     ].map((feature, i) => (
                         <div key={i} className="flex gap-4 items-start">
                             <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800">
@@ -99,8 +99,10 @@ export default function ApiReferencePage() {
 
             <div className="mt-20 border-t border-slate-100 dark:border-slate-800 pt-10 text-sm text-slate-500">
                 <p>
-                    Need more help? Join our <Link href="#" className="text-blue-600 font-semibold hover:underline">Developer Discord</Link> or
-                    contact <Link href="#" className="text-blue-600 font-semibold hover:underline">Support</Link>.
+                    {t.rich('apiReference.help.text', {
+                        discord: (chunks) => <Link href="#" className="text-blue-600 font-semibold hover:underline">{chunks}</Link>,
+                        support: (chunks) => <Link href="#" className="text-blue-600 font-semibold hover:underline">{chunks}</Link>
+                    })}
                 </p>
             </div>
         </div>

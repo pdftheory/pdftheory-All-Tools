@@ -48,6 +48,7 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
   description,
 }) => {
   const t = useTranslations('common');
+  const tTool = useTranslations('toolCommon');
   const tErrors = useTranslations('errors');
 
   const [isDragging, setIsDragging] = useState(false);
@@ -67,12 +68,12 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
 
     // Check max files
     if (!multiple && files.length > 1) {
-      errors.push('Only one file can be uploaded at a time.');
+      errors.push(tTool('uploader.maxFiles', { count: 1 }));
       return { valid: [files[0]], errors };
     }
 
     if (files.length > maxFiles) {
-      errors.push(`Maximum ${maxFiles} files allowed.`);
+      errors.push(tTool('uploader.maxFiles', { count: maxFiles }));
       files = files.slice(0, maxFiles);
     }
 
@@ -108,7 +109,7 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
       const acceptsPdf = accept.includes('application/pdf');
 
       if (!isValidType && !(acceptsPdf && isPdfByExtension)) {
-        errors.push(tErrors('fileTypeInvalid', { acceptedTypes: accept.join(', ') }));
+        errors.push(tErrors('fileTypeInvalid', { acceptedTypes: accept.map(t => t.replace('.', '').toUpperCase()).join(', ') }));
         continue;
       }
 
@@ -330,10 +331,10 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
       <div className="text-sm text-[hsl(var(--color-muted-foreground))] text-center max-w-sm leading-relaxed mb-6">
         {description || (
           <>
-            <p className="mb-2">Drag and drop files here, or click to browse</p>
+            <p className="mb-2">{tTool('uploader.dropzone')}</p>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[hsl(var(--color-muted)/0.5)] text-xs font-medium">
-              <span className="opacity-70">Support:</span>
-              <span>Paste (Ctrl+V)</span>
+              <span className="opacity-70">{t('optionsTitle')}:</span>
+              <span>{tTool('uploader.pasteHint')}</span>
             </div>
           </>
         )}
@@ -346,14 +347,14 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
         className="pointer-events-none shadow-lg shadow-primary/20"
         tabIndex={-1}
       >
-        Select PDF Files
+        {label || t('buttons.upload')}
       </Button>
 
       {/* File info hints - only show when multiple files allowed */}
       {multiple && (
         <div className="mt-6 flex flex-wrap gap-2 justify-center">
           <span className="text-xs px-2 py-1 rounded-md bg-[hsl(var(--color-muted))] text-[hsl(var(--color-muted-foreground))]">
-            Files: {maxFiles}
+            {tTool('uploader.filesLimit', { count: maxFiles })}
           </span>
         </div>
       )}
@@ -365,7 +366,7 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
             <Plus className="w-8 h-8" />
           </div>
           <p className="text-xl font-bold text-[hsl(var(--color-primary))]">
-            Drop files to upload
+            {tTool('uploader.dropzone')}
           </p>
         </div>
       )}

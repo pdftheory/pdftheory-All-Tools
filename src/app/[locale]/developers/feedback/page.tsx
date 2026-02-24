@@ -12,12 +12,13 @@ import {
     Send,
     Star
 } from 'lucide-react';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 
 export default function FeedbackPage() {
     const locale = useLocale();
+    const t = useTranslations('developers');
     const [submitted, setSubmitted] = useState(false);
 
     const handleSubmit = (e: React.FormEvent) => {
@@ -31,17 +32,16 @@ export default function FeedbackPage() {
                 <div className="w-20 h-20 bg-blue-50 dark:bg-blue-900/20 rounded-full flex items-center justify-center mx-auto mb-8">
                     <Star className="w-10 h-10 text-blue-600 dark:text-blue-400 fill-current" />
                 </div>
-                <h1 className="text-3xl font-bold mb-4">You're Awesome!</h1>
+                <h1 className="text-3xl font-bold mb-4">{t('feedback.success.title')}</h1>
                 <p className="text-slate-600 dark:text-slate-400 mb-10 text-lg leading-relaxed">
-                    Thank you for helping us make pdftheory better. Your feedback has been
-                    logged and will be reviewed by our product team.
+                    {t('feedback.success.desc')}
                 </p>
                 <Button
                     onClick={() => setSubmitted(false)}
                     variant="outline"
                     className="rounded-xl px-8"
                 >
-                    Share more feedback
+                    {t('feedback.success.button')}
                 </Button>
             </div>
         );
@@ -51,18 +51,17 @@ export default function FeedbackPage() {
         <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
             {/* Breadcrumbs */}
             <div className="flex items-center gap-2 text-sm text-slate-500 mb-10">
-                <Link href="/developers" className="hover:text-slate-900 dark:hover:text-white transition-colors">Docs</Link>
+                <Link href="/developers" className="hover:text-slate-900 dark:hover:text-white transition-colors">{t('breadcrumb')}</Link>
                 <ChevronRight className="w-3.5 h-3.5" />
-                <span className="text-slate-900 dark:text-slate-100 font-medium">Feedback</span>
+                <span className="text-slate-900 dark:text-slate-100 font-medium">{t('feedback.breadcrumb')}</span>
             </div>
 
             <header className="mb-16">
                 <h1 className="text-4xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight">
-                    Feedback & Roadmap
+                    {t('feedback.title')}
                 </h1>
                 <p className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-3xl">
-                    We're building pdftheory for you. Share your ideas, report bugs, or let us
-                    know what features you'd like to see next.
+                    {t('feedback.subtitle')}
                 </p>
             </header>
 
@@ -75,10 +74,9 @@ export default function FeedbackPage() {
                         <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-6">
                             <Mic className="w-6 h-6" />
                         </div>
-                        <h3 className="text-2xl font-bold mb-3">Feature Requests</h3>
+                        <h3 className="text-2xl font-bold mb-3">{t('feedback.cards.feature.title')}</h3>
                         <p className="text-blue-100 mb-0 leading-relaxed">
-                            Something missing from our API? Tell us about the use case and we'll see if it fits
-                            into our upcoming roadmap.
+                            {t('feedback.cards.feature.desc')}
                         </p>
                     </div>
                 </div>
@@ -91,10 +89,9 @@ export default function FeedbackPage() {
                         <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-6">
                             <Bug className="w-6 h-6" />
                         </div>
-                        <h3 className="text-2xl font-bold mb-3">Bug Reports</h3>
+                        <h3 className="text-2xl font-bold mb-3">{t('feedback.cards.bug.title')}</h3>
                         <p className="text-slate-400 mb-0 leading-relaxed">
-                            Found a glitch in the matrix? Let us know the steps to reproduce it and we'll
-                            squash it as fast as possible.
+                            {t('feedback.cards.bug.desc')}
                         </p>
                     </div>
                 </div>
@@ -103,19 +100,19 @@ export default function FeedbackPage() {
             <div className="max-w-3xl">
                 <h2 id="feedback-form" className="text-2xl font-bold mb-8 pt-4 border-b border-slate-100 dark:border-slate-800 pb-4 flex items-center gap-3">
                     <MessageSquareHeart className="w-6 h-6 text-pink-500" />
-                    Share Your Thoughts
+                    {t('feedback.form.title')}
                 </h2>
 
                 <form onSubmit={handleSubmit} className="space-y-8 bg-slate-50 dark:bg-slate-900/30 p-10 rounded-[2.5rem] border border-slate-100 dark:border-slate-800">
                     <div className="space-y-4">
                         <label className="text-sm font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                            What kind of feedback do you have?
+                            {t('feedback.form.labels.type')}
                         </label>
                         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                             {[
-                                { id: 'feature', label: 'Feature Request', icon: Lightbulb },
-                                { id: 'bug', label: 'Bug Report', icon: Bug },
-                                { id: 'other', label: 'General Feedback', icon: MessageSquareHeart },
+                                { id: 'feature', label: t('feedback.form.types.feature'), icon: Lightbulb },
+                                { id: 'bug', label: t('feedback.form.types.bug'), icon: Bug },
+                                { id: 'other', label: t('feedback.form.types.other'), icon: MessageSquareHeart },
                             ].map((type) => (
                                 <label key={type.id} className="cursor-pointer">
                                     <input type="radio" name="feedback-type" className="peer sr-only" defaultChecked={type.id === 'feature'} />
@@ -129,27 +126,29 @@ export default function FeedbackPage() {
                     </div>
 
                     <div className="space-y-2">
-                        <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">Detail</label>
+                        <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">{t('feedback.form.labels.detail')}</label>
                         <textarea
                             required
+                            id="detail"
                             rows={6}
-                            placeholder="Tell us what's on your mind. Be as specific as you can..."
+                            placeholder={t('feedback.form.placeholders.detail')}
                             className="w-full px-5 py-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all placeholder:text-slate-400"
                         ></textarea>
                     </div>
 
                     <div className="space-y-2">
-                        <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">Your Email (Optional)</label>
+                        <label className="text-sm font-bold text-slate-700 dark:text-slate-300 ml-1">{t('feedback.form.labels.email')}</label>
                         <input
+                            id="email"
                             type="email"
-                            placeholder="To get updates on your request"
+                            placeholder={t('feedback.form.placeholders.email')}
                             className="w-full px-5 py-4 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:ring-4 focus:ring-blue-500/10 outline-none transition-all placeholder:text-slate-400"
                         />
                     </div>
 
                     <Button type="submit" className="w-full h-14 bg-slate-900 dark:bg-blue-600 hover:bg-black dark:hover:bg-blue-700 text-white rounded-2xl font-bold text-lg transition-all">
                         <Send className="w-5 h-5 mr-3" />
-                        Submit Feedback
+                        {t('feedback.form.button')}
                     </Button>
                 </form>
             </div>

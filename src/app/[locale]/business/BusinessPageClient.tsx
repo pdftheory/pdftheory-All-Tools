@@ -70,10 +70,15 @@ export default function BusinessPageClient({ locale }: BusinessPageClientProps) 
                     </p>
                     <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
                         {/* Mock Logos using text for cleanliness if actual SVGs aren't available */}
-                        <span className="text-xl font-bold text-slate-700 dark:text-slate-300 flex items-center gap-2"><Globe className="h-6 w-6" /> GlobalCorp</span>
-                        <span className="text-xl font-bold text-slate-700 dark:text-slate-300 flex items-center gap-2"><Zap className="h-6 w-6" /> FastTrack</span>
-                        <span className="text-xl font-bold text-slate-700 dark:text-slate-300 flex items-center gap-2"><Lock className="h-6 w-6" /> SecureNet</span>
-                        <span className="text-xl font-bold text-slate-700 dark:text-slate-300 flex items-center gap-2"><Server className="h-6 w-6" /> DataFlow</span>
+                        {t.raw('trust.brands').map((brand: string, i: number) => {
+                            const icons = [Globe, Zap, Lock, Server];
+                            const Icon = icons[i % icons.length];
+                            return (
+                                <span key={i} className="text-xl font-bold text-slate-700 dark:text-slate-300 flex items-center gap-2">
+                                    <Icon className="h-6 w-6" /> {brand}
+                                </span>
+                            );
+                        })}
                     </div>
                 </div>
             </section>

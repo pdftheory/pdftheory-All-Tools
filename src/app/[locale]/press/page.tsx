@@ -1,21 +1,27 @@
 'use client';
 
-import { useState, use } from 'react';
-import Image from 'next/image';
+import React, { use, useState } from 'react';
 import Link from 'next/link';
-import { Button } from '@/components/ui/Button';
-import { Card } from '@/components/ui/Card';
+import Image from 'next/image';
 import {
-    Download, Mail, Globe, Shield, Zap, Users, CheckCircle,
-    ArrowRight, Layers, Type, Palette, Copy, Check, FileText,
-    Image as ImageIcon, Share2, Facebook, Twitter, Linkedin
+    ChevronRight,
+    Download,
+    ImageIcon,
+    FileText,
+    Palette,
+    Check,
+    Copy,
+    Globe,
+    Zap,
+    Shield,
+    Layers,
+    Users,
+    Mail,
+    ArrowRight
 } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+import { Card } from '@/components/ui/Card';
 import { AdUnit } from '@/components/ads/AdUnit';
-
-// Since we are using client components for interactivity (Tabs), we can't use async params directly for locale
-// But we can accept them as props if we were a server component. 
-// Hybrid approach: pass params to a Client Component or make this a Client Component.
-// Given strict "use client" for interactivity, we'll wrap the logic.
 
 export default function PressPage(props: { params: Promise<{ locale: string }> }) {
     const params = use(props.params);
@@ -23,6 +29,7 @@ export default function PressPage(props: { params: Promise<{ locale: string }> }
 }
 
 function PressPageContent({ locale }: { locale: string }) {
+    const t = useTranslations('press');
     const [messages, setMessages] = useState<{ [key: string]: boolean }>({});
     const [activeTab, setActiveTab] = useState<'kit' | 'gallery' | 'facts'>('kit');
 
@@ -63,13 +70,15 @@ function PressPageContent({ locale }: { locale: string }) {
 
                 <div className="container mx-auto px-6 relative z-10 text-center">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-semibold text-blue-300 mb-6 backdrop-blur-md uppercase tracking-widest">
-                        Official Media Resources
+                        {t('hero.badge')}
                     </div>
                     <h1 className="text-4xl md:text-5xl lg:text-7xl font-black mb-6 tracking-tight leading-none text-white">
-                        Tell the <span className="text-blue-500">pdftheory</span> Story
+                        {t.rich('hero.title', {
+                            blue: (chunks) => <span className="text-blue-500">{chunks}</span>
+                        })}
                     </h1>
                     <p className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed font-light mb-8">
-                        Access official brand assets, high-fidelity product mockups, and the latest news about our privacy-first browser technology.
+                        {t('hero.subtitle')}
                     </p>
 
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
@@ -77,7 +86,7 @@ function PressPageContent({ locale }: { locale: string }) {
                             onClick={() => document.getElementById('digital-kit')?.scrollIntoView({ behavior: 'smooth' })}
                             className="px-8 py-3 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-500 transition-all hover:scale-105 active:scale-95 shadow-lg shadow-blue-900/40"
                         >
-                            Open Digital Press Kit
+                            {t('hero.cta')}
                         </button>
                     </div>
                 </div>
@@ -88,14 +97,14 @@ function PressPageContent({ locale }: { locale: string }) {
                 <div className="container mx-auto px-6 max-w-6xl">
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10">
                         <div>
-                            <h2 className="text-3xl font-black text-slate-900">Digital Press Kit</h2>
-                            <p className="text-slate-500">Everything you need, organized in one place.</p>
+                            <h2 className="text-3xl font-black text-slate-900">{t('kit.title')}</h2>
+                            <p className="text-slate-500">{t('kit.subtitle')}</p>
                         </div>
                         <div className="flex p-1 bg-slate-100 rounded-lg self-start">
                             {[
-                                { id: 'kit', label: 'Brand Assets', icon: Download },
-                                { id: 'gallery', label: 'Media Gallery', icon: ImageIcon },
-                                { id: 'facts', label: 'Fact Sheet', icon: FileText },
+                                { id: 'kit', label: t('kit.tabs.kit'), icon: Download },
+                                { id: 'gallery', label: t('kit.tabs.gallery'), icon: ImageIcon },
+                                { id: 'facts', label: t('kit.tabs.facts'), icon: FileText },
                             ].map(tab => (
                                 <button
                                     key={tab.id}
@@ -124,19 +133,19 @@ function PressPageContent({ locale }: { locale: string }) {
                                                 <svg width="32" height="32" viewBox="0 0 24 24" fill="white" className="w-8 h-8"><path d="M12 2L2 7l10 5 10-5-10-5zm0 9l2.969-1.485L12 11l-2.969-1.485L12 11zm8.031-4.016L12 3.485 3.969 7.499 12 11.515l8.031-4.016zM2 17l10 5 10-5M2 12l10 5 10-5" /></svg>
                                             </div>
                                             <div>
-                                                <h3 className="text-xl font-bold text-slate-900">Primary Logo</h3>
-                                                <p className="text-sm text-slate-500">The main mark. Use whenever possible.</p>
+                                                <h3 className="text-xl font-bold text-slate-900">{t('kit.logos.primary.title')}</h3>
+                                                <p className="text-sm text-slate-500">{t('kit.logos.primary.desc')}</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="grid grid-cols-2 gap-3">
                                         <a href={vectorLogoUrl} download="pdftheory-logo.svg" className="flex items-center justify-center gap-2 py-3 px-4 bg-white border border-gray-200 rounded-lg hover:border-blue-500 hover:text-blue-600 font-semibold text-sm transition-colors group">
                                             <Download className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
-                                            Download SVG
+                                            {t('kit.logos.primary.downloadSvg')}
                                         </a>
                                         <a href="/Logo.png" download="pdftheory-logo.png" className="flex items-center justify-center gap-2 py-3 px-4 bg-white border border-gray-200 rounded-lg hover:border-blue-500 hover:text-blue-600 font-semibold text-sm transition-colors group">
                                             <Download className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
-                                            Download PNG
+                                            {t('kit.logos.primary.downloadPng')}
                                         </a>
                                     </div>
                                 </Card>
@@ -148,19 +157,19 @@ function PressPageContent({ locale }: { locale: string }) {
                                                 <svg width="32" height="32" viewBox="0 0 24 24" fill="white" className="w-8 h-8 opacity-90"><path d="M12 2L2 7l10 5 10-5-10-5zm0 9l2.969-1.485L12 11l-2.969-1.485L12 11zm8.031-4.016L12 3.485 3.969 7.499 12 11.515l8.031-4.016zM2 17l10 5 10-5M2 12l10 5 10-5" /></svg>
                                             </div>
                                             <div>
-                                                <h3 className="text-xl font-bold text-white">Monochrome</h3>
-                                                <p className="text-sm text-slate-400">For dark backgrounds.</p>
+                                                <h3 className="text-xl font-bold text-white">{t('kit.logos.monochrome.title')}</h3>
+                                                <p className="text-sm text-slate-400">{t('kit.logos.monochrome.desc')}</p>
                                             </div>
                                         </div>
                                     </div>
                                     <div className="grid grid-cols-2 gap-3">
                                         <a href={vectorLogoUrl} download="pdftheory-logo-white.svg" className="flex items-center justify-center gap-2 py-3 px-4 bg-white/10 border border-white/10 rounded-lg hover:bg-white/20 font-semibold text-sm transition-colors group">
                                             <Download className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
-                                            Download SVG
+                                            {t('kit.logos.monochrome.downloadSvg')}
                                         </a>
                                         <a href="/Logo.png" download="pdftheory-logo-white.png" className="flex items-center justify-center gap-2 py-3 px-4 bg-white/10 border border-white/10 rounded-lg hover:bg-white/20 font-semibold text-sm transition-colors group">
                                             <Download className="w-4 h-4 group-hover:-translate-y-0.5 transition-transform" />
-                                            Download PNG
+                                            {t('kit.logos.monochrome.downloadPng')}
                                         </a>
                                     </div>
                                 </Card>
@@ -169,7 +178,7 @@ function PressPageContent({ locale }: { locale: string }) {
                             {/* Colors Section */}
                             <div>
                                 <h3 className="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
-                                    <Palette className="w-5 h-5 text-gray-400" /> Brand Colors
+                                    <Palette className="w-5 h-5 text-gray-400" /> {t('kit.colors.title')}
                                 </h3>
                                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                                     {[
@@ -202,19 +211,19 @@ function PressPageContent({ locale }: { locale: string }) {
                                 <div className="group relative rounded-xl overflow-hidden aspect-video bg-gray-100 shadow-sm hover:shadow-xl transition-all cursor-zoom-in">
                                     <Image src="/images/workflow-illustration.png" alt="Workflow" fill className="object-cover" />
                                     <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-4">
-                                        <a href="/images/workflow-illustration.png" download className="bg-white text-black px-4 py-2 rounded-lg font-bold text-sm hover:scale-105 transition-transform">Download High-Res</a>
+                                        <a href="/images/workflow-illustration.png" download className="bg-white text-black px-4 py-2 rounded-lg font-bold text-sm hover:scale-105 transition-transform">{t('kit.gallery.download')}</a>
                                     </div>
                                 </div>
                                 <div className="group relative rounded-xl overflow-hidden aspect-video bg-gray-100 shadow-sm hover:shadow-xl transition-all cursor-zoom-in">
                                     <Image src="/images/business-hero.jpg" alt="Business" fill className="object-cover" />
                                     <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-4">
-                                        <a href="/images/business-hero.jpg" download className="bg-white text-black px-4 py-2 rounded-lg font-bold text-sm hover:scale-105 transition-transform">Download High-Res</a>
+                                        <a href="/images/business-hero.jpg" download className="bg-white text-black px-4 py-2 rounded-lg font-bold text-sm hover:scale-105 transition-transform">{t('kit.gallery.download')}</a>
                                     </div>
                                 </div>
                                 <div className="group relative rounded-xl overflow-hidden aspect-video bg-gray-100 shadow-sm hover:shadow-xl transition-all cursor-zoom-in">
                                     <Image src="/images/education-hero.jpg" alt="Education" fill className="object-cover" />
                                     <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-4">
-                                        <a href="/images/education-hero.jpg" download className="bg-white text-black px-4 py-2 rounded-lg font-bold text-sm hover:scale-105 transition-transform">Download High-Res</a>
+                                        <a href="/images/education-hero.jpg" download className="bg-white text-black px-4 py-2 rounded-lg font-bold text-sm hover:scale-105 transition-transform">{t('kit.gallery.download')}</a>
                                     </div>
                                 </div>
                             </div>
@@ -225,30 +234,30 @@ function PressPageContent({ locale }: { locale: string }) {
                     {activeTab === 'facts' && (
                         <div className="animate-in fade-in slide-in-from-bottom-4 duration-300">
                             <Card className="p-8 border-gray-100 shadow-sm max-w-3xl mx-auto">
-                                <h3 className="text-xl font-bold mb-6">Company Boilerplate</h3>
+                                <h3 className="text-xl font-bold mb-6">{t('kit.facts.boilerplate.title')}</h3>
                                 <div className="relative bg-slate-50 p-6 rounded-xl border border-gray-100 group">
                                     <p className="text-slate-600 leading-relaxed font-mono text-sm">
-                                        "pdftheory is the world's leading browser-based PDF utility platform. By processing files locally using WebAssembly technology, pdftheory offers privacy-first document management without uploads or server-side risks. Founded in 2024, the platform provides 110 free tools to millions of users worldwide."
+                                        {t('kit.facts.boilerplate.content')}
                                     </p>
                                     <button
-                                        onClick={() => copyToClipboard("pdftheory is the world's leading browser-based PDF utility platform. By processing files locally using WebAssembly technology, pdftheory offers privacy-first document management without uploads or server-side risks. Founded in 2024, the platform provides 110 free tools to millions of users worldwide.", 'boilerplate')}
+                                        onClick={() => copyToClipboard(t('kit.facts.boilerplate.content'), 'boilerplate')}
                                         className="absolute top-4 right-4 p-2 bg-white rounded-md shadow-sm border border-gray-200 hover:bg-gray-50 text-slate-500"
                                     >
                                         {messages['boilerplate'] ? <Check className="w-4 h-4 text-green-600" /> : <Copy className="w-4 h-4" />}
                                     </button>
                                 </div>
                                 <div className="mt-12 pt-12 border-t border-gray-100">
-                                    <h3 className="text-xl font-bold mb-6">Key Facts & Statistics</h3>
+                                    <h3 className="text-xl font-bold mb-6">{t('kit.facts.statistics.title')}</h3>
                                     <div className="grid sm:grid-cols-2 gap-x-12 gap-y-6">
                                         {[
-                                            { label: "Founded", value: "2024" },
-                                            { label: "Headquarters", value: "Remote / Global" },
-                                            { label: "Core Technology", value: "Client-Side WASM" },
-                                            { label: "Privacy Model", value: "Zero Server Uploads" },
-                                            { label: "Total Tools", value: "110" },
-                                            { label: "Pricing", value: "100% Free / Open" },
-                                            { label: "Supported Platforms", value: "All Modern Browsers" },
-                                            { label: "User Registration", value: "Not Required" },
+                                            { label: t('kit.facts.statistics.labels.founded'), value: t('kit.facts.statistics.values.founded') },
+                                            { label: t('kit.facts.statistics.labels.headquarters'), value: t('kit.facts.statistics.values.headquarters') },
+                                            { label: t('kit.facts.statistics.labels.coreTech'), value: t('kit.facts.statistics.values.coreTech') },
+                                            { label: t('kit.facts.statistics.labels.privacyModel'), value: t('kit.facts.statistics.values.privacyModel') },
+                                            { label: t('kit.facts.statistics.labels.totalTools'), value: t('kit.facts.statistics.values.totalTools') },
+                                            { label: t('kit.facts.statistics.labels.pricing'), value: t('kit.facts.statistics.values.pricing') },
+                                            { label: t('kit.facts.statistics.labels.platforms'), value: t('kit.facts.statistics.values.platforms') },
+                                            { label: t('kit.facts.statistics.labels.registration'), value: t('kit.facts.statistics.values.registration') },
                                         ].map((fact, i) => (
                                             <div key={i} className="flex items-center justify-between border-b border-gray-50 pb-2">
                                                 <span className="text-slate-500 text-sm font-medium">{fact.label}</span>
@@ -267,7 +276,7 @@ function PressPageContent({ locale }: { locale: string }) {
             {/* In The News / Social Proof */}
             <section className="py-20 bg-slate-50">
                 <div className="container mx-auto px-6 text-center">
-                    <p className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-10">As Featured In</p>
+                    <p className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-10">{t('featuredIn')}</p>
                     <div className="flex flex-wrap justify-center gap-12 lg:gap-20 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
                         {/* Featured Logos (Placeholders) */}
                         <div className="text-2xl font-black text-slate-400 flex items-center gap-2"><Globe className="w-6 h-6" /> TechCrunch</div>
@@ -282,8 +291,8 @@ function PressPageContent({ locale }: { locale: string }) {
             <section className="py-24 bg-white border-b border-gray-100">
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-16">
-                        <span className="text-blue-600 font-bold tracking-widest text-sm uppercase mb-4 block">Our Story</span>
-                        <h2 className="text-4xl font-black text-slate-900">About pdftheory</h2>
+                        <span className="text-blue-600 font-bold tracking-widest text-sm uppercase mb-4 block">{t('story.badge')}</span>
+                        <h2 className="text-4xl font-black text-slate-900">{t('story.title')}</h2>
                     </div>
 
                     <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -292,9 +301,9 @@ function PressPageContent({ locale }: { locale: string }) {
                             <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mb-6 text-blue-600">
                                 <Users className="w-6 h-6" />
                             </div>
-                            <h3 className="text-xl font-bold text-slate-900 mb-4">Who are we?</h3>
+                            <h3 className="text-xl font-bold text-slate-900 mb-4">{t('story.cards.who.title')}</h3>
                             <p className="text-slate-600 leading-relaxed text-sm">
-                                pdftheory is a forward-thinking software collective dedicated to building the web's most powerful privacy-first document tools. We are a team of engineers passionate about open web technologies.
+                                {t('story.cards.who.desc')}
                             </p>
                         </Card>
 
@@ -303,9 +312,9 @@ function PressPageContent({ locale }: { locale: string }) {
                             <div className="w-12 h-12 bg-indigo-100 rounded-xl flex items-center justify-center mb-6 text-indigo-600">
                                 <Zap className="w-6 h-6" />
                             </div>
-                            <h3 className="text-xl font-bold text-slate-900 mb-4">What do we do?</h3>
+                            <h3 className="text-xl font-bold text-slate-900 mb-4">{t('story.cards.what.title')}</h3>
                             <p className="text-slate-600 leading-relaxed text-sm">
-                                We engineer high-performance, client-side PDF utilities that run entirely in your browser using advanced WebAssembly. We simplify complex document tasks without expensive software.
+                                {t('story.cards.what.desc')}
                             </p>
                         </Card>
 
@@ -314,9 +323,9 @@ function PressPageContent({ locale }: { locale: string }) {
                             <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-6 text-green-600">
                                 <Globe className="w-6 h-6" />
                             </div>
-                            <h3 className="text-xl font-bold text-slate-900 mb-4">Helping People Globally</h3>
+                            <h3 className="text-xl font-bold text-slate-900 mb-4">{t('story.cards.global.title')}</h3>
                             <p className="text-slate-600 leading-relaxed text-sm">
-                                pdftheory is designed to be fast, reliable, and secure, handling everything from everyday document tasks to large-scale workflows.
+                                {t('story.cards.global.desc')}
                             </p>
                         </Card>
 
@@ -325,9 +334,9 @@ function PressPageContent({ locale }: { locale: string }) {
                             <div className="w-12 h-12 bg-rose-100 rounded-xl flex items-center justify-center mb-6 text-rose-600">
                                 <Shield className="w-6 h-6" />
                             </div>
-                            <h3 className="text-xl font-bold text-slate-900 mb-4">Privacy at the Core</h3>
+                            <h3 className="text-xl font-bold text-slate-900 mb-4">{t('story.cards.privacy.title')}</h3>
                             <p className="text-slate-600 leading-relaxed text-sm">
-                                We believe utility shouldn't cost privacy. Our Zero-Upload architecture means we never see, store, or touch your documents—they stay on your device, always.
+                                {t('story.cards.privacy.desc')}
                             </p>
                         </Card>
                     </div>
@@ -337,10 +346,10 @@ function PressPageContent({ locale }: { locale: string }) {
             {/* Contact Footer */}
             <section className="py-24 bg-white border-t border-gray-100">
                 <div className="container mx-auto px-6 text-center">
-                    <h2 className="text-3xl font-black text-slate-900 mb-6">Media Inquiries</h2>
-                    <p className="text-slate-600 mb-8">For interviews, detailed specs, or specific asset requests.</p>
+                    <h2 className="text-3xl font-black text-slate-900 mb-6">{t('contact.title')}</h2>
+                    <p className="text-slate-600 mb-8">{t('contact.subtitle')}</p>
                     <a href="mailto:press@pdftheory.com" className="inline-flex items-center gap-2 text-blue-600 font-bold hover:underline">
-                        <Mail className="w-5 h-5" /> Contact Press Relations
+                        <Mail className="w-5 h-5" /> {t('contact.button')}
                     </a>
                 </div>
             </section>

@@ -38,7 +38,7 @@ export const Navigation: React.FC<NavigationProps> = ({ locale, currentPath }) =
   const mainNavItems = [
     { href: `/${locale}`, label: tCommon('navigation.home') },
     { href: `/${locale}/tools`, label: tCommon('navigation.tools'), hasDropdown: true },
-    { href: `/${locale}/tools/compress-pdf`, label: 'Compress PDF' },
+    { href: `/${locale}/tools/compress-pdf`, label: tCommon('navigation.compressPdf') },
     { href: `/${locale}/workflow`, label: tCommon('navigation.workflow') },
     { href: `/${locale}/about`, label: tCommon('navigation.about') },
     { href: `/${locale}/faq`, label: tCommon('navigation.faq') },
@@ -161,7 +161,7 @@ export const Navigation: React.FC<NavigationProps> = ({ locale, currentPath }) =
                       : 'text-[hsl(var(--color-foreground))] hover:text-[hsl(var(--color-primary))] hover:bg-[hsl(var(--color-muted))]'
                     }
                 `}
-                  aria-expanded={openDropdown === item.href}
+                  aria-expanded={openDropdown === item.href ? "true" : "false"}
                   aria-haspopup="true"
                   aria-controls={`dropdown-${item.href}`}
                 >

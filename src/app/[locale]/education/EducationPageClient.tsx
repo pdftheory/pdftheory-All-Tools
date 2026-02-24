@@ -48,7 +48,7 @@ export default function EducationPageClient({ locale }: EducationPageClientProps
                         <div className="relative h-[400px] lg:h-[500px] rounded-3xl overflow-hidden shadow-2xl border border-orange-100 dark:border-slate-800">
                             <img
                                 src="/images/education-hero.jpg"
-                                alt="Students Studying"
+                                alt={t('hero.imageAlt')}
                                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                             />
                         </div>

@@ -1,275 +1,255 @@
 'use client';
 
-import React, { useState, useEffect, useMemo } from 'react';
-import { Star, LayoutGrid, Search, ArrowRight, X, Plus, Sparkles, AlertCircle } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
 import { tools } from '@/config/tools';
 import { getToolIcon } from '@/config/icons';
+import {
+    Search,
+    Plus,
+    X,
+    Star,
+    LayoutGrid,
+    ExternalLink,
+    SearchX,
+    FolderPlus,
+    ChevronRight,
+    ArrowRight
+} from 'lucide-react';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
-interface FavoritesPageClientProps {
-    locale: string;
-}
-
-const STORAGE_KEY = 'pdftheory_favorite_tools';
-
-export default function FavoritesPageClient({ locale }: FavoritesPageClientProps) {
+export default function FavoritesPageClient({ locale }: { locale: string }) {
+    const t = useTranslations('dashboard.favorites');
     const [favorites, setFavorites] = useState<string[]>([]);
-    const [searchTerm, setSearchTerm] = useState('');
-    const [isAddModalOpen, setIsAddModalOpen] = useState(false);
-    const [libSearchTerm, setLibSearchTerm] = useState('');
-    const [hasLoaded, setHasLoaded] = useState(false);
+    const [isAddingMode, setIsAddingMode] = useState(false);
+    const [searchQuery, setSearchQuery] = useState('');
+    const [modalSearch, setModalSearch] = useState('');
 
-    // Initialize from localStorage
     useEffect(() => {
-        const saved = localStorage.getItem(STORAGE_KEY);
+        const saved = localStorage.getItem('pdfcraft_favorites');
         if (saved) {
-            try {
-                setFavorites(JSON.parse(saved));
-            } catch (e) {
-                console.error('Failed to parse favorites', e);
-                setFavorites(['merge-pdf', 'split-pdf', 'sign-pdf']); // Fallback
-            }
-        } else {
-            // Default favorites for new users
-            setFavorites(['merge-pdf', 'split-pdf', 'sign-pdf', 'edit-pdf', 'pdf-to-word', 'compress-pdf']);
+            setFavorites(JSON.parse(saved));
         }
-        setHasLoaded(true);
     }, []);
 
-    // Save to localStorage
-    useEffect(() => {
-        if (hasLoaded) {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(favorites));
-        }
-    }, [favorites, hasLoaded]);
+    const toggleFavorite = (toolId: string) => {
+        const newFavorites = favorites.includes(toolId)
+            ? favorites.filter(id => id !== toolId)
+            : [...favorites, toolId];
 
-    const favoriteTools = useMemo(() => {
-        return tools.filter(t =>
-            favorites.includes(t.slug) &&
-            (t.slug.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                t.id.toLowerCase().includes(searchTerm.toLowerCase()))
-        );
-    }, [favorites, searchTerm]);
-
-    const libraryTools = useMemo(() => {
-        return tools.filter(t =>
-            t.slug.toLowerCase().includes(libSearchTerm.toLowerCase()) ||
-            t.id.toLowerCase().includes(libSearchTerm.toLowerCase())
-        );
-    }, [libSearchTerm]);
-
-    const toggleFavorite = (slug: string) => {
-        setFavorites(prev =>
-            prev.includes(slug)
-                ? prev.filter(s => s !== slug)
-                : [...prev, slug]
-        );
+        setFavorites(newFavorites);
+        localStorage.setItem('pdfcraft_favorites', JSON.stringify(newFavorites));
     };
 
-    if (!hasLoaded) {
-        return (
-            <div className="flex-1 flex items-center justify-center py-20">
-                <div className="w-12 h-12 border-4 border-gray-100 border-t-amber-400 rounded-full animate-spin" />
-            </div>
-        );
-    }
+    const favoriteTools = tools.filter(tool => favorites.includes(tool.id));
+    const filteredFavorites = favoriteTools.filter(tool => {
+        const title = t(`quickTools.list.${tool.id}.title`, { defaultValue: tool.id.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') });
+        return title.toLowerCase().includes(searchQuery.toLowerCase());
+    });
+
+    const availableTools = tools.filter(tool => {
+        const title = t(`quickTools.list.${tool.id}.title`, { defaultValue: tool.id.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') });
+        return title.toLowerCase().includes(modalSearch.toLowerCase());
+    });
 
     return (
-        <div className="animate-in fade-in duration-700">
-            <header className="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
-                <div>
-                    <div className="flex items-center gap-3 mb-4">
-                        <div className="w-12 h-12 rounded-2xl bg-amber-400 text-white flex items-center justify-center shadow-lg shadow-amber-100">
-                            <Star className="w-6 h-6 fill-white" />
+        <div className="space-y-8">
+            {/* Action Bar */}
+            <div className="flex flex-col md:flex-row gap-4">
+                <div className="flex-1 relative group">
+                    <Search className="absolute left-5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-[hsl(var(--color-primary))] transition-colors" />
+                    <input
+                        type="text"
+                        placeholder={t('searchPlaceholder')}
+                        className="w-full pl-14 pr-12 py-4 bg-white border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-[hsl(var(--color-primary))/5] transition-all font-medium text-gray-900"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                    {searchQuery && (
+                        <button
+                            onClick={() => setSearchQuery('')}
+                            className="absolute right-5 top-1/2 -translate-y-1/2 p-1 hover:bg-gray-100 rounded-lg text-gray-400"
+                            title={t('clearSearch')}
+                        >
+                            <X className="w-4 h-4" />
+                        </button>
+                    )}
+                </div>
+                <button
+                    onClick={() => setIsAddingMode(true)}
+                    className="flex items-center justify-center gap-3 px-8 py-4 bg-gray-900 text-white rounded-2xl font-bold text-sm hover:bg-black transition-all shadow-lg hover:-translate-y-0.5 active:translate-y-0"
+                >
+                    <Plus className="w-5 h-5" />
+                    {t('modal.title')}
+                </button>
+            </div>
+
+            {/* Content Grid */}
+            {favorites.length === 0 ? (
+                <div className="bg-white rounded-[3rem] border-2 border-dashed border-gray-100 p-20 text-center">
+                    <div className="w-20 h-20 bg-gray-50 rounded-3xl flex items-center justify-center mx-auto mb-8 relative">
+                        <Star className="w-10 h-10 text-gray-200" />
+                        <div className="absolute -top-2 -right-2 w-8 h-8 bg-white rounded-full shadow-sm border border-gray-50 flex items-center justify-center">
+                            <Plus className="w-4 h-4 text-[hsl(var(--color-primary))]" />
                         </div>
-                        <h1 className="text-4xl font-black text-gray-900 tracking-tight">
-                            Pinned Tools
-                        </h1>
                     </div>
-                    <p className="text-gray-500 max-w-xl text-lg font-medium leading-relaxed">
-                        Your personalized collection of frequently used PDF processors.
+                    <h3 className="text-2xl font-black text-gray-900 mb-3">{t('noTools.title')}</h3>
+                    <p className="text-gray-400 max-w-sm mx-auto mb-10 leading-relaxed">
+                        {t('noTools.emptyDesc')}
                     </p>
+                    <button
+                        onClick={() => setIsAddingMode(true)}
+                        className="inline-flex items-center gap-3 px-8 py-4 bg-[hsl(var(--color-primary))] text-white font-bold rounded-2xl hover:shadow-xl hover:shadow-[hsl(var(--color-primary))/20] transition-all"
+                    >
+                        {t('noTools.button')}
+                        <ArrowRight className="w-5 h-5" />
+                    </button>
                 </div>
-
-                <div className="flex bg-white p-2 rounded-2xl border border-gray-100 shadow-sm w-full md:w-auto">
-                    <div className="flex items-center gap-3 px-4 py-2 bg-gray-50 rounded-xl flex-1 md:w-64 focus-within:ring-2 focus-within:ring-amber-400/20 transition-all">
-                        <Search className="w-4 h-4 text-gray-400" />
-                        <input
-                            type="text"
-                            placeholder="Search pinned..."
-                            className="bg-transparent border-none outline-none text-sm font-bold w-full"
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                        />
-                        {searchTerm && (
-                            <button
-                                onClick={() => setSearchTerm('')}
-                                title="Clear search"
-                            >
-                                <X className="w-4 h-4 text-gray-400 hover:text-gray-600" />
-                            </button>
-                        )}
+            ) : filteredFavorites.length === 0 ? (
+                <div className="bg-white rounded-[3rem] border border-gray-100 p-20 text-center">
+                    <div className="w-20 h-20 bg-gray-50 rounded-3xl flex items-center justify-center mx-auto mb-8">
+                        <SearchX className="w-10 h-10 text-gray-200" />
                     </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-2">{t('noTools.title')}</h3>
+                    <p className="text-gray-400">{t('noTools.searchDesc', { query: searchQuery })}</p>
                 </div>
-            </header>
-
-            {/* Favorites Grid */}
-            {favoriteTools.length > 0 ? (
+            ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {favoriteTools.map((tool) => {
-                        const ToolIcon = getToolIcon(tool.slug);
+                    {filteredFavorites.map((tool) => {
+                        const Icon = getToolIcon(tool.id);
                         return (
-                            <div
-                                key={tool.id}
-                                className="group bg-white p-8 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-amber-400/5 hover:-translate-y-1 transition-all duration-500 relative overflow-hidden"
-                            >
-                                <div className="absolute top-0 right-0 w-24 h-24 bg-gray-50 rounded-bl-[4rem] group-hover:bg-amber-50/50 transition-colors" />
-
-                                {/* Unpin Action */}
+                            <div key={tool.id} className="group relative bg-white rounded-[2.5rem] border border-gray-100 p-8 hover:shadow-2xl hover:shadow-gray-200/50 hover:-translate-y-1 transition-all duration-300">
                                 <button
-                                    onClick={() => toggleFavorite(tool.slug)}
-                                    className="absolute top-6 right-6 z-20 p-2 text-gray-300 hover:text-rose-500 hover:bg-rose-50 rounded-xl transition-all opacity-0 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0"
-                                    title="Unpin from dashboard"
+                                    onClick={() => toggleFavorite(tool.id)}
+                                    className="absolute top-6 right-6 p-3 bg-gray-50 text-[hsl(var(--color-primary))] rounded-xl hover:bg-red-50 hover:text-red-500 transition-colors opacity-0 group-hover:opacity-100"
+                                    title={t('unpin')}
                                 >
-                                    <X className="w-5 h-5" />
+                                    <X className="w-4 h-4" />
                                 </button>
 
-                                <Link href={`/${locale}/tools/${tool.slug}`} className="relative z-10 block">
-                                    <div className="relative inline-flex mb-6">
-                                        <span className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gray-50 group-hover:bg-white group-hover:shadow-md transition-all duration-500">
-                                            <ToolIcon className="w-8 h-8" />
-                                        </span>
-                                        <div className="absolute -top-2 -right-2 w-6 h-6 bg-amber-400 rounded-lg flex items-center justify-center shadow-lg shadow-amber-100 border-2 border-white">
-                                            <Star className="w-3 h-3 fill-white text-white" />
-                                        </div>
-                                    </div>
-                                    <h3 className="text-xl font-bold text-gray-900 mb-2 truncate group-hover:text-amber-500 transition-colors">
-                                        {tool.slug.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ')}
-                                    </h3>
-                                    <p className="text-sm text-gray-400 font-medium leading-relaxed line-clamp-2 mb-6">
-                                        Professional-grade PDF {tool.slug.split('-')[0]} tool with optimized processing engine.
-                                    </p>
-                                    <div className="flex items-center text-xs font-black text-amber-500 uppercase tracking-widest group-hover:gap-2 transition-all">
-                                        Launch Tool <ArrowRight className="w-4 h-4 ml-1" />
-                                    </div>
+                                <div className="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center mb-6 group-hover:bg-[hsl(var(--color-primary))] group-hover:text-white transition-colors duration-300">
+                                    <Icon className="w-7 h-7" />
+                                </div>
+
+                                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[hsl(var(--color-primary))] transition-colors">
+                                    {t(`quickTools.list.${tool.id}.title`, { defaultValue: tool.id.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') })}
+                                </h3>
+                                <p className="text-sm text-gray-400 leading-relaxed mb-8">
+                                    {t(`quickTools.list.${tool.id}.description`, { defaultValue: t('toolDesc') })}
+                                </p>
+
+                                <Link
+                                    href={`/${locale}${tool.href}`}
+                                    className="inline-flex items-center gap-2 text-xs font-black text-gray-900 uppercase tracking-widest group/link"
+                                >
+                                    {t('launch')}
+                                    <ExternalLink className="w-4 h-4 group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
                                 </Link>
                             </div>
                         );
                     })}
 
-                    {/* Add More Tools Card */}
                     <button
-                        onClick={() => setIsAddModalOpen(true)}
-                        className="group p-8 rounded-[2rem] border-2 border-dashed border-gray-200 flex flex-col items-center justify-center text-center hover:border-amber-400 hover:bg-amber-50/20 transition-all cursor-pointer min-h-[280px]"
+                        onClick={() => setIsAddingMode(true)}
+                        className="group border-2 border-dashed border-gray-100 rounded-[2.5rem] p-8 flex flex-col items-center justify-center text-center hover:border-[hsl(var(--color-primary))] hover:bg-gray-50/50 transition-all duration-300 min-h-[320px]"
                     >
-                        <div className="w-16 h-16 rounded-full bg-gray-50 flex items-center justify-center mb-4 group-hover:bg-amber-400 group-hover:text-white transition-all duration-500">
-                            <Plus className="w-8 h-8 text-gray-300 group-hover:text-white" />
+                        <div className="w-16 h-16 rounded-full bg-gray-50 flex items-center justify-center mb-6 group-hover:bg-[hsl(var(--color-primary))] group-hover:text-white transition-colors">
+                            <FolderPlus className="w-8 h-8" />
                         </div>
-                        <h3 className="text-lg font-bold text-gray-500 group-hover:text-amber-600">Pin More Tools</h3>
-                        <p className="text-sm text-gray-400 mt-2 max-w-[200px]">Browse the library and star your favorite tools for quick access.</p>
-                    </button>
-                </div>
-            ) : (
-                <div className="bg-white rounded-[3rem] p-16 text-center border border-gray-100 shadow-sm border-dashed">
-                    <div className="w-24 h-24 bg-amber-50 text-amber-500 rounded-full flex items-center justify-center mx-auto mb-8 animate-pulse">
-                        <Sparkles className="w-10 h-10" />
-                    </div>
-                    <h2 className="text-3xl font-black text-gray-900 mb-4">No tools found</h2>
-                    <p className="text-gray-500 max-w-md mx-auto mb-10 text-lg font-medium">
-                        {searchTerm ? `No results for "${searchTerm}" in your pins.` : "You haven't pinned any tools yet. Start building your perfect workspace."}
-                    </p>
-                    <button
-                        onClick={() => setIsAddModalOpen(true)}
-                        className="px-10 py-5 bg-amber-400 text-white font-black rounded-2xl hover:shadow-xl hover:shadow-amber-100 hover:-translate-y-1 transition-all flex items-center gap-3 mx-auto uppercase tracking-widest text-sm"
-                    >
-                        <LayoutGrid className="w-5 h-5" />
-                        Explore Tool Library
+                        <h4 className="font-bold text-gray-900 mb-2">{t('addMore.title')}</h4>
+                        <p className="text-xs text-gray-400 max-w-[180px] leading-relaxed">
+                            {t('addMore.desc')}
+                        </p>
                     </button>
                 </div>
             )}
 
-            {/* Tool Discovery Modal */}
-            {isAddModalOpen && (
-                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-                    <div className="absolute inset-0 bg-gray-900/60 backdrop-blur-sm animate-in fade-in duration-300" onClick={() => setIsAddModalOpen(false)} />
-                    <div className="relative bg-white w-full max-w-4xl max-h-[85vh] rounded-[2.5rem] shadow-2xl flex flex-col animate-in zoom-in-95 duration-300 overflow-hidden">
+            {/* Modal - Tool Repository */}
+            {isAddingMode && (
+                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8">
+                    <div
+                        className="absolute inset-0 bg-gray-900/60 backdrop-blur-sm"
+                        onClick={() => setIsAddingMode(false)}
+                    />
+
+                    <div className="relative w-full max-w-4xl bg-white rounded-[3rem] shadow-2xl flex flex-col max-h-[90vh] overflow-hidden animate-in fade-in zoom-in duration-300">
                         {/* Modal Header */}
-                        <div className="p-8 border-b border-gray-50 flex items-center justify-between">
+                        <div className="p-8 md:p-10 border-b border-gray-50 flex items-center justify-between shrink-0">
                             <div>
-                                <h2 className="text-2xl font-black text-gray-900 mb-1">Tool Repository</h2>
-                                <p className="text-sm text-gray-400 font-bold uppercase tracking-widest">Select tools to pin on your dashboard</p>
+                                <h2 className="text-2xl font-black text-gray-900 mb-1">{t('modal.title')}</h2>
+                                <p className="text-sm text-gray-400 font-medium">{t('modal.subtitle')}</p>
                             </div>
                             <button
-                                onClick={() => setIsAddModalOpen(false)}
-                                className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center text-gray-400 hover:bg-rose-50 hover:text-rose-500 transition-all"
-                                title="Close repository"
+                                onClick={() => setIsAddingMode(false)}
+                                className="p-4 bg-gray-50 rounded-2xl text-gray-400 hover:bg-gray-100 hover:text-gray-900 transition-all"
+                                title={t('modal.close')}
                             >
                                 <X className="w-6 h-6" />
                             </button>
                         </div>
 
                         {/* Modal Search */}
-                        <div className="px-8 py-6 bg-gray-50/50">
+                        <div className="px-8 py-6 bg-gray-50/50 border-b border-gray-50 shrink-0">
                             <div className="relative group">
-                                <Search className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-amber-500 transition-colors" />
+                                <Search className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 group-focus-within:text-[hsl(var(--color-primary))]" />
                                 <input
                                     type="text"
-                                    placeholder="Instant tool lookup..."
-                                    className="w-full pl-16 pr-6 py-5 bg-white rounded-2xl border border-gray-100 shadow-sm focus:ring-4 focus:ring-amber-400/10 focus:border-amber-400 transition-all text-lg font-bold outline-none"
-                                    value={libSearchTerm}
-                                    onChange={(e) => setLibSearchTerm(e.target.value)}
+                                    placeholder={t('modal.searchPlaceholder')}
+                                    className="w-full pl-16 pr-8 py-4 bg-white border border-gray-100 rounded-2xl focus:outline-none focus:ring-4 focus:ring-[hsl(var(--color-primary))/5] transition-all font-medium text-gray-900"
+                                    value={modalSearch}
+                                    onChange={(e) => setModalSearch(e.target.value)}
                                     autoFocus
                                 />
                             </div>
                         </div>
 
-                        {/* Tool List */}
-                        <div className="flex-1 overflow-y-auto p-8 pt-0 divide-y divide-gray-50">
-                            {libraryTools.length > 0 ? (
-                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-8">
-                                    {libraryTools.map((tool) => {
-                                        const ToolIcon = getToolIcon(tool.slug);
-                                        const isFav = favorites.includes(tool.slug);
-                                        return (
-                                            <button
-                                                key={tool.id}
-                                                onClick={() => toggleFavorite(tool.slug)}
-                                                className={`flex items-center gap-4 p-5 rounded-3xl border transition-all text-left group ${isFav ? 'bg-amber-50 border-amber-200' : 'bg-white border-gray-100 hover:border-amber-200 hover:bg-gray-50'}`}
-                                            >
-                                                <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all ${isFav ? 'bg-white text-amber-500 shadow-sm' : 'bg-gray-100 text-gray-400 group-hover:bg-white group-hover:text-amber-500'}`}>
-                                                    <ToolIcon className="w-6 h-6" />
-                                                </div>
-                                                <div className="flex-1 min-w-0">
-                                                    <p className={`font-bold transition-colors ${isFav ? 'text-amber-900' : 'text-gray-900'}`}>
-                                                        {tool.slug.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ')}
-                                                    </p>
-                                                    <p className="text-xs text-gray-400 font-medium truncate">Category: {tool.category || 'Utility'}</p>
-                                                </div>
-                                                <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${isFav ? 'bg-amber-400 text-white animate-in zoom-in-0 duration-300' : 'bg-gray-50 text-gray-300 group-hover:bg-amber-100 group-hover:text-amber-500'}`}>
-                                                    <Star className={`w-4 h-4 ${isFav ? 'fill-white' : ''}`} />
-                                                </div>
-                                            </button>
-                                        );
-                                    })}
-                                </div>
-                            ) : (
-                                <div className="py-20 text-center">
-                                    <AlertCircle className="w-12 h-12 text-gray-200 mx-auto mb-4" />
-                                    <p className="text-gray-400 font-bold uppercase text-xs tracking-widest">No tools found matching "{libSearchTerm}"</p>
-                                </div>
-                            )}
+                        {/* Modal Tools List */}
+                        <div className="flex-1 overflow-y-auto p-4 md:p-8 custom-scrollbar">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                {availableTools.map((tool) => {
+                                    const Icon = getToolIcon(tool.id);
+                                    const isPinned = favorites.includes(tool.id);
+                                    return (
+                                        <button
+                                            key={tool.id}
+                                            onClick={() => toggleFavorite(tool.id)}
+                                            className={`flex items-center gap-4 p-4 rounded-[2rem] border transition-all duration-300 group/item ${isPinned
+                                                ? 'bg-blue-50/30 border-[hsl(var(--color-primary))] ring-1 ring-[hsl(var(--color-primary))]'
+                                                : 'bg-white border-gray-100 hover:border-gray-200 hover:bg-gray-50'
+                                                }`}
+                                        >
+                                            <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 transition-colors ${isPinned ? 'bg-[hsl(var(--color-primary))] text-white' : 'bg-gray-50 text-gray-400 group-hover/item:bg-white'
+                                                }`}>
+                                                <Icon className="w-7 h-7" />
+                                            </div>
+                                            <div className="text-left flex-1 min-w-0">
+                                                <h4 className="font-bold text-gray-900 truncate">
+                                                    {t(`quickTools.list.${tool.id}.title`, { defaultValue: tool.id.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ') })}
+                                                </h4>
+                                                <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest">
+                                                    {t('modal.category', { category: t('modal.defaultCategory') })}
+                                                </p>
+                                            </div>
+                                            <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-all ${isPinned ? 'bg-emerald-500 text-white scale-110' : 'bg-gray-100 text-gray-300'
+                                                }`}>
+                                                {isPinned ? <Star className="w-4 h-4 fill-current" /> : <Plus className="w-4 h-4" />}
+                                            </div>
+                                        </button>
+                                    );
+                                })}
+                            </div>
                         </div>
 
                         {/* Modal Footer */}
-                        <div className="p-8 bg-gray-50 border-t border-gray-100 flex items-center justify-between">
+                        <div className="p-8 border-t border-gray-50 flex items-center justify-between shrink-0 bg-gray-50/20">
                             <p className="text-xs font-black text-gray-400 uppercase tracking-widest">
-                                {favorites.length} TOOLS PINNED
+                                {t('modal.pinnedCount', { count: favorites.length })}
                             </p>
                             <button
-                                onClick={() => setIsAddModalOpen(false)}
-                                className="px-8 py-4 bg-gray-900 text-white text-xs font-black uppercase tracking-[0.2em] rounded-2xl hover:bg-gray-800 transition-all"
+                                onClick={() => setIsAddingMode(false)}
+                                className="px-10 py-4 bg-gray-900 text-white rounded-2xl font-bold text-sm hover:bg-black transition-all shadow-lg active:scale-95"
                             >
-                                Done
+                                {t('modal.done')}
                             </button>
                         </div>
                     </div>

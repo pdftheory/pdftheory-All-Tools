@@ -9,6 +9,7 @@ import {
     ArrowRight, Info, AlertCircle, Loader2
 } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
+import { useTranslations } from 'next-intl';
 
 interface SettingsPageClientProps {
     user: any;
@@ -43,6 +44,7 @@ const defaultSettings: UserSettings = {
 };
 
 export default function SettingsPageClient({ user, locale }: SettingsPageClientProps) {
+    const t = useTranslations('dashboard.settings');
     const router = useRouter();
     const [isSaving, setIsSaving] = useState(false);
     const [success, setSuccess] = useState(false);
@@ -152,10 +154,10 @@ export default function SettingsPageClient({ user, locale }: SettingsPageClientP
                         <div className="w-12 h-12 rounded-2xl bg-indigo-600 text-white flex items-center justify-center shadow-lg shadow-indigo-200">
                             <Settings className="w-6 h-6" />
                         </div>
-                        <h1 className="text-4xl font-black text-gray-900 tracking-tight">Settings</h1>
+                        <h1 className="text-4xl font-black text-gray-900 tracking-tight">{t('title')}</h1>
                     </div>
                     <p className="text-gray-500 max-w-xl text-lg font-medium leading-relaxed">
-                        Control your PDF processing environment and workspace behavior.
+                        {t('subtitle')}
                     </p>
                 </div>
 
@@ -178,7 +180,7 @@ export default function SettingsPageClient({ user, locale }: SettingsPageClientP
                         ) : (
                             <Save className="w-4 h-4" />
                         )}
-                        {success ? 'Saved!' : isSaving ? 'Saving...' : 'Apply Changes'}
+                        {success ? t('save.success') : isSaving ? t('save.saving') : t('save.apply')}
                     </button>
                 </div>
             </header>
@@ -187,7 +189,7 @@ export default function SettingsPageClient({ user, locale }: SettingsPageClientP
             <section className="bg-white p-10 rounded-[2.5rem] border border-gray-100 shadow-sm transition-all hover:shadow-md">
                 <div className="flex items-center gap-3 mb-8">
                     <User className="w-5 h-5 text-gray-400" />
-                    <h2 className="text-xl font-bold text-gray-900">Personal Identity</h2>
+                    <h2 className="text-xl font-bold text-gray-900">{t('profile.title')}</h2>
                 </div>
 
                 <div className="flex flex-col md:flex-row gap-10">
@@ -202,23 +204,23 @@ export default function SettingsPageClient({ user, locale }: SettingsPageClientP
                     <div className="flex-1 space-y-6">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div className="space-y-2">
-                                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest pl-1">Display Name</label>
+                                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest pl-1">{t('profile.displayName')}</label>
                                 <input
                                     type="text"
                                     value={displayName}
-                                    placeholder="Enter display name"
-                                    title="Display Name"
+                                    placeholder={t('profile.displayName')}
+                                    title={t('profile.displayName')}
                                     onChange={(e) => setDisplayName(e.target.value)}
                                     className="w-full px-5 py-4 bg-gray-50 border-transparent rounded-2xl text-sm font-bold text-gray-700 outline-none focus:bg-white focus:ring-2 focus:ring-indigo-100 transition-all"
                                 />
                             </div>
                             <div className="space-y-2">
-                                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest pl-1">Email Address</label>
+                                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest pl-1">{t('profile.email')}</label>
                                 <input
                                     type="email"
                                     value={user.email}
-                                    placeholder="Email address"
-                                    title="Email Address (Cannot be changed here)"
+                                    placeholder={t('profile.email')}
+                                    title={t('profile.email')}
                                     disabled
                                     className="w-full px-5 py-4 bg-gray-50 border-transparent rounded-2xl text-sm font-bold text-gray-400 cursor-not-allowed italic"
                                 />
@@ -227,12 +229,12 @@ export default function SettingsPageClient({ user, locale }: SettingsPageClientP
 
                         <div className="flex gap-4">
                             <div className="flex-1 space-y-2">
-                                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest pl-1">Preferred Language</label>
+                                <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest pl-1">{t('profile.language')}</label>
                                 <select
                                     value={language}
                                     onChange={(e) => setLanguage(e.target.value)}
                                     className="w-full px-5 py-4 bg-gray-50 border-transparent rounded-2xl text-sm font-bold text-gray-700 outline-none focus:bg-white focus:ring-2 focus:ring-indigo-100 transition-all"
-                                    title="Choose your workspace language"
+                                    title={t('profile.language')}
                                 >
                                     <option value="en">English</option>
                                     <option value="es">Español</option>
@@ -241,7 +243,7 @@ export default function SettingsPageClient({ user, locale }: SettingsPageClientP
                                     <option value="ar">العربية</option>
                                 </select>
                                 {language !== locale && (
-                                    <p className="text-xs text-amber-600 font-medium">Saving will redirect you to the selected language.</p>
+                                    <p className="text-xs text-amber-600 font-medium">{t('profile.languageWarning')}</p>
                                 )}
                             </div>
                         </div>
@@ -254,17 +256,17 @@ export default function SettingsPageClient({ user, locale }: SettingsPageClientP
                 <div className="flex items-center justify-between mb-8">
                     <div className="flex items-center gap-3">
                         <Cpu className="w-5 h-5 text-gray-400" />
-                        <h2 className="text-xl font-bold text-gray-900">Processing Engine</h2>
+                        <h2 className="text-xl font-bold text-gray-900">{t('engine.title')}</h2>
                     </div>
-                    <span className="px-3 py-1 bg-emerald-50 text-emerald-600 text-[10px] font-black uppercase tracking-widest rounded-full">Active</span>
+                    <span className="px-3 py-1 bg-emerald-50 text-emerald-600 text-[10px] font-black uppercase tracking-widest rounded-full">{t('engine.status')}</span>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                     <div className="space-y-6">
                         <div className="space-y-3">
-                            <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Default Compression Level</label>
+                            <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">{t('engine.compression.title')}</label>
                             <div className="grid grid-cols-3 gap-2">
-                                {['low', 'medium', 'high'].map((level) => (
+                                {(['low', 'medium', 'high'] as const).map((level) => (
                                     <button
                                         key={level}
                                         onClick={() => setCompressionLevel(level)}
@@ -272,17 +274,17 @@ export default function SettingsPageClient({ user, locale }: SettingsPageClientP
                                             ? 'bg-gray-900 text-white shadow-lg'
                                             : 'bg-gray-50 text-gray-400 hover:bg-gray-100'}`}
                                     >
-                                        {level}
+                                        {t(`engine.compression.${level}`)}
                                     </button>
                                 ))}
                             </div>
-                            <p className="text-[10px] text-gray-400 font-medium leading-relaxed">High compression results in smaller files but may affect graphic quality.</p>
+                            <p className="text-[10px] text-gray-400 font-medium leading-relaxed">{t('engine.compression.desc')}</p>
                         </div>
 
                         <Toggle
                             active={autoLinearize}
                             onToggle={() => setAutoLinearize(!autoLinearize)}
-                            label="Fast Web View (Linearize)"
+                            label={t('engine.linearize')}
                         />
                     </div>
 
@@ -292,8 +294,8 @@ export default function SettingsPageClient({ user, locale }: SettingsPageClientP
                                 <Info className="w-4 h-4 text-indigo-500" />
                             </div>
                             <div>
-                                <h4 className="text-xs font-black text-gray-900 uppercase tracking-tight mb-1">Settings Info</h4>
-                                <p className="text-[11px] text-gray-500 leading-relaxed">These preferences are stored locally and apply to all PDF tools. Processing always happens in your browser for maximum privacy.</p>
+                                <h4 className="text-xs font-black text-gray-900 uppercase tracking-tight mb-1">{t('engine.info.title')}</h4>
+                                <p className="text-[11px] text-gray-500 leading-relaxed">{t('engine.info.desc')}</p>
                             </div>
                         </div>
                     </div>
@@ -305,46 +307,46 @@ export default function SettingsPageClient({ user, locale }: SettingsPageClientP
                 <section className="bg-white p-10 rounded-[2.5rem] border border-gray-100 shadow-sm space-y-8">
                     <div className="flex items-center gap-3">
                         <Shield className="w-5 h-5 text-gray-400" />
-                        <h2 className="text-xl font-bold text-gray-900">Privacy Hub</h2>
+                        <h2 className="text-xl font-bold text-gray-900">{t('privacy.title')}</h2>
                     </div>
 
                     <div className="space-y-6">
                         <div className="space-y-2">
-                            <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Activity History Retention</label>
+                            <label className="text-[10px] font-black text-gray-400 uppercase tracking-widest">{t('privacy.history.title')}</label>
                             <select
                                 value={historyPurge}
                                 onChange={(e) => setHistoryPurge(e.target.value)}
                                 className="w-full px-5 py-4 bg-gray-50 border-transparent rounded-2xl text-sm font-bold text-gray-700 outline-none focus:bg-white focus:ring-2 focus:ring-emerald-100 transition-all"
-                                title="Set your data retention policy"
+                                title={t('privacy.history.title')}
                             >
-                                <option value="7">7 Days</option>
-                                <option value="30">30 Days (Recommended)</option>
-                                <option value="90">90 Days</option>
-                                <option value="0">Forever</option>
+                                <option value="7">{t('privacy.history.options.7')}</option>
+                                <option value="30">{t('privacy.history.options.30')}</option>
+                                <option value="90">{t('privacy.history.options.90')}</option>
+                                <option value="0">{t('privacy.history.options.0')}</option>
                             </select>
                         </div>
 
-                        <p className="text-[10px] text-gray-400 font-medium italic">All processed files stay in your browser and are never uploaded to servers.</p>
+                        <p className="text-[10px] text-gray-400 font-medium italic">{t('privacy.desc')}</p>
                     </div>
                 </section>
 
                 <section className="bg-white p-10 rounded-[2.5rem] border border-gray-100 shadow-sm space-y-8">
                     <div className="flex items-center gap-3">
                         <Layout className="w-5 h-5 text-gray-400" />
-                        <h2 className="text-xl font-bold text-gray-900">Workspace</h2>
+                        <h2 className="text-xl font-bold text-gray-900">{t('workspace.title')}</h2>
                     </div>
 
                     <div className="space-y-4">
                         <div className="flex border-b border-gray-50 pb-4 justify-between items-center">
-                            <span className="text-sm font-bold text-gray-700">Tool Library Display</span>
+                            <span className="text-sm font-bold text-gray-700">{t('workspace.display.title')}</span>
                             <div className="flex bg-gray-50 p-1 rounded-xl">
-                                {['grid', 'list'].map((mode) => (
+                                {(['grid', 'list'] as const).map((mode) => (
                                     <button
                                         key={mode}
                                         onClick={() => setToolDisplay(mode)}
                                         className={`px-4 py-2 rounded-lg text-[10px] font-black uppercase transition-all ${toolDisplay === mode ? 'bg-white shadow-sm text-black' : 'text-gray-400'}`}
                                     >
-                                        {mode}
+                                        {t(`workspace.display.${mode}`)}
                                     </button>
                                 ))}
                             </div>
@@ -353,7 +355,7 @@ export default function SettingsPageClient({ user, locale }: SettingsPageClientP
                         <Toggle
                             active={notifications.usage}
                             onToggle={() => setNotifications({ ...notifications, usage: !notifications.usage })}
-                            label="Email Usage Reports"
+                            label={t('workspace.notifications.usage')}
                         />
                     </div>
                 </section>
@@ -366,9 +368,9 @@ export default function SettingsPageClient({ user, locale }: SettingsPageClientP
                     <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center">
                         <Check className="w-5 h-5 text-emerald-400" />
                     </div>
-                    <p className="text-xs font-bold text-gray-400 tracking-tight">Settings are stored locally on your device for privacy.</p>
+                    <p className="text-xs font-bold text-gray-400 tracking-tight">{t('footer.info')}</p>
                     <Link href={`/${locale}/dashboard/security`} className="text-xs font-black text-[hsl(var(--color-primary))] uppercase tracking-widest hover:underline flex items-center gap-1">
-                        Security Hub <ArrowRight className="w-3 h-3" />
+                        {t('footer.securityLink')} <ArrowRight className="w-3 h-3" />
                     </Link>
                 </div>
             </div>

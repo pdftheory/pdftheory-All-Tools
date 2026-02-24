@@ -12,29 +12,29 @@ import {
     Copy,
     Info
 } from 'lucide-react';
-import { useLocale } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { CodeBlock } from '@/components/developers/CodeBlock';
 import { Button } from '@/components/ui/Button';
 
 export default function QuickstartPage() {
     const locale = useLocale();
+    const t = useTranslations('developers');
 
     return (
         <div className="animate-in fade-in slide-in-from-bottom-4 duration-700">
             {/* Breadcrumbs */}
             <div className="flex items-center gap-2 text-sm text-slate-500 mb-10">
-                <Link href="/developers" className="hover:text-slate-900 dark:hover:text-white transition-colors">Docs</Link>
+                <Link href="/developers" className="hover:text-slate-900 dark:hover:text-white transition-colors">{t('breadcrumb')}</Link>
                 <ChevronRight className="w-3.5 h-3.5" />
-                <span className="text-slate-900 dark:text-slate-100 font-medium">Quickstart</span>
+                <span className="text-slate-900 dark:text-slate-100 font-medium">{t('quickstart.breadcrumb')}</span>
             </div>
 
             <header className="mb-12">
                 <h1 className="text-4xl font-extrabold text-slate-900 dark:text-white mb-6 tracking-tight">
-                    Quickstart Guide
+                    {t('quickstart.title')}
                 </h1>
                 <p className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed max-w-3xl">
-                    Get up and running with pdftheory API in minutes. This guide will walk you through
-                    obtaining your API key and making your first request.
+                    {t('quickstart.subtitle')}
                 </p>
             </header>
 
@@ -43,15 +43,14 @@ export default function QuickstartPage() {
                 <section>
                     <div className="flex items-center gap-4 mb-6">
                         <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white text-sm font-bold">1</div>
-                        <h2 id="get-api-key" className="text-2xl font-bold text-slate-900 dark:text-white m-0">Get your API Key</h2>
+                        <h2 id="get-api-key" className="text-2xl font-bold text-slate-900 dark:text-white m-0">{t('quickstart.step1.title')}</h2>
                     </div>
                     <p className="text-slate-600 dark:text-slate-400 mb-6">
-                        Before you can make requests, you'll need an API key. Head over to the developer dashboard
-                        to generate your first key.
+                        {t('quickstart.step1.desc')}
                     </p>
                     <Link href={`/${locale}/developers/dashboard`}>
                         <Button className="h-11 px-6 rounded-xl font-bold bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-500/20 transition-all">
-                            Go to Dashboard
+                            {t('quickstart.step1.button')}
                             <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>
                     </Link>
@@ -61,15 +60,17 @@ export default function QuickstartPage() {
                 <section>
                     <div className="flex items-center gap-4 mb-6">
                         <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white text-sm font-bold">2</div>
-                        <h2 id="first-request" className="text-2xl font-bold text-slate-900 dark:text-white m-0">Make your first request</h2>
+                        <h2 id="first-request" className="text-2xl font-bold text-slate-900 dark:text-white m-0">{t('quickstart.step2.title')}</h2>
                     </div>
                     <p className="text-slate-600 dark:text-slate-400 mb-6">
-                        The simplest way to test your integration is using <code>curl</code> to compress a PDF.
-                        Replace <code>YOUR_API_KEY</code> with the key you generated in the previous step.
+                        {t.rich('quickstart.step2.desc', {
+                            curl: (chunks: React.ReactNode) => <code>{chunks}</code>,
+                            apikey: (chunks: React.ReactNode) => <code>{chunks}</code>
+                        })}
                     </p>
                     <CodeBlock
                         language="bash"
-                        filename="Terminal"
+                        filename={t('quickstart.step2.codeFilename')}
                         code={`curl -X POST https://api.pdftheory.com/v1/compress \\
   -H "x-api-key: YOUR_API_KEY" \\
   -F "file=@/path/to/document.pdf" \\
@@ -81,16 +82,15 @@ export default function QuickstartPage() {
                 <section>
                     <div className="flex items-center gap-4 mb-6">
                         <div className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white text-sm font-bold">3</div>
-                        <h2 id="explore-api" className="text-2xl font-bold text-slate-900 dark:text-white m-0">Explore the Reference</h2>
+                        <h2 id="explore-api" className="text-2xl font-bold text-slate-900 dark:text-white m-0">{t('quickstart.step3.title')}</h2>
                     </div>
                     <p className="text-slate-600 dark:text-slate-400 mb-8">
-                        Now that you've successfully processed your first PDF, explore our other powerful endpoints
-                        designed for merging, splitting, and securing your documents.
+                        {t('quickstart.step3.desc')}
                     </p>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         {[
-                            { title: 'API Reference', desc: 'Full endpoint details', href: '/developers/api-reference', icon: Terminal },
-                            { title: 'Usage Limits', desc: 'Rate limits and quotas', href: '/developers/usage', icon: Info },
+                            { title: t('quickstart.step3.apiRef.title'), desc: t('quickstart.step3.apiRef.desc'), href: '/developers/api-reference', icon: Terminal },
+                            { title: t('quickstart.step3.usage.title'), desc: t('quickstart.step3.usage.desc'), href: '/developers/usage', icon: Info },
                         ].map((item, i) => (
                             <Link key={i} href={`/${locale}${item.href}`} className="group p-5 rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-blue-500/30 hover:bg-blue-50/30 dark:hover:bg-blue-900/10 transition-all">
                                 <div className="flex items-center gap-4">
@@ -115,10 +115,9 @@ export default function QuickstartPage() {
                         <Zap className="w-5 h-5 fill-current" />
                     </div>
                     <div>
-                        <h3 className="text-lg font-bold mb-2">Pro Tip: Use our SDKs</h3>
+                        <h3 className="text-lg font-bold mb-2">{t('quickstart.tip.title')}</h3>
                         <p className="text-slate-400 text-sm leading-relaxed mb-6">
-                            While raw REST requests work great, our official SDKs handle buffering, error retries,
-                            and type safety out of the box.
+                            {t('quickstart.tip.desc')}
                         </p>
                         <div className="flex gap-4">
                             <span className="text-xs font-mono px-2 py-1 bg-white/10 rounded">npm i @pdftheory/node</span>

@@ -1,9 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import { ChevronRight, Shield, Lock, Server, Eye, Trash2, Globe, CheckCircle2, FileCheck, Cpu, Cloud, Key, AlertTriangle } from 'lucide-react';
+import { ChevronRight, Shield, Lock, Server, Trash2, Globe, CheckCircle2, FileCheck, Cpu, Cloud, Key, AlertTriangle } from 'lucide-react';
 import { type Locale } from '@/lib/i18n/config';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 
 interface SecurityPageClientProps {
     locale: Locale;
@@ -11,16 +12,18 @@ interface SecurityPageClientProps {
 
 export default function SecurityPageClient({ locale }: SecurityPageClientProps) {
     const [activeSection, setActiveSection] = useState<string | null>(null);
+    const t = useTranslations('securityPage');
+    const tCommon = useTranslations('legalCommon');
 
     const sections = [
-        { id: 'overview', title: 'Security Overview' },
-        { id: 'local-processing', title: 'Local Processing' },
-        { id: 'no-upload', title: 'No Server Uploads' },
-        { id: 'encryption', title: 'Data Encryption' },
-        { id: 'data-handling', title: 'Data Handling' },
-        { id: 'infrastructure', title: 'Infrastructure Security' },
-        { id: 'compliance', title: 'Compliance' },
-        { id: 'reporting', title: 'Security Reporting' },
+        { id: 'overview', title: t('sections.overview.title') },
+        { id: 'local-processing', title: t('sections.localProcessing.title') },
+        { id: 'no-upload', title: t('sections.noUpload.title') },
+        { id: 'encryption', title: t('sections.encryption.title') },
+        { id: 'data-handling', title: t('sections.dataHandling.title') },
+        { id: 'infrastructure', title: t('sections.infrastructure.title') },
+        { id: 'compliance', title: t('sections.compliance.title') },
+        { id: 'reporting', title: t('sections.reporting.title') },
     ];
 
     const scrollToSection = (id: string) => {
@@ -34,26 +37,26 @@ export default function SecurityPageClient({ locale }: SecurityPageClientProps) 
     const securityFeatures = [
         {
             icon: Server,
-            title: 'No Server Uploads',
-            description: 'Your files never leave your device. All processing happens locally in your browser.',
+            title: t('features.noServerUploads.title'),
+            description: t('features.noServerUploads.desc'),
             color: 'bg-green-100 text-green-600',
         },
         {
             icon: Lock,
-            title: 'End-to-End Privacy',
-            description: 'We cannot see, access, or store your documents. Your data stays 100% private.',
+            title: t('features.endToEndPrivacy.title'),
+            description: t('features.endToEndPrivacy.desc'),
             color: 'bg-blue-100 text-blue-600',
         },
         {
             icon: Trash2,
-            title: 'Automatic Data Cleanup',
-            description: 'All file data is cleared from memory when you close the tab or navigate away.',
+            title: t('features.autoCleanup.title'),
+            description: t('features.autoCleanup.desc'),
             color: 'bg-purple-100 text-purple-600',
         },
         {
             icon: Cpu,
-            title: 'Browser-Based Processing',
-            description: 'Advanced WebAssembly technology powers fast, secure processing directly in your browser.',
+            title: t('features.browserProcessing.title'),
+            description: t('features.browserProcessing.desc'),
             color: 'bg-orange-100 text-orange-600',
         },
     ];
@@ -64,9 +67,9 @@ export default function SecurityPageClient({ locale }: SecurityPageClientProps) 
             <header className="border-b border-gray-200 bg-gradient-to-br from-green-50 via-white to-blue-50">
                 <div className="max-w-5xl mx-auto px-6 py-12 lg:py-20">
                     <div className="flex items-center gap-2 text-sm text-gray-500 mb-4">
-                        <Link href={`/${locale}`} className="hover:text-gray-900 transition-colors">Home</Link>
+                        <Link href={`/${locale}`} className="hover:text-gray-900 transition-colors">{tCommon('home')}</Link>
                         <ChevronRight className="w-4 h-4" />
-                        <span className="text-gray-900 font-medium">Security</span>
+                        <span className="text-gray-900 font-medium">{tCommon('security')}</span>
                     </div>
 
                     <div className="flex items-center gap-4 mb-6">
@@ -75,21 +78,21 @@ export default function SecurityPageClient({ locale }: SecurityPageClientProps) 
                         </div>
                         <div>
                             <h1 className="text-4xl lg:text-5xl font-semibold text-gray-900 tracking-tight">
-                                Security at pdftheory
+                                {t('title')}
                             </h1>
                         </div>
                     </div>
 
                     <p className="text-lg text-gray-600 max-w-2xl mb-8">
-                        Your security and privacy are our top priorities. pdftheory is built from the ground up with a privacy-first architecture that keeps your documents safe.
+                        {t('description')}
                     </p>
 
                     {/* Trust Badge */}
                     <div className="inline-flex items-center gap-3 px-5 py-3 bg-green-50 border border-green-200 rounded-xl">
                         <CheckCircle2 className="w-6 h-6 text-green-600" />
                         <div>
-                            <p className="font-semibold text-green-900">100% Client-Side Processing</p>
-                            <p className="text-sm text-green-700">Your files never leave your device</p>
+                            <p className="font-semibold text-green-900">{t('trustBadge')}</p>
+                            <p className="text-sm text-green-700">{t('trustBadgeDesc')}</p>
                         </div>
                     </div>
                 </div>
@@ -121,7 +124,7 @@ export default function SecurityPageClient({ locale }: SecurityPageClientProps) 
                     <aside className="hidden lg:block">
                         <div className="sticky top-8">
                             <h2 className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-4">
-                                On this page
+                                {tCommon('onThisPage')}
                             </h2>
                             <nav className="space-y-1">
                                 {sections.map((section) => (
@@ -129,8 +132,8 @@ export default function SecurityPageClient({ locale }: SecurityPageClientProps) 
                                         key={section.id}
                                         onClick={() => scrollToSection(section.id)}
                                         className={`block w-full text-left px-3 py-2 text-sm rounded-lg transition-colors ${activeSection === section.id
-                                                ? 'bg-gray-100 text-gray-900 font-medium'
-                                                : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
+                                            ? 'bg-gray-100 text-gray-900 font-medium'
+                                            : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                                             }`}
                                     >
                                         {section.title}
@@ -145,12 +148,12 @@ export default function SecurityPageClient({ locale }: SecurityPageClientProps) 
 
                         {/* Security Overview */}
                         <section id="overview" className="scroll-mt-8">
-                            <h2 className="text-2xl font-semibold text-gray-900 mb-6">Security Overview</h2>
+                            <h2 className="text-2xl font-semibold text-gray-900 mb-6">{t('sections.overview.title')}</h2>
                             <p className="text-gray-700 leading-relaxed mb-6">
-                                At pdftheory, we believe that the best way to protect your data is to never have access to it in the first place. That&apos;s why we&apos;ve built our entire platform around client-side processing technology.
+                                {t('sections.overview.p1')}
                             </p>
                             <p className="text-gray-700 leading-relaxed">
-                                Unlike traditional PDF tools that upload your files to remote servers, pdftheory processes everything directly in your web browser using advanced JavaScript and WebAssembly technology. This means your sensitive documents – whether they contain financial records, legal contracts, medical information, or personal data – never leave your device.
+                                {t('sections.overview.p2')}
                             </p>
                         </section>
 
@@ -158,10 +161,10 @@ export default function SecurityPageClient({ locale }: SecurityPageClientProps) 
                         <section id="local-processing" className="scroll-mt-8 pt-8 border-t border-gray-200 mt-12">
                             <h2 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center gap-3">
                                 <Cpu className="w-7 h-7 text-gray-400" />
-                                Local Processing Technology
+                                {t('sections.localProcessing.title')}
                             </h2>
                             <p className="text-gray-700 mb-6">
-                                Every PDF operation on pdftheory is performed using cutting-edge browser technologies:
+                                {t('sections.localProcessing.intro')}
                             </p>
                             <div className="not-prose space-y-4 mb-6">
                                 <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-xl border border-gray-200">
@@ -169,8 +172,8 @@ export default function SecurityPageClient({ locale }: SecurityPageClientProps) 
                                         <FileCheck className="w-5 h-5 text-blue-600" />
                                     </div>
                                     <div>
-                                        <h4 className="font-semibold text-gray-900 mb-1">WebAssembly (WASM)</h4>
-                                        <p className="text-sm text-gray-600">High-performance binary format that runs PDF processing at near-native speed directly in your browser.</p>
+                                        <h4 className="font-semibold text-gray-900 mb-1">{t('sections.localProcessing.wasm.title')}</h4>
+                                        <p className="text-sm text-gray-600">{t('sections.localProcessing.wasm.desc')}</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-xl border border-gray-200">
@@ -178,8 +181,8 @@ export default function SecurityPageClient({ locale }: SecurityPageClientProps) 
                                         <Cpu className="w-5 h-5 text-purple-600" />
                                     </div>
                                     <div>
-                                        <h4 className="font-semibold text-gray-900 mb-1">JavaScript PDF Libraries</h4>
-                                        <p className="text-sm text-gray-600">Open-source libraries like PDF-lib and pdf.js power our tools, running entirely in your browser environment.</p>
+                                        <h4 className="font-semibold text-gray-900 mb-1">{t('sections.localProcessing.jsLibs.title')}</h4>
+                                        <p className="text-sm text-gray-600">{t('sections.localProcessing.jsLibs.desc')}</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-xl border border-gray-200">
@@ -187,8 +190,8 @@ export default function SecurityPageClient({ locale }: SecurityPageClientProps) 
                                         <Lock className="w-5 h-5 text-green-600" />
                                     </div>
                                     <div>
-                                        <h4 className="font-semibold text-gray-900 mb-1">Browser Sandbox</h4>
-                                        <p className="text-sm text-gray-600">All processing occurs within your browser&apos;s secure sandbox, isolated from other applications and the internet.</p>
+                                        <h4 className="font-semibold text-gray-900 mb-1">{t('sections.localProcessing.sandbox.title')}</h4>
+                                        <p className="text-sm text-gray-600">{t('sections.localProcessing.sandbox.desc')}</p>
                                     </div>
                                 </div>
                             </div>
@@ -198,27 +201,30 @@ export default function SecurityPageClient({ locale }: SecurityPageClientProps) 
                         <section id="no-upload" className="scroll-mt-8 pt-8 border-t border-gray-200 mt-12">
                             <h2 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center gap-3">
                                 <Cloud className="w-7 h-7 text-gray-400" />
-                                No Server Uploads
+                                {t('sections.noUpload.title')}
                             </h2>
 
                             <div className="bg-green-50 border border-green-200 rounded-xl p-6 mb-6 not-prose">
                                 <div className="flex items-start gap-4">
                                     <CheckCircle2 className="w-8 h-8 text-green-600 flex-shrink-0 mt-1" />
                                     <div>
-                                        <h3 className="font-bold text-green-900 text-lg mb-2">Zero File Uploads Guarantee</h3>
+                                        <h3 className="font-bold text-green-900 text-lg mb-2">{t('sections.noUpload.guarantee')}</h3>
                                         <p className="text-green-800 leading-relaxed">
-                                            Your PDF files are <strong>never uploaded</strong> to our servers or any third-party servers. When you select a file, it&apos;s read directly by your browser and processed locally. The processed result is then available for download – all without any data ever leaving your device.
+                                            {t.rich('sections.noUpload.guaranteeDesc', {
+                                                strong: (chunks) => <strong>{chunks}</strong>
+                                            })}
                                         </p>
                                     </div>
                                 </div>
                             </div>
 
-                            <h3 className="text-lg font-semibold text-gray-900 mt-8 mb-4">What this means for you:</h3>
+                            <h3 className="text-lg font-semibold text-gray-900 mt-8 mb-4">{t('sections.noUpload.meaningTitle')}</h3>
                             <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                                <li><strong>Complete Privacy:</strong> We cannot see your documents because they never reach us.</li>
-                                <li><strong>No Data Breaches:</strong> Since we don&apos;t store files, there&apos;s nothing to breach.</li>
-                                <li><strong>No Third-Party Access:</strong> Your files aren&apos;t shared with any external services.</li>
-                                <li><strong>Works Offline:</strong> Once loaded, many tools work without an internet connection.</li>
+                                {(t.raw('sections.noUpload.items') as string[]).map((item, idx) => (
+                                    <li key={idx}>
+                                        <strong>{item.split(': ')[0]}:</strong> {item.split(': ')[1]}
+                                    </li>
+                                ))}
                             </ul>
                         </section>
 
@@ -226,16 +232,17 @@ export default function SecurityPageClient({ locale }: SecurityPageClientProps) 
                         <section id="encryption" className="scroll-mt-8 pt-8 border-t border-gray-200 mt-12">
                             <h2 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center gap-3">
                                 <Key className="w-7 h-7 text-gray-400" />
-                                Data Encryption
+                                {t('sections.encryption.title')}
                             </h2>
                             <p className="text-gray-700 mb-6">
-                                While your files stay local, all communication with our website is secured:
+                                {t('sections.encryption.intro')}
                             </p>
                             <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                                <li><strong>TLS 1.3 Encryption:</strong> All connections use the latest TLS encryption protocols.</li>
-                                <li><strong>HTTPS Everywhere:</strong> Our entire site is served over HTTPS with HSTS enabled.</li>
-                                <li><strong>Secure Headers:</strong> We implement security headers including CSP, X-Frame-Options, and XSS protection.</li>
-                                <li><strong>No Mixed Content:</strong> All resources are loaded securely to prevent man-in-the-middle attacks.</li>
+                                {(t.raw('sections.encryption.items') as string[]).map((item, idx) => (
+                                    <li key={idx}>
+                                        <strong>{item.split(': ')[0]}:</strong> {item.split(': ')[1]}
+                                    </li>
+                                ))}
                             </ul>
                         </section>
 
@@ -243,39 +250,28 @@ export default function SecurityPageClient({ locale }: SecurityPageClientProps) 
                         <section id="data-handling" className="scroll-mt-8 pt-8 border-t border-gray-200 mt-12">
                             <h2 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center gap-3">
                                 <Trash2 className="w-7 h-7 text-gray-400" />
-                                Data Handling & Retention
+                                {t('sections.dataHandling.title')}
                             </h2>
 
                             <div className="overflow-x-auto not-prose mb-6">
                                 <table className="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
                                     <thead className="bg-gray-50">
                                         <tr>
-                                            <th className="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Data Type</th>
-                                            <th className="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Storage Location</th>
-                                            <th className="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">Retention</th>
+                                            <th className="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">{t('sections.dataHandling.dataType')}</th>
+                                            <th className="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">{t('sections.dataHandling.storageLocation')}</th>
+                                            <th className="text-left px-4 py-3 font-semibold text-gray-900 border-b border-gray-200">{t('sections.dataHandling.retention')}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr className="border-b border-gray-100">
-                                            <td className="px-4 py-3 font-medium text-gray-900">Your PDF Files</td>
-                                            <td className="px-4 py-3 text-gray-700">Your device only (browser memory)</td>
-                                            <td className="px-4 py-3 text-green-700 font-medium">Deleted immediately when you close the tab</td>
-                                        </tr>
-                                        <tr className="border-b border-gray-100">
-                                            <td className="px-4 py-3 font-medium text-gray-900">Processing Data</td>
-                                            <td className="px-4 py-3 text-gray-700">Browser memory</td>
-                                            <td className="px-4 py-3 text-green-700 font-medium">Cleared after each operation</td>
-                                        </tr>
-                                        <tr className="border-b border-gray-100">
-                                            <td className="px-4 py-3 font-medium text-gray-900">Account Information</td>
-                                            <td className="px-4 py-3 text-gray-700">Secure servers (if you create an account)</td>
-                                            <td className="px-4 py-3 text-gray-700">Until you delete your account</td>
-                                        </tr>
-                                        <tr>
-                                            <td className="px-4 py-3 font-medium text-gray-900">Analytics (anonymous)</td>
-                                            <td className="px-4 py-3 text-gray-700">Google Analytics</td>
-                                            <td className="px-4 py-3 text-gray-700">Up to 24 months</td>
-                                        </tr>
+                                        {(t.raw('sections.dataHandling.rows') as { type: string; location: string; retention: string }[]).map((row, idx) => (
+                                            <tr key={idx} className={idx < (t.raw('sections.dataHandling.rows') as any[]).length - 1 ? "border-b border-gray-100" : ""}>
+                                                <td className="px-4 py-3 font-medium text-gray-900">{row.type}</td>
+                                                <td className="px-4 py-3 text-gray-700">{row.location}</td>
+                                                <td className={`px-4 py-3 font-medium ${row.retention.toLowerCase().includes('deleted') || row.retention.toLowerCase().includes('cleared') ? 'text-green-700' : 'text-gray-700'}`}>
+                                                    {row.retention}
+                                                </td>
+                                            </tr>
+                                        ))}
                                     </tbody>
                                 </table>
                             </div>
@@ -285,17 +281,17 @@ export default function SecurityPageClient({ locale }: SecurityPageClientProps) 
                         <section id="infrastructure" className="scroll-mt-8 pt-8 border-t border-gray-200 mt-12">
                             <h2 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center gap-3">
                                 <Globe className="w-7 h-7 text-gray-400" />
-                                Infrastructure Security
+                                {t('sections.infrastructure.title')}
                             </h2>
                             <p className="text-gray-700 mb-6">
-                                Our website infrastructure follows industry best practices:
+                                {t('sections.infrastructure.intro')}
                             </p>
                             <ul className="list-disc pl-6 space-y-2 text-gray-700">
-                                <li><strong>CDN Protection:</strong> Global content delivery with DDoS protection.</li>
-                                <li><strong>Regular Updates:</strong> All dependencies and frameworks are kept up-to-date.</li>
-                                <li><strong>Security Audits:</strong> Regular code reviews and security assessments.</li>
-                                <li><strong>Minimal Data Collection:</strong> We only collect what&apos;s absolutely necessary.</li>
-                                <li><strong>Open Source:</strong> Core components are open source and can be independently audited.</li>
+                                {(t.raw('sections.infrastructure.items') as string[]).map((item, idx) => (
+                                    <li key={idx}>
+                                        <strong>{item.split(': ')[0]}:</strong> {item.split(': ')[1]}
+                                    </li>
+                                ))}
                             </ul>
                         </section>
 
@@ -303,27 +299,27 @@ export default function SecurityPageClient({ locale }: SecurityPageClientProps) 
                         <section id="compliance" className="scroll-mt-8 pt-8 border-t border-gray-200 mt-12">
                             <h2 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center gap-3">
                                 <Shield className="w-7 h-7 text-gray-400" />
-                                Compliance & Standards
+                                {t('sections.compliance.title')}
                             </h2>
                             <p className="text-gray-700 mb-6">
-                                pdftheory is designed to help you maintain compliance with data protection regulations:
+                                {t('sections.compliance.intro')}
                             </p>
                             <div className="not-prose grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                                 <div className="p-4 bg-blue-50 border border-blue-200 rounded-xl">
-                                    <h4 className="font-semibold text-blue-900 mb-1">GDPR Compliant</h4>
-                                    <p className="text-sm text-blue-800">Meets European Union data protection requirements</p>
+                                    <h4 className="font-semibold text-blue-900 mb-1">{t('sections.compliance.gdpr.title')}</h4>
+                                    <p className="text-sm text-blue-800">{t('sections.compliance.gdpr.desc')}</p>
                                 </div>
                                 <div className="p-4 bg-green-50 border border-green-200 rounded-xl">
-                                    <h4 className="font-semibold text-green-900 mb-1">CCPA Compliant</h4>
-                                    <p className="text-sm text-green-800">Meets California Consumer Privacy Act requirements</p>
+                                    <h4 className="font-semibold text-green-900 mb-1">{t('sections.compliance.ccpa.title')}</h4>
+                                    <p className="text-sm text-green-800">{t('sections.compliance.ccpa.desc')}</p>
                                 </div>
                                 <div className="p-4 bg-purple-50 border border-purple-200 rounded-xl">
-                                    <h4 className="font-semibold text-purple-900 mb-1">HIPAA Friendly</h4>
-                                    <p className="text-sm text-purple-800">Suitable for processing healthcare documents (files never leave your device)</p>
+                                    <h4 className="font-semibold text-purple-900 mb-1">{t('sections.compliance.hipaa.title')}</h4>
+                                    <p className="text-sm text-purple-800">{t('sections.compliance.hipaa.desc')}</p>
                                 </div>
                                 <div className="p-4 bg-orange-50 border border-orange-200 rounded-xl">
-                                    <h4 className="font-semibold text-orange-900 mb-1">SOX Friendly</h4>
-                                    <p className="text-sm text-orange-800">Suitable for financial document processing</p>
+                                    <h4 className="font-semibold text-orange-900 mb-1">{t('sections.compliance.sox.title')}</h4>
+                                    <p className="text-sm text-orange-800">{t('sections.compliance.sox.desc')}</p>
                                 </div>
                             </div>
                         </section>
@@ -332,51 +328,51 @@ export default function SecurityPageClient({ locale }: SecurityPageClientProps) 
                         <section id="reporting" className="scroll-mt-8 pt-8 border-t border-gray-200 mt-12">
                             <h2 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center gap-3">
                                 <AlertTriangle className="w-7 h-7 text-gray-400" />
-                                Security Reporting
+                                {t('sections.reporting.title')}
                             </h2>
                             <p className="text-gray-700 mb-6">
-                                We take security seriously and welcome responsible disclosure of any vulnerabilities.
+                                {t('sections.reporting.intro')}
                             </p>
 
                             <div className="bg-gray-50 border border-gray-200 rounded-lg p-6 not-prose">
-                                <h3 className="font-semibold text-gray-900 mb-4">Report a Security Issue</h3>
+                                <h3 className="font-semibold text-gray-900 mb-4">{t('sections.reporting.reportTitle')}</h3>
                                 <p className="text-gray-700 mb-4">
-                                    If you discover a security vulnerability, please report it to us responsibly:
+                                    {t('sections.reporting.reportText')}
                                 </p>
                                 <div className="space-y-3">
                                     <div>
-                                        <p className="text-sm text-gray-500 mb-1">Security Email</p>
+                                        <p className="text-sm text-gray-500 mb-1">{t('sections.reporting.securityEmail')}</p>
                                         <a href="mailto:security@pdftheory.com" className="text-blue-600 font-medium hover:underline">
                                             security@pdftheory.com
                                         </a>
                                     </div>
                                     <div>
-                                        <p className="text-sm text-gray-500 mb-1">General Contact</p>
+                                        <p className="text-sm text-gray-500 mb-1">{t('sections.reporting.generalContact')}</p>
                                         <a href="mailto:privacy@pdftheory.com" className="text-blue-600 font-medium hover:underline">
                                             privacy@pdftheory.com
                                         </a>
                                     </div>
                                 </div>
                                 <p className="text-sm text-gray-600 mt-4">
-                                    Please include a detailed description of the vulnerability and steps to reproduce it. We aim to respond within 48 hours.
+                                    {t('sections.reporting.responseTime')}
                                 </p>
                             </div>
                         </section>
 
                         {/* Related Links */}
                         <section className="mt-16 pt-8 border-t border-gray-200">
-                            <h2 className="text-lg font-semibold text-gray-900 mb-4">Related Policies</h2>
+                            <h2 className="text-lg font-semibold text-gray-900 mb-4">{tCommon('relatedPolicies')}</h2>
                             <div className="flex flex-wrap gap-4 not-prose">
                                 <Link href={`/${locale}/privacy`} className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-900 rounded-lg text-sm font-medium transition-colors">
-                                    Privacy Policy
+                                    {tCommon('privacyPolicy')}
                                     <ChevronRight className="w-4 h-4" />
                                 </Link>
                                 <Link href={`/${locale}/terms`} className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-900 rounded-lg text-sm font-medium transition-colors">
-                                    Terms of Service
+                                    {tCommon('termsOfService')}
                                     <ChevronRight className="w-4 h-4" />
                                 </Link>
                                 <Link href={`/${locale}/cookies`} className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 text-gray-900 rounded-lg text-sm font-medium transition-colors">
-                                    Cookies Policy
+                                    {tCommon('cookiePolicy')}
                                     <ChevronRight className="w-4 h-4" />
                                 </Link>
                             </div>

@@ -163,7 +163,7 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
                 </div>
                 {/* Coming Soon Badge */}
                 <div className="absolute -top-2 -right-2 bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-lg border border-blue-400">
-                  Soon
+                  {tFooter('app.soon')}
                 </div>
               </button>
               <button className="relative flex items-center gap-3 bg-gray-800/50 border border-gray-700/50 rounded-lg px-4 py-2 cursor-not-allowed group text-left opacity-70" disabled>
@@ -174,7 +174,7 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
                 </div>
                 {/* Coming Soon Badge */}
                 <div className="absolute -top-2 -right-2 bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-full shadow-lg border border-blue-400">
-                  Soon
+                  {tFooter('app.soon')}
                 </div>
               </button>
             </div>
@@ -218,7 +218,7 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
                     `}
                   >
                     <div className="p-4 md:hidden flex justify-between items-center border-b border-gray-800">
-                      <span className="font-bold text-gray-400 uppercase tracking-wider text-xs">{t('selectLanguage') || 'Select Language'}</span>
+                      <span className="font-bold text-gray-400 uppercase tracking-wider text-xs">{t('buttons.selectLanguage')}</span>
                       <button onClick={() => setIsLanguageOpen(false)} className="text-gray-400 hover:text-white" aria-label="Close language selector">
                         <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
                       </button>

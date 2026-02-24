@@ -75,9 +75,9 @@ export default function AboutPageClient({ locale }: AboutPageClientProps) {
               </div>
 
               <h1 className="text-5xl lg:text-7xl font-bold tracking-tight text-[hsl(var(--color-foreground))] mb-6 leading-[1.1]">
-                Empowering Your <br />
+                {t('hero.line1')} <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[hsl(var(--color-primary))] to-purple-600">
-                  Document Workflow
+                  {t('hero.line2')}
                 </span>
               </h1>
 
@@ -101,22 +101,22 @@ export default function AboutPageClient({ locale }: AboutPageClientProps) {
 
               {/* Trust/Stats */}
               <div className="mt-12 pt-8 border-t border-[hsl(var(--color-border))]">
-                <p className="text-sm font-medium text-[hsl(var(--color-muted-foreground))] mb-4">Trusted by professionals worldwide</p>
+                <p className="text-sm font-medium text-[hsl(var(--color-muted-foreground))] mb-4">{t('stats.trusted')}</p>
                 <div className="flex items-center gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-300">
                   {/* Placeholders for logos if needed, or just stats */}
                   <div className="flex flex-col">
                     <span className="text-2xl font-bold text-[hsl(var(--color-foreground))]">110+</span>
-                    <span className="text-xs text-[hsl(var(--color-muted-foreground))]">Tools</span>
+                    <span className="text-xs text-[hsl(var(--color-muted-foreground))]">{t('stats.toolsLabel')}</span>
                   </div>
                   <div className="w-px h-8 bg-gray-200" />
                   <div className="flex flex-col">
                     <span className="text-2xl font-bold text-[hsl(var(--color-foreground))]">1M+</span>
-                    <span className="text-xs text-[hsl(var(--color-muted-foreground))]">Files Processed</span>
+                    <span className="text-xs text-[hsl(var(--color-muted-foreground))]">{t('stats.filesLabel')}</span>
                   </div>
                   <div className="w-px h-8 bg-gray-200" />
                   <div className="flex flex-col">
                     <span className="text-2xl font-bold text-[hsl(var(--color-foreground))]">100%</span>
-                    <span className="text-xs text-[hsl(var(--color-muted-foreground))]">Secure</span>
+                    <span className="text-xs text-[hsl(var(--color-muted-foreground))]">{t('stats.secureLabel')}</span>
                   </div>
                 </div>
               </div>
@@ -127,7 +127,7 @@ export default function AboutPageClient({ locale }: AboutPageClientProps) {
                 <div className="absolute inset-0 bg-gradient-to-tr from-blue-500/20 to-purple-500/20 rounded-full blur-3xl opacity-30 animate-pulse" />
                 <Image
                   src="/assets/about/hero-illustration.png"
-                  alt="Abstract Document Cloud"
+                  alt={t('hero.imageAlt')}
                   fill
                   className="object-contain drop-shadow-2xl animate-float"
                   priority
@@ -146,7 +146,7 @@ export default function AboutPageClient({ locale }: AboutPageClientProps) {
               <div className="relative w-full h-full rounded-2xl overflow-hidden bg-[hsl(var(--color-secondary)/0.3)]">
                 <Image
                   src="/assets/about/mission-image.png"
-                  alt="Team Collaboration"
+                  alt={t('mission.imageAlt')}
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-700"
                 />
@@ -166,12 +166,7 @@ export default function AboutPageClient({ locale }: AboutPageClientProps) {
               </div>
 
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-8">
-                {[
-                  "Browser-based Processing",
-                  "No Server Uploads",
-                  "Works Offline",
-                  "Open Source"
-                ].map((item, i) => (
+                {t.raw('mission.bullets').map((item: string, i: number) => (
                   <li key={i} className="flex items-center gap-3 text-[hsl(var(--color-foreground))] font-medium">
                     <CheckCircle2 className="h-5 w-5 text-[hsl(var(--color-primary))]" />
                     {item}
@@ -191,7 +186,7 @@ export default function AboutPageClient({ locale }: AboutPageClientProps) {
               {t('values.title')}
             </h2>
             <p className="text-xl text-[hsl(var(--color-muted-foreground))]">
-              The principles that drive every feature we build.
+              {t('values.subtitle')}
             </p>
           </div>
 
@@ -262,13 +257,7 @@ export default function AboutPageClient({ locale }: AboutPageClientProps) {
             </div>
 
             <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
-              {[
-                { name: "Next.js", desc: "React Framework" },
-                { name: "WebAssembly", desc: "High Performance" },
-                { name: "Web Workers", desc: "Background Tasks" },
-                { name: "PDF-Lib", desc: "PDF Manipulation" },
-                { name: "IndexedDB", desc: "Local Storage" }
-              ].map((tech, i) => (
+              {t.raw('technology.list').map((tech: { name: string; desc: string }, i: number) => (
                 <div key={i} className="flex flex-col items-center p-6 rounded-2xl bg-[hsl(var(--color-muted)/0.3)] hover:bg-[hsl(var(--color-muted)/0.6)] transition-colors">
                   <span className="font-bold text-[hsl(var(--color-foreground))]">{tech.name}</span>
                   <span className="text-xs text-[hsl(var(--color-muted-foreground))]">{tech.desc}</span>

@@ -12,6 +12,7 @@ interface StatsData {
 }
 
 export const DashboardStats = () => {
+    const t = useTranslations('dashboard');
     const { user } = useAuth();
     const [stats, setStats] = useState<StatsData>({ totalProcessed: 0, toolsUsed: 0, timeSaved: '0m' });
     const [loading, setLoading] = useState(true);
@@ -45,31 +46,31 @@ export const DashboardStats = () => {
 
     const statCards = [
         {
-            label: 'Total Processed',
+            label: t('stats.totalProcessed'),
             value: stats.totalProcessed.toLocaleString(),
             icon: FileCheck,
             colorClass: 'text-blue-600',
             bgClass: 'bg-blue-50/50',
             borderClass: 'border-blue-100',
-            description: 'PDFs managed by you'
+            description: t('stats.processedDesc')
         },
         {
-            label: 'Tools Utilized',
+            label: t('stats.toolsUsed'),
             value: stats.toolsUsed.toLocaleString(),
             icon: Zap,
             colorClass: 'text-purple-600',
             bgClass: 'bg-purple-50/50',
             borderClass: 'border-purple-100',
-            description: 'Unique tools explored'
+            description: t('stats.toolsDesc')
         },
         {
-            label: 'Estimated Savings',
+            label: t('stats.timeSaved'),
             value: stats.timeSaved,
             icon: Clock,
             colorClass: 'text-emerald-600',
             bgClass: 'bg-emerald-50/50',
             borderClass: 'border-emerald-100',
-            description: 'Time saved using PDFTheory'
+            description: t('stats.savingsDesc', { brand: 'PDFTheory' })
         },
     ];
 

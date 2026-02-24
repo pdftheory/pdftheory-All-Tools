@@ -134,7 +134,7 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
                   <Link href={`/${locale}/dashboard`}>
                     <button className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors rounded-lg hover:bg-blue-50">
                       <LayoutDashboard className="w-4 h-4" />
-                      Dashboard
+                      {t('navigation.dashboard')}
                     </button>
                   </Link>
                   <div className="h-6 w-px bg-gray-200 mx-1"></div>
@@ -143,7 +143,7 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
                     className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-gray-600 hover:text-red-600 transition-colors rounded-lg hover:bg-red-50"
                   >
                     <LogOut className="w-4 h-4" />
-                    Sign out
+                    {t('auth.logout')}
                   </button>
                 </>
               ) : (
@@ -223,7 +223,7 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
                     <Link href={`/${locale}/dashboard`} onClick={() => setIsMobileMenuOpen(false)}>
                       <button className="w-full h-12 flex items-center justify-center gap-2 text-sm font-semibold text-gray-700 border border-gray-200 rounded-lg hover:bg-gray-50">
                         <LayoutDashboard className="w-4 h-4" />
-                        Dashboard
+                        {t('navigation.dashboard')}
                       </button>
                     </Link>
                     <button
@@ -231,7 +231,7 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
                       className="w-full h-12 flex items-center justify-center gap-2 text-sm font-semibold text-red-600 bg-red-50 rounded-lg hover:bg-red-100"
                     >
                       <LogOut className="w-4 h-4" />
-                      Sign out
+                      {t('auth.logout')}
                     </button>
                   </>
                 ) : (

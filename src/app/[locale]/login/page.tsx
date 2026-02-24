@@ -54,10 +54,10 @@ export default function LoginPage({ params }: { params: Promise<{ locale: string
                         <span className="text-2xl font-black text-blue-600">pdftheory</span>
                     </Link>
                     <h2 className="text-3xl font-extrabold text-gray-900 tracking-tight">
-                        Welcome back
+                        {t('login.title')}
                     </h2>
                     <p className="mt-2 text-sm text-gray-600">
-                        Sign in to your account
+                        {t('login.subtitle')}
                     </p>
                 </div>
 
@@ -66,31 +66,31 @@ export default function LoginPage({ params }: { params: Promise<{ locale: string
                     <form className="space-y-6" onSubmit={handleLogin}>
                         <div className="space-y-4">
                             <Input
-                                label="Email address"
+                                label={t('login.emailLabel')}
                                 type="email"
                                 autoComplete="email"
                                 required
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                placeholder="you@example.com"
+                                placeholder={t('login.placeholder.email')}
                             />
 
                             <div className="space-y-1">
                                 <Input
-                                    label="Password"
+                                    label={t('login.passwordLabel')}
                                     type="password"
                                     autoComplete="current-password"
                                     required
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
-                                    placeholder="••••••••"
+                                    placeholder={t('login.placeholder.password')}
                                 />
                                 <div className="flex justify-end">
                                     <Link
                                         href={`/${locale}/forgot-password`}
                                         className="text-xs font-medium text-blue-600 hover:text-blue-500"
                                     >
-                                        Forgot password?
+                                        {t('login.forgotPassword')}
                                     </Link>
                                 </div>
                             </div>
@@ -111,23 +111,23 @@ export default function LoginPage({ params }: { params: Promise<{ locale: string
                             {loading ? (
                                 <>
                                     <Loader2 className="animate-spin -ml-1 mr-2 h-5 w-5" />
-                                    Signing in...
+                                    {t('login.signingIn')}
                                 </>
                             ) : (
                                 <>
-                                    Sign in
+                                    {t('login.button')}
                                     <ArrowRight className="ml-2 h-5 w-5" />
                                 </>
                             )}
                         </Button>
 
                         <div className="text-center text-sm">
-                            <span className="text-gray-500">Don't have an account? </span>
+                            <span className="text-gray-500">{t('login.noAccount')} </span>
                             <Link
                                 href={`/${locale}/signup`}
                                 className="font-bold text-blue-600 hover:text-blue-500"
                             >
-                                Sign up for free
+                                {t('login.signupLink')}
                             </Link>
                         </div>
                     </form>

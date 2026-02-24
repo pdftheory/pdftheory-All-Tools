@@ -6,15 +6,15 @@ import {
     FileText,
     Loader2,
     ArrowRight,
-    Clock,
-    CheckCircle2,
-    Zap
+    LayoutGrid
 } from 'lucide-react';
 import { getToolIcon } from '@/config/icons';
 import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { useAuth } from '@/components/providers/AuthProvider';
 
-export const RecentActivityTable = () => {
+export const RecentActivityTable = ({ locale }: { locale: string }) => {
+    const t = useTranslations('dashboard.recentActivity');
     const { user } = useAuth();
     const [history, setHistory] = useState<HistoryItem[]>([]);
     const [loading, setLoading] = useState(true);
@@ -26,7 +26,7 @@ export const RecentActivityTable = () => {
                 return;
             }
             setLoading(true);
-            const { success, data } = await HistoryService.getUserHistory((user as any).id, 8);
+            const { success, data } = await HistoryService.getUserHistory((user as any).id, 5);
             if (success && data) {
                 setHistory(data);
             }
@@ -36,105 +36,103 @@ export const RecentActivityTable = () => {
         fetchHistory();
     }, [user]);
 
-    if (loading) {
-        return (
-            <div className="bg-white rounded-2xl border border-gray-100 p-12 flex justify-center items-center shadow-sm">
-                <Loader2 className="w-8 h-8 animate-spin text-[hsl(var(--color-primary))]" />
-            </div>
-        );
-    }
-
-    if (history.length === 0) {
-        return (
-            <div className="bg-white rounded-2xl border border-gray-100 p-12 text-center shadow-sm">
-                <div className="w-20 h-20 rounded-full bg-blue-50 flex items-center justify-center mx-auto mb-6">
-                    <FileText className="w-10 h-10 text-[hsl(var(--color-primary))]" />
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-2">No activity recorded</h3>
-                <p className="text-gray-500 mb-8 max-w-sm mx-auto leading-relaxed">Your professional PDF journey starts here. Process a file and track its history with ease.</p>
-                <Link
-                    href="/en/tools"
-                    className="inline-flex items-center gap-2 px-8 py-4 bg-[hsl(var(--color-primary))] text-white font-bold rounded-xl hover:shadow-lg hover:-translate-y-0.5 transition-all shadow-md"
-                >
-                    Explore 99+ Tools
-                    <ArrowRight className="w-5 h-5" />
-                </Link>
-            </div>
-        );
-    }
-
-    const formatTimeAgo = (dateString: string) => {
-        const date = new Date(dateString);
+    const getTimeAgo = (dateString: string) => {
         const now = new Date();
-        const diffMs = now.getTime() - date.getTime();
-        const diffMins = Math.floor(diffMs / 60000);
-        const diffHours = Math.floor(diffMins / 60);
-        const diffDays = Math.floor(diffHours / 24);
+        const past = new Date(dateString);
+        const diffInMs = now.getTime() - past.getTime();
+        const diffInMins = Math.floor(diffInMs / (1000 * 60));
+        const diffInHours = Math.floor(diffInMins / 60);
+        const diffInDays = Math.floor(diffInHours / 24);
 
-        if (diffMins < 1) return 'Just now';
-        if (diffMins < 60) return `${diffMins}m ago`;
-        if (diffHours < 24) return `${diffHours}h ago`;
-        if (diffDays < 7) return `${diffDays}d ago`;
-        return date.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+        if (diffInMins < 1) return t('timeAgo.justNow');
+        if (diffInMins < 60) return t('timeAgo.mins', { count: diffInMins });
+        if (diffInHours < 24) return t('timeAgo.hours', { count: diffInHours });
+        return t('timeAgo.days', { count: diffInDays });
     };
 
+    if (loading) {
+        return (
+            <div className="bg-white rounded-[2.5rem] p-10 border border-gray-100 shadow-sm">
+                <div className="flex items-center justify-center py-10">
+                    <Loader2 className="w-8 h-8 animate-spin text-gray-200" />
+                </div>
+            </div>
+        );
+    }
+
     return (
-        <div className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-            <div className="px-8 py-6 border-b border-gray-50 flex items-center justify-between">
+        <section className="bg-white rounded-[2.5rem] border border-gray-100 shadow-sm overflow-hidden group">
+            <div className="p-8 border-b border-gray-50 flex items-center justify-between">
                 <div>
-                    <h3 className="text-lg font-bold text-gray-900">Recent Activity</h3>
-                    <p className="text-xs text-gray-400 font-medium uppercase tracking-wider mt-1">LATEST LOGS</p>
+                    <h2 className="text-xl font-bold text-gray-900 mb-1">{t('title')}</h2>
+                    <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest">{t('logsSection')}</p>
                 </div>
                 <Link
-                    href="/en/dashboard/history"
-                    className="group text-sm text-[hsl(var(--color-primary))] font-bold hover:underline flex items-center gap-1.5"
+                    href={`/${locale}/dashboard/history`}
+                    className="p-3 bg-gray-50 text-gray-400 rounded-2xl hover:bg-[hsl(var(--color-primary))] hover:text-white transition-all duration-300"
+                    title={t('mgmtHub')}
                 >
-                    Management Hub
-                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    <LayoutGrid className="w-5 h-5" />
                 </Link>
             </div>
-            <div className="divide-y divide-gray-50">
-                {history.slice(0, 5).map((item) => {
-                    const ToolIcon = getToolIcon(item.action_type);
-                    return (
-                        <div key={item.id} className="px-8 py-5 flex items-center gap-5 hover:bg-gray-50/50 transition-colors group">
-                            <div className="relative">
-                                <div className="w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center text-gray-400 group-hover:bg-[hsl(var(--color-primary))] group-hover:text-white transition-all duration-300 shadow-sm">
-                                    <ToolIcon className="w-6 h-6" />
-                                </div>
-                                <div className="absolute -bottom-1 -right-1">
-                                    <CheckCircle2 className="w-5 h-5 text-emerald-500 bg-white rounded-full p-0.5 shadow-sm" />
-                                </div>
-                            </div>
-                            <div className="flex-1 min-w-0">
-                                <p className="font-bold text-gray-900 truncate group-hover:text-[hsl(var(--color-primary))] transition-colors">
-                                    {item.file_name}
-                                </p>
-                                <div className="flex items-center gap-2 mt-1">
-                                    <span className="text-xs font-bold text-gray-400 uppercase tracking-tighter">
-                                        {item.action_type.replace(/_/g, ' ')}
-                                    </span>
-                                    <span className="text-xs text-gray-300">•</span>
-                                    <span className="text-xs text-gray-400 flex items-center gap-1 font-medium">
-                                        <Clock className="w-3 h-3" />
-                                        {formatTimeAgo(item.created_at)}
-                                    </span>
-                                </div>
-                            </div>
-                            <div className="flex flex-col items-end gap-1.5">
-                                <span className="px-3 py-1 bg-emerald-50 text-emerald-600 text-[10px] font-black uppercase tracking-widest rounded-full">
-                                    Completed
-                                </span>
-                                {item.metadata?.fileSize && (
-                                    <span className="text-[10px] text-gray-400 font-medium">
-                                        {(item.metadata.fileSize / 1024 / 1024).toFixed(2)} MB
-                                    </span>
-                                )}
-                            </div>
-                        </div>
-                    );
-                })}
+
+            <div className="overflow-x-auto">
+                <table className="w-full text-left">
+                    <tbody className="divide-y divide-gray-50">
+                        {history.length === 0 ? (
+                            <tr>
+                                <td className="px-8 py-20 text-center">
+                                    <div className="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                                        <FileText className="w-8 h-8 text-gray-200" />
+                                    </div>
+                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{t('noActivity')}</h3>
+                                    <p className="text-sm text-gray-400 max-w-[280px] mx-auto mb-8 leading-relaxed">
+                                        {t('noActivityDesc')}
+                                    </p>
+                                    <Link
+                                        href={`/${locale}/tools`}
+                                        className="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white text-xs font-bold rounded-xl hover:bg-black transition-all uppercase tracking-widest"
+                                    >
+                                        {t('exploreTools')}
+                                        <ArrowRight className="w-4 h-4" />
+                                    </Link>
+                                </td>
+                            </tr>
+                        ) : (
+                            history.map((item) => {
+                                const ToolIcon = getToolIcon(item.action_type);
+                                return (
+                                    <tr key={item.id} className="hover:bg-gray-50/50 transition-colors group/row">
+                                        <td className="px-8 py-6">
+                                            <div className="flex items-center gap-4">
+                                                <div className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center text-gray-400 group-hover/row:bg-white group-hover/row:shadow-sm transition-all duration-300">
+                                                    <ToolIcon className="w-6 h-6" />
+                                                </div>
+                                                <div className="min-w-0">
+                                                    <p className="font-bold text-gray-900 truncate max-w-[200px] mb-0.5">{item.file_name}</p>
+                                                    <div className="flex items-center gap-2">
+                                                        <span className="text-[10px] font-black text-[hsl(var(--color-primary))] uppercase tracking-widest">
+                                                            {item.action_type.replace(/_/g, ' ')}
+                                                        </span>
+                                                        <span className="w-1 h-1 rounded-full bg-gray-200" />
+                                                        <span className="text-[10px] text-gray-400 font-bold uppercase">{getTimeAgo(item.created_at)}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td className="px-8 py-6 text-right">
+                                            <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-50 text-emerald-600 rounded-lg">
+                                                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                                                <span className="text-[10px] font-black uppercase tracking-widest">{t('status.completed')}</span>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                );
+                            })
+                        )}
+                    </tbody>
+                </table>
             </div>
-        </div>
+        </section>
     );
 };

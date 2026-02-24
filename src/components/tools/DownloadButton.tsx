@@ -30,13 +30,18 @@ export interface DownloadButtonProps extends Omit<ButtonProps, 'onClick' | 'chil
 /**
  * Format file size for display
  */
-function formatFileSize(bytes: number): string {
-  if (bytes === 0) return '0 Bytes';
-  
+function formatFileSize(bytes: number, t: (key: string) => string): string {
+  if (bytes === 0) return `0 ${t('uploader.units.bytes')}`;
+
   const k = 1024;
-  const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+  const sizes = [
+    t('uploader.units.bytes'),
+    t('uploader.units.kb'),
+    t('uploader.units.mb'),
+    t('uploader.units.gb')
+  ];
   const i = Math.floor(Math.log(bytes) / Math.log(k));
-  
+
   return `${parseFloat((bytes / Math.pow(k, i)).toFixed(2))} ${sizes[i]}`;
 }
 
@@ -64,9 +69,10 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({
   ...buttonProps
 }) => {
   const t = useTranslations('common');
+  const tTool = useTranslations('toolCommon');
   const [blobUrl, setBlobUrl] = useState<string | null>(null);
   const [isDownloading, setIsDownloading] = useState(false);
-  
+
   // Get tool info from context if not provided via props
   const toolContext = useToolContext();
   const toolSlug = propToolSlug || toolContext?.toolSlug;
@@ -77,7 +83,7 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({
     if (file) {
       const url = URL.createObjectURL(file);
       setBlobUrl(url);
-      
+
       // Cleanup function to revoke URL when component unmounts or file changes
       return () => {
         URL.revokeObjectURL(url);
@@ -101,7 +107,7 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({
     link.href = blobUrl;
     link.download = filename;
     link.style.display = 'none';
-    
+
     // Append to body, click, and remove
     document.body.appendChild(link);
     link.click();
@@ -112,7 +118,7 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({
       setTimeout(() => {
         URL.revokeObjectURL(blobUrl);
         setBlobUrl(null);
-        
+
         // Recreate URL for potential re-download
         if (file) {
           const newUrl = URL.createObjectURL(file);
@@ -125,7 +131,7 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({
     setTimeout(() => {
       setIsDownloading(false);
       onDownloadComplete?.();
-      
+
       // Record to recent files if tool info is provided
       if (toolSlug && file) {
         addRecentFile(filename, file.size, toolSlug, toolName);
@@ -138,7 +144,7 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({
 
   // Build button text
   const buttonText = label || t('buttons.download');
-  const fileSizeText = showFileSize && file ? ` (${formatFileSize(file.size)})` : '';
+  const fileSizeText = showFileSize && file ? ` (${formatFileSize(file.size, tTool)})` : '';
 
   return (
     <Button
@@ -168,7 +174,7 @@ export const DownloadButton: React.FC<DownloadButtonProps> = ({
           />
         </svg>
       )}
-      
+
       <span>
         {buttonText}
         {fileSizeText}

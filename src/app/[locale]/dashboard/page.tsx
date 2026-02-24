@@ -24,8 +24,9 @@ export default async function DashboardPage({ params }: PageProps) {
     }
     user = authUser;
 
-    const t = await getTranslations('common');
-    const displayName = user.user_metadata?.full_name || user.email?.split('@')[0] || 'User';
+    const tCommon = await getTranslations('common');
+    const t = await getTranslations('dashboard');
+    const displayName = user.user_metadata?.full_name || user.email?.split('@')[0] || 'Professional User';
 
     return (
         <div className="min-h-screen bg-gray-50 pt-[80px] flex">
@@ -37,9 +38,9 @@ export default async function DashboardPage({ params }: PageProps) {
                 {/* Header */}
                 <header className="mb-8">
                     <h1 className="text-3xl font-black text-gray-900 mb-2">
-                        Welcome back, <span className="text-[hsl(var(--color-primary))]">{displayName}</span>! 👋
+                        {t('welcome')} <span className="text-[hsl(var(--color-primary))]">{displayName}</span>! 👋
                     </h1>
-                    <p className="text-gray-500">Here's an overview of your recent PDF activities.</p>
+                    <p className="text-gray-500">{t('overviewSubtitle')}</p>
                 </header>
 
                 {/* Stats Section */}
@@ -53,7 +54,7 @@ export default async function DashboardPage({ params }: PageProps) {
 
                 {/* Recent Activity */}
                 <div className="mt-10 pb-20">
-                    <RecentActivityTable />
+                    <RecentActivityTable locale={locale} />
                 </div>
             </main>
         </div>

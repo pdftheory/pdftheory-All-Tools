@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { ShieldCheck, Lock, Smartphone, Fingerprint, Eye, EyeOff, Loader2, CheckCircle2, AlertCircle, X, Monitor } from 'lucide-react';
 import { createClient } from '@/lib/supabase/client';
 import { useAuth } from '@/components/providers/AuthProvider';
+import { useTranslations } from 'next-intl';
 
 interface SecurityPageClientProps {
     locale: string;
@@ -17,6 +18,7 @@ interface SessionInfo {
 }
 
 export const SecurityPageClient = ({ locale }: SecurityPageClientProps) => {
+    const t = useTranslations('dashboard.security');
     const { user } = useAuth();
     const [showPasswordModal, setShowPasswordModal] = useState(false);
     const [currentPassword, setCurrentPassword] = useState('');
@@ -33,8 +35,8 @@ export const SecurityPageClient = ({ locale }: SecurityPageClientProps) => {
     useEffect(() => {
         const getBrowserInfo = () => {
             const ua = navigator.userAgent;
-            let browser = 'Unknown Browser';
-            let os = 'Unknown OS';
+            let browser = t('session.unknown');
+            let os = t('session.unknown');
 
             // Detect browser
             if (ua.includes('Firefox')) browser = 'Firefox';
@@ -54,12 +56,12 @@ export const SecurityPageClient = ({ locale }: SecurityPageClientProps) => {
             setSessionInfo({
                 browser,
                 os,
-                lastActive: 'Active now',
+                lastActive: t('session.activeNow'),
             });
         };
 
         getBrowserInfo();
-    }, []);
+    }, [t]);
 
     const handlePasswordChange = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -68,17 +70,17 @@ export const SecurityPageClient = ({ locale }: SecurityPageClientProps) => {
 
         // Validation
         if (newPassword.length < 8) {
-            setPasswordError('Password must be at least 8 characters long');
+            setPasswordError(t('errors.minLength'));
             return;
         }
 
         if (newPassword !== confirmPassword) {
-            setPasswordError('Passwords do not match');
+            setPasswordError(t('errors.match'));
             return;
         }
 
         if (!/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)/.test(newPassword)) {
-            setPasswordError('Password must contain uppercase, lowercase, and a number');
+            setPasswordError(t('errors.format'));
             return;
         }
 
@@ -106,7 +108,7 @@ export const SecurityPageClient = ({ locale }: SecurityPageClientProps) => {
                 }, 2000);
             }
         } catch (err: any) {
-            setPasswordError(err.message || 'An unexpected error occurred');
+            setPasswordError(err.message || t('session.unknown'));
         } finally {
             setPasswordLoading(false);
         }
@@ -140,17 +142,17 @@ export const SecurityPageClient = ({ locale }: SecurityPageClientProps) => {
                         <div className="p-3 bg-blue-50 text-blue-600 rounded-xl">
                             <Lock className="w-6 h-6" />
                         </div>
-                        <h3 className="text-xl font-bold text-gray-900">Access Credentials</h3>
+                        <h3 className="text-xl font-bold text-gray-900">{t('credentials.title')}</h3>
                     </div>
                     <p className="text-sm text-gray-500 leading-relaxed font-medium">
-                        Set a strong, unique password to ensure your account remains secure and inaccessible to others.
+                        {t('credentials.subtitle')}
                     </p>
                     <div className="space-y-4 pt-2">
                         <button
                             onClick={() => setShowPasswordModal(true)}
                             className="w-full py-4 bg-gray-900 text-white font-black text-xs uppercase tracking-widest rounded-2xl hover:bg-gray-800 transition-all shadow-md"
                         >
-                            Change Password
+                            {t('credentials.button')}
                         </button>
                     </div>
                 </div>
@@ -161,18 +163,18 @@ export const SecurityPageClient = ({ locale }: SecurityPageClientProps) => {
                         <div className="p-3 bg-purple-50 text-purple-600 rounded-xl">
                             <Smartphone className="w-6 h-6" />
                         </div>
-                        <h3 className="text-xl font-bold text-gray-900">Enhanced Security</h3>
+                        <h3 className="text-xl font-bold text-gray-900">{t('enhanced.title')}</h3>
                     </div>
                     <p className="text-sm text-gray-500 leading-relaxed font-medium">
-                        Add an extra layer of protection by requiring both your password and a verification code from your phone.
+                        {t('enhanced.subtitle')}
                     </p>
                     <div className="flex items-center justify-between p-4 bg-gray-50 rounded-2xl">
                         <div className="flex items-center gap-3">
                             <Fingerprint className="w-5 h-5 text-gray-400" />
-                            <span className="text-sm font-bold text-gray-700">Two-Factor Auth</span>
+                            <span className="text-sm font-bold text-gray-700">{t('enhanced.tfa')}</span>
                         </div>
                         <span className="px-3 py-1 bg-amber-100 text-amber-700 text-[10px] font-black uppercase tracking-widest rounded-full">
-                            Coming Soon
+                            {t('enhanced.comingSoon')}
                         </span>
                     </div>
                 </div>
@@ -181,8 +183,8 @@ export const SecurityPageClient = ({ locale }: SecurityPageClientProps) => {
             {/* Current Session */}
             <div className="mt-8 bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
                 <div className="flex items-center justify-between mb-8">
-                    <h3 className="text-xl font-bold text-gray-900">Current Session</h3>
-                    <p className="text-xs text-emerald-500 font-bold uppercase tracking-widest bg-emerald-50 px-3 py-1.5 rounded-full">Live Connection</p>
+                    <h3 className="text-xl font-bold text-gray-900">{t('session.title')}</h3>
+                    <p className="text-xs text-emerald-500 font-bold uppercase tracking-widest bg-emerald-50 px-3 py-1.5 rounded-full">{t('session.status')}</p>
                 </div>
 
                 <div className="flex items-center gap-6 p-6 border border-gray-50 rounded-2xl bg-gray-50/30">
@@ -191,10 +193,10 @@ export const SecurityPageClient = ({ locale }: SecurityPageClientProps) => {
                     </div>
                     <div className="flex-1">
                         <p className="text-lg font-bold text-gray-900">
-                            {sessionInfo ? `${sessionInfo.os} • ${sessionInfo.browser}` : 'Loading...'}
+                            {sessionInfo ? `${sessionInfo.os} • ${sessionInfo.browser}` : t('session.loading')}
                         </p>
                         <p className="text-sm text-gray-400 font-medium">
-                            {sessionInfo?.lastActive || 'Checking session...'}
+                            {sessionInfo?.lastActive || t('session.loading')}
                             {user?.email && ` • ${user.email}`}
                         </p>
                     </div>
@@ -202,39 +204,39 @@ export const SecurityPageClient = ({ locale }: SecurityPageClientProps) => {
                         onClick={handleSignOutAll}
                         className="text-xs font-black text-rose-500 uppercase tracking-widest hover:underline"
                     >
-                        Sign Out
+                        {t('session.signOut')}
                     </button>
                 </div>
             </div>
 
             {/* Account Info */}
             <div className="mt-8 bg-white p-8 rounded-3xl border border-gray-100 shadow-sm">
-                <h3 className="text-xl font-bold text-gray-900 mb-6">Account Information</h3>
+                <h3 className="text-xl font-bold text-gray-900 mb-6">{t('accountInfo.title')}</h3>
                 <div className="space-y-4">
                     <div className="flex items-center justify-between p-4 bg-gray-50 rounded-2xl">
-                        <span className="text-sm font-bold text-gray-600">Email Address</span>
-                        <span className="text-sm font-medium text-gray-900">{user?.email || 'Not available'}</span>
+                        <span className="text-sm font-bold text-gray-600">{t('accountInfo.email')}</span>
+                        <span className="text-sm font-medium text-gray-900">{user?.email || t('accountInfo.notAvailable')}</span>
                     </div>
                     <div className="flex items-center justify-between p-4 bg-gray-50 rounded-2xl">
-                        <span className="text-sm font-bold text-gray-600">Account Created</span>
+                        <span className="text-sm font-bold text-gray-600">{t('accountInfo.created')}</span>
                         <span className="text-sm font-medium text-gray-900">
-                            {user?.created_at ? new Date(user.created_at).toLocaleDateString(undefined, {
+                            {user?.created_at ? new Date(user.created_at).toLocaleDateString(locale, {
                                 year: 'numeric',
                                 month: 'long',
                                 day: 'numeric'
-                            }) : 'Not available'}
+                            }) : t('accountInfo.notAvailable')}
                         </span>
                     </div>
                     <div className="flex items-center justify-between p-4 bg-gray-50 rounded-2xl">
-                        <span className="text-sm font-bold text-gray-600">Last Sign In</span>
+                        <span className="text-sm font-bold text-gray-600">{t('accountInfo.lastSignIn')}</span>
                         <span className="text-sm font-medium text-gray-900">
-                            {user?.last_sign_in_at ? new Date(user.last_sign_in_at).toLocaleString(undefined, {
+                            {user?.last_sign_in_at ? new Date(user.last_sign_in_at).toLocaleString(locale, {
                                 year: 'numeric',
                                 month: 'short',
                                 day: 'numeric',
                                 hour: '2-digit',
                                 minute: '2-digit'
-                            }) : 'Not available'}
+                            }) : t('accountInfo.notAvailable')}
                         </span>
                     </div>
                 </div>
@@ -250,12 +252,12 @@ export const SecurityPageClient = ({ locale }: SecurityPageClientProps) => {
                                     <div className="p-2 bg-blue-50 text-blue-600 rounded-xl">
                                         <Lock className="w-5 h-5" />
                                     </div>
-                                    <h2 className="text-xl font-bold text-gray-900">Change Password</h2>
+                                    <h2 className="text-xl font-bold text-gray-900">{t('modal.title')}</h2>
                                 </div>
                                 <button
                                     onClick={closeModal}
                                     className="p-2 text-gray-400 hover:text-gray-900 transition-colors rounded-xl hover:bg-gray-100"
-                                    title="Close dialog"
+                                    title={t('modal.close')}
                                 >
                                     <X className="w-5 h-5" />
                                 </button>
@@ -266,8 +268,8 @@ export const SecurityPageClient = ({ locale }: SecurityPageClientProps) => {
                                     <div className="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4">
                                         <CheckCircle2 className="w-8 h-8 text-emerald-600" />
                                     </div>
-                                    <h3 className="text-lg font-bold text-gray-900 mb-2">Password Updated!</h3>
-                                    <p className="text-sm text-gray-500">Your password has been changed successfully.</p>
+                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{t('modal.successTitle')}</h3>
+                                    <p className="text-sm text-gray-500">{t('modal.successDesc')}</p>
                                 </div>
                             ) : (
                                 <form onSubmit={handlePasswordChange} className="space-y-4">
@@ -280,7 +282,7 @@ export const SecurityPageClient = ({ locale }: SecurityPageClientProps) => {
 
                                     <div>
                                         <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">
-                                            New Password
+                                            {t('modal.newPassword')}
                                         </label>
                                         <div className="relative">
                                             <input
@@ -288,31 +290,31 @@ export const SecurityPageClient = ({ locale }: SecurityPageClientProps) => {
                                                 value={newPassword}
                                                 onChange={(e) => setNewPassword(e.target.value)}
                                                 className="w-full px-4 py-3 pr-12 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition-all text-sm font-medium"
-                                                placeholder="Enter new password"
+                                                placeholder={t('modal.placeholders.new')}
                                                 required
                                             />
                                             <button
                                                 type="button"
                                                 onClick={() => setShowNewPassword(!showNewPassword)}
                                                 className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
-                                                title={showNewPassword ? 'Hide password' : 'Show password'}
+                                                title={showNewPassword ? t('modal.aria.hide') : t('modal.aria.show')}
                                             >
                                                 {showNewPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                                             </button>
                                         </div>
-                                        <p className="text-xs text-gray-400 mt-1">Min 8 characters with uppercase, lowercase, and number</p>
+                                        <p className="text-xs text-gray-400 mt-1">{t('modal.requirements')}</p>
                                     </div>
 
                                     <div>
                                         <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">
-                                            Confirm New Password
+                                            {t('modal.confirmPassword')}
                                         </label>
                                         <input
                                             type="password"
                                             value={confirmPassword}
                                             onChange={(e) => setConfirmPassword(e.target.value)}
                                             className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 outline-none transition-all text-sm font-medium"
-                                            placeholder="Confirm new password"
+                                            placeholder={t('modal.placeholders.confirm')}
                                             required
                                         />
                                     </div>
@@ -323,7 +325,7 @@ export const SecurityPageClient = ({ locale }: SecurityPageClientProps) => {
                                             onClick={closeModal}
                                             className="flex-1 py-3 border border-gray-200 text-gray-700 font-bold text-xs uppercase tracking-widest rounded-xl hover:bg-gray-50 transition-all"
                                         >
-                                            Cancel
+                                            {t('modal.cancel')}
                                         </button>
                                         <button
                                             type="submit"
@@ -333,10 +335,10 @@ export const SecurityPageClient = ({ locale }: SecurityPageClientProps) => {
                                             {passwordLoading ? (
                                                 <>
                                                     <Loader2 className="w-4 h-4 animate-spin" />
-                                                    <span>Updating...</span>
+                                                    <span>{t('modal.updating')}</span>
                                                 </>
                                             ) : (
-                                                'Update Password'
+                                                t('modal.update')
                                             )}
                                         </button>
                                     </div>

@@ -13,6 +13,7 @@ import { Turnstile } from '@marsidev/react-turnstile';
 
 export default function SignupPage({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = use(params);
+    const t = useTranslations('auth');
     const router = useRouter();
     const supabase = createClient();
 
@@ -27,7 +28,7 @@ export default function SignupPage({ params }: { params: Promise<{ locale: strin
         e.preventDefault();
 
         if (!captchaToken) {
-            setError('Please solve the CAPTCHA to continue');
+            setError(t('signup.captchaError'));
             return;
         }
 
@@ -49,12 +50,12 @@ export default function SignupPage({ params }: { params: Promise<{ locale: strin
             }
 
             if (data.user && data.user.identities && data.user.identities.length === 0) {
-                throw new Error('User already exists');
+                throw new Error(t('signup.userExists'));
             }
 
             setSuccess(true);
         } catch (err: any) {
-            setError(err.message || 'Failed to sign up');
+            setError(err.message || t('signup.error'));
         } finally {
             setLoading(false);
         }
@@ -68,17 +69,20 @@ export default function SignupPage({ params }: { params: Promise<{ locale: strin
                     <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                         <CheckCircle2 className="w-8 h-8 text-green-600" />
                     </div>
-                    <h2 className="text-3xl font-extrabold text-gray-900">Check your email</h2>
+                    <h2 className="text-3xl font-extrabold text-gray-900">{t('signup.success.title')}</h2>
                     <p className="text-gray-600 text-lg">
-                        We've sent a verification link to <strong>{email}</strong>.
+                        {t.rich('signup.success.desc', {
+                            email: email,
+                            strong: (chunks) => <strong>{chunks}</strong>
+                        })}
                     </p>
                     <p className="text-sm text-gray-500">
-                        Please check your inbox (and spam folder) to complete your registration.
+                        {t('signup.success.inbox')}
                     </p>
                     <div className="pt-4">
                         <Link href={`/${locale}/login`}>
                             <Button variant="outline" className="w-full h-11">
-                                Back to Sign in
+                                {t('signup.success.backButton')}
                             </Button>
                         </Link>
                     </div>
@@ -95,10 +99,10 @@ export default function SignupPage({ params }: { params: Promise<{ locale: strin
                         <span className="text-2xl font-black text-blue-600">pdftheory</span>
                     </Link>
                     <h2 className="text-3xl font-extrabold text-gray-900 tracking-tight">
-                        Create an account
+                        {t('signup.title')}
                     </h2>
                     <p className="mt-2 text-sm text-gray-600">
-                        Get unlimited access to all PDF tools
+                        {t('signup.subtitle')}
                     </p>
                 </div>
 
@@ -107,23 +111,23 @@ export default function SignupPage({ params }: { params: Promise<{ locale: strin
                     <form className="space-y-6" onSubmit={handleSignup}>
                         <div className="space-y-4">
                             <Input
-                                label="Email address"
+                                label={t('signup.emailLabel')}
                                 type="email"
                                 autoComplete="email"
                                 required
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                placeholder="you@example.com"
+                                placeholder={t('signup.placeholder.email')}
                             />
 
                             <Input
-                                label="Password"
+                                label={t('signup.passwordLabel')}
                                 type="password"
                                 autoComplete="new-password"
                                 required
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                placeholder="At least 6 characters"
+                                placeholder={t('signup.placeholder.password')}
                                 minLength={6}
                             />
                         </div>
@@ -135,7 +139,7 @@ export default function SignupPage({ params }: { params: Promise<{ locale: strin
                                 onExpire={() => setCaptchaToken(undefined)}
                                 onError={() => {
                                     setCaptchaToken(undefined);
-                                    setError('CAPTCHA verification failed. Please try again.');
+                                    setError(t('signup.captchaFailed'));
                                 }}
                             />
                         </div>
@@ -155,22 +159,22 @@ export default function SignupPage({ params }: { params: Promise<{ locale: strin
                             {loading ? (
                                 <>
                                     <Loader2 className="animate-spin -ml-1 mr-2 h-5 w-5" />
-                                    Creating account...
+                                    {t('signup.signingUp')}
                                 </>
                             ) : (
                                 <>
-                                    Sign up
+                                    {t('signup.button')}
                                     <ArrowRight className="ml-2 h-5 w-5" />
                                 </>
                             )}
                         </Button>
 
                         <div className="text-center text-sm">
-                            <span className="text-gray-500">Already have an account? </span>
+                            <span className="text-gray-500">{t('signup.haveAccount')} </span>
                             <Link
                                 href={`/${locale}/login`}>
                                 <span className="font-bold text-blue-600 hover:text-blue-500 cursor-pointer">
-                                    Sign in
+                                    {t('signup.loginLink')}
                                 </span>
                             </Link>
                         </div>

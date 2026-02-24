@@ -12,10 +12,10 @@ export default getRequestConfig(async ({ requestLocale }) => {
   }
 
   // Always load English messages for fallback
-  const englishMessages = (await import(`../../messages/en.json`)).default;
+  const englishMessages: any = (await import(`../../messages/en.json`)).default;
 
   // Load the messages for the requested locale
-  let localeMessages;
+  let localeMessages: any;
   try {
     if (locale === 'en') {
       localeMessages = englishMessages;
@@ -29,9 +29,9 @@ export default getRequestConfig(async ({ requestLocale }) => {
 
   // Merge locale messages with English fallback
   // This ensures all keys are available, falling back to English for missing ones
-  const messages = locale === 'en' 
-    ? englishMessages 
-    : mergeWithFallback(localeMessages, englishMessages);
+  const messages = locale === 'en'
+    ? (englishMessages as any)
+    : (mergeWithFallback(localeMessages, englishMessages) as any);
 
   return {
     locale,

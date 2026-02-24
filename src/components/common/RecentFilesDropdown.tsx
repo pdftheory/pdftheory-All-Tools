@@ -22,6 +22,7 @@ export interface RecentFilesDropdownProps {
     empty: string;
     clearAll: string;
     processedWith: string;
+    removeFile?: string;
   };
 }
 
@@ -219,7 +220,7 @@ export const RecentFilesDropdown: React.FC<RecentFilesDropdownProps> = ({
                           removeFile(file.id);
                         }}
                         className="opacity-0 group-hover:opacity-100 focus:opacity-100 p-1 text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-destructive))] focus:text-[hsl(var(--color-destructive))] transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--color-ring))] rounded-sm"
-                        aria-label={`Remove ${file.name}`}
+                        aria-label={translations.removeFile?.replace('{filename}', file.name) || `Remove ${file.name}`}
                         tabIndex={-1}
                       >
                         <X className="h-4 w-4" aria-hidden="true" />

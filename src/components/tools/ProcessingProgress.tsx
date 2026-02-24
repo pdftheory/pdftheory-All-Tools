@@ -43,6 +43,7 @@ export const ProcessingProgress: React.FC<ProcessingProgressProps> = ({
   onCancel,
 }) => {
   const t = useTranslations('common');
+  const tTool = useTranslations('toolCommon');
 
   // Clamp progress between 0 and 100
   const clampedProgress = Math.max(0, Math.min(100, progress));
@@ -52,20 +53,23 @@ export const ProcessingProgress: React.FC<ProcessingProgressProps> = ({
     if (!estimatedTime || estimatedTime <= 0) return null;
 
     if (estimatedTime < 60) {
-      return `${Math.ceil(estimatedTime)}s remaining`;
+      const time = `${Math.ceil(estimatedTime)}${tTool('progress.seconds')}`;
+      return tTool('progress.remaining', { time });
     }
 
     const minutes = Math.floor(estimatedTime / 60);
     const seconds = Math.ceil(estimatedTime % 60);
 
     if (minutes < 60) {
-      return `${minutes}m ${seconds}s remaining`;
+      const time = `${minutes}${tTool('progress.minutes')} ${seconds}${tTool('progress.seconds')}`;
+      return tTool('progress.remaining', { time });
     }
 
     const hours = Math.floor(minutes / 60);
     const remainingMinutes = minutes % 60;
-    return `${hours}h ${remainingMinutes}m remaining`;
-  }, [estimatedTime]);
+    const time = `${hours}${tTool('progress.hours')} ${remainingMinutes}${tTool('progress.minutes')}`;
+    return tTool('progress.remaining', { time });
+  }, [estimatedTime, tTool]);
 
   // Get status text
   const statusText = useMemo(() => {
@@ -209,10 +213,10 @@ export const ProcessingProgress: React.FC<ProcessingProgressProps> = ({
 
       <div className="relative w-full h-2 bg-[hsl(var(--color-muted))] rounded-full overflow-hidden"
         role="progressbar"
-        aria-valuenow={clampedProgress}
+        aria-valuenow={Math.round(clampedProgress) || 0}
         aria-valuemin={0}
         aria-valuemax={100}
-        aria-label={`${statusText}: ${clampedProgress}%`}
+        aria-label={`${statusText}: ${Math.round(clampedProgress)}%`}
       >
         <div
           className={`absolute left-0 top-0 h-full transition-all duration-300 ease-out rounded-full ${progressBarColor} w-[var(--progress)]`}

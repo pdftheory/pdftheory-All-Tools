@@ -72,14 +72,14 @@ export function getTranslationWithFallback(
 ): string {
   // Try to get the translation from the target locale
   const translation = getNestedValue(messages, key);
-  
+
   if (translation !== undefined) {
     return translation;
   }
 
   // Fall back to English
   const englishTranslation = getNestedValue(englishMessages, key);
-  
+
   if (englishTranslation !== undefined) {
     return englishTranslation;
   }
@@ -96,41 +96,29 @@ export function mergeWithFallback(
   messages: NestedMessages,
   englishMessages: NestedMessages
 ): NestedMessages {
-  const result: NestedMessages = {};
+  // Helper to deep clone and merge
+  function deepMerge(target: any, source: any): any {
+    // If source is not an object/array, or is null, return it (or target if source is undefined)
+    if (source === undefined) return target;
+    if (source === null || typeof source !== 'object') return source;
 
-  // First, copy all English messages as base
-  function deepCopy(source: NestedMessages, target: NestedMessages): void {
-    for (const key of Object.keys(source)) {
-      const value = source[key];
-      if (typeof value === 'string') {
-        target[key] = value;
-      } else {
-        target[key] = {};
-        deepCopy(value, target[key] as NestedMessages);
-      }
+    // Handle arrays
+    if (Array.isArray(source)) {
+      return source.map((item, index) => {
+        const targetItem = Array.isArray(target) ? target[index] : undefined;
+        return deepMerge(targetItem, item);
+      });
     }
+
+    // Handle objects
+    const result = { ...(typeof target === 'object' && target !== null && !Array.isArray(target) ? target : {}) };
+    for (const key of Object.keys(source)) {
+      result[key] = deepMerge(result[key], source[key]);
+    }
+    return result;
   }
 
-  deepCopy(englishMessages, result);
-
-  // Then, override with locale-specific messages
-  function deepMerge(source: NestedMessages, target: NestedMessages): void {
-    for (const key of Object.keys(source)) {
-      const value = source[key];
-      if (typeof value === 'string') {
-        target[key] = value;
-      } else if (typeof target[key] === 'object' && target[key] !== null) {
-        deepMerge(value, target[key] as NestedMessages);
-      } else {
-        target[key] = {};
-        deepMerge(value, target[key] as NestedMessages);
-      }
-    }
-  }
-
-  deepMerge(messages, result);
-
-  return result;
+  return deepMerge(englishMessages, messages);
 }
 
 /**

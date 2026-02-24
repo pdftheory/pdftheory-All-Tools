@@ -17,27 +17,28 @@ import {
 import { useTranslations } from 'next-intl';
 
 export const DashboardSidebar = ({ locale }: { locale: string }) => {
+    const t = useTranslations('dashboard');
     const tCommon = useTranslations('common');
     const pathname = usePathname();
 
     const navItems = [
-        { label: 'Overview', icon: Home, href: `/${locale}/dashboard` },
-        { label: 'Favorites', icon: Star, href: `/${locale}/dashboard/favorites` },
-        { label: 'Activity Hub', icon: History, href: `/${locale}/dashboard/history` },
-        { label: 'Pro Workflows', icon: Workflow, href: `/${locale}/workflow` },
+        { label: t('sidebar.overview'), icon: Home, href: `/${locale}/dashboard` },
+        { label: t('sidebar.favorites'), icon: Star, href: `/${locale}/dashboard/favorites` },
+        { label: t('sidebar.history'), icon: History, href: `/${locale}/dashboard/history` },
+        { label: t('sidebar.workflows'), icon: Workflow, href: `/${locale}/workflow` },
     ];
 
     const supportItems = [
-        { label: 'Account Security', icon: ShieldCheck, href: `/${locale}/dashboard/security` },
-        { label: 'Settings', icon: Settings, href: `/${locale}/settings` },
-        { label: 'Support Center', icon: HelpCircle, href: `/${locale}/faq` },
+        { label: t('sidebar.security'), icon: ShieldCheck, href: `/${locale}/dashboard/security` },
+        { label: t('sidebar.settings'), icon: Settings, href: `/${locale}/settings` },
+        { label: t('sidebar.support'), icon: HelpCircle, href: `/${locale}/faq` },
     ];
 
     return (
         <aside className="w-72 bg-white border-r border-gray-100 min-h-[calc(100vh-80px)] hidden lg:flex flex-col sticky top-[80px]">
             {/* Primary Navigation */}
             <div className="p-8 flex-1">
-                <h2 className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-6">Management</h2>
+                <h2 className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-6">{t('sidebar.mgmtSection')}</h2>
                 <nav className="space-y-2">
                     {navItems.map((item) => {
                         const isActive = pathname === item.href || (item.href !== `/${locale}/dashboard` && pathname.startsWith(item.href));
@@ -57,7 +58,7 @@ export const DashboardSidebar = ({ locale }: { locale: string }) => {
                     })}
                 </nav>
 
-                <h2 className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-6 mt-10">Preferences</h2>
+                <h2 className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mb-6 mt-10">{t('sidebar.prefSection')}</h2>
                 <nav className="space-y-2">
                     {supportItems.map((item) => {
                         const isActive = pathname === item.href;
@@ -85,7 +86,7 @@ export const DashboardSidebar = ({ locale }: { locale: string }) => {
                     className="flex items-center gap-3 px-4 py-3 text-xs font-black text-gray-500 hover:text-[hsl(var(--color-primary))] bg-white border border-gray-100 rounded-xl transition-all hover:shadow-sm"
                 >
                     <FileText className="w-4 h-4" />
-                    TOOL LIBRARY
+                    {t('sidebar.toolLibrary')}
                     <ExternalLink className="w-3 h-3 ml-auto opacity-30" />
                 </Link>
             </div>

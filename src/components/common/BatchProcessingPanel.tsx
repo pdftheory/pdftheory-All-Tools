@@ -35,12 +35,14 @@ export interface BatchProcessingPanelProps {
     downloadAll: string;
     downloadZip: string;
     pending: string;
+    processedWith: string;
     processing: string;
     completed: string;
     error: string;
     progress: string;
     filesSelected: string;
     noFiles: string;
+    removeFile?: string;
   };
   acceptedTypes?: string;
   processor: (file: File, onProgress: (progress: number) => void) => Promise<Blob>;
@@ -237,7 +239,7 @@ export const BatchProcessingPanel: React.FC<BatchProcessingPanelProps> = ({
 
       {/* File List */}
       {files.length > 0 && (
-        <div 
+        <div
           className="mt-4 space-y-2 max-h-64 overflow-auto"
           role="list"
           aria-label="Files to process"
@@ -265,11 +267,12 @@ export const BatchProcessingPanel: React.FC<BatchProcessingPanelProps> = ({
                     <div className="h-1 bg-[hsl(var(--color-background))] rounded-full overflow-hidden">
                       <div
                         className="h-full bg-[hsl(var(--color-primary))] transition-all"
-                        style={{ width: `${file.progress}%` }}
+                        style={{ '--progress': `${file.progress}%` } as React.CSSProperties}
                         role="progressbar"
-                        aria-valuenow={file.progress}
+                        aria-valuenow={Math.round(file.progress) || 0}
                         aria-valuemin={0}
                         aria-valuemax={100}
+                        aria-label={translations.progress}
                       />
                     </div>
                   </div>
@@ -287,7 +290,7 @@ export const BatchProcessingPanel: React.FC<BatchProcessingPanelProps> = ({
                 <button
                   onClick={() => removeFile(file.id)}
                   className="p-1 text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-destructive))] focus:text-[hsl(var(--color-destructive))] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[hsl(var(--color-ring))] rounded-sm"
-                  aria-label={`Remove ${file.file.name}`}
+                  aria-label={translations.removeFile?.replace('{filename}', file.file.name) || `Remove ${file.file.name}`}
                   tabIndex={focusedFileIndex === index ? 0 : -1}
                 >
                   <X className="h-4 w-4" aria-hidden="true" />
@@ -310,7 +313,7 @@ export const BatchProcessingPanel: React.FC<BatchProcessingPanelProps> = ({
           <div className="h-2 bg-[hsl(var(--color-muted))] rounded-full overflow-hidden">
             <div
               className="h-full bg-[hsl(var(--color-primary))] transition-all"
-              style={{ width: `${overallProgress}%` }}
+              style={{ '--progress': `${overallProgress}%` } as React.CSSProperties}
             />
           </div>
         </div>
@@ -330,7 +333,7 @@ export const BatchProcessingPanel: React.FC<BatchProcessingPanelProps> = ({
               {translations.startProcessing}
             </Button>
           )}
-          
+
           {isProcessing && (
             <Button
               variant="secondary"

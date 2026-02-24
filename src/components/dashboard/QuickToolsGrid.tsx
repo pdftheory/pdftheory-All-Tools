@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { getToolIcon } from '@/config/icons';
@@ -14,47 +15,49 @@ interface QuickTool {
 }
 
 export const QuickToolsGrid = ({ locale }: { locale: string }) => {
+    const t = useTranslations('dashboard');
+
     const quickTools: QuickTool[] = [
         {
             id: 'pdf-multi-tool',
             slug: 'pdf-multi-tool',
-            title: 'All-in-One Tool',
-            description: 'Merge, split, rotate and organize PDF pages in one go.',
+            title: t('quickTools.list.pdf-multi-tool.title'),
+            description: t('quickTools.list.pdf-multi-tool.description'),
             color: 'bg-indigo-50 text-indigo-600',
         },
         {
             id: 'merge-pdf',
             slug: 'merge-pdf',
-            title: 'Merge PDF',
-            description: 'Combine multiple PDF files into a single document.',
+            title: t('quickTools.list.merge-pdf.title'),
+            description: t('quickTools.list.merge-pdf.description'),
             color: 'bg-blue-50 text-blue-600',
         },
         {
             id: 'split-pdf',
             slug: 'split-pdf',
-            title: 'Split PDF',
-            description: 'Separate one page or a whole set for easy conversion.',
+            title: t('quickTools.list.split-pdf.title'),
+            description: t('quickTools.list.split-pdf.description'),
             color: 'bg-purple-50 text-purple-600',
         },
         {
             id: 'edit-pdf',
             slug: 'edit-pdf',
-            title: 'Edit PDF',
-            description: 'Add text, images, and annotations to your PDF.',
+            title: t('quickTools.list.edit-pdf.title'),
+            description: t('quickTools.list.edit-pdf.description'),
             color: 'bg-amber-50 text-amber-600',
         },
         {
             id: 'sign-pdf',
             slug: 'sign-pdf',
-            title: 'Sign PDF',
-            description: 'Request signatures or sign your documents securely.',
+            title: t('quickTools.list.sign-pdf.title'),
+            description: t('quickTools.list.sign-pdf.description'),
             color: 'bg-emerald-50 text-emerald-600',
         },
         {
             id: 'jpg-to-pdf',
             slug: 'jpg-to-pdf',
-            title: 'JPG to PDF',
-            description: 'Convert JPG, PNG, BMP and more to PDF format.',
+            title: t('quickTools.list.jpg-to-pdf.title'),
+            description: t('quickTools.list.jpg-to-pdf.description'),
             color: 'bg-rose-50 text-rose-600',
         },
     ];
@@ -62,12 +65,12 @@ export const QuickToolsGrid = ({ locale }: { locale: string }) => {
     return (
         <section className="mb-10">
             <div className="flex items-center justify-between mb-6">
-                <h2 className="text-xl font-bold text-gray-900">Quick Actions</h2>
+                <h2 className="text-xl font-bold text-gray-900">{t('quickTools.title')}</h2>
                 <Link
                     href={`/${locale}/tools`}
                     className="text-sm font-semibold text-[hsl(var(--color-primary))] hover:underline flex items-center gap-1"
                 >
-                    View all 99 tools
+                    {t('quickTools.viewAll', { count: 110 })}
                     <ArrowRight className="w-4 h-4" />
                 </Link>
             </div>

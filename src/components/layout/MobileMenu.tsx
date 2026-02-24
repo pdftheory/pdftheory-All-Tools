@@ -55,7 +55,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, locale 
   const mainNavItems = [
     { href: `/${locale}`, label: tCommon('navigation.home') },
     { href: `/${locale}/tools`, label: tCommon('navigation.tools'), hasSubmenu: true },
-    { href: `/${locale}/tools/compress-pdf`, label: 'Compress PDF' },
+    { href: `/${locale}/tools/compress-pdf`, label: tCommon('navigation.compressPdf') },
     { href: `/${locale}/workflow`, label: tCommon('navigation.workflow') },
     { href: `/${locale}/about`, label: tCommon('navigation.about') },
     { href: `/${locale}/faq`, label: tCommon('navigation.faq') },
@@ -204,7 +204,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, locale 
                     <button
                       onClick={() => handleCategoryToggle('tools')}
                       className="flex items-center justify-between w-full px-4 py-3 text-left text-[hsl(var(--color-foreground))] hover:bg-[hsl(var(--color-muted))] rounded-[var(--radius-md)] transition-colors"
-                      aria-expanded={expandedCategory === 'tools'}
+                      aria-expanded={expandedCategory === 'tools' ? "true" : "false"}
                     >
                       <span className="font-medium">{item.label}</span>
                       {expandedCategory === 'tools' ? (
@@ -223,7 +223,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, locale 
                             className="block px-4 py-2 text-sm text-[hsl(var(--color-foreground))] hover:text-[hsl(var(--color-primary))] hover:bg-[hsl(var(--color-muted))] rounded-[var(--radius-md)] transition-colors"
                             onClick={handleLinkClick}
                           >
-                            All Tools
+                            {tCommon('navigation.tools')}
                           </Link>
                         </li>
                         {categories.map((category) => (
