@@ -7,7 +7,6 @@
 
 console.log('DEBUG: loader.ts loading...');
 
-import { GlobalWorkerOptions } from 'pdfjs-dist';
 import type { PDFDocument } from 'pdf-lib';
 
 // Type definitions for lazy-loaded libraries

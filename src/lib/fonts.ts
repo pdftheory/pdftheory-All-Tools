@@ -16,7 +16,7 @@ import { Inter, JetBrains_Mono } from 'next/font/google';
  * Used for body text and UI elements
  */
 export const inter = Inter({
-  subsets: ['latin', 'latin-ext'],
+  subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
   preload: true,
