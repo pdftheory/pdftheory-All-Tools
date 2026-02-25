@@ -2781,6 +2781,12 @@
       "actionsCount": "{count} Acciones",
       "actionsAvailable": "Disponible en flujos de trabajo",
       "instantProcessing": "Procesamiento Instantáneo",
+      "values": {
+        "fast": {
+          "title": "Lightning Fast",
+          "description": "No server uploads required."
+        }
+      },
       "workflowImageAlt": "Vista previa del Constructor de Flujo de Trabajo PDF"
     },
     "howItWorks": {
@@ -2792,7 +2798,19 @@
       "step2Title": "Añade Tus Archivos",
       "step2Desc": "Arrastra y suelta tus PDFs. Los archivos se procesan localmente en tu navegador para total privacidad.",
       "step3Title": "Descarga el Resultado",
-      "step3Desc": "Obtén tu PDF procesado al instante. Sin esperas, sin necesidad de cuenta."
+      "step3Desc": "Obtén tu PDF procesado al instante. Sin esperas, sin necesidad de cuenta.",
+      "benefits": {
+        "grid": {
+          "secure": {
+            "title": "100% Secure",
+            "description": "Files never leave your device."
+          },
+          "essay": {
+            "title": "Simple & Easy",
+            "description": "No complex menus or learning curve."
+          }
+        }
+      }
     },
     "features": {
       "title": "¿Por Qué Elegir {brand}?",
@@ -2804,7 +2822,30 @@
       "noAccount": "Sin Cuenta Necesaria",
       "noAccountDesc": "Comienza a usar inmediatamente. Sin registro, sin verificación de correo electrónico.",
       "everywhere": "Funciona en Todas Partes",
-      "everywhereDesc": "Úsalo en cualquier dispositivo con un navegador moderno. Escritorio, tableta o móvil."
+      "everywhereDesc": "Úsalo en cualquier dispositivo con un navegador moderno. Escritorio, tableta o móvil.",
+      "values": {
+        "accessible": {
+          "title": "Fully Accessible",
+          "description": "Designed for everyone, everywhere."
+        },
+        "free": {
+          "title": "Free Forever",
+          "description": "No subscriptions or surprise fees."
+        }
+      },
+      "benefits": {
+        "grid": {
+          "group": {
+            "title": "Group Processing"
+          }
+        }
+      },
+      "trust": {
+        "title": "Trust & Security"
+      },
+      "mission": {
+        "title": "Our Mission"
+      }
     },
     "stats": {
       "pdfTools": "Herramientas PDF",

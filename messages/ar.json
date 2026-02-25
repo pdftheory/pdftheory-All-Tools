@@ -2827,6 +2827,12 @@
       "actionsCount": "{count} إجراء",
       "actionsAvailable": "متاح في سير العمل",
       "instantProcessing": "معالجة فورية",
+      "values": {
+        "fast": {
+          "title": "Lightning Fast",
+          "description": "No server uploads required."
+        }
+      },
       "workflowImageAlt": "معاينة منشئ سير عمل PDF"
     },
     "howItWorks": {
@@ -2838,7 +2844,19 @@
       "step2Title": "أضف ملفاتك",
       "step2Desc": "اسحب وأفلت ملفات PDF الخاصة بك. تتم معالجة الملفات محلياً في متصفحك لخصوصية كاملة.",
       "step3Title": "حمّل النتيجة",
-      "step3Desc": "احصل على ملف PDF المعالج فوراً. بدون انتظار، بدون حاجة لحساب."
+      "step3Desc": "احصل على ملف PDF المعالج فوراً. بدون انتظار، بدون حاجة لحساب.",
+      "benefits": {
+        "grid": {
+          "secure": {
+            "title": "100% Secure",
+            "description": "Files never leave your device."
+          },
+          "essay": {
+            "title": "Simple & Easy",
+            "description": "No complex menus or learning curve."
+          }
+        }
+      }
     },
     "features": {
       "title": "لماذا تختار {brand}؟",
@@ -2850,7 +2868,30 @@
       "noAccount": "لا حاجة لحساب",
       "noAccountDesc": "ابدأ الاستخدام فوراً. بدون تسجيل، بدون تحقق من البريد الإلكتروني.",
       "everywhere": "يعمل في كل مكان",
-      "everywhereDesc": "استخدمه على أي جهاز بمتصفح حديث. سطح المكتب أو الجهاز اللوحي أو الهاتف."
+      "everywhereDesc": "استخدمه على أي جهاز بمتصفح حديث. سطح المكتب أو الجهاز اللوحي أو الهاتف.",
+      "values": {
+        "accessible": {
+          "title": "Fully Accessible",
+          "description": "Designed for everyone, everywhere."
+        },
+        "free": {
+          "title": "Free Forever",
+          "description": "No subscriptions or surprise fees."
+        }
+      },
+      "benefits": {
+        "grid": {
+          "group": {
+            "title": "Group Processing"
+          }
+        }
+      },
+      "trust": {
+        "title": "Trust & Security"
+      },
+      "mission": {
+        "title": "Our Mission"
+      }
     },
     "stats": {
       "pdfTools": "أدوات PDF",

@@ -84,7 +84,7 @@ export const WorkflowShowcaseSection: React.FC<WorkflowShowcaseSectionProps> = (
                         <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-200 bg-white">
                             <Image
                                 src="/images/workflow-illustration.png"
-                                alt={h('workflow.workflowImageAlt')}
+                                alt={h('workflowImageAlt')}
                                 width={600}
                                 height={400}
                                 className="w-full h-auto"

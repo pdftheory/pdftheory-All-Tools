@@ -2780,6 +2780,12 @@
       "actionsCount": "{count}個操作",
       "actionsAvailable": "在工作流程中可用",
       "instantProcessing": "即時處理",
+      "values": {
+        "fast": {
+          "title": "Lightning Fast",
+          "description": "No server uploads required."
+        }
+      },
       "workflowImageAlt": "PDF工作流程建構器預覽"
     },
     "howItWorks": {
@@ -2791,7 +2797,19 @@
       "step2Title": "新增檔案",
       "step2Desc": "拖放您的PDF。檔案在瀏覽器中本機處理，確保完全隱私。",
       "step3Title": "下載結果",
-      "step3Desc": "即時取得處理後的PDF。無需等待，無需帳戶。"
+      "step3Desc": "即時取得處理後的PDF。無需等待，無需帳戶。",
+      "benefits": {
+        "grid": {
+          "secure": {
+            "title": "100% Secure",
+            "description": "Files never leave your device."
+          },
+          "essay": {
+            "title": "Simple & Easy",
+            "description": "No complex menus or learning curve."
+          }
+        }
+      }
     },
     "features": {
       "title": "為什麼選擇{brand}？",
@@ -2803,7 +2821,30 @@
       "noAccount": "無需帳戶",
       "noAccountDesc": "立即開始使用。無需註冊，無需電子郵件驗證。",
       "everywhere": "隨處可用",
-      "everywhereDesc": "在任何使用現代瀏覽器的裝置上使用。桌面、平板或手機。"
+      "everywhereDesc": "在任何使用現代瀏覽器的裝置上使用。桌面、平板或手機。",
+      "values": {
+        "accessible": {
+          "title": "Fully Accessible",
+          "description": "Designed for everyone, everywhere."
+        },
+        "free": {
+          "title": "Free Forever",
+          "description": "No subscriptions or surprise fees."
+        }
+      },
+      "benefits": {
+        "grid": {
+          "group": {
+            "title": "Group Processing"
+          }
+        }
+      },
+      "trust": {
+        "title": "Trust & Security"
+      },
+      "mission": {
+        "title": "Our Mission"
+      }
     },
     "stats": {
       "pdfTools": "PDF工具",

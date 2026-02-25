@@ -3009,6 +3009,12 @@
       "actionsCount": "{count}개 작업",
       "actionsAvailable": "워크플로우에서 사용 가능",
       "instantProcessing": "즉시 처리",
+      "values": {
+        "fast": {
+          "title": "Lightning Fast",
+          "description": "No server uploads required."
+        }
+      },
       "workflowImageAlt": "PDF 워크플로우 빌더 미리보기"
     },
     "howItWorks": {
@@ -3020,7 +3026,19 @@
       "step2Title": "파일 추가",
       "step2Desc": "PDF를 드래그 앤 드롭하세요. 완전한 프라이버시를 위해 브라우저에서 로컬로 처리됩니다.",
       "step3Title": "결과 다운로드",
-      "step3Desc": "처리된 PDF를 즉시 받으세요. 대기 시간 없이, 계정도 필요 없습니다."
+      "step3Desc": "처리된 PDF를 즉시 받으세요. 대기 시간 없이, 계정도 필요 없습니다.",
+      "benefits": {
+        "grid": {
+          "secure": {
+            "title": "100% Secure",
+            "description": "Files never leave your device."
+          },
+          "essay": {
+            "title": "Simple & Easy",
+            "description": "No complex menus or learning curve."
+          }
+        }
+      }
     },
     "features": {
       "title": "왜 {brand}를 선택하나요?",
@@ -3032,7 +3050,30 @@
       "noAccount": "계정 불필요",
       "noAccountDesc": "즉시 사용을 시작하세요. 가입이나 이메일 인증이 필요 없습니다.",
       "everywhere": "어디서나 작동",
-      "everywhereDesc": "모던 브라우저가 있는 모든 기기에서 사용 가능. 데스크톱, 태블릿 또는 모바일."
+      "everywhereDesc": "모던 브라우저가 있는 모든 기기에서 사용 가능. 데스크톱, 태블릿 또는 모바일.",
+      "values": {
+        "accessible": {
+          "title": "Fully Accessible",
+          "description": "Designed for everyone, everywhere."
+        },
+        "free": {
+          "title": "Free Forever",
+          "description": "No subscriptions or surprise fees."
+        }
+      },
+      "benefits": {
+        "grid": {
+          "group": {
+            "title": "Group Processing"
+          }
+        }
+      },
+      "trust": {
+        "title": "Trust & Security"
+      },
+      "mission": {
+        "title": "Our Mission"
+      }
     },
     "stats": {
       "pdfTools": "PDF 도구",

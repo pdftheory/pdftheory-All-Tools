@@ -2781,6 +2781,12 @@
       "actionsCount": "{count} Aktionen",
       "actionsAvailable": "In Workflows verfügbar",
       "instantProcessing": "Sofortige Verarbeitung",
+      "values": {
+        "fast": {
+          "title": "Lightning Fast",
+          "description": "No server uploads required."
+        }
+      },
       "workflowImageAlt": "PDF-Workflow-Builder Vorschau"
     },
     "howItWorks": {
@@ -2792,7 +2798,19 @@
       "step2Title": "Dateien hinzufügen",
       "step2Desc": "Ziehen Sie Ihre PDFs per Drag & Drop. Dateien werden lokal in Ihrem Browser für vollständige Privatsphäre verarbeitet.",
       "step3Title": "Ergebnis herunterladen",
-      "step3Desc": "Erhalten Sie Ihr verarbeitetes PDF sofort. Kein Warten, kein Konto erforderlich."
+      "step3Desc": "Erhalten Sie Ihr verarbeitetes PDF sofort. Kein Warten, kein Konto erforderlich.",
+      "benefits": {
+        "grid": {
+          "secure": {
+            "title": "100% Secure",
+            "description": "Files never leave your device."
+          },
+          "essay": {
+            "title": "Simple & Easy",
+            "description": "No complex menus or learning curve."
+          }
+        }
+      }
     },
     "features": {
       "title": "Warum {brand} wählen?",
@@ -2804,7 +2822,30 @@
       "noAccount": "Kein Konto nötig",
       "noAccountDesc": "Sofort loslegen. Keine Anmeldung, keine E-Mail-Verifizierung erforderlich.",
       "everywhere": "Überall verfügbar",
-      "everywhereDesc": "Nutze es auf jedem Gerät mit modernem Browser. Desktop, Tablet oder Handy."
+      "everywhereDesc": "Nutze es auf jedem Gerät mit modernem Browser. Desktop, Tablet oder Handy.",
+      "values": {
+        "accessible": {
+          "title": "Fully Accessible",
+          "description": "Designed for everyone, everywhere."
+        },
+        "free": {
+          "title": "Free Forever",
+          "description": "No subscriptions or surprise fees."
+        }
+      },
+      "benefits": {
+        "grid": {
+          "group": {
+            "title": "Group Processing"
+          }
+        }
+      },
+      "trust": {
+        "title": "Trust & Security"
+      },
+      "mission": {
+        "title": "Our Mission"
+      }
     },
     "stats": {
       "pdfTools": "PDF-Werkzeuge",
