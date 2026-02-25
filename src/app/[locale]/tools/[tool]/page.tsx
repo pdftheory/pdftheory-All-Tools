@@ -125,6 +125,8 @@ interface ToolPageParams {
   }>;
 }
 
+export const revalidate = 3600; // Revalidate every hour
+
 /**
  * Generate static params for all tool pages
  */

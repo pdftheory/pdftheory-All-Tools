@@ -2,6 +2,8 @@ import { setRequestLocale } from 'next-intl/server';
 import { locales, type Locale } from '@/lib/i18n/config';
 import HomePageClient from './HomePageClient';
 
+export const revalidate = 3600; // Revalidate every hour
+
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
