@@ -297,15 +297,6 @@
         "securePdf": "Secure PDF"
       }
     },
-    "hero": {
-      "title": "Every tool you need to work with PDFs",
-      "tagline": "Free, Private & Powerful PDF Tools",
-      "description": "100% free, browser-based PDF tools. Your files never leave your device.",
-      "ctaStart": "Get Started",
-      "ctaCommon": "Try Now",
-      "ctaSales": "Learn More",
-      "ctaPricing": "View Pricing"
-    },
     "benefits": {
       "title": "Why Choose PDFTheory?",
       "description": "Everything you need to work with PDFs, for free.",

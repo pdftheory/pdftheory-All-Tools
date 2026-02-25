@@ -45,7 +45,7 @@ interface HomePageClientProps {
 
 export default function HomePageClient({ locale, localizedToolContent }: HomePageClientProps) {
   const t = useTranslations('common');
-  const h = useTranslations('common.hero');
+  const h = useTranslations('homePage');
   const popularTools = getPopularTools().slice(0, 8); // Limit to 8 popular tools
   const router = useRouter();
 

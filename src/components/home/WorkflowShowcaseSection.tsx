@@ -17,7 +17,7 @@ export const WorkflowShowcaseSection: React.FC<WorkflowShowcaseSectionProps> = (
     locale,
     toolCount,
 }) => {
-    const h = useTranslations('common');
+    const h = useTranslations('homePage.workflow');
 
     return (
         <section className="py-20 bg-white overflow-hidden">
@@ -27,15 +27,15 @@ export const WorkflowShowcaseSection: React.FC<WorkflowShowcaseSectionProps> = (
                     <div className="max-w-lg">
                         <span className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full bg-purple-100 border border-purple-200">
                             <Sparkles className="h-4 w-4 text-purple-600" />
-                            <span className="text-sm font-semibold text-purple-700">{h('hero.tagline')}</span>
+                            <span className="text-sm font-semibold text-purple-700">{h('badge')}</span>
                         </span>
 
                         <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
-                            {h('navigation.workflow')}
+                            {h('title')}
                         </h2>
 
-                        <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                            {h('hero.description')}
+                        <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                            {h('description')}
                         </p>
 
                         {/* Feature List */}
@@ -46,7 +46,7 @@ export const WorkflowShowcaseSection: React.FC<WorkflowShowcaseSectionProps> = (
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                     </svg>
                                 </div>
-                                <span className="text-gray-700">{h('benefits.list.free')}</span>
+                                <p className="text-gray-700 font-medium" dangerouslySetInnerHTML={{ __html: h('feature1') }} />
                             </li>
                             <li className="flex items-start gap-3">
                                 <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -54,7 +54,7 @@ export const WorkflowShowcaseSection: React.FC<WorkflowShowcaseSectionProps> = (
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                     </svg>
                                 </div>
-                                <span className="text-gray-700">{h('benefits.list.noInstall')}</span>
+                                <p className="text-gray-700 font-medium" dangerouslySetInnerHTML={{ __html: h('feature2') }} />
                             </li>
                             <li className="flex items-start gap-3">
                                 <div className="w-6 h-6 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
@@ -62,7 +62,7 @@ export const WorkflowShowcaseSection: React.FC<WorkflowShowcaseSectionProps> = (
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                                     </svg>
                                 </div>
-                                <span className="text-gray-700">{h('benefits.list.mobile')}</span>
+                                <p className="text-gray-700 font-medium" dangerouslySetInnerHTML={{ __html: h('feature3') }} />
                             </li>
                         </ul>
 
@@ -72,7 +72,7 @@ export const WorkflowShowcaseSection: React.FC<WorkflowShowcaseSectionProps> = (
                                 size="lg"
                                 className="rounded-xl shadow-lg shadow-purple-500/25 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700"
                             >
-                                {h('buttons.process')}
+                                {h('cta')}
                                 <ArrowRight className="w-5 h-5 ml-2" />
                             </Button>
                         </Link>
@@ -98,8 +98,8 @@ export const WorkflowShowcaseSection: React.FC<WorkflowShowcaseSectionProps> = (
                                 <FileText className="w-5 h-5 text-white" />
                             </div>
                             <div>
-                                <p className="text-sm font-bold text-gray-900">{toolCount} Tools</p>
-                                <p className="text-xs text-gray-500">{h('navigation.tools')}</p>
+                                <p className="text-white font-bold">{h('actionsCount', { count: toolCount })}</p>
+                                <p className="text-blue-100 text-xs">{h('actionsAvailable')}</p>
                             </div>
                         </div>
 

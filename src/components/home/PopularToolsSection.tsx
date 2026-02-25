@@ -26,17 +26,17 @@ export const PopularToolsSection: React.FC<PopularToolsSectionProps> = ({
     toolCount,
     localizedToolContent,
 }) => {
-    const h = useTranslations('common');
+    const h = useTranslations('homePage.popularTools');
 
     return (
         <section className="py-20 bg-gray-50">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
-                        {h('header.popular')}
+                        {h('title')}
                     </h2>
                     <p className="text-gray-600 max-w-2xl mx-auto">
-                        {h('benefits.description')}
+                        {h('subtitle')}
                     </p>
                 </div>
 
@@ -69,7 +69,7 @@ export const PopularToolsSection: React.FC<PopularToolsSectionProps> = ({
                 <div className="text-center mt-10">
                     <Link href={`/${locale}/tools`}>
                         <Button variant="secondary" size="lg" className="rounded-xl">
-                            {h('header.seeAll')}
+                            {h('viewAll', { count: toolCount })}
                             <ArrowRight className="w-5 h-5 ml-2" />
                         </Button>
                     </Link>

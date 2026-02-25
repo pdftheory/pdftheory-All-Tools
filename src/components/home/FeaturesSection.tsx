@@ -13,17 +13,17 @@ export const FeaturesSection: React.FC<FeaturesSectionProps> = ({
     brandName,
     toolCount,
 }) => {
-    const h = useTranslations('common');
+    const h = useTranslations('homePage.features');
 
     return (
         <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-black mb-4">
-                        {h('benefits.title')}
+                        {h('title', { brand: brandName })}
                     </h2>
                     <p className="text-gray-400 max-w-xl mx-auto">
-                        {h('benefits.description')}
+                        {h('subtitle')}
                     </p>
                 </div>
 
@@ -33,8 +33,8 @@ export const FeaturesSection: React.FC<FeaturesSectionProps> = ({
                         <div className="w-12 h-12 rounded-xl bg-blue-500/20 flex items-center justify-center mb-4">
                             <Lock className="w-6 h-6 text-blue-400" />
                         </div>
-                        <h3 className="text-lg font-bold mb-2">{h('values.privacy.title')}</h3>
-                        <p className="text-gray-400 text-sm">{h('values.privacy.description')}</p>
+                        <h3 className="text-xl font-bold text-white mb-2">{h('private')}</h3>
+                        <p className="text-gray-400">{h('privateDesc')}</p>
                     </div>
 
                     {/* Feature 2 */}
@@ -42,8 +42,8 @@ export const FeaturesSection: React.FC<FeaturesSectionProps> = ({
                         <div className="w-12 h-12 rounded-xl bg-emerald-500/20 flex items-center justify-center mb-4">
                             <Zap className="w-6 h-6 text-emerald-400" />
                         </div>
-                        <h3 className="text-lg font-bold mb-2">{h('values.fast.title')}</h3>
-                        <p className="text-gray-400 text-sm">{h('values.fast.description')}</p>
+                        <h3 className="text-xl font-bold text-white mb-2">{h('fast')}</h3>
+                        <p className="text-gray-400">{h('fastDesc')}</p>
                     </div>
 
                     {/* Feature 3 */}
@@ -51,8 +51,8 @@ export const FeaturesSection: React.FC<FeaturesSectionProps> = ({
                         <div className="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center mb-4">
                             <Cloud className="w-6 h-6 text-purple-400" />
                         </div>
-                        <h3 className="text-lg font-bold mb-2">{h('values.free.title')}</h3>
-                        <p className="text-gray-400 text-sm">{h('values.free.description')}</p>
+                        <h3 className="text-xl font-bold text-white mb-2">{h('free')}</h3>
+                        <p className="text-gray-400">{h('freeDesc')}</p>
                     </div>
 
                     {/* Feature 4 */}

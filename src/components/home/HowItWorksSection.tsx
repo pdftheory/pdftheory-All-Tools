@@ -4,20 +4,20 @@ import React from 'react';
 import { useTranslations } from 'next-intl';
 
 export const HowItWorksSection: React.FC = () => {
-    const h = useTranslations('common');
+    const h = useTranslations('homePage.howItWorks');
 
     return (
         <section id="how-it-works" className="py-20 bg-gray-50">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-16">
                     <span className="inline-block px-4 py-1 rounded-full bg-blue-100 text-blue-700 text-sm font-semibold mb-4">
-                        {h('metadata.home.title')}
+                        {h('badge')}
                     </span>
                     <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
-                        {h('hero.tagline')}
+                        {h('title')}
                     </h2>
                     <p className="text-gray-600 max-w-xl mx-auto">
-                        {h('hero.description')}
+                        {h('subtitle')}
                     </p>
                 </div>
 
@@ -29,6 +29,8 @@ export const HowItWorksSection: React.FC = () => {
                         </div>
                         <h3 className="text-xl font-bold text-gray-900 mb-3">{h('benefits.grid.secure.title')}</h3>
                         <p className="text-gray-600">{h('benefits.grid.secure.description')}</p>
+                        <h3 className="text-xl font-bold text-gray-900 mb-3">{h('step1Title')}</h3>
+                        <p className="text-gray-600">{h('step1Desc')}</p>
                     </div>
 
                     {/* Step 2 */}
@@ -36,8 +38,8 @@ export const HowItWorksSection: React.FC = () => {
                         <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-purple-500 to-purple-600 flex items-center justify-center text-white text-2xl font-black shadow-lg shadow-purple-500/30">
                             2
                         </div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-3">{h('benefits.grid.free.title')}</h3>
-                        <p className="text-gray-600">{h('benefits.grid.free.description')}</p>
+                        <h3 className="text-xl font-bold text-gray-900 mb-3">{h('step2Title')}</h3>
+                        <p className="text-gray-600">{h('step2Desc')}</p>
                     </div>
 
                     {/* Step 3 */}
