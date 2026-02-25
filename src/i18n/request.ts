@@ -11,31 +11,28 @@ export default getRequestConfig(async ({ requestLocale }) => {
     locale = routing.defaultLocale;
   }
 
-  // Always load English messages for fallback
-  const englishMessages: any = (await import(`../../messages/en.json`)).default;
-
   // Load the messages for the requested locale
   let localeMessages: any;
   try {
     if (locale === 'en') {
-      localeMessages = englishMessages;
+      // For English, we don't need to load a fallback or merge
+      localeMessages = (await import(`../../messages/en.json`)).default;
     } else {
-      localeMessages = (await import(`../../messages/${locale}.json`)).default;
+      // Load English for fallback and the requested locale
+      const [en, target] = await Promise.all([
+        import(`../../messages/en.json`),
+        import(`../../messages/${locale}.json`)
+      ]);
+      localeMessages = mergeWithFallback(target.default as any, en.default as any);
     }
   } catch {
-    // If locale file doesn't exist, use English
-    localeMessages = {};
+    // Fallback to English if locale load fails
+    localeMessages = (await import(`../../messages/en.json`)).default;
   }
-
-  // Merge locale messages with English fallback
-  // This ensures all keys are available, falling back to English for missing ones
-  const messages = locale === 'en'
-    ? (englishMessages as any)
-    : (mergeWithFallback(localeMessages, englishMessages) as any);
 
   return {
     locale,
-    messages,
+    messages: localeMessages,
     // Configure time zone and formats
     timeZone: 'UTC',
     now: new Date(),

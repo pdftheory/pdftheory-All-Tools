@@ -1,5 +1,5 @@
 
-import { type NextRequest } from 'next/server';
+import { NextResponse, type NextRequest } from 'next/server';
 import createMiddleware from 'next-intl/middleware';
 import { routing } from '@/i18n/routing';
 import { updateSession } from '@/lib/supabase/middleware';
@@ -8,16 +8,23 @@ const intlMiddleware = createMiddleware(routing);
 
 export default async function middleware(request: NextRequest) {
   // 1. Run Supabase session update (refreshes auth token)
-  // We capture the response because it contains the set-cookie headers
-  const supabaseResponse = await updateSession(request);
+  // ONLY for dashboard or protected routes to save TTFB on public pages
+  const isDashboard = request.nextUrl.pathname.includes('/dashboard');
+  let supabaseResponse = NextResponse.next({ request });
+
+  if (isDashboard) {
+    supabaseResponse = await updateSession(request);
+  }
 
   // 2. Run Next-Intl middleware (handles routing/locale)
   const response = intlMiddleware(request);
 
-  // 3. Merge Supabase cookies into the response
-  supabaseResponse.cookies.getAll().forEach((cookie) => {
-    response.cookies.set(cookie.name, cookie.value, cookie);
-  });
+  // 3. Merge Supabase cookies into the response (if session was updated)
+  if (isDashboard) {
+    supabaseResponse.cookies.getAll().forEach((cookie: { name: string; value: string }) => {
+      response.cookies.set(cookie.name, cookie.value, cookie as any);
+    });
+  }
 
   // 4. Force authoritative security headers for PDF editor support
   response.headers.set('X-Frame-Options', 'SAMEORIGIN');

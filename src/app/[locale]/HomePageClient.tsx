@@ -309,20 +309,6 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
         <AdUnit slotId="home-bottom-1" />
       </div>
 
-      {/* CSS for floating animation */}
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0px); }
-          50% { transform: translateY(-10px); }
-        }
-        .animate-float {
-          animation: float 4s ease-in-out infinite;
-        }
-        .animate-float-delayed {
-          animation: float 4s ease-in-out infinite;
-          animation-delay: 2s;
-        }
-      `}</style>
     </main>
   );
 }

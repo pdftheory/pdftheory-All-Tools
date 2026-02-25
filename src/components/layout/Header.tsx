@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
-import { Menu, X, ChevronDown, LogOut, LayoutDashboard, User } from 'lucide-react';
+import { Menu, X, ChevronDown, LogOut, LayoutDashboard } from 'lucide-react';
 import { type Locale } from '@/lib/i18n/config';
 import { ToolsDropdown } from './ToolsDropdown';
 import { getToolContent } from '@/config/tool-content';
