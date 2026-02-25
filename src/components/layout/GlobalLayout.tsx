@@ -2,10 +2,17 @@
 
 import React from 'react';
 import { Header } from './Header';
-import { Footer } from './Footer';
 import { type Locale } from '@/lib/i18n/config';
 import { usePathname } from 'next/navigation';
-import { AdUnit } from '@/components/ads/AdUnit';
+import dynamic from 'next/dynamic';
+
+const Footer = dynamic(() => import('./Footer').then(mod => mod.Footer), {
+    ssr: true // Keep footer for SEO but dynamic import aids chunking
+});
+
+const AdUnit = dynamic(() => import('@/components/ads/AdUnit').then(mod => mod.AdUnit), {
+    ssr: false
+});
 
 interface GlobalLayoutProps {
     children: React.ReactNode;

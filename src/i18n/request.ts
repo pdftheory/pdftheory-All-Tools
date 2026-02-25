@@ -2,6 +2,9 @@ import { getRequestConfig } from 'next-intl/server';
 import { routing } from './routing';
 import { mergeWithFallback } from '@/lib/i18n/fallback';
 
+// Module-level cache for merged messages to improve TTFB
+const messagesCache = new Map<string, any>();
+
 export default getRequestConfig(async ({ requestLocale }) => {
   // This typically corresponds to the `[locale]` segment
   let locale = await requestLocale;
@@ -11,24 +14,39 @@ export default getRequestConfig(async ({ requestLocale }) => {
     locale = routing.defaultLocale;
   }
 
+  // Return cached messages if available to hit < 600ms TTFB
+  if (messagesCache.has(locale)) {
+    return {
+      locale,
+      messages: messagesCache.get(locale),
+      timeZone: 'UTC',
+      now: new Date(),
+    };
+  }
+
   // Load the messages for the requested locale
   let localeMessages: any;
   try {
     if (locale === 'en') {
-      // For English, we don't need to load a fallback or merge
-      localeMessages = (await import(`../../messages/en.json`)).default;
+      const en = await import(`../../messages/en.json`);
+      localeMessages = en.default || en;
     } else {
-      // Load English for fallback and the requested locale
       const [en, target] = await Promise.all([
         import(`../../messages/en.json`),
         import(`../../messages/${locale}.json`)
       ]);
-      localeMessages = mergeWithFallback(target.default as any, en.default as any);
+      const enMessages = en.default || en;
+      const targetMessages = target.default || target;
+      localeMessages = mergeWithFallback(targetMessages, enMessages);
     }
-  } catch {
-    // Fallback to English if locale load fails
-    localeMessages = (await import(`../../messages/en.json`)).default;
+  } catch (error) {
+    console.error(`Failed to load messages for locale: ${locale}`, error);
+    const en = await import(`../../messages/en.json`);
+    localeMessages = en.default || en;
   }
+
+  // Cache the results for subsequent requests
+  messagesCache.set(locale, localeMessages);
 
   return {
     locale,

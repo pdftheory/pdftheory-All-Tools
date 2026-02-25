@@ -7,7 +7,7 @@ import { type Locale, defaultLocale } from './config';
 
 // Type for nested translation messages
 export type NestedMessages = {
-  [key: string]: string | NestedMessages;
+  [key: string]: any;
 };
 
 // Cache for loaded messages

@@ -67,7 +67,43 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
 
   // Get messages for the locale
-  const messages = await getMessages();
+  const allMessages = await getMessages();
+
+  // OPTIMIZATION: Only pass common/essential messages to the root provider
+  // to reduce initial HTML size and hydration cost (reduces JS chunk weight)
+  const sharedMessages = {
+    common: allMessages.common,
+    navigation: allMessages.navigation,
+    footer: allMessages.footer,
+    metadata: allMessages.metadata,
+    tools: allMessages.tools,
+    toolCommon: allMessages.toolCommon,
+    toolsPage: allMessages.toolsPage,
+    auth: allMessages.auth,
+    blog: allMessages.blog,
+    blogPage: allMessages.blogPage,
+    home: allMessages.home,
+    homePage: allMessages.homePage,
+    quickTools: allMessages.quickTools,
+    toolList: allMessages.toolList,
+    howToUse: allMessages.howToUse,
+    workflow: allMessages.workflow,
+    developers: allMessages.developers,
+    press: allMessages.press,
+    legal: allMessages.legal,
+    aboutPage: allMessages.aboutPage,
+    businessPage: allMessages.businessPage,
+    contactPage: allMessages.contactPage,
+    cookiesPage: allMessages.cookiesPage,
+    educationPage: allMessages.educationPage,
+    errors: allMessages.errors,
+    faqPage: allMessages.faqPage,
+    legalCommon: allMessages.legalCommon,
+    privacyPage: allMessages.privacyPage,
+    removeAnnotations: allMessages.removeAnnotations,
+    securityPage: allMessages.securityPage,
+    termsPage: allMessages.termsPage
+  };
 
   // Get direction for the locale
   const direction = localeConfig[locale as Locale]?.direction || 'ltr';
@@ -90,7 +126,7 @@ export default async function LocaleLayout({
           strategy="lazyOnload"
           crossOrigin="anonymous"
         />
-        <NextIntlClientProvider messages={messages} locale={locale}>
+        <NextIntlClientProvider messages={sharedMessages as any} locale={locale}>
           <AuthProvider>
             <div className="min-h-screen flex flex-col">
               <SkipLink targetId="main-content">Skip to main content</SkipLink>

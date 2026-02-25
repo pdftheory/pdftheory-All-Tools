@@ -6,11 +6,15 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import { Menu, X, ChevronDown, LogOut, LayoutDashboard } from 'lucide-react';
 import { type Locale } from '@/lib/i18n/config';
-import { ToolsDropdown } from './ToolsDropdown';
+import dynamic from 'next/dynamic';
 import { getToolContent } from '@/config/tool-content';
 import { useAuth } from '@/components/providers/AuthProvider';
 import { createClient } from '@/lib/supabase/client';
 import { useRouter } from 'next/navigation';
+
+const ToolsDropdown = dynamic(() => import('./ToolsDropdown').then(mod => mod.ToolsDropdown), {
+  ssr: false
+});
 
 export interface HeaderProps {
   locale: Locale;

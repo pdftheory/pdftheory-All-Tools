@@ -1,6 +1,7 @@
 import createNextIntlPlugin from 'next-intl/plugin';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import crypto from 'node:crypto';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -8,12 +9,15 @@ const __dirname = path.dirname(__filename);
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
 const withBundleAnalyzer = (await import('@next/bundle-analyzer')).default({
-  enabled: process.env.ANALYZE === 'true',
+  enabled: false,
 });
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack: (config, { isServer, webpack }) => {
+    // Disable persistent cache to avoid too many open files on Windows
+    config.cache = false;
+
     if (!isServer) {
       config.resolve.fallback = {
         ...config.resolve.fallback,
@@ -32,11 +36,16 @@ const nextConfig = {
     config.experiments = { ...config.experiments, asyncWebAssembly: true };
     return config;
   },
+  compress: true, // Enable gzip compression
   images: {
     formats: ['image/avif', 'image/webp'],
   },
   trailingSlash: true,
   reactStrictMode: true,
+  experimental: {
+    cpus: 1,
+    workerThreads: false,
+  },
 
 };
 

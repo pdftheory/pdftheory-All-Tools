@@ -12,29 +12,29 @@ import {
 import dynamic from 'next/dynamic';
 import { Button } from '@/components/ui/Button';
 import { AdUnit } from '@/components/ads/AdUnit';
-import { getPopularTools, getAllTools } from '@/config/tools';
+import { getPopularTools } from '@/config/tools';
 import { type Locale } from '@/lib/i18n/config';
-import { searchTools, SearchResult } from '@/lib/utils/search';
+import type { SearchResult } from '@/lib/utils/search';
 import { getToolIcon } from '@/config/icons';
 
 // Dynamic imports for below-the-fold sections
 const PopularToolsSection = dynamic(() => import('@/components/home/PopularToolsSection').then(mod => mod.PopularToolsSection), {
-  ssr: true,
+  ssr: true, // Keep popular tools for SEO
   loading: () => <div className="py-20 bg-gray-50 h-[400px] animate-pulse" />
 });
 
 const WorkflowShowcaseSection = dynamic(() => import('@/components/home/WorkflowShowcaseSection').then(mod => mod.WorkflowShowcaseSection), {
-  ssr: true,
+  ssr: false, // Below the fold, non-critical for SEO
   loading: () => <div className="py-20 bg-white h-[400px] animate-pulse" />
 });
 
 const HowItWorksSection = dynamic(() => import('@/components/home/HowItWorksSection').then(mod => mod.HowItWorksSection), {
-  ssr: true,
+  ssr: false,
   loading: () => <div className="py-20 bg-gray-50 h-[400px] animate-pulse" />
 });
 
 const FeaturesSection = dynamic(() => import('@/components/home/FeaturesSection').then(mod => mod.FeaturesSection), {
-  ssr: true,
+  ssr: false,
   loading: () => <div className="py-20 bg-gray-900 h-[400px] animate-pulse" />
 });
 
@@ -54,18 +54,31 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [isSearchFocused, setIsSearchFocused] = useState(false);
   const [activeSearchIndex, setActiveSearchIndex] = useState(-1);
+  const [toolCount, setToolCount] = useState(100); // Default placeholder
 
-  // Handle search logic
+  // Handle search logic - Lazy load search engine and tools config
   useEffect(() => {
-    if (searchQuery.trim()) {
-      const results = searchTools(searchQuery);
-      setSearchResults(results.slice(0, 5));
-      setActiveSearchIndex(0);
-    } else {
-      setSearchResults([]);
-      setActiveSearchIndex(-1);
+    async function performSearch() {
+      if (searchQuery.trim()) {
+        const { searchTools } = await import('@/lib/utils/search');
+        const results = searchTools(searchQuery);
+        setSearchResults(results.slice(0, 5));
+        setActiveSearchIndex(0);
+      } else {
+        setSearchResults([]);
+        setActiveSearchIndex(-1);
+      }
     }
+
+    performSearch();
   }, [searchQuery]);
+
+  // Load tool count lazily
+  useEffect(() => {
+    import('@/config/tools').then(mod => {
+      setToolCount(mod.getAllTools().length);
+    });
+  }, []);
 
   const handleSearchNavigation = (slug: string) => {
     router.push(`/${locale}/tools/${slug}`);
@@ -90,7 +103,6 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
     }
   };
 
-  const toolCount = getAllTools().length;
 
   return (
     <main id="main-content" className="relative overflow-hidden bg-white" tabIndex={-1}>
