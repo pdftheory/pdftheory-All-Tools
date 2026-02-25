@@ -77,13 +77,13 @@ export default async function LocaleLayout({
       <head>
         {/* Google AdSense Verification */}
         <meta name="google-adsense-account" content="ca-pub-8357473537626003" />
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8357473537626003"
-          crossOrigin="anonymous"
-        ></script>
       </head>
       <body className={`${fontVariables} min-h-screen bg-background text-foreground antialiased font-sans`}>
+        <Script
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8357473537626003"
+          strategy="lazyOnload"
+          crossOrigin="anonymous"
+        />
         <NextIntlClientProvider messages={messages} locale={locale}>
           <AuthProvider>
             <div className="min-h-screen flex flex-col">

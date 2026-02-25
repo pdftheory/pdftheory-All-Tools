@@ -156,7 +156,7 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
             <h3 className="text-sm font-bold uppercase tracking-wider mb-2 text-gray-400">{tFooter('app.getTheApp')}</h3>
             <div className="flex flex-col gap-3">
               <button className="relative flex items-center gap-3 bg-gray-800/50 border border-gray-700/50 rounded-lg px-4 py-2 cursor-not-allowed group text-left opacity-70" disabled>
-                <img src="https://cdn-icons-png.flaticon.com/512/732/732208.png" alt="Google Play" className="w-8 h-8 filter grayscale opacity-60" />
+                <img src="/images/google-play-icon.png" alt="Google Play" className="w-8 h-8 filter grayscale opacity-60" />
                 <div>
                   <div className="text-[10px] text-gray-500 leading-tight">{tFooter('app.getItOn')}</div>
                   <div className="text-sm font-bold text-gray-400">{tFooter('app.googlePlay')}</div>
@@ -167,7 +167,7 @@ export const Footer: React.FC<FooterProps> = ({ locale }) => {
                 </div>
               </button>
               <button className="relative flex items-center gap-3 bg-gray-800/50 border border-gray-700/50 rounded-lg px-4 py-2 cursor-not-allowed group text-left opacity-70" disabled>
-                <img src="https://cdn-icons-png.flaticon.com/512/179/179309.png" alt="App Store" className="w-8 h-8 filter invert opacity-60" />
+                <img src="/images/app-store-icon.png" alt="App Store" className="w-8 h-8 filter invert opacity-60" />
                 <div>
                   <div className="text-[10px] text-gray-500 leading-tight">{tFooter('app.downloadOnThe')}</div>
                   <div className="text-sm font-bold text-gray-400">{tFooter('app.appStore')}</div>

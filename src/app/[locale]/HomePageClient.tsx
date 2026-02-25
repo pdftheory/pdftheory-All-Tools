@@ -371,6 +371,7 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
                   width={600}
                   height={400}
                   className="w-full h-auto"
+                  loading="lazy"
                 />
 
                 {/* Overlay gradient */}
