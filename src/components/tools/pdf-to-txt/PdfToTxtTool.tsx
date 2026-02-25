@@ -9,14 +9,10 @@ import { DownloadButton } from '../DownloadButton';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { FileText, Copy, Check, AlertCircle } from 'lucide-react';
-import { createWorker } from 'tesseract.js';
-import * as pdfjsLib from 'pdfjs-dist';
+// tesseract.js and pdfjs-dist are now loaded dynamically to reduce initial bundle size
+import { loadPdfjs, loadTesseract } from '@/lib/pdf/loader';
 
-// Configure PDF.js worker
-if (typeof window !== 'undefined') {
-    // Use unpkg with specific version to match package.json (v4.8.69) to ensure worker compatibility
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://unpkg.com/pdfjs-dist@4.8.69/build/pdf.worker.min.mjs';
-}
+// Centralized loader from @/lib/pdf/loader is used instead
 
 export interface PdfToTxtToolProps {
     className?: string;
@@ -75,6 +71,7 @@ export function PdfToTxtTool({ className = '' }: PdfToTxtToolProps) {
         await page.render({ canvasContext: context, viewport: viewport }).promise;
         const imageData = canvas.toDataURL('image/png');
 
+        const { createWorker } = await loadTesseract();
         const worker = await createWorker('eng');
         const ret = await worker.recognize(imageData);
         await worker.terminate();
@@ -102,6 +99,7 @@ export function PdfToTxtTool({ className = '' }: PdfToTxtToolProps) {
             const arrayBuffer = await file.arrayBuffer();
 
             setProgress(20);
+            const pdfjsLib = await loadPdfjs();
             const loadingTask = pdfjsLib.getDocument({ data: arrayBuffer });
             const pdf = await loadingTask.promise;
             const numPages = pdf.numPages;

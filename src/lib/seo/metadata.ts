@@ -105,6 +105,7 @@ export function generateBaseMetadata(options: PageMetadataOptions): Metadata {
       shortcut: '/favicon_io/favicon.ico',
       apple: '/favicon_io/apple-touch-icon.png',
     },
+    manifest: '/manifest.json',
     alternates: {
       canonical: canonicalUrl,
       languages: getAlternateUrls(path),

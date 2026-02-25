@@ -5,7 +5,7 @@ import { useTranslations } from 'next-intl';
 import { FileUploader } from '../FileUploader';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
-import { PDFDocument } from 'pdf-lib';
+// pdf-lib is now imported dynamically in handleSave to reduce bundle size
 import { useHistoryLogger } from '@/hooks/useHistoryLogger';
 
 export interface SignPDFToolProps {
@@ -163,6 +163,9 @@ export function SignPDFTool({ className = '' }: SignPDFToolProps) {
         // Flatten and save
         const rawPdfBytes = await app.pdfDocument.saveDocument(app.pdfDocument.annotationStorage);
         const pdfBytes = new Uint8Array(rawPdfBytes);
+
+        // Dynamic import for pdf-lib — only loaded when flattening is requested
+        const { PDFDocument } = await import('pdf-lib');
         const pdfDoc = await PDFDocument.load(pdfBytes);
 
         try {

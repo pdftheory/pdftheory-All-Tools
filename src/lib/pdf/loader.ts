@@ -12,14 +12,17 @@ import type { PDFDocument } from 'pdf-lib';
 // Type definitions for lazy-loaded libraries
 type PDFLibModule = typeof import('pdf-lib');
 type PDFJSModule = typeof import('pdfjs-dist');
+type TesseractModule = typeof import('tesseract.js');
 
 // Cached library instances
 let pdfLibInstance: PDFLibModule | null = null;
 let pdfjsInstance: PDFJSModule | null = null;
+let tesseractInstance: TesseractModule | null = null;
 
 // Loading promises to prevent duplicate loads
 let pdfLibLoadingPromise: Promise<PDFLibModule> | null = null;
 let pdfjsLoadingPromise: Promise<PDFJSModule> | null = null;
+let tesseractLoadingPromise: Promise<TesseractModule> | null = null;
 
 // Worker configuration flag
 let workerConfigured = false;
@@ -87,6 +90,28 @@ export async function loadPdfjs(): Promise<PDFJSModule> {
 }
 
 /**
+ * Load tesseract.js library
+ * Used for OCR (Optical Character Recognition)
+ */
+export async function loadTesseract(): Promise<TesseractModule> {
+  if (tesseractInstance) {
+    return tesseractInstance;
+  }
+
+  if (tesseractLoadingPromise) {
+    return tesseractLoadingPromise;
+  }
+
+  tesseractLoadingPromise = import('tesseract.js').then((module) => {
+    tesseractInstance = module;
+    tesseractLoadingPromise = null;
+    return module;
+  });
+
+  return tesseractLoadingPromise;
+}
+
+/**
  * Load a PDF document using pdf-lib
  */
 export async function loadPdfDocument(data: ArrayBuffer | Uint8Array): Promise<PDFDocument> {
@@ -108,12 +133,14 @@ export async function createPdfDocument(): Promise<PDFDocument> {
 /**
  * Check if libraries are loaded
  */
-export function isLibraryLoaded(library: 'pdf-lib' | 'pdfjs'): boolean {
+export function isLibraryLoaded(library: 'pdf-lib' | 'pdfjs' | 'tesseract'): boolean {
   switch (library) {
     case 'pdf-lib':
       return pdfLibInstance !== null;
     case 'pdfjs':
       return pdfjsInstance !== null;
+    case 'tesseract':
+      return tesseractInstance !== null;
     default:
       return false;
   }
@@ -136,9 +163,11 @@ export async function preloadLibraries(): Promise<void> {
 export function getLibraryStatus(): {
   pdfLib: 'loaded' | 'loading' | 'not-loaded';
   pdfjs: 'loaded' | 'loading' | 'not-loaded';
+  tesseract: 'loaded' | 'loading' | 'not-loaded';
 } {
   return {
     pdfLib: pdfLibInstance ? 'loaded' : pdfLibLoadingPromise ? 'loading' : 'not-loaded',
     pdfjs: pdfjsInstance ? 'loaded' : pdfjsLoadingPromise ? 'loading' : 'not-loaded',
+    tesseract: tesseractInstance ? 'loaded' : tesseractLoadingPromise ? 'loading' : 'not-loaded',
   };
 }

@@ -76,7 +76,11 @@ export default async function LocaleLayout({
     <html lang={locale} dir={direction}>
       <head>
         {/* DNS Prefetch & Preconnect for external resources */}
+        <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+
+        {/* Favicons & App Icons are handled by Metadata API in metadata.ts */}
+
         {/* Google AdSense Verification */}
         <meta name="google-adsense-account" content="ca-pub-8357473537626003" />
       </head>

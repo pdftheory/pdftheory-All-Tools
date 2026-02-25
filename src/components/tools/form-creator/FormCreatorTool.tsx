@@ -3,7 +3,8 @@
 import React, { useState, useCallback, useRef, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { Save, FolderOpen, Trash2, Copy, Undo2, Redo2, AlignLeft, AlignCenterHorizontal, AlignRight, AlignStartVertical, AlignCenterVertical, AlignEndVertical, FilePlus2 } from 'lucide-react';
-import { PDFDocument, PageSizes } from 'pdf-lib';
+// pdf-lib and pdfjs-dist are now loaded dynamically to reduce initial bundle size
+import { loadPdfLib, loadPdfjs } from '@/lib/pdf/loader';
 import { FileUploader } from '../FileUploader';
 import { ProcessingProgress, ProcessingStatus } from '../ProcessingProgress';
 import { DownloadButton } from '../DownloadButton';
@@ -13,23 +14,7 @@ import { createForm, FormField } from '@/lib/pdf/processors/form-creator';
 import type { ProcessOutput } from '@/types/pdf';
 import { useHistoryLogger } from '@/hooks/useHistoryLogger';
 
-// Store pdfjs module reference
-let pdfjsModule: typeof import('pdfjs-dist') | null = null;
-
-// Load pdfjs module dynamically
-const loadPdfjsLib = async () => {
-  if (pdfjsModule) return pdfjsModule;
-
-  const pdfjsLib = await import('pdfjs-dist');
-  const { configurePdfjsWorker } = await import('@/lib/pdf/loader');
-
-  if (typeof window !== 'undefined' && !pdfjsLib.GlobalWorkerOptions.workerSrc) {
-    configurePdfjsWorker(pdfjsLib);
-  }
-
-  pdfjsModule = pdfjsLib;
-  return pdfjsLib;
-};
+// Centralized loaders from @/lib/pdf/loader are used instead
 
 export interface FormCreatorToolProps {
   className?: string;
@@ -248,7 +233,7 @@ export function FormCreatorTool({ className = '' }: FormCreatorToolProps) {
   // Load PDF
   const loadPdf = useCallback(async (pdfFile: File) => {
     try {
-      const pdfjsLib = await loadPdfjsLib();
+      const pdfjsLib = await loadPdfjs();
       const arrayBuffer = await pdfFile.arrayBuffer();
       const pdf = await pdfjsLib.getDocument({ data: arrayBuffer }).promise;
       pdfDocRef.current = pdf;
@@ -264,18 +249,19 @@ export function FormCreatorTool({ className = '' }: FormCreatorToolProps) {
   // Create blank PDF
   const createBlankPdf = useCallback(async () => {
     try {
-      const pdfDoc = await PDFDocument.create();
+      const pdfLib = await loadPdfLib();
+      const pdfDoc = await pdfLib.PDFDocument.create();
 
       // Map page size names to pdf-lib PageSizes
       const pageSizeMap: Record<string, [number, number]> = {
-        'A4': PageSizes.A4,
-        'Letter': PageSizes.Letter,
-        'Legal': PageSizes.Legal,
-        'A3': PageSizes.A3,
-        'A5': PageSizes.A5,
+        'A4': pdfLib.PageSizes.A4,
+        'Letter': pdfLib.PageSizes.Letter,
+        'Legal': pdfLib.PageSizes.Legal,
+        'A3': pdfLib.PageSizes.A3,
+        'A5': pdfLib.PageSizes.A5,
       };
 
-      const size = pageSizeMap[blankPdfPageSize] || PageSizes.A4;
+      const size = pageSizeMap[blankPdfPageSize] || pdfLib.PageSizes.A4;
 
       // Add pages
       for (let i = 0; i < blankPdfPageCount; i++) {
@@ -310,8 +296,9 @@ export function FormCreatorTool({ className = '' }: FormCreatorToolProps) {
   const createFromTemplate = useCallback(async (template: FormTemplate) => {
     try {
       // Create blank A4 PDF
-      const pdfDoc = await PDFDocument.create();
-      pdfDoc.addPage(PageSizes.A4);
+      const pdfLib = await loadPdfLib();
+      const pdfDoc = await pdfLib.PDFDocument.create();
+      pdfDoc.addPage(pdfLib.PageSizes.A4);
 
       // Generate PDF bytes
       const pdfBytes = await pdfDoc.save();
@@ -350,8 +337,9 @@ export function FormCreatorTool({ className = '' }: FormCreatorToolProps) {
     setIsAddingPage(true);
     try {
       // Load current PDF with pdf-lib
+      const pdfLib = await loadPdfLib();
       const arrayBuffer = await file.arrayBuffer();
-      const pdfDoc = await PDFDocument.load(arrayBuffer);
+      const pdfDoc = await pdfLib.PDFDocument.load(arrayBuffer);
 
       // Get current page size to match (use the current page's size)
       const pageIndex = currentPage > 0 ? currentPage - 1 : 0;
@@ -401,7 +389,7 @@ export function FormCreatorTool({ className = '' }: FormCreatorToolProps) {
       }
 
       // Load and render the new PDF without resetting currentPage
-      const pdfjsLib = await loadPdfjsLib();
+      const pdfjsLib = await loadPdfjs();
       const newArrayBuffer = await newFile.arrayBuffer();
       const newPdf = await pdfjsLib.getDocument({ data: newArrayBuffer }).promise;
       pdfDocRef.current = newPdf;
