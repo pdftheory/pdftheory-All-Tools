@@ -1,7 +1,6 @@
-import type { FC } from 'react';
 import {
-    TOOL_ICONS,
-    DefaultToolIcon,
+    getToolIcon as getDynamicToolIcon,
+    getCategoryColor as getDynamicCategoryColor,
     type ToolIconProps,
     CATEGORY_COLORS
 } from '@/components/icons/ToolIcons';
@@ -11,18 +10,15 @@ export { CATEGORY_COLORS };
 
 /**
  * Get the custom icon component for a tool by its slug/id
- * Returns a professional filled SVG icon component
- * Normalizes the slug by converting underscores to hyphens for consistent lookup
+ * Returns a dynamic SVG icon component that supports lazy loading
  */
-export const getToolIcon = (toolSlug: string): FC<ToolIconProps> => {
-    // Normalize the slug: convert underscores to hyphens for consistent lookup
-    const normalizedSlug = toolSlug.replace(/_/g, '-');
-    return TOOL_ICONS[normalizedSlug] || DefaultToolIcon;
+export const getToolIcon = (toolSlug: string): any => {
+    return getDynamicToolIcon(toolSlug);
 };
 
 /**
  * Get category color for styling
  */
 export const getCategoryColor = (category: string): string => {
-    return CATEGORY_COLORS[category as keyof typeof CATEGORY_COLORS] || '#E5322D';
+    return getDynamicCategoryColor(category);
 };

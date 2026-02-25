@@ -24,6 +24,24 @@ const nextConfig = {
         fs: false, path: false, crypto: false, module: false, url: false,
         worker_threads: false, canvas: false,
       };
+
+      // Advanced Chunking Optimization
+      config.optimization.splitChunks.cacheGroups = {
+        ...config.optimization.splitChunks.cacheGroups,
+        pdfjs: {
+          test: /[\\/]node_modules[\\/]pdfjs-dist[\\/]/,
+          name: 'pdfjs',
+          chunks: 'all',
+          priority: 30,
+        },
+        common: {
+          name: 'common',
+          minChunks: 2,
+          priority: 10,
+          reuseExistingChunk: true,
+          enforce: true,
+        },
+      };
     } else {
       config.externals = config.externals || [];
       config.externals.push({ canvas: 'commonjs canvas' });
