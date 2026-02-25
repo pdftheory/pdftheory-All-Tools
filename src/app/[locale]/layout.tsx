@@ -8,6 +8,7 @@ import { fontVariables } from '@/lib/fonts';
 import { SkipLink } from '@/components/common/SkipLink';
 import GlobalLayout from '@/components/layout/GlobalLayout';
 import AuthProvider from '@/components/providers/AuthProvider';
+import { CriticalStyles } from '@/components/layout/CriticalStyles';
 
 import Script from 'next/script';
 import '@/app/globals.css';
@@ -111,6 +112,9 @@ export default async function LocaleLayout({
   return (
     <html lang={locale} dir={direction}>
       <head>
+        {/* OPTIMIZATION: Inlined Critical CSS to eliminate render-blocking waterfalls */}
+        <CriticalStyles />
+
         {/* DNS Prefetch & Preconnect for external resources */}
         <link rel="preconnect" href="https://pagead2.googlesyndication.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />

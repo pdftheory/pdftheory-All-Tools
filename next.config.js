@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 const withNextIntl = createNextIntlPlugin('./src/i18n/request.ts');
 
 const withBundleAnalyzer = (await import('@next/bundle-analyzer')).default({
-  enabled: false,
+  enabled: process.env.ANALYZE === 'true',
 });
 
 /** @type {import('next').NextConfig} */
@@ -25,17 +25,42 @@ const nextConfig = {
         worker_threads: false, canvas: false,
       };
 
-      // Advanced Chunking Optimization
+      // Advanced Chunking Optimization - Phase 11
       config.optimization.splitChunks.cacheGroups = {
         ...config.optimization.splitChunks.cacheGroups,
+        // Isolate Heavy Libraries
         pdfjs: {
-          test: /[\\/]node_modules[\\/]pdfjs-dist[\\/]/,
-          name: 'pdfjs',
+          test: /[\\/]node_modules[\\/](pdfjs-dist|pdfjs-dist-legacy)[\\/]/,
+          name: 'vendor-pdfjs',
+          chunks: 'all',
+          priority: 40,
+        },
+        pdflib: {
+          test: /[\\/]node_modules[\\/]pdf-lib[\\/]/,
+          name: 'vendor-pdflib',
+          chunks: 'all',
+          priority: 35,
+        },
+        tesseract: {
+          test: /[\\/]node_modules[\\/]tesseract\.js[\\/]/,
+          name: 'vendor-tesseract',
           chunks: 'all',
           priority: 30,
         },
+        reactflow: {
+          test: /[\\/]node_modules[\\/]reactflow[\\/]/,
+          name: 'vendor-reactflow',
+          chunks: 'all',
+          priority: 25,
+        },
+        xlsx: {
+          test: /[\\/]node_modules[\\/]xlsx[\\/]/,
+          name: 'vendor-xlsx',
+          chunks: 'all',
+          priority: 20,
+        },
         common: {
-          name: 'common',
+          name: 'common-utils',
           minChunks: 2,
           priority: 10,
           reuseExistingChunk: true,
