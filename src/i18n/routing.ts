@@ -8,8 +8,9 @@ export const routing = defineRouting({
   // Used when no locale matches
   defaultLocale,
 
-  // Use locale prefix only when necessary (default locale doesn't need it)
-  localePrefix: 'as-needed',
+  // Ensure the locale prefix is always present to match the [locale] folder structure
+  // This prevents 404 errors at the root path by automatically redirecting / to /en/
+  localePrefix: 'always',
 
   // Disable automatic locale detection
   localeDetection: false,
