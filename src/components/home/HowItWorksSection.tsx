@@ -29,8 +29,6 @@ export const HowItWorksSection: React.FC = () => {
                         </div>
                         <h3 className="text-xl font-bold text-gray-900 mb-3">{h('benefits.grid.secure.title')}</h3>
                         <p className="text-gray-600">{h('benefits.grid.secure.description')}</p>
-                        <h3 className="text-xl font-bold text-gray-900 mb-3">{h('step1Title')}</h3>
-                        <p className="text-gray-600">{h('step1Desc')}</p>
                     </div>
 
                     {/* Step 2 */}

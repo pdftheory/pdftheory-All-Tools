@@ -98,8 +98,8 @@ export const WorkflowShowcaseSection: React.FC<WorkflowShowcaseSectionProps> = (
                                 <FileText className="w-5 h-5 text-white" />
                             </div>
                             <div>
-                                <p className="text-white font-bold">{h('actionsCount', { count: toolCount })}</p>
-                                <p className="text-blue-100 text-xs">{h('actionsAvailable')}</p>
+                                <p className="text-gray-900 font-bold">{h('actionsCount', { count: 86 })}</p>
+                                <p className="text-gray-600 text-xs">{h('actionsAvailable')}</p>
                             </div>
                         </div>
 

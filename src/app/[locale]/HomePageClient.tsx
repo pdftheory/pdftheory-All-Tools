@@ -272,6 +272,18 @@ export default function HomePageClient({ locale, localizedToolContent }: HomePag
         </div>
       </section>
 
+      {/* Choose a Tool Dedicated Section */}
+      <section className="pt-20 pb-10 bg-white">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-black text-gray-900 mb-4">
+            {h('howItWorks.step1Title')}
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            {h('howItWorks.step1Desc')}
+          </p>
+        </div>
+      </section>
+
       {/* Popular Tools Section */}
       <PopularToolsSection
         locale={locale}
