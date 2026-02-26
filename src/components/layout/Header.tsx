@@ -68,7 +68,7 @@ export const Header: React.FC<HeaderProps> = ({ locale }) => {
   return (
     <>
       <header
-        className={`fixed top-0 z-50 w-full transition-all duration-200 h-[72px] flex items-center bg-white ${scrolled ? 'shadow-sm border-b border-gray-100' : ''
+        className={`fixed top-0 z-50 w-full transition-all duration-200 h-[72px] flex items-center bg-white site-header ${scrolled ? 'shadow-sm border-b border-gray-100' : ''
           }`}
         role="banner"
       >

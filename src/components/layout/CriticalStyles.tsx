@@ -60,7 +60,7 @@ body {
 }
 
 /* Critical Layout Shell */
-header { 
+.site-header { 
   height: 72px; 
   display: flex;
   align-items: center;

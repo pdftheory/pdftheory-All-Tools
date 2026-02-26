@@ -179,7 +179,7 @@ export const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose, locale 
         onTouchEnd={handleTouchEnd}
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-[hsl(var(--color-border))]">
+        <div className="flex items-center justify-between p-4 border-b border-[hsl(var(--color-border))] site-header">
           <span className="text-lg font-bold text-[hsl(var(--color-primary))]">
             {tCommon('brand')}
           </span>
