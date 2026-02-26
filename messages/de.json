@@ -2819,6 +2819,8 @@
       "privateDesc": "Dateien verlassen nie Ihr Gerät. Die gesamte Verarbeitung erfolgt lokal in Ihrem Browser.",
       "fast": "Blitzschnell",
       "fastDesc": "Kein Server-Upload. Sofortige Ergebnisse ohne Warteschlangen.",
+      "free": "Völlig Kostenlos",
+      "freeDesc": "Alle Werkzeuge sind kostenlos und ohne versteckte Kosten.",
       "noAccount": "Kein Konto nötig",
       "noAccountDesc": "Sofort loslegen. Keine Anmeldung, keine E-Mail-Verifizierung erforderlich.",
       "everywhere": "Überall verfügbar",

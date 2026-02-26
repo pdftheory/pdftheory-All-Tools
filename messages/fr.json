@@ -3047,6 +3047,8 @@
       "privateDesc": "Les fichiers ne quittent jamais votre appareil. Tout le traitement se fait localement dans votre navigateur.",
       "fast": "Ultra Rapide",
       "fastDesc": "Aucun envoi vers un serveur. Résultats instantanés sans file d'attente.",
+      "free": "Entièrement Gratuit",
+      "freeDesc": "Tous les outils sont gratuits sans frais cachés.",
       "noAccount": "Aucun Compte Nécessaire",
       "noAccountDesc": "Commencez immédiatement. Pas d'inscription, pas de vérification par e-mail.",
       "everywhere": "Fonctionne Partout",
