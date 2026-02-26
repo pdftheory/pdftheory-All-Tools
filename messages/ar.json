@@ -47,17 +47,21 @@
         "mb": "ميغابايت",
         "gb": "جيجابايت"
       },
-      "uploadPdf": "Upload PDF File",
-      "convertDescription": "Drag and drop a PDF file to convert to {format}.",
-      "pasteHint": "Ctrl+V to paste",
-      "filesLimit": "Max: {count} files"
+      "uploadPdf": "رفع ملف PDF",
+      "convertDescription": "قم بسحب ملف PDF هنا لتحويله إلى {format}.",
+      "pasteHint": "Ctrl+V للصق",
+      "filesLimit": "الحد الأقصى: {count} ملفات",
+      "errorLoadPreview": "فشل تحميل المعاينة"
     },
     "downloader": {
       "showSize": "إظهار الحجم",
       "autoRevoke": "إلغاء رابط URL تلقائياً",
       "preparing": "جاري تحضير التحميل...",
       "save": "حفظ",
-      "download": "تحميل"
+      "download": "تحميل",
+      "page": "{count, plural, zero {صفحات} one {صفحة} two {صفحتين} few {{count} صفحات} many {{count} صفحة} other {{count} صفحة}}",
+      "file": "{count, plural, zero {ملفات} one {ملف} two {ملفين} few {{count} ملفات} many {{count} ملفاً} other {{count} ملف}}",
+      "pageNumber": "صفحة {number}"
     },
     "progress": {
       "starting": "جاري البدء...",
@@ -109,6 +113,15 @@
       "contact": "تواصل معنا",
       "dashboard": "لوحة التحكم",
       "compressPdf": "ضغط ملف PDF"
+    },
+    "preview": {
+      "noFile": "لا يوجد ملف للمعاينة",
+      "document": "مستند",
+      "zoomIn": "تكبير",
+      "zoomOut": "تصغير",
+      "zoomLevel": "التكبير: {level}%",
+      "prevPage": "الصفحة السابقة",
+      "nextPage": "الصفحة التالية"
     },
     "buttons": {
       "upload": "رفع الملفات",
@@ -825,7 +838,6 @@
     "processingCancelled": "تم إلغاء العملية.",
     "networkError": "خطأ في الشبكة. يرجى التحقق من اتصال الإنترنت.",
     "pdfEncrypted": "ملف PDF محمي بكلمة مرور. يرجى فك التشفير أولًا.",
-    "pdfMalformed": "بنية ملف PDF غير صالحة. جرّب أداة الإصلاح أولًا.",
     "processingTimeout": "استغرقت العملية وقتًا أطول من اللازم. جرّب ملفًا أصغر.",
     "memoryExceeded": "نفدت ذاكرة المتصفح. أغلق علامات تبويب أخرى وحاول مرة أخرى.",
     "workerFailed": "تعطلت مهمة المعالجة. يرجى تحديث الصفحة والمحاولة مرة أخرى.",
@@ -833,7 +845,9 @@
     "invalidPageRange": "نطاق الصفحات المحدد غير صالح.",
     "invalidOptions": "تم تقديم خيارات غير صالحة.",
     "unknown": "حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.",
-    "toolNotFound": "الأداة غير موجودة"
+    "toolNotFound": "الأداة غير موجودة",
+    "zipFailed": "فشل إنشاء ملف ZIP.",
+    "pdfMalformed": "فشل تحميل معاينة PDF. قد يكون الملف تالفاً أو محمياً بكلمة مرور."
   },
   "home": {
     "hero": {
@@ -1111,7 +1125,8 @@
       "optionsTitle": "خيارات الدمج",
       "preserveBookmarks": "الاحتفاظ بالإشارات المرجعية (إنشاء إشارة لكل ملف)",
       "mergeButton": "دمج ملفات PDF",
-      "successMessage": "تم دمج ملفات PDF بنجاح! انقر على زر التنزيل لحفظ الملف."
+      "successMessage": "تم دمج ملفات PDF بنجاح! انقر على زر التنزيل لحفظ الملف.",
+      "errorMinFiles": "يرجى إضافة ملفي PDF على الأقل للدمج."
     },
     "gridCombine": {
       "uploadLabel": "رفع ملفات PDF",
@@ -1147,9 +1162,9 @@
       "previewInfoAllPages": "سيتم ترتيب {fileCount} ملف PDF بإجمالي {totalPages} صفحة ضمن تخطيط {layout} عبر {outputPages} صفحة إخراج.",
       "previewInfoFirstPage": "سيتم ترتيب {fileCount} ملف PDF ضمن تخطيط {layout} عبر {outputPages} صفحة إخراج.",
       "minFilesError": "يرجى إضافة ملفي PDF على الأقل للدمج.",
-      "moveUp": "Move Up",
-      "moveDown": "Move Down",
-      "removeFile": "Remove"
+      "moveUp": "تحريك للأعلى",
+      "moveDown": "تحريك للأسفل",
+      "removeFile": "إزالة"
     },
     "nUpPdf": {
       "uploadLabel": "رفع ملف PDF",
@@ -1190,31 +1205,46 @@
       "splitModeTitle": "طريقة التقسيم",
       "splitModeLabel": "وضع التقسيم",
       "modeRanges": "استخراج حسب نطاق الصفحات (افتراضي)",
+      "modeRangesShort": "نطاق الصفحات",
       "modeEvenOdd": "تقسيم حسب الصفحات الفردية/الزوجية",
+      "modeEvenOddShort": "فردي/زوجي",
       "modeEveryPage": "تقسيم جميع الصفحات إلى ملفات منفصلة",
+      "modeEveryPageShort": "كل صفحة",
       "modeVisual": "تحديد الصفحات بصريًا",
+      "modeVisualShort": "تحديد بصري",
       "modeBookmarks": "التقسيم حسب الإشارات المرجعية",
+      "modeBookmarksShort": "إشارات مرجعية",
       "modeNTimes": "التقسيم إلى عدة أجزاء",
+      "modeNTimesShort": "تقسيم إلى أجزاء",
       "rangeInputLabel": "نطاق الصفحات",
+      "rangeInputPlaceholder": "مثلاً: 1، 3-5، 8",
       "rangeInputHint": "أدخل أرقام الصفحات أو النطاقات مفصولة بفواصل. اتركه فارغًا لتصدير جميع الصفحات في ملف واحد.",
       "evenOddLabel": "استخراج الصفحات",
       "oddPagesOnly": "الصفحات الفردية فقط",
       "evenPagesOnly": "الصفحات الزوجية فقط",
       "bothSeparate": "كلاهما (ملفات منفصلة)",
       "evenOddHint": "الصفحات الفردية: 1، 3، 5... الصفحات الزوجية: 2، 4، 6...",
-      "everyPageInfo": "سيتم استخراج كل صفحة في ملف PDF منفصل. سيتم إنشاء {count} ملف.",
+      "everyPageInfo": "سيتم استخراج كل صفحة كملف PDF منفصل. سيؤدي هذا إلى إنشاء {count} ملفات.",
+      "separateFilesCount": "{count} ملفات منفصلة",
+      "visualSelectionTitle": "تحديد الصفحات بصرياً",
       "visualInfo": "انقر على صور الصفحات أدناه لتحديد الصفحات المراد استخراجها. سيتم دمج الصفحات المحددة في ملف واحد أو تقسيمها إلى ملفات منفصلة.",
+      "bookmarksFound": "{count, plural, zero {لم يتم العثور على إشارات مرجعية} one {تم العثور على إشارة مرجعية واحدة} two {تم العثور على إشارتين مرجعيتين} few {تم العثور على {count} إشارات مرجعية} many {تم العثور على {count} إشارة مرجعية} other {تم العثور على {count} إشارة مرجعية}}",
+      "bookmarksSplitInfo": "سيتم تقسيم ملف PDF الخاص بك إلى {count} ملفات منفصلة بناءً على هيكل الإشارات المرجعية.",
+      "splitPoints": "نقاط التقسيم",
+      "scrollAllBookmarks": "قم بالتمرير لمشاهدة جميع الإشارات المرجعية ({count})",
+      "noBookmarksTitle": "لم يتم العثور على إشارات مرجعية",
       "bookmarksNotice": "ملاحظة: يتطلب التقسيم حسب الإشارات المرجعية وجود إشارات في ملف PDF. في حال عدم العثور عليها، سيتم إرجاع الملف كاملًا كملف واحد.",
       "splitCountLabel": "عدد الأجزاء",
-      "splitCountHint": "التقسيم إلى {count} أجزاء متساوية (حوالي {pages} صفحة لكل جزء)",
+      "splitCountHint": "التقسيم إلى {count} أجزاء متساوية (حوالي {pages} صفحات لكل منها)",
+      "mergeRanges": "دمج جميع النطاقات في ملف PDF واحد",
+      "mergeRangesHint": "سيتم دمج نطاقات الصفحات المحددة في مستند واحد.",
       "pagePreviewTitle": "تحديد الصفحات",
-      "splitButton": "تقسيم ملف PDF",
+      "selectedCount": "({count} محدد)",
       "resultsTitle": "نتائج التقسيم",
-      "successMessage": "تم تقسيم ملف PDF بنجاح! انقر على أزرار التنزيل لحفظ الملفات.",
-      "modeVisualShort": "تحديد بصري",
-      "modeBookmarksShort": "إشارات مرجعية",
-      "modeNTimesShort": "تقسيم إلى أجزاء",
-      "downloadZip": "تنزيل الكل كملف ZIP"
+      "errorNoFile": "يرجى رفع ملف PDF أولاً.",
+      "errorNoSelection": "يرجى تحديد نطاقات الصفحات أو اختيار صفحات لاستخراجها.",
+      "downloadZip": "تنزيل الكل كملف ZIP",
+      "successMessage": "تم تقسيم PDF بنجاح إلى {count, plural, zero {ملفات} one {ملف واحد} two {ملفين} few {{count} ملفات} many {{count} ملفاً} other {{count} ملف}}! انقر على أزرار التنزيل لحفظ ملفاتك."
     },
     "deletePages": {
       "uploadLabel": "رفع ملف PDF",
@@ -2694,11 +2724,11 @@
   },
   "businessPage": {
     "hero": {
-      "tagline": "Powering Enterprise Workflows",
-      "title": "The PDF Solution for Modern Businesses",
-      "description": "Secure, scalable, and powerful PDF tools designed to streamline document management for your entire organization.",
-      "ctaCommon": "Start Now - It's Free",
-      "ctaSales": "Contact Us"
+      "tagline": "تمكين سير العمل في المؤسسات",
+      "title": "حل الـ PDF للشركات الحديثة",
+      "description": "أدوات PDF آمنة، قابلة للتطوير، وقوية مصممة لتبسيط إدارة المستندات لمؤسستك بالكامل.",
+      "ctaCommon": "ابدأ الآن - إنه مجاني",
+      "ctaSales": "اتصل بنا"
     },
     "trust": {
       "brands": [
@@ -2707,80 +2737,80 @@
         "SecureNet",
         "DataFlow"
       ],
-      "title": "Trusted by innovative teams at"
+      "title": "موثوق به من قبل فرق مبتكرة في"
     },
     "features": {
-      "title": "Everything your team needs to work faster",
-      "subtitle": "Replace fragmented tools with one complete PDF solution.",
+      "title": "كل ما يحتاجه فريقك للعمل بشكل أسرع",
+      "subtitle": "استبدل الأدوات المتفرقة بحل PDF واحد متكامل.",
       "security": {
-        "title": "Enterprise-Grade Security",
-        "description": "ISO 27001 certified, GDPR compliant, and end-to-end encryption for all your sensitive documents."
+        "title": "أمان بمستوى المؤسسات",
+        "description": "حاصل على شهادة ISO 27001، ومتوافق مع GDPR، وتشفير من طرف إلى طرف لجميع مستنداتك الحساسة."
       },
       "team": {
-        "title": "Team Management",
-        "description": "Centralized dashboard to manage users and permissions across your entire organization."
+        "title": "إدارة الفريق",
+        "description": "لوحة تحكم مركزية لإدارة المستخدمين والأذونات عبر مؤسستك بالكامل."
       },
       "api": {
-        "title": "Powerful API",
-        "description": "Automate document workflows by integrating our robust PDF conversion and editing API."
+        "title": "واجهة برمجة تطبيقات قوية (API)",
+        "description": "أتمتة سير عمل المستندات من خلال دمج واجهة برمجة تطبيقات تحويل وتحرير PDF القوية الخاصة بنا."
       },
       "esign": {
-        "title": "E-Signatures",
-        "description": "Legally binding digital signatures to speed up contracts and agreements."
+        "title": "التوقيعات الإلكترونية",
+        "description": "توقيعات رقمية ملزمة قانونًا لتسريع العقود والاتفاقيات."
       },
       "remote": {
-        "title": "Work from Anywhere",
-        "description": "Cloud-based access ensures your team stays productive whether in the office or remote."
+        "title": "العمل من أي مكان",
+        "description": "يضمن الوصول القائم على السحابة بقاء فريقك منتجًا سواء في المكتب أو عن بُعد."
       },
       "batch": {
-        "title": "Batch Processing",
-        "description": "Process thousands of documents in seconds with our high-performance bulk tools."
+        "title": "المعالجة بالدفعة",
+        "description": "معالجة آلاف المستندات في ثوانٍ باستخدام أدواتنا الجماعية عالية الأداء."
       }
     },
     "cta": {
-      "title": "Ready to upgrade your business workflow?",
-      "button": "Contact Us"
+      "title": "هل أنت مستعد لترقية سير عمل عملك؟",
+      "button": "اتصل بنا"
     }
   },
   "educationPage": {
     "hero": {
       "imageAlt": "طلاب يدرسون",
-      "tagline": "PDFTheory for Education",
-      "title": "Empowering Students & Teachers",
-      "description": "Simplify coursework, research, and grading with powerful PDF tools tailored for the classroom. Fast, free, and easy to use.",
-      "ctaStart": "Start Using for Free",
-      "ctaPricing": "For Schools"
+      "tagline": "PDFTheory للتعليم",
+      "title": "تمكين الطلاب والمعلمين",
+      "description": "تبسيط العمل الدراسي والبحث والتصحيح باستخدام أدوات PDF قوية مصممة للفصول الدراسية. سريعة ومجانية وسهلة الاستخدام.",
+      "ctaStart": "ابدأ الاستخدام مجانًا",
+      "ctaPricing": "للمدارس"
     },
     "benefits": {
-      "title": "Tools for the Next Generation of Learners",
-      "description": "Whether you're a student pulling a study all-nighter or a teacher grading dozens of papers, PDFTheory removes the friction of document handling so you can focus on learning.",
+      "title": "أدوات للجيل القادم من المتعلمين",
+      "description": "سواء كنت طالبًا يسهر طوال الليل للدراسة أو معلمًا يصحح عشرات الأوراق، فإن PDFTheory يزيل عقبات التعامل مع المستندات حتى تتمكن من التركيز على التعلم.",
       "list": {
-        "free": "100% Free for everyone",
-        "noInstall": "No install required - works on any library computer",
-        "mobile": "Mobile friendly for studying on the go"
+        "free": "مجاني 100% للجميع",
+        "noInstall": "لا يتطلب التثبيت - يعمل على أي جهاز كمبيوتر في المكتبة",
+        "mobile": "صديق للجوال للدراسة أثناء التنقل"
       },
       "grid": {
         "essay": {
-          "title": "Essay Formatting",
-          "description": "Merge research and format citations effortlessly."
+          "title": "تنسيق المقالات",
+          "description": "دمج البحوث وتنسيق الاستشهادات بسهولة."
         },
         "group": {
-          "title": "Group Projects",
-          "description": "Share and comment on PDFs for easy collaboration."
+          "title": "المشاريع الجماعية",
+          "description": "مشاركة والتعليق على ملفات PDF للتعاون السهل."
         },
         "textbooks": {
-          "title": "Digital Textbooks",
-          "description": "Compress large files to email assignments easily."
+          "title": "الكتب المدرسية الرقمية",
+          "description": "ضغط الملفات الكبيرة لإرسال التكليفات عبر البريد الإلكتروني بسهولة."
         },
         "secure": {
-          "title": "Secure Submissions",
-          "description": "Protect your work with passwords."
+          "title": "تقديم آمن",
+          "description": "احمِ عملك بكلمات مرور."
         }
       }
     },
     "cta": {
-      "title": "Bring PDFTheory to your School",
-      "button": "Contact Us"
+      "title": "أحضر PDFTheory إلى مدرستك",
+      "button": "اتصل بنا"
     }
   },
   "blogPage": {
@@ -3768,86 +3798,86 @@
     }
   },
   "dashboard": {
-    "welcome": "Welcome back,",
-    "overviewSubtitle": "Here's an overview of your recent PDF activities.",
+    "welcome": "مرحباً بعودتك،",
+    "overviewSubtitle": "إليك نظرة عامة على أنشطة PDF الأخيرة الخاصة بك.",
     "sidebar": {
-      "overview": "Overview",
-      "favorites": "Favorites",
-      "history": "Activity Hub",
-      "workflows": "Pro Workflows",
-      "security": "Account Security",
-      "settings": "Settings",
-      "support": "Support Center",
-      "mgmtSection": "Management",
-      "prefSection": "Preferences",
-      "toolLibrary": "TOOL LIBRARY"
+      "overview": "نظرة عامة",
+      "favorites": "المفضلة",
+      "history": "مركز النشاط",
+      "workflows": "سير عمل احترافي",
+      "security": "أمان الحساب",
+      "settings": "الإعدادات",
+      "support": "مركز الدعم",
+      "mgmtSection": "الإدارة",
+      "prefSection": "التفضيلات",
+      "toolLibrary": "مكتبة الأدوات"
     },
     "stats": {
-      "totalProcessed": "Total Processed",
-      "toolsUsed": "Tools Utilized",
-      "timeSaved": "Estimated Savings",
-      "processedDesc": "PDFs managed by you",
-      "toolsDesc": "Unique tools explored",
-      "savingsDesc": "Time saved using {brand}"
+      "totalProcessed": "إجمالي المعالجة",
+      "toolsUsed": "الأدوات المستخدمة",
+      "timeSaved": "الوقت الموفر",
+      "processedDesc": "ملفات PDF التي قمت بإدارتها",
+      "toolsUsedDesc": "أدوات فريدة تم استكشافها",
+      "savingsDesc": "الوقت الموفر باستخدام {brand}"
     },
     "quickTools": {
-      "title": "Quick Actions",
-      "viewAll": "View all {count} tools",
+      "title": "إجراءات سريعة",
+      "viewAll": "عرض جميع الأدوات ({count})",
       "list": {
         "pdf-multi-tool": {
-          "title": "All-in-One Tool",
-          "description": "Merge, split, rotate and organize PDF pages in one go."
+          "title": "أداة الكل في واحد",
+          "description": "دمج وتقسيم وتدوير وتنظيم صفحات PDF دفعة واحدة."
         },
         "merge-pdf": {
-          "title": "Merge PDF",
-          "description": "Combine multiple PDF files into a single document."
+          "title": "دمج PDF",
+          "description": "دمج عدة ملفات PDF في مستند واحد."
         },
         "split-pdf": {
-          "title": "Split PDF",
-          "description": "Separate one page or a whole set for easy conversion."
+          "title": "تقسيم PDF",
+          "description": "فصل صفحة واحدة أو مجموعة كاملة للتحويل السهل."
         },
         "edit-pdf": {
-          "title": "Edit PDF",
-          "description": "Add text, images, and annotations to your PDF."
+          "title": "تحرير PDF",
+          "description": "إضافة نص وصور وتعليقات توضيحية إلى ملف PDF الخاص بك."
         },
         "sign-pdf": {
-          "title": "Sign PDF",
-          "description": "Request signatures or sign your documents securely."
+          "title": "توقيع PDF",
+          "description": "طلب توقيعات أو توقيع مستنداتك بشكل آمن."
         },
         "jpg-to-pdf": {
-          "title": "JPG to PDF",
-          "description": "Convert JPG, PNG, BMP and more to PDF format."
+          "title": "JPG إلى PDF",
+          "description": "تحويل JPG و PNG و BMP والمزيد إلى تنسيق PDF."
         }
       }
     },
     "recentActivity": {
-      "title": "Recent Activity",
-      "logsSection": "LATEST LOGS",
-      "mgmtHub": "Management Hub",
-      "noActivity": "No activity recorded",
-      "noActivityDesc": "Your professional PDF journey starts here. Process a file and track its history with ease.",
-      "exploreTools": "Explore 99+ Tools",
+      "title": "النشاط الأخير",
+      "logsSection": "أحدث السجلات",
+      "mgmtHub": "مركز الإدارة",
+      "noActivity": "لم يتم تسجيل أي نشاط",
+      "noActivityDesc": "تبدأ رحلتك الاحترافية مع PDF من هنا. قم بمعالجة ملف وتتبع تاريخه بسهولة.",
+      "exploreTools": "استكشف أكثر من 99 أداة",
       "status": {
-        "completed": "Completed"
+        "completed": "مكتمل"
       },
       "timeAgo": {
-        "justNow": "Just now",
-        "mins": "{count}m ago",
-        "hours": "{count}h ago",
-        "days": "{count}d ago"
+        "justNow": "الآن",
+        "mins": "منذ {count} دقيقة",
+        "hours": "منذ {count} ساعة",
+        "days": "منذ {count} يوم"
       }
     },
     "history": {
-      "breadcrumb": "Activity History",
-      "title": "Activity Hub",
-      "subtitle": "A comprehensive log of all your PDF transformations. Your data is encrypted and accessible only by you.",
-      "loading": "Accessing Logs...",
-      "searchPlaceholder": "Search by filename...",
-      "filterAll": "Every Action",
-      "filterAria": "Filter history by action type",
-      "advancedFilters": "Advanced filters",
-      "privacyTitle": "Privacy Focused Logging",
-      "privacyDesc": "We only store essential metadata about your file operations. Original files are never stored on our servers after processing is complete. Your history is automatically purged after 30 days unless you choose to delete it manually.",
+      "breadcrumb": "تاريخ النشاط",
+      "title": "مركز النشاط",
+      "subtitle": "سجل شامل لجميع عمليات تحويل PDF الخاصة بك. بياناتك مشفرة ولا يمكن الوصول إليها إلا من قبلك.",
+      "loading": "الوصول إلى السجلات...",
+      "searchPlaceholder": "البحث باسم الملف...",
+      "filterAll": "كل الإجراءات",
+      "filterAria": "تصفية السجل حسب نوع الإجراء",
+      "advancedFilters": "مرشحات متقدمة",
+      "privacyTitle": "تسجيل يركز على الخصوصية",
+      "privacyDesc": "نحن نخزن فقط البيانات الوصفية الأساسية حول عمليات الملفات الخاصة بك. لا يتم تخزين الملفات الأصلية أبدًا على خوادمنا بعد اكتمال المعالجة. يتم حذف سجلك تلقائيًا بعد 30 يومًا إلا إذا اخترت حذفه يدويًا.",
       "table": {
         "details": "Document Details",
         "task": "Operational Task",

@@ -32,6 +32,7 @@ export interface MergePDFToolProps {
 export function MergePDFTool({ className = '' }: MergePDFToolProps) {
   const t = useTranslations('common');
   const tTools = useTranslations('tools');
+  const tErrors = useTranslations('errors');
   const { logToolUsage } = useHistoryLogger();
 
   // State
@@ -153,7 +154,7 @@ export function MergePDFTool({ className = '' }: MergePDFToolProps) {
    */
   const handleMerge = useCallback(async () => {
     if (files.length < 2) {
-      setError('Please add at least 2 PDF files to merge.');
+      setError(tTools('mergePdf.errorMinFiles') || 'Please add at least 2 PDF files to merge.');
       return;
     }
 
@@ -195,12 +196,12 @@ export function MergePDFTool({ className = '' }: MergePDFToolProps) {
           preserveBookmarks
         });
       } else {
-        setError(output.error?.message || 'Failed to merge PDF files.');
+        setError(output.error?.message || tErrors('processingFailed') || 'Failed to merge PDF files.');
         setStatus('error');
       }
     } catch (err) {
       if (!cancelledRef.current) {
-        setError(err instanceof Error ? err.message : 'An unexpected error occurred.');
+        setError(err instanceof Error ? err.message : (tErrors('unknown') || 'An unexpected error occurred.'));
         setStatus('error');
       }
     }

@@ -54,8 +54,10 @@ export const FilePreview: React.FC<FilePreviewProps> = ({
   onPageChange,
   onZoomChange,
 }) => {
-  const t = useTranslations('common');
-  
+  const t = useTranslations('common.preview');
+  const tCommon = useTranslations('common');
+  const tUploader = useTranslations('toolCommon.uploader');
+
   const [zoom, setZoom] = useState(initialZoom);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -63,7 +65,7 @@ export const FilePreview: React.FC<FilePreviewProps> = ({
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [pdfDoc, setPdfDoc] = useState<any>(null);
-  
+
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -86,7 +88,7 @@ export const FilePreview: React.FC<FilePreviewProps> = ({
       try {
         // Dynamically import pdfjs-dist
         const pdfjsLib = await import('pdfjs-dist');
-        
+
         // Set worker source
         configurePdfjsWorker(pdfjsLib);
 
@@ -97,15 +99,15 @@ export const FilePreview: React.FC<FilePreviewProps> = ({
         // Load PDF document
         const loadingTask = pdfjsLib.getDocument(url);
         const pdf = await loadingTask.promise;
-        
+
         setPdfDoc(pdf);
         setTotalPages(pdf.numPages);
         setCurrentPage(1);
-        
+
         onPageChange?.(1, pdf.numPages);
       } catch (err) {
         console.error('Failed to load PDF:', err);
-        setError('Failed to load PDF preview');
+        setError(tUploader('errorLoadPreview'));
       } finally {
         setIsLoading(false);
       }
@@ -233,7 +235,7 @@ export const FilePreview: React.FC<FilePreviewProps> = ({
     return (
       <div className={`flex items-center justify-center min-h-[300px] bg-[hsl(var(--color-muted)/0.3)] rounded-[var(--radius-lg)] ${className}`}>
         <p className="text-[hsl(var(--color-muted-foreground))]">
-          No file to preview
+          {t('noFile')}
         </p>
       </div>
     );
@@ -246,7 +248,7 @@ export const FilePreview: React.FC<FilePreviewProps> = ({
         <div className="flex flex-col items-center gap-3">
           <div className="w-8 h-8 border-2 border-[hsl(var(--color-primary))] border-t-transparent rounded-full animate-spin" />
           <p className="text-sm text-[hsl(var(--color-muted-foreground))]">
-            {t('status.loading')}
+            {tCommon('status.loading')}
           </p>
         </div>
       </div>
@@ -301,7 +303,7 @@ export const FilePreview: React.FC<FilePreviewProps> = ({
             />
           </svg>
           <span className="text-sm text-[hsl(var(--color-foreground))] truncate">
-            {filename || 'Document'}
+            {filename || t('document')}
           </span>
         </div>
 
@@ -315,27 +317,27 @@ export const FilePreview: React.FC<FilePreviewProps> = ({
                 size="sm"
                 onClick={handleZoomOut}
                 disabled={zoom <= minZoom}
-                aria-label="Zoom out"
+                aria-label={t('zoomOut')}
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 12H4" />
                 </svg>
               </Button>
-              
+
               <button
                 onClick={handleResetZoom}
                 className="px-2 py-1 text-xs font-medium text-[hsl(var(--color-muted-foreground))] hover:text-[hsl(var(--color-foreground))] transition-colors"
-                aria-label={`Zoom: ${Math.round(zoom * 100)}%`}
+                aria-label={t('zoomLevel', { level: Math.round(zoom * 100) })}
               >
                 {Math.round(zoom * 100)}%
               </button>
-              
+
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={handleZoomIn}
                 disabled={zoom >= maxZoom}
-                aria-label="Zoom in"
+                aria-label={t('zoomIn')}
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
@@ -352,23 +354,23 @@ export const FilePreview: React.FC<FilePreviewProps> = ({
                 size="sm"
                 onClick={handlePrevPage}
                 disabled={currentPage <= 1}
-                aria-label="Previous page"
+                aria-label={t('prevPage')}
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
               </Button>
-              
+
               <span className="text-xs text-[hsl(var(--color-muted-foreground))] whitespace-nowrap">
                 {currentPage} / {totalPages}
               </span>
-              
+
               <Button
                 variant="ghost"
                 size="sm"
                 onClick={handleNextPage}
                 disabled={currentPage >= totalPages}
-                aria-label="Next page"
+                aria-label={t('nextPage')}
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -394,7 +396,7 @@ export const FilePreview: React.FC<FilePreviewProps> = ({
           }}
         />
       </div>
-    </div>
+    </div >
   );
 };
 
