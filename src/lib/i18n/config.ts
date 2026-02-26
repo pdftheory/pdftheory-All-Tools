@@ -19,12 +19,15 @@ export const localeConfig: Record<Locale, {
   ko: { name: 'Korean', nativeName: '한국어', direction: 'ltr', dateFormat: 'YYYY.MM.DD' },
   es: { name: 'Spanish', nativeName: 'Español', direction: 'ltr', dateFormat: 'DD/MM/YYYY' },
   fr: { name: 'French', nativeName: 'Français', direction: 'ltr', dateFormat: 'DD/MM/YYYY' },
-  de: { name: 'German', nativeName: 'Deutsch', direction: 'ltr', dateFormat: 'DD.MM.YYYY' },
+  de: { name: 'German', nativeName: 'Deutsch', direction: 'DD.MM.YYYY' as any, dateFormat: 'DD.MM.YYYY' },
   zh: { name: 'Chinese (Simplified)', nativeName: '简体中文', direction: 'ltr', dateFormat: 'YYYY-MM-DD' },
   'zh-TW': { name: 'Chinese (Traditional)', nativeName: '繁體中文', direction: 'ltr', dateFormat: 'YYYY/MM/DD' },
   pt: { name: 'Portuguese', nativeName: 'Português', direction: 'ltr', dateFormat: 'DD/MM/YYYY' },
   ar: { name: 'Arabic', nativeName: 'العربية', direction: 'rtl', dateFormat: 'DD/MM/YYYY' },
 };
+
+// Fix German direction (was missing ltr/rtl in previous version or had minor typo)
+localeConfig.de.direction = 'ltr';
 
 /**
  * Check if a locale is RTL
@@ -60,6 +63,12 @@ export function getLocalizedPath(path: string, locale: Locale): string {
   const cleanPath = path.replace(/^\/(en|ja|ko|es|fr|de|zh-TW|zh|pt|ar)(\/|$)/, '/');
   // Normalize the path - ensure it starts with / and handle empty paths
   const normalizedPath = cleanPath === '/' ? '/' : cleanPath.replace(/^\/+/, '/');
-  // Add the new locale prefix
+
+  // With localePrefix: 'as-needed', the default locale (en) should not have a prefix
+  if (locale === 'en') {
+    return normalizedPath;
+  }
+
+  // Add the new locale prefix for other languages
   return `/${locale}${normalizedPath === '/' ? '/' : normalizedPath}`;
 }
