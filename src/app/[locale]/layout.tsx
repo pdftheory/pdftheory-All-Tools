@@ -8,6 +8,7 @@ import { fontVariables } from '@/lib/fonts';
 import { SkipLink } from '@/components/common/SkipLink';
 import GlobalLayout from '@/components/layout/GlobalLayout';
 import AuthProvider from '@/components/providers/AuthProvider';
+import { ToastProvider } from '@/components/providers/ToastProvider';
 import { CriticalStyles } from '@/components/layout/CriticalStyles';
 
 import Script from 'next/script';
@@ -132,12 +133,14 @@ export default async function LocaleLayout({
         />
         <NextIntlClientProvider messages={sharedMessages as any} locale={locale}>
           <AuthProvider>
-            <div className="min-h-screen flex flex-col">
-              <SkipLink targetId="main-content">Skip to main content</SkipLink>
-              <GlobalLayout locale={locale as any}>
-                {children}
-              </GlobalLayout>
-            </div>
+            <ToastProvider>
+              <div className="min-h-screen flex flex-col">
+                <SkipLink targetId="main-content">Skip to main content</SkipLink>
+                <GlobalLayout locale={locale as any}>
+                  {children}
+                </GlobalLayout>
+              </div>
+            </ToastProvider>
           </AuthProvider>
         </NextIntlClientProvider>
       </body>

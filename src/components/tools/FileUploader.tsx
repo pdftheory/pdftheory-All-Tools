@@ -4,6 +4,8 @@ import React, { useCallback, useRef, useState, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
 import { UploadCloud, File, Plus, X } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
+import { useToast } from '@/hooks/useToast';
+import { validatePdfStructure } from '@/lib/pdf/validation';
 
 export interface FileUploaderProps {
   /** Accepted file types (MIME types or extensions) */
@@ -55,6 +57,7 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
   const [dragCounter, setDragCounter] = useState(0);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const dropZoneRef = useRef<HTMLDivElement>(null);
+  const { error: toastError } = useToast();
 
   // Generate accept string for input element
   const acceptString = accept.join(',');
@@ -62,7 +65,7 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
   /**
    * Validate files against constraints
    */
-  const validateFiles = useCallback((files: File[]): { valid: File[]; errors: string[] } => {
+  const validateFiles = useCallback(async (files: File[]): Promise<{ valid: File[]; errors: string[] }> => {
     const valid: File[] = [];
     const errors: string[] = [];
 
@@ -113,31 +116,45 @@ export const FileUploader: React.FC<FileUploaderProps> = ({
         continue;
       }
 
+      // NEW: Corrupted PDF check (async)
+      if (isPdfByExtension || file.type === 'application/pdf') {
+        const structuralCheck = await validatePdfStructure(file);
+        if (!structuralCheck.valid) {
+          errors.push(tErrors('fileCorrupted') || 'The file appears to be corrupted.');
+          continue;
+        }
+      }
+
       valid.push(file);
     }
 
     return { valid, errors };
-  }, [accept, maxSize, maxFiles, multiple, tErrors]);
+  }, [accept, maxSize, maxFiles, multiple, tErrors, tTool]);
 
   /**
    * Handle file selection
    */
-  const handleFiles = useCallback((files: FileList | File[]) => {
+  const handleFiles = useCallback(async (files: FileList | File[]) => {
     if (disabled) return;
 
     const fileArray = Array.from(files);
     if (fileArray.length === 0) return;
 
-    const { valid, errors } = validateFiles(fileArray);
+    const { valid, errors } = await validateFiles(fileArray);
 
-    if (errors.length > 0 && onError) {
-      onError(errors[0]);
+    if (errors.length > 0) {
+      // Show immediate toast for the first error
+      toastError(errors[0]);
+
+      if (onError) {
+        onError(errors[0]);
+      }
     }
 
     if (valid.length > 0) {
       onFilesSelected(valid);
     }
-  }, [disabled, validateFiles, onError, onFilesSelected]);
+  }, [disabled, validateFiles, onError, onFilesSelected, toastError]);
 
   /**
    * Handle drag enter
