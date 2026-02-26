@@ -145,18 +145,5 @@
         }
       ]
     }
-  ],
-  "redirects": [
-    {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "pdftheory.com"
-        }
-      ],
-      "destination": "https://www.pdftheory.com/:path*",
-      "permanent": true
-    }
   ]
 }
