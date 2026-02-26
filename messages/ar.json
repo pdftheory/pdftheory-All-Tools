@@ -2859,8 +2859,8 @@
       "instantProcessing": "معالجة فورية",
       "values": {
         "fast": {
-          "title": "Lightning Fast",
-          "description": "No server uploads required."
+          "title": "سريع كالبرق",
+          "description": "لا حاجة لرفع الملفات إلى الخادم."
         }
       },
       "workflowImageAlt": "معاينة منشئ سير عمل PDF"
@@ -2878,12 +2878,12 @@
       "benefits": {
         "grid": {
           "secure": {
-            "title": "100% Secure",
-            "description": "Files never leave your device."
+            "title": "آمن 100%",
+            "description": "ملفاتك لا تغادر جهازك أبداً."
           },
           "essay": {
-            "title": "Simple & Easy",
-            "description": "No complex menus or learning curve."
+            "title": "بسيط وسهل",
+            "description": "لا توجد قوائم معقدة أو منحنى تعلم."
           }
         }
       }
@@ -2901,26 +2901,26 @@
       "everywhereDesc": "استخدمه على أي جهاز بمتصفح حديث. سطح المكتب أو الجهاز اللوحي أو الهاتف.",
       "values": {
         "accessible": {
-          "title": "Fully Accessible",
-          "description": "Designed for everyone, everywhere."
+          "title": "سهل الوصول تماماً",
+          "description": "مصمم للجميع في كل مكان."
         },
         "free": {
-          "title": "Free Forever",
-          "description": "No subscriptions or surprise fees."
+          "title": "مجاني للأبد",
+          "description": "لا توجد اشتراكات أو رسوم مفاجئة."
         }
       },
       "benefits": {
         "grid": {
           "group": {
-            "title": "Group Processing"
+            "title": "معالجة جماعية"
           }
         }
       },
       "trust": {
-        "title": "Trust & Security"
+        "title": "الثقة والأمان"
       },
       "mission": {
-        "title": "Our Mission"
+        "title": "مهمتنا"
       }
     },
     "stats": {
@@ -4148,61 +4148,75 @@
       },
       "facts": {
         "boilerplate": {
-          "title": "Company Boilerplate",
-          "content": "pdftheory is the world's leading browser-based PDF utility platform. By processing files locally using WebAssembly technology, pdftheory offers privacy-first document management without uploads or server-side risks. Founded in 2024, the platform provides 110 free tools to millions of users worldwide."
+          "title": "نبذة عن الشركة",
+          "content": "pdftheory هي المنصة الرائدة عالمياً لأدوات PDF المستندة إلى المتصفح. من خلال معالجة الملفات محلياً باستخدام تقنية WebAssembly، تقدم pdftheory إدارة مستندات تركز على الخصوصية دون مخاطر الرفع أو الخادم. تأسست في عام 2024، وتوفر المنصة 110 أداة مجانية لملايين المستخدمين حول العالم."
         },
         "statistics": {
-          "title": "Key Facts & Statistics",
+          "title": "حقائق وإحصائيات رئيسية",
           "labels": {
-            "founded": "Founded",
-            "headquarters": "Headquarters",
-            "coreTech": "Core Technology",
-            "privacyModel": "Privacy Model",
-            "totalTools": "Total Tools",
-            "pricing": "Pricing",
-            "platforms": "Supported Platforms",
-            "registration": "User Registration"
+            "founded": "تأسست في",
+            "headquarters": "المقر الرئيسي",
+            "coreTech": "التقنية الأساسية",
+            "privacyModel": "نموذج الخصوصية",
+            "totalTools": "إجمالي الأدوات",
+            "pricing": "التسعير",
+            "platforms": "المنصات المدعومة",
+            "registration": "تسجيل المستخدم"
           },
           "values": {
             "founded": "2024",
-            "headquarters": "Remote / Global",
+            "headquarters": "عن بعد / عالمي",
             "coreTech": "Client-Side WASM",
-            "privacyModel": "Zero Server Uploads",
+            "privacyModel": "صفر رفع للخوادم",
             "totalTools": "110",
-            "pricing": "100% Free / Open",
-            "platforms": "All Modern Browsers",
-            "registration": "Not Required"
+            "pricing": "مجاني 100% / مفتوح",
+            "platforms": "جميع المتصفحات الحديثة",
+            "registration": "غير مطلوب"
           }
         }
       }
     },
     "featuredIn": "As Featured In",
     "story": {
-      "badge": "Our Story",
-      "title": "About pdftheory",
+      "badge": "قصتنا",
+      "title": "عن pdftheory",
       "cards": {
         "who": {
-          "title": "Who are we?",
-          "desc": "pdftheory is a forward-thinking software collective dedicated to building the web's most powerful privacy-first document tools. We are a team of engineers passionate about open web technologies."
+          "title": "من نحن؟",
+          "desc": "pdftheory هي مجموعة برمجيات متطلعة مكرسة لبناء أقوى أدوات المستندات في الويب مع التركيز على الخصوصية. نحن فريق من المهندسين الشغوفين بتقنيات الويب المفتوحة."
         },
         "what": {
-          "title": "What do we do?",
-          "desc": "We engineer high-performance, client-side PDF utilities that run entirely in your browser using advanced WebAssembly. We simplify complex document tasks without expensive software."
+          "title": "ماذا نفعل؟",
+          "desc": "نحن نهندس أدوات PDF عالية الأداء تعمل بالكامل في متصفحك باستخدام تقنيات WebAssembly المتقدمة. نحن نبسط مهام المستندات المعقدة دون الكلفة الباهظة للبرمجيات."
         },
         "global": {
-          "title": "Helping People Globally",
-          "desc": "pdftheory is designed to be fast, reliable, and secure, handling everything from everyday document tasks to large-scale workflows."
+          "title": "نساعد الناس عالمياً",
+          "desc": "تم تصميم pdftheory ليكون سريعاً وموثوقاً وآمناً، ويتعامل مع كل شيء بدءاً من مهام المستندات اليومية وصولاً إلى سير العمل واسع النطاق."
         },
         "privacy": {
-          "title": "Privacy at the Core",
-          "desc": "We believe utility shouldn't cost privacy. Our Zero-Upload architecture means we never see, store, or touch your documents—they stay on your device, always."
+          "title": "الخصوصية في الجوهر",
+          "desc": "نحن نؤمن بأن المنفعة يجب ألا تأتي على حساب الخصوصية. تعني بنية 'عدم الرفع' لدينا أننا لا نرى أو نخزن أو نلمس مستنداتك أبداً - فهي تبقى على جهازك دائماً."
         }
       }
     },
     "contact": {
-      "title": "Media Inquiries",
-      "subtitle": "For interviews, detailed specs, or specific asset requests.",
-      "button": "Contact Press Relations"
+      "title": "استفسارات إعلامية",
+      "subtitle": "للمقابلات، المواصفات التفصيلية، أو طلبات الأصول المحددة.",
+      "button": "اتصل بالعلاقات الصحفية"
     }
+  },
+  "sourceCode": {
+    "title": "الكود المصدري",
+    "tagline": "PDFTheory مبني على الشفافية والخصوصية في جوهره.",
+    "fileTitle": "pdftheory.zip",
+    "fileDesc": "الكود المصدري الكامل للمشروع",
+    "privacyTitle": "تركيز على الخصوصية",
+    "privacyDesc": "تحقق من أن جميع المعالجات تتم محلياً.",
+    "architectureTitle": "بنية مفتوحة",
+    "architectureDesc": "افهم كيف تم دمج Next.js و PDF.js.",
+    "downloadButton": "تحميل الكود المصدري",
+    "licenseNotice": "بالتحميل، أنت توافق على رخصة AGPL-3.0.",
+    "licenseTitle": "مرخص تحت رخصة AGPL-3.0",
+    "licenseDesc": "حر كالكلام وحر كالبيرة. خصوصيتك مضمونة بشفافية المصدر المفتوح."
   }
 }

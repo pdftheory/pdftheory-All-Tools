@@ -3011,8 +3011,8 @@
       "instantProcessing": "Processamento Instantâneo",
       "values": {
         "fast": {
-          "title": "Lightning Fast",
-          "description": "No server uploads required."
+          "title": "Trabalho Instantâneo",
+          "description": "Sem necessidade de uploads no servidor."
         }
       },
       "workflowImageAlt": "Prévia do Construtor de Fluxo de Trabalho PDF"
@@ -3030,12 +3030,12 @@
       "benefits": {
         "grid": {
           "secure": {
-            "title": "100% Secure",
-            "description": "Files never leave your device."
+            "title": "100% Seguro",
+            "description": "Os arquivos nunca saem do seu dispositivo."
           },
           "essay": {
-            "title": "Simple & Easy",
-            "description": "No complex menus or learning curve."
+            "title": "Simples e Fácil",
+            "description": "Sem menus complexos ou curva de aprendizado."
           }
         }
       }
@@ -3053,26 +3053,26 @@
       "everywhereDesc": "Use em qualquer dispositivo com um navegador moderno. Desktop, tablet ou celular.",
       "values": {
         "accessible": {
-          "title": "Fully Accessible",
-          "description": "Designed for everyone, everywhere."
+          "title": "Totalmente Acessível",
+          "description": "Projetado para todos, em qualquer lugar."
         },
         "free": {
-          "title": "Free Forever",
-          "description": "No subscriptions or surprise fees."
+          "title": "Gratuito para Sempre",
+          "description": "Sem assinaturas ou taxas surpresa."
         }
       },
       "benefits": {
         "grid": {
           "group": {
-            "title": "Group Processing"
+            "title": "Processamento em Lote"
           }
         }
       },
       "trust": {
-        "title": "Trust & Security"
+        "title": "Confiança e Segurança"
       },
       "mission": {
-        "title": "Our Mission"
+        "title": "Nossa Missão"
       }
     },
     "stats": {
@@ -3101,11 +3101,11 @@
     "phone": "Telefone",
     "mailingAddress": "Endereço postal",
     "termsAndConditions": "Termos e condições",
-    "youProvide": "Information you provide to us directly:",
-    "automaticallyCollected": "Information collected automatically via the service:",
-    "filesYouProcess": "Files You Process",
-    "importantPrivacy": "Important Privacy Information",
-    "localProcessing": "Files are processed locally in your browser and never leave your device.",
+    "youProvide": "Informações que você nos fornece diretamente:",
+    "automaticallyCollected": "Informações coletadas automaticamente via serviço:",
+    "filesYouProcess": "Arquivos que você processa",
+    "importantPrivacy": "Informações de privacidade importantes",
+    "localProcessing": "Os arquivos são processados localmente no seu navegador e nunca deixam o seu dispositivo.",
     "cookieType": "Cookie Type",
     "purpose": "Purpose",
     "essentialCookies": "Essential",
@@ -3138,7 +3138,7 @@
           "Endereço IP: coletado para fins de análise e segurança.",
           "Cookies: conforme descrito em nossa Política de cookies."
         ],
-        "noUploadGuarantee": "Your files are <strong>never uploaded</strong> to our servers."
+        "noUploadGuarantee": "Seus arquivos <strong>nunca são enviados</strong> para nossos servidores."
       },
       "s2": {
         "title": "2. Como usamos suas informações",
@@ -3205,7 +3205,7 @@
           "Você pode optar por não receber anúncios personalizados através das configurações de anúncios do Google ou das configurações do seu dispositivo.",
           "Usamos o Google Analytics para entender como os visitantes usam nosso Serviço."
         ],
-        "optOut": "You can opt-out of personalized advertising by visiting the <link1>DAA Consumer Choice Page</link1> or the <link2>NAI Opt-Out Page</link2>."
+        "optOut": "Você pode desativar a publicidade personalizada visitando a <link1>DAA Consumer Choice Page</link1> ou a <link2>NAI Opt-Out Page</link2>."
       },
       "s11": {
         "title": "11. Divulgação da licença AGPL-3.0",
@@ -4265,10 +4265,10 @@
   },
   "press": {
     "hero": {
-      "badge": "Official Media Resources",
-      "title": "Tell the <blue>pdftheory</blue> Story",
-      "subtitle": "Access official brand assets, high-fidelity product mockups, and the latest news about our privacy-first browser technology.",
-      "cta": "Open Digital Press Kit"
+      "badge": "Recursos Oficiais de Mídia",
+      "title": "Conte a história do <blue>pdftheory</blue>",
+      "subtitle": "Acesse ativos oficiais da marca, mockups de produtos de alta fidelidade e as últimas notícias sobre nossa tecnologia de navegador focada em privacidade.",
+      "cta": "Abrir Kit de Imprensa Digital"
     },
     "kit": {
       "title": "Digital Press Kit",
@@ -4300,61 +4300,75 @@
       },
       "facts": {
         "boilerplate": {
-          "title": "Company Boilerplate",
-          "content": "pdftheory is the world's leading browser-based PDF utility platform. By processing files locally using WebAssembly technology, pdftheory offers privacy-first document management without uploads or server-side risks. Founded in 2024, the platform provides 110 free tools to millions of users worldwide."
+          "title": "Boilerplate da Empresa",
+          "content": "pdftheory é a plataforma líder mundial de utilitários PDF baseada em navegador. Ao processar arquivos localmente usando a tecnologia WebAssembly, o pdftheory oferece gerenciamento de documentos focado na privacidade sem uploads ou riscos no servidor. Fundada em 2024, a plataforma fornece 110 ferramentas gratuitas para milhões de usuários em todo o mundo."
         },
         "statistics": {
-          "title": "Key Facts & Statistics",
+          "title": "Principais fatos e estatísticas",
           "labels": {
-            "founded": "Founded",
-            "headquarters": "Headquarters",
-            "coreTech": "Core Technology",
-            "privacyModel": "Privacy Model",
-            "totalTools": "Total Tools",
-            "pricing": "Pricing",
-            "platforms": "Supported Platforms",
-            "registration": "User Registration"
+            "founded": "Fundação",
+            "headquarters": "Sede",
+            "coreTech": "Tecnologia Principal",
+            "privacyModel": "Modelo de Privacidade",
+            "totalTools": "Total de Ferramentas",
+            "pricing": "Preço",
+            "platforms": "Plataformas Suportadas",
+            "registration": "Registro de Usuário"
           },
           "values": {
             "founded": "2024",
-            "headquarters": "Remote / Global",
-            "coreTech": "Client-Side WASM",
-            "privacyModel": "Zero Server Uploads",
+            "headquarters": "Remoto / Global",
+            "coreTech": "WASM Client-Side",
+            "privacyModel": "Zero uploads para o servidor",
             "totalTools": "110",
-            "pricing": "100% Free / Open",
-            "platforms": "All Modern Browsers",
-            "registration": "Not Required"
+            "pricing": "100% Grátis / Aberto",
+            "platforms": "Todos os navegadores modernos",
+            "registration": "Não obrigatório"
           }
         }
       }
     },
-    "featuredIn": "As Featured In",
+    "featuredIn": "Destaque em",
     "story": {
-      "badge": "Our Story",
-      "title": "About pdftheory",
+      "badge": "Nossa História",
+      "title": "Sobre o pdftheory",
       "cards": {
         "who": {
-          "title": "Who are we?",
-          "desc": "pdftheory is a forward-thinking software collective dedicated to building the web's most powerful privacy-first document tools. We are a team of engineers passionate about open web technologies."
+          "title": "Quem somos?",
+          "desc": "pdftheory é um coletivo de software inovador dedicado a construir as ferramentas de documentos mais poderosas e seguras da web."
         },
         "what": {
-          "title": "What do we do?",
-          "desc": "We engineer high-performance, client-side PDF utilities that run entirely in your browser using advanced WebAssembly. We simplify complex document tasks without expensive software."
+          "title": "O que fazemos?",
+          "desc": "Desenvolvemos utilitários PDF de alto desempenho que rodam inteiramente no seu navegador usando WebAssembly avançado."
         },
         "global": {
-          "title": "Helping People Globally",
-          "desc": "pdftheory is designed to be fast, reliable, and secure, handling everything from everyday document tasks to large-scale workflows."
+          "title": "Ajudando pessoas globalmente",
+          "desc": "O pdftheory foi projetado para ser rápido, confiável e seguro, lidando com tarefas simples e fluxos de trabalho complexos."
         },
         "privacy": {
-          "title": "Privacy at the Core",
-          "desc": "We believe utility shouldn't cost privacy. Our Zero-Upload architecture means we never see, store, or touch your documents—they stay on your device, always."
+          "title": "Privacidade no Coração",
+          "desc": "Acreditamos que a utilidade não deve custar a privacidade. Nossa arquitetura 'Zero-Upload' garante que seus documentos permaneçam no seu dispositivo."
         }
       }
     },
     "contact": {
-      "title": "Media Inquiries",
-      "subtitle": "For interviews, detailed specs, or specific asset requests.",
-      "button": "Contact Press Relations"
+      "title": "Consultas de Mídia",
+      "subtitle": "Para entrevistas, especificações detalhadas ou solicitações de ativos específicos, entre em contato aqui.",
+      "button": "Contatar Relações com a Imprensa"
     }
+  },
+  "sourceCode": {
+    "title": "Código Fonte",
+    "tagline": "O PDFTheory foi construído com transparência e privacidade em seu núcleo.",
+    "fileTitle": "pdftheory.zip",
+    "fileDesc": "Código-fonte completo do projeto",
+    "privacyTitle": "Foco na Privacidade",
+    "privacyDesc": "Verifique se todo o processamento ocorre localmente.",
+    "architectureTitle": "Arquitetura Aberta",
+    "architectureDesc": "Entenda como o Next.js e o PDF.js estão integrados.",
+    "downloadButton": "Baixar Código Fonte",
+    "licenseNotice": "Ao baixar, você concorda com a licença AGPL-3.0.",
+    "licenseTitle": "Licenciado sob AGPL-3.0",
+    "licenseDesc": "Grátis como em liberdade de expressão e cerveja grátis. Sua privacidade é garantida pela transparência do código aberto."
   }
 }

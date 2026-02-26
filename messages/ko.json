@@ -3011,8 +3011,8 @@
       "instantProcessing": "즉시 처리",
       "values": {
         "fast": {
-          "title": "Lightning Fast",
-          "description": "No server uploads required."
+          "title": "번개처럼 빠른 속도",
+          "description": "서버 업로드가 필요하지 않습니다."
         }
       },
       "workflowImageAlt": "PDF 워크플로우 빌더 미리보기"
@@ -3030,12 +3030,12 @@
       "benefits": {
         "grid": {
           "secure": {
-            "title": "100% Secure",
-            "description": "Files never leave your device."
+            "title": "100% 안전",
+            "description": "파일이 귀하의 기기를 떠나지 않습니다."
           },
           "essay": {
-            "title": "Simple & Easy",
-            "description": "No complex menus or learning curve."
+            "title": "심플 & 이지",
+            "description": "복잡한 메뉴나 학습 곡선이 없습니다."
           }
         }
       }
@@ -3053,26 +3053,26 @@
       "everywhereDesc": "모던 브라우저가 있는 모든 기기에서 사용 가능. 데스크톱, 태블릿 또는 모바일.",
       "values": {
         "accessible": {
-          "title": "Fully Accessible",
-          "description": "Designed for everyone, everywhere."
+          "title": "완벽한 접근성",
+          "description": "모든 곳의 모든 사람을 위해 설계되었습니다."
         },
         "free": {
-          "title": "Free Forever",
-          "description": "No subscriptions or surprise fees."
+          "title": "영원히 무료",
+          "description": "구독료나 예기치 않은 비용이 없습니다."
         }
       },
       "benefits": {
         "grid": {
           "group": {
-            "title": "Group Processing"
+            "title": "일괄 처리"
           }
         }
       },
       "trust": {
-        "title": "Trust & Security"
+        "title": "신뢰 및 보안"
       },
       "mission": {
-        "title": "Our Mission"
+        "title": "우리의 미션"
       }
     },
     "stats": {
@@ -3101,11 +3101,11 @@
     "phone": "전화",
     "mailingAddress": "우편 주소",
     "termsAndConditions": "이용약관",
-    "youProvide": "Information you provide to us directly:",
-    "automaticallyCollected": "Information collected automatically via the service:",
-    "filesYouProcess": "Files You Process",
-    "importantPrivacy": "Important Privacy Information",
-    "localProcessing": "Files are processed locally in your browser and never leave your device.",
+    "youProvide": "귀하가 직접 제공하는 정보:",
+    "automaticallyCollected": "서비스를 통해 자동으로 수집되는 정보:",
+    "filesYouProcess": "처리하는 파일",
+    "importantPrivacy": "중요한 개인정보 보호 정보",
+    "localProcessing": "파일은 브라우저에서 로컬로 처리되며 귀하의 기기를 떠나지 않습니다.",
     "cookieType": "Cookie Type",
     "purpose": "Purpose",
     "essentialCookies": "Essential",
@@ -3138,7 +3138,7 @@
           "IP 주소: 분석 및 보안 목적으로 수집.",
           "쿠키: 당사의 쿠키 정책에 설명된 대로."
         ],
-        "noUploadGuarantee": "Your files are <strong>never uploaded</strong> to our servers."
+        "noUploadGuarantee": "파일은 서버에 <strong>절대 업로드되지 않습니다</strong>."
       },
       "s2": {
         "title": "2. 정보 사용 방법",
@@ -3205,7 +3205,7 @@
           "Google 광고 설정 또는 기기 설정을 통해 개인화 광고를 거부할 수 있습니다.",
           "당사는 방문자가 서비스를 어떻게 사용하는지 이해하기 위해 Google Analytics를 사용합니다."
         ],
-        "optOut": "You can opt-out of personalized advertising by visiting the <link1>DAA Consumer Choice Page</link1> or the <link2>NAI Opt-Out Page</link2>."
+        "optOut": "<link1>DAA Consumer Choice Page</link1> 또는 <link2>NAI Opt-Out Page</link2>를 방문하여 개인화 광고를 거부할 수 있습니다."
       },
       "s11": {
         "title": "11. AGPL-3.0 라이선스 공개",
@@ -4265,10 +4265,10 @@
   },
   "press": {
     "hero": {
-      "badge": "Official Media Resources",
-      "title": "Tell the <blue>pdftheory</blue> Story",
-      "subtitle": "Access official brand assets, high-fidelity product mockups, and the latest news about our privacy-first browser technology.",
-      "cta": "Open Digital Press Kit"
+      "badge": "공식 미디어 리소스",
+      "title": "<blue>pdftheory</blue>의 이야기",
+      "subtitle": "공식 브랜드 자산, 고품질 제품 목업, 개인정보 보호 중심 브라우저 기술에 대한 최신 뉴스를 확인하세요.",
+      "cta": "디지털 프레스 키트 열기"
     },
     "kit": {
       "title": "Digital Press Kit",
@@ -4300,61 +4300,75 @@
       },
       "facts": {
         "boilerplate": {
-          "title": "Company Boilerplate",
-          "content": "pdftheory is the world's leading browser-based PDF utility platform. By processing files locally using WebAssembly technology, pdftheory offers privacy-first document management without uploads or server-side risks. Founded in 2024, the platform provides 110 free tools to millions of users worldwide."
+          "title": "회사 개요",
+          "content": "pdftheory는 세계 최고의 브라우저 기반 PDF 유틸리티 플랫폼입니다. WebAssembly 기술을 사용하여 파일을 로컬에서 처리함으로써 pdftheory는 업로드나 서버 측 리스크 없이 개인정보 보호를 최우선으로 하는 문서 관리를 제공합니다. 2024년에 설립된 이 플랫폼은 전 세계 수백만 명의 사용자에게 110개의 무료 도구를 제공합니다."
         },
         "statistics": {
-          "title": "Key Facts & Statistics",
+          "title": "주요 사실 및 통계",
           "labels": {
-            "founded": "Founded",
-            "headquarters": "Headquarters",
-            "coreTech": "Core Technology",
-            "privacyModel": "Privacy Model",
-            "totalTools": "Total Tools",
-            "pricing": "Pricing",
-            "platforms": "Supported Platforms",
-            "registration": "User Registration"
+            "founded": "설립",
+            "headquarters": "본사",
+            "coreTech": "핵심 기술",
+            "privacyModel": "개인정보 보호 모델",
+            "totalTools": "총 도구 수",
+            "pricing": "가격",
+            "platforms": "지원 플랫폼",
+            "registration": "사용자 등록"
           },
           "values": {
-            "founded": "2024",
-            "headquarters": "Remote / Global",
-            "coreTech": "Client-Side WASM",
-            "privacyModel": "Zero Server Uploads",
+            "founded": "2024년",
+            "headquarters": "원격 / 글로벌",
+            "coreTech": "클라이언트 사이드 WASM",
+            "privacyModel": "서버 업로드 제로",
             "totalTools": "110",
-            "pricing": "100% Free / Open",
-            "platforms": "All Modern Browsers",
-            "registration": "Not Required"
+            "pricing": "100% 무료 / 오픈",
+            "platforms": "모든 최신 브라우저",
+            "registration": "불필요"
           }
         }
       }
     },
-    "featuredIn": "As Featured In",
+    "featuredIn": "보도 내역",
     "story": {
-      "badge": "Our Story",
-      "title": "About pdftheory",
+      "badge": "우리의 스토리",
+      "title": "pdftheory 소개",
       "cards": {
         "who": {
-          "title": "Who are we?",
-          "desc": "pdftheory is a forward-thinking software collective dedicated to building the web's most powerful privacy-first document tools. We are a team of engineers passionate about open web technologies."
+          "title": "우리는 누구인가요?",
+          "desc": "pdftheory는 웹에서 가장 강력한 개인정보 보호 중심 문서 도구를 구축하는 데 전념하는 미래 지향적인 소프트웨어 컬렉티브입니다."
         },
         "what": {
-          "title": "What do we do?",
-          "desc": "We engineer high-performance, client-side PDF utilities that run entirely in your browser using advanced WebAssembly. We simplify complex document tasks without expensive software."
+          "title": "우리는 무엇을 하나요?",
+          "desc": "고급 WebAssembly를 사용하여 브라우저에서 완전히 실행되는 고성능 클라이언트 사이드 PDF 유틸리티를 설계합니다."
         },
         "global": {
-          "title": "Helping People Globally",
-          "desc": "pdftheory is designed to be fast, reliable, and secure, handling everything from everyday document tasks to large-scale workflows."
+          "title": "전 세계 사람들 지원",
+          "desc": "pdftheory는 일상적인 문서 작업부터 대규모 워크플로우까지 모두 처리할 수 있도록 빠르고 안정적이며 안전하게 설계되었습니다."
         },
         "privacy": {
-          "title": "Privacy at the Core",
-          "desc": "We believe utility shouldn't cost privacy. Our Zero-Upload architecture means we never see, store, or touch your documents—they stay on your device, always."
+          "title": "개인정보 보호 핵심",
+          "desc": "우리는 유용성이 개인정보를 희생해서는 안 된다고 믿습니다. '제로 업로드' 아키텍처는 귀하의 문서가 귀하의 기기를 떠나지 않음을 보장합니다."
         }
       }
     },
     "contact": {
-      "title": "Media Inquiries",
-      "subtitle": "For interviews, detailed specs, or specific asset requests.",
-      "button": "Contact Press Relations"
+      "title": "미디어 문의",
+      "subtitle": "인터뷰, 상세 사양 또는 특정 자산 요청은 여기로 문의해 주세요.",
+      "button": "홍보 담당자에게 연락하기"
     }
+  },
+  "sourceCode": {
+    "title": "소스 코드",
+    "tagline": "PDFTheory는 투명성과 개인정보 보호를 핵심 가치로 구축되었습니다.",
+    "fileTitle": "pdftheory.zip",
+    "fileDesc": "전체 프로젝트 소스 코드",
+    "privacyTitle": "개인정보 보호 중심",
+    "privacyDesc": "모든 처리가 로컬에서 이루어지는지 확인하세요.",
+    "architectureTitle": "개방형 아키텍처",
+    "architectureDesc": "Next.js와 PDF.js가 어떻게 통합되었는지 이해하세요.",
+    "downloadButton": "소스 코드 다운로드",
+    "licenseNotice": "다운로드하면 AGPL-3.0 라이선스에 동의하는 것으로 간주됩니다.",
+    "licenseTitle": "AGPL-3.0 라이선스",
+    "licenseDesc": "언론의 자유와 무료 맥주처럼 무료입니다. 귀하의 개인정보는 오픈 소스의 투명성을 통해 보장됩니다."
   }
 }

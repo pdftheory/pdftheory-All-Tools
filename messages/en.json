@@ -4151,5 +4151,19 @@
       "subtitle": "For interviews, detailed specs, or specific asset requests.",
       "button": "Contact Press Relations"
     }
+  },
+  "sourceCode": {
+    "title": "Source Code",
+    "tagline": "PDFTheory is built with transparency and privacy at its core.",
+    "fileTitle": "pdftheory.zip",
+    "fileDesc": "Full project source code",
+    "privacyTitle": "Privacy Focused",
+    "privacyDesc": "Verify that all processing happens locally.",
+    "architectureTitle": "Open Architecture",
+    "architectureDesc": "Understand how Next.js and PDF.js are integrated.",
+    "downloadButton": "Download Source Code",
+    "licenseNotice": "By downloading, you agree to the AGPL-3.0 License.",
+    "licenseTitle": "AGPL-3.0 Licensed",
+    "licenseDesc": "Free as in speech and beer. Your privacy is guaranteed by open source transparency."
   }
 }

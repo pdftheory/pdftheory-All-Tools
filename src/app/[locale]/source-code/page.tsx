@@ -9,16 +9,17 @@ import { AdUnit } from '@/components/ads/AdUnit';
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = await params;
-    const t = await getTranslations({ locale, namespace: 'metadata' });
+    const t = await getTranslations({ locale, namespace: 'sourceCode' });
     return {
-        title: `Source Code | PDFTheory`,
-        description: 'Download the source code for PDFTheory. Professional PDF tools built with privacy and transparency in mind.',
+        title: `${t('title')} | PDFTheory`,
+        description: t('tagline'),
     };
 }
 
 export default async function SourceCodePage({ params }: { params: Promise<{ locale: string }> }) {
     const { locale } = await params;
     const tCommon = await getTranslations('common');
+    const t = await getTranslations('sourceCode');
 
     return (
         <div className="min-h-[80vh] flex flex-col items-center justify-center px-4 py-8 bg-gradient-to-b from-[hsl(var(--color-background))] to-[hsl(var(--color-muted)/0.3)]">
@@ -40,10 +41,10 @@ export default async function SourceCodePage({ params }: { params: Promise<{ loc
                 {/* Hero Section */}
                 <div className="text-center space-y-2">
                     <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl text-[hsl(var(--color-foreground))]">
-                        Source Code
+                        {t('title')}
                     </h1>
                     <p className="text-xl text-[hsl(var(--color-muted-foreground))]">
-                        PDFTheory is built with transparency and privacy at its core.
+                        {t('tagline')}
                     </p>
                 </div>
 
@@ -58,9 +59,9 @@ export default async function SourceCodePage({ params }: { params: Promise<{ loc
                                 <FileArchive size={32} />
                             </div>
                             <div>
-                                <h2 className="text-xl font-bold">pdftheory.zip</h2>
+                                <h2 className="text-xl font-bold">{t('fileTitle')}</h2>
                                 <p className="text-sm text-[hsl(var(--color-muted-foreground))] font-mono">
-                                    Full project source code
+                                    {t('fileDesc')}
                                 </p>
                             </div>
                         </div>
@@ -71,8 +72,8 @@ export default async function SourceCodePage({ params }: { params: Promise<{ loc
                                     <Shield size={18} />
                                 </div>
                                 <div>
-                                    <h3 className="font-semibold text-sm">Privacy Focused</h3>
-                                    <p className="text-xs text-[hsl(var(--color-muted-foreground))]">Verify that all processing happens locally.</p>
+                                    <h3 className="font-semibold text-sm">{t('privacyTitle')}</h3>
+                                    <p className="text-xs text-[hsl(var(--color-muted-foreground))]">{t('privacyDesc')}</p>
                                 </div>
                             </div>
                             <div className="flex items-start gap-3">
@@ -80,8 +81,8 @@ export default async function SourceCodePage({ params }: { params: Promise<{ loc
                                     <Code size={18} />
                                 </div>
                                 <div>
-                                    <h3 className="font-semibold text-sm">Open Architecture</h3>
-                                    <p className="text-xs text-[hsl(var(--color-muted-foreground))]">Understand how Next.js and PDF.js are integrated.</p>
+                                    <h3 className="font-semibold text-sm">{t('architectureTitle')}</h3>
+                                    <p className="text-xs text-[hsl(var(--color-muted-foreground))]">{t('architectureDesc')}</p>
                                 </div>
                             </div>
                         </div>
@@ -94,13 +95,13 @@ export default async function SourceCodePage({ params }: { params: Promise<{ loc
                             >
                                 <Button variant="primary" size="lg" className="w-full gap-3 h-14 text-lg font-bold shadow-lg hover:shadow-primary/20 transition-all active:scale-[0.98]">
                                     <Download size={22} />
-                                    Download Source Code
+                                    {t('downloadButton')}
                                 </Button>
                             </a>
 
                             <div className="text-center">
                                 <p className="text-xs text-[hsl(var(--color-muted-foreground))]">
-                                    By downloading, you agree to the AGPL-3.0 License.
+                                    {t('licenseNotice')}
                                 </p>
                             </div>
                         </div>
@@ -117,8 +118,8 @@ export default async function SourceCodePage({ params }: { params: Promise<{ loc
                             <Shield size={20} />
                         </div>
                         <div>
-                            <p className="text-sm font-semibold">AGPL-3.0 Licensed</p>
-                            <p className="text-xs text-[hsl(var(--color-muted-foreground))]">Free as in speech and beer. Your privacy is guaranteed by open source transparency.</p>
+                            <p className="text-sm font-semibold">{t('licenseTitle')}</p>
+                            <p className="text-xs text-[hsl(var(--color-muted-foreground))]">{t('licenseDesc')}</p>
                         </div>
                     </div>
                 </div>

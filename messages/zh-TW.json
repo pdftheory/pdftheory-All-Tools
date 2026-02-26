@@ -2782,8 +2782,8 @@
       "instantProcessing": "即時處理",
       "values": {
         "fast": {
-          "title": "Lightning Fast",
-          "description": "No server uploads required."
+          "title": "極速處理",
+          "description": "無需上傳到伺服器。"
         }
       },
       "workflowImageAlt": "PDF工作流程建構器預覽"
@@ -2801,12 +2801,12 @@
       "benefits": {
         "grid": {
           "secure": {
-            "title": "100% Secure",
-            "description": "Files never leave your device."
+            "title": "100% 安全",
+            "description": "文件絕不會離開您的設備。"
           },
           "essay": {
-            "title": "Simple & Easy",
-            "description": "No complex menus or learning curve."
+            "title": "簡單易用",
+            "description": "沒有複雜的菜單或學習曲線。"
           }
         }
       }
@@ -2824,26 +2824,26 @@
       "everywhereDesc": "在任何使用現代瀏覽器的裝置上使用。桌面、平板或手機。",
       "values": {
         "accessible": {
-          "title": "Fully Accessible",
-          "description": "Designed for everyone, everywhere."
+          "title": "無障礙訪問",
+          "description": "專為每一個人、每一個地方設計。"
         },
         "free": {
-          "title": "Free Forever",
-          "description": "No subscriptions or surprise fees."
+          "title": "永久免費",
+          "description": "沒有訂閱費或隱藏費用。"
         }
       },
       "benefits": {
         "grid": {
           "group": {
-            "title": "Group Processing"
+            "title": "批量處理"
           }
         }
       },
       "trust": {
-        "title": "Trust & Security"
+        "title": "信任與安全"
       },
       "mission": {
-        "title": "Our Mission"
+        "title": "我們的使命"
       }
     },
     "stats": {
@@ -2872,11 +2872,11 @@
     "phone": "電話",
     "mailingAddress": "郵寄地址",
     "termsAndConditions": "條款與條件",
-    "youProvide": "Information you provide to us directly:",
-    "automaticallyCollected": "Information collected automatically via the service:",
-    "filesYouProcess": "Files You Process",
-    "importantPrivacy": "Important Privacy Information",
-    "localProcessing": "Files are processed locally in your browser and never leave your device.",
+    "youProvide": "您直接提供給我們的資訊：",
+    "automaticallyCollected": "通過服務自動收集的資訊：",
+    "filesYouProcess": "您處理的文件",
+    "importantPrivacy": "重要隱私信息",
+    "localProcessing": "文件在您的瀏覽器中本地處理，絕不會離開您的設備。",
     "cookieType": "Cookie Type",
     "purpose": "Purpose",
     "essentialCookies": "Essential",
@@ -2909,7 +2909,7 @@
           "IP 位址：出於分析和安全目的收集。",
           "Cookie：如我們的 Cookie 政策所述。"
         ],
-        "noUploadGuarantee": "Your files are <strong>never uploaded</strong> to our servers."
+        "noUploadGuarantee": "您的文件<strong>絕不會被上傳</strong>到我們的伺服器。"
       },
       "s2": {
         "title": "2. 我們如何使用您的資訊",
@@ -2976,7 +2976,7 @@
           "您可以透過 Google 廣告設定或裝置設定選擇退出個人化廣告。",
           "我們使用 Google Analytics 了解訪客如何使用我們的服務。"
         ],
-        "optOut": "You can opt-out of personalized advertising by visiting the <link1>DAA Consumer Choice Page</link1> or the <link2>NAI Opt-Out Page</link2>."
+        "optOut": "您可以通過訪問 <link1>DAA 消費者選擇頁面</link1> 或 <link2>NAI 退出頁面</link2> 退出個人化廣告。"
       },
       "s11": {
         "title": "11. AGPL-3.0 授權聲明",
@@ -4036,10 +4036,10 @@
   },
   "press": {
     "hero": {
-      "badge": "Official Media Resources",
-      "title": "Tell the <blue>pdftheory</blue> Story",
-      "subtitle": "Access official brand assets, high-fidelity product mockups, and the latest news about our privacy-first browser technology.",
-      "cta": "Open Digital Press Kit"
+      "badge": "官方媒體資源",
+      "title": "講述 <blue>pdftheory</blue> 的故事",
+      "subtitle": "訪問官方品牌資產、高傳真產品模型以及關於我們隱私優先瀏覽器技術的最新動態。",
+      "cta": "打開數位新聞包"
     },
     "kit": {
       "title": "Digital Press Kit",
@@ -4071,61 +4071,75 @@
       },
       "facts": {
         "boilerplate": {
-          "title": "Company Boilerplate",
-          "content": "pdftheory is the world's leading browser-based PDF utility platform. By processing files locally using WebAssembly technology, pdftheory offers privacy-first document management without uploads or server-side risks. Founded in 2024, the platform provides 110 free tools to millions of users worldwide."
+          "title": "公司簡介",
+          "content": "pdftheory 是全求領先的基於瀏覽器的 PDF 工具平台。通過使用 WebAssembly 技術在本地處理文件，pdftheory 提供隱私優先的文檔管理，無需上傳，也沒有伺服器端風險。該平台成立於 2024 年，為全球數百萬用戶提供 110 種免費工具。"
         },
         "statistics": {
-          "title": "Key Facts & Statistics",
+          "title": "關鍵事實與統計",
           "labels": {
-            "founded": "Founded",
-            "headquarters": "Headquarters",
-            "coreTech": "Core Technology",
-            "privacyModel": "Privacy Model",
-            "totalTools": "Total Tools",
-            "pricing": "Pricing",
-            "platforms": "Supported Platforms",
-            "registration": "User Registration"
+            "founded": "成立時間",
+            "headquarters": "總部",
+            "coreTech": "核心技術",
+            "privacyModel": "隱私模型",
+            "totalTools": "工具總數",
+            "pricing": "定價",
+            "platforms": "支持平台",
+            "registration": "用戶註冊"
           },
           "values": {
             "founded": "2024",
-            "headquarters": "Remote / Global",
-            "coreTech": "Client-Side WASM",
-            "privacyModel": "Zero Server Uploads",
+            "headquarters": "遠端 / 全球",
+            "coreTech": "用戶端 WASM",
+            "privacyModel": "零伺服器上傳",
             "totalTools": "110",
-            "pricing": "100% Free / Open",
-            "platforms": "All Modern Browsers",
-            "registration": "Not Required"
+            "pricing": "100% 免費 / 開源",
+            "platforms": "所有現代瀏覽器",
+            "registration": "無需註冊"
           }
         }
       }
     },
-    "featuredIn": "As Featured In",
+    "featuredIn": "媒體報導",
     "story": {
-      "badge": "Our Story",
-      "title": "About pdftheory",
+      "badge": "我們的故事",
+      "title": "關於 pdftheory",
       "cards": {
         "who": {
-          "title": "Who are we?",
-          "desc": "pdftheory is a forward-thinking software collective dedicated to building the web's most powerful privacy-first document tools. We are a team of engineers passionate about open web technologies."
+          "title": "我們是誰？",
+          "desc": "pdftheory 是一個具有前瞻性的軟體集體，致力於構建網路上最強大的隱私優先文檔工具。"
         },
         "what": {
-          "title": "What do we do?",
-          "desc": "We engineer high-performance, client-side PDF utilities that run entirely in your browser using advanced WebAssembly. We simplify complex document tasks without expensive software."
+          "title": "我們在做什麼？",
+          "desc": "我們使用先進的 WebAssembly 技術開發高性能的用戶端 PDF 工具，完全在您的瀏覽器中運行。"
         },
         "global": {
-          "title": "Helping People Globally",
-          "desc": "pdftheory is designed to be fast, reliable, and secure, handling everything from everyday document tasks to large-scale workflows."
+          "title": "幫助全球用戶",
+          "desc": "pdftheory 旨在提供快速、可靠且安全的處理，能夠應對從日常文檔任務到大規模工作流程的一切需求。"
         },
         "privacy": {
-          "title": "Privacy at the Core",
-          "desc": "We believe utility shouldn't cost privacy. Our Zero-Upload architecture means we never see, store, or touch your documents—they stay on your device, always."
+          "title": "隱私為核心",
+          "desc": "我們相信實用性不應以犧牲隱私為代價。我們的“零上傳”架構確保您的文檔始終留在您的設備上。"
         }
       }
     },
     "contact": {
-      "title": "Media Inquiries",
-      "subtitle": "For interviews, detailed specs, or specific asset requests.",
-      "button": "Contact Press Relations"
+      "title": "媒體查詢",
+      "subtitle": "有關採訪、詳細規格或特定資產請求，請通過此處聯繫。",
+      "button": "聯繫新聞公關"
     }
+  },
+  "sourceCode": {
+    "title": "原始碼",
+    "tagline": "PDFTheory 的構建核心是透明度和隱私。",
+    "fileTitle": "pdftheory.zip",
+    "fileDesc": "項目完整原始碼",
+    "privacyTitle": "隱私核心",
+    "privacyDesc": "驗證所有處理是否都在本地進行。",
+    "architectureTitle": "開放架構",
+    "architectureDesc": "了解 Next.js 和 PDF.js 是如何集成的。",
+    "downloadButton": "下載原始碼",
+    "licenseNotice": "下載即表示您同意 AGPL-3.0 許可證。",
+    "licenseTitle": "AGPL-3.0 許可證",
+    "licenseDesc": "像言論自由一樣自由，像免費啤酒一樣自由。您的隱私由開源透明度保證。"
   }
 }
