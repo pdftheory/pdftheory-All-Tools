@@ -83,7 +83,7 @@ const nextConfig = {
   images: {
     formats: ['image/avif', 'image/webp'],
   },
-  trailingSlash: true,
+  trailingSlash: false, // OPTIMIZATION: Removed trailing slashes for zero-redirect root access
   reactStrictMode: true,
   experimental: {
     cpus: 1,
